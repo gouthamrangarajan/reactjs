@@ -4,15 +4,15 @@ Sample React Js app using Vite Js & Tailwind CSS
 
 #### Highlights
 
-- [Vite JS](https://vitejs.dev/)\
-- [React Js](https://reactjs.org/)\
-- [Tailwind CSS](https://tailwindcss.com/)\
-- [React Router](https://reactrouter.com/)\
-- [React Hooks](https://reactjs.org/docs/hooks-intro.html)\
-- [Context Api](https://reactjs.org/docs/context.html)\
-- [React Suspense](https://reactjs.org/docs/concurrent-mode-suspense.html)\
-- [Framer Motion](https://www.framer.com/motion/)\
-- [React Icons](https://react-icons.github.io/react-icons/)\
+- [Vite JS](https://vitejs.dev/)
+- [React Js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Context Api](https://reactjs.org/docs/context.html)
+- [React Suspense](https://reactjs.org/docs/concurrent-mode-suspense.html)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 #### Code Contents
 
@@ -83,6 +83,8 @@ const Form = lazy(() => import("./pages/Form"));
 </div>
 ```
 
+![select](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Select.PNG)
+
 - package.json
 
 ```javascript
@@ -130,6 +132,6 @@ module.exports = {
 };
 ```
 
-5. Sample UI Screenshots
-   ![Screenshot1](https://github.com/gouthamrangarajan/reactjs/blob/master/react-tailwind-101/Screenshot1.png)
-   ![Screenshot2](https://github.com/gouthamrangarajan/reactjs/blob/master/react-tailwind-101/Screenshot2.png)
+5. Sample UI Screenshots\
+   ![Screenshot1](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Screenshot1.PNG)\
+   ![Screenshot2](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Screenshot2.png)
