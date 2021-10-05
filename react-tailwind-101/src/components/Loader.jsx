@@ -5,7 +5,7 @@ const Loader = () => {
       <div className="absolute top-0 left-50">
         <div
           className=" flex items-center justify-center h-12 w-12 shadow-2xl
-                     bg-blue-400  text-white rounded-lg"
+                     bg-gray-700  text-white rounded"
         >
           <ImSpinner8 className="w-8 h-8 animate-spin"></ImSpinner8>
         </div>

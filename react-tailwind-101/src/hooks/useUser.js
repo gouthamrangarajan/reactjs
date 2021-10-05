@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 const useUser = () => {
   const [userValue, setUserValue] = useState({ loading: true });
   useEffect(() => {
-    setTimeout(() => {
-      if (localStorage.getItem("user"))
-        setUserValue({ loading: false, name: localStorage.getItem("user") });
-      else setUserValue({ loading: false });
-    }, 1000);
+    if (localStorage.getItem("user"))
+      setUserValue({ loading: false, name: localStorage.getItem("user") });
+    else setUserValue({ loading: false });
   }, []);
   const setUser = (name) => {
     setUserValue({ ...userValue, name, loading: false });
