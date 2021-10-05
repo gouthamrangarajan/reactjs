@@ -43,7 +43,7 @@ const useApi = (url) => {
 
 3. Code splitting, React lazy and Suspense
 
-```javascript
+```jsx
 const UsersTable = lazy(() => import("./pages/UsersTable"));
 const Modal = lazy(() => import("./pages/Modal"));
 const Form = lazy(() => import("./pages/Form"));
@@ -62,7 +62,14 @@ const Form = lazy(() => import("./pages/Form"));
 
 4. Tailwind css classes
 
-```javascript
+```css
+index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```jsx
 <div
   className="flex rounded-lg border-2 border-blue-500 focus-within:border-transparent
              transition-all duration-300 ease-in focus-within:ring-2 focus-within:ring-blue-500"
