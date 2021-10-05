@@ -134,4 +134,4 @@ module.exports = {
 
 5. Sample UI Screenshots\
    ![Screenshot1](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Screenshot1.PNG)\
-   ![Screenshot2](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Screenshot2.png)
+   ![Screenshot2](https://github.com/gouthamrangarajan/reactjs/blob/main/react-tailwind-101/Screenshot2.PNG)
