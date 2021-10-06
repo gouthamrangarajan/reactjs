@@ -19,9 +19,9 @@ const PhotosGrid = () => {
   const { loading, data } = useApi(
     "https://jsonplaceholder.typicode.com/photos"
   );
-
+  setTimeout(() => {}, 2000);
   useEffect(() => {
-    if (data) {
+    if (data && data.slice) {
       setPhotoData(data.slice(0, 100));
     }
   }, [data]);
