@@ -62,15 +62,16 @@ Sample Feedback UI using Vite, React & Tailwind CSS
   gets active & checked render props for styling options
 
 ```jsx
-    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
-      <RadioGroup.Option
-        value={el}
-        key={el}
-        className="appearance-none outline-none"
-      >
-        {({ active, checked }) => (
-          <span
-            className={`appearance-none outline-none rounded-full text-gray-700 transition duration-300
+{
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
+    <RadioGroup.Option
+      value={el}
+      key={el}
+      className="appearance-none outline-none"
+    >
+      {({ active, checked }) => (
+        <span
+          className={`appearance-none outline-none rounded-full text-gray-700 transition duration-300
                                  py-1 hover:bg-pink-200
                                  ${el < 10 ? "px-3" : "px-2"}
                   ${checked ? "bg-pink-300 " : "bg-purple-50"}
@@ -80,8 +81,11 @@ Sample Feedback UI using Vite, React & Tailwind CSS
                       : ""
                   }
                 `}
-          >
-            {el}
-          </span>
-        )}
+        >
+          {el}
+        </span>
+      )}
+    </RadioGroup.Option>
+  ));
+}
 ```
