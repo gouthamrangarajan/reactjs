@@ -25,7 +25,7 @@ const FeedbackForm = ({ submit }) => {
           colleagues?
         </RadioGroup.Label>
         <div
-          className="flex space-x-1 md:space-x-6 xl:space-x-7 justify-center items-center
+          className="flex space-x-1 md:space-x-6 lg:space-x-5 xl:space-x-7 justify-center items-center
              h-10 transition-all duration-300"
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
@@ -54,10 +54,16 @@ const FeedbackForm = ({ submit }) => {
           ))}
         </div>
       </RadioGroup>
+      <div className="relative p-1 w-full">
+        <div className="flex justify-between items-center w-full italic text-xs absolute -mt-4 text-gray-700">
+          <span>Not likely at all</span>
+          <span>Extremely likely</span>
+        </div>
+      </div>
       <div
         className="py-2 px-4 border-2 border-purple-500 focus-within:border-transparent  transition duration-300
              focus-within:ring-2 focus-within:ring-pink-300 focus-within:ring-offset-2 focus-within:ring-offset-pink-100
-              rounded-lg flex items-center w-full"
+              rounded-lg flex space-x-1 items-center w-full"
       >
         <textarea
           className="outline-none appearance-none resize-none text-gray-700 flex-1 overflow-y-auto scrollbar-thin
@@ -67,11 +73,20 @@ const FeedbackForm = ({ submit }) => {
             if (ev.code == "Enter" && !ev.shiftKey) callSubmit();
             else setComments(ev.target.value);
           }}
+          placeholder="Comments..."
         ></textarea>
         <button
-          className="appearance-none outline-none py-1 px-3 rounded-lg transition
+          className={`appearance-none outline-none py-1 px-3 rounded-lg transition
              duration-300 bg-purple-600 text-white hover:opacity-90 focus:ring-2 focus:ring-purple-600
-             focus:ring-offset-2 focus:ring-offset-purple-100 text-base"
+             focus:ring-offset-2 focus:ring-offset-purple-100 text-base
+             ${
+               comments.trim() == ""
+                 ? "cursor-not-allowed bg-gray-700"
+                 : "cursor-pointer"
+             }
+             `}
+          disabled={comments.trim() == ""}
+          title={comments.trim() == "" ? "Please fill in Comments..." : ""}
           onClick={() => {
             callSubmit();
           }}
