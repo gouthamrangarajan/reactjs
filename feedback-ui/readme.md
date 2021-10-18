@@ -2,7 +2,7 @@
 
 Sample Feedback UI using Vite, React & Tailwind CSS
 
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/feedback-ui/Screenshot1.PNG)\
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/feedback-ui/Screenshot.PNG)\
 
 #### Highlights
 
