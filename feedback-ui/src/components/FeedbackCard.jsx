@@ -6,7 +6,7 @@ const FeedbackCard = ({ item }) => {
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}
-      className="card relative  py-2 px-4"
+      className="card relative py-1 px-3 pl-7 lg:py-2 lg:px-4 lg:pl-7 xl:py-4 xl:px-6 xl:pl-9"
       layout
     >
       <textarea

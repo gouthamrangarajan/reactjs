@@ -14,7 +14,7 @@ const FeedbackForm = ({ submit }) => {
     }
   };
   return (
-    <div className="card flex-col space-y-2 lg:space-y-4 w-full">
+    <div className="card py-1 px-3 lg:py-2 lg:px-4 xl:py-4 xl:px-6 flex-col space-y-2 lg:space-y-4 w-full">
       <RadioGroup
         value={rating}
         onChange={setRating}
@@ -94,6 +94,7 @@ const FeedbackForm = ({ submit }) => {
           Submit
         </button>
       </div>
+      <div className="h-2 lg:h-0"></div>
     </div>
   );
 };
