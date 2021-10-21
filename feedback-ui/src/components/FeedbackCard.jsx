@@ -11,7 +11,7 @@ const FeedbackCard = ({ item }) => {
     >
       <textarea
         className="appearance-none outline-none resize-none text-gray-700 w-full flex-1 overflow-y-auto scrollbar-thin
-        scrollbar-track-purple-50 scrollbar-thumb-purple-300 cursor-pointer"
+        scrollbar-track-purple-50 scrollbar-thumb-purple-300 scrollbar-thumb-rounded-md cursor-pointer"
         value={item.feedback}
         readOnly
       ></textarea>

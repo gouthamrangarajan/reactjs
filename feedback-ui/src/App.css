@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.card {
-  @apply w-11/12 md:w-9/12 lg:w-6/12 xl:w-5/12  bg-white shadow-2xl
-  flex justify-center items-center cursor-pointer rounded-lg font-semibold;
+@layer utilities {
+  .card {
+    @apply w-11/12 md:w-9/12 lg:w-6/12 xl:w-5/12  bg-white shadow-2xl
+    flex justify-center items-center cursor-pointer rounded-lg font-semibold;
+  }
 }

@@ -67,7 +67,7 @@ const FeedbackForm = ({ submit }) => {
       >
         <textarea
           className="outline-none appearance-none resize-none text-gray-700 flex-1 overflow-y-auto scrollbar-thin
-          scrollbar-track-purple-50 scrollbar-thumb-purple-300 cursor-pointer"
+          scrollbar-track-purple-50 scrollbar-thumb-purple-300 cursor-pointer scrollbar-thumb-rounded-md"
           ref={inpEl}
           onKeyUp={(ev) => {
             if (ev.code == "Enter" && !ev.shiftKey) callSubmit();
