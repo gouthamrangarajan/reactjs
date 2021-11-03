@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 import Image from "./Image";
 import SliderControls from "./SliderControls";
 const TIMER = 5000;
-const slider_interval = [];
-let slider_instances = 0;
 
 const ImageSlider = ({ imgs, width = "100vw", height = "100vh" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setPlaying] = useState(false);
-  const [idx, _] = useState(slider_instances++);
+  const [sliderInterval, setSliderInterval] = useState(null);
+  const clear = () => {
+    if (sliderInterval) clearInterval(sliderInterval);
+  };
   const resetInterval = (play) => {
     setPlaying(play);
     if (play)
-      slider_interval[idx] = setInterval(() => {
-        setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
-      }, TIMER);
-    else clearInterval(slider_interval[idx]);
+      setSliderInterval(
+        setInterval(() => {
+          setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
+        }, TIMER)
+      );
+    else clear();
   };
   const goToIndex = (ind) => {
     let wasPlaying = isPlaying;
@@ -24,11 +27,8 @@ const ImageSlider = ({ imgs, width = "100vw", height = "100vh" }) => {
     if (wasPlaying) resetInterval(true);
   };
   useEffect(() => {
-    resetInterval(true);
-    return () => {
-      clearInterval(slider_interval[idx]);
-      delete slider_interval[idx];
-    };
+    if (imgs.length > 0) resetInterval(true);
+    return () => clear();
   }, [imgs]);
   return (
     <div
@@ -51,8 +51,12 @@ const ImageSlider = ({ imgs, width = "100vw", height = "100vh" }) => {
         length={imgs.length}
         goTo={goToIndex}
         active={currentIndex}
-        pause={() => resetInterval(false)}
-        play={() => resetInterval(true)}
+        pause={() => {
+          if (isPlaying) resetInterval(false);
+        }}
+        play={() => {
+          if (!isPlaying) resetInterval(true);
+        }}
         playing={isPlaying}
         timer={TIMER}
       ></SliderControls>

@@ -1,7 +1,5 @@
 import { PauseIcon, PlayIcon } from "@heroicons/react/outline";
 import { useEffect, useRef, useState } from "react";
-const slider_control_interval = [];
-let slider_control_instances = 0;
 
 const getProgressContainerWidth = (container) => {
   let dt = {};
@@ -36,21 +34,21 @@ const SliderControls = ({
   timer = 3000,
 }) => {
   const [progressWidth, setProgressWidth] = useState(0);
-  const [idx, _] = useState(slider_control_instances++);
+  const [sliderControlInterval, setSliderControlInterval] = useState(null);
   const container = useRef(null);
   useEffect(() => {
     setProgressWidth(0);
-    if (slider_control_interval[idx])
-      clearInterval(slider_control_interval[idx]);
+    if (sliderControlInterval) clearInterval(sliderControlInterval);
     if (playing) {
       let increment = 100 / (timer / 10);
-      slider_control_interval[idx] = setInterval(() => {
-        setProgressWidth((width) => (width >= 100 ? 0 : width + increment));
-      }, 10);
+      setSliderControlInterval(
+        setInterval(() => {
+          setProgressWidth((width) => (width >= 100 ? 0 : width + increment));
+        }, 10)
+      );
     }
     return () => {
-      clearInterval(slider_control_interval[idx]);
-      delete slider_control_interval[idx];
+      if (sliderControlInterval) clearInterval(sliderControlInterval);
     };
   }, [playing, timer, active]);
   return (
