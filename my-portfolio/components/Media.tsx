@@ -1,0 +1,41 @@
+import type { NextComponentType, NextPageContext } from "next";
+import { mediaType } from "../models/dataType";
+
+const Media: NextComponentType<NextPageContext, {}, mediaPropType> = ({
+  allMedia,
+}) => {
+  return (
+    <div
+      className="bg-white shadow py-1 px-3 lg:py-2 lg:px-4 
+    xl:py-4 xl:px-6 rounded-lg flex flex-col space-y-2 font-semibold h-40 w-full lg:w-2/3 xl:w-1/2"
+    >
+      <span className="text-red-500 text-lg">Media</span>
+      <div className="flex space-x-2">
+        <div className="flex flex-col">
+          {allMedia.map((el) => (
+            <span className="text-gray-700" key={el.name}>
+              {el.name}:
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-col">
+          {allMedia.map((el) => (
+            <a
+              className="underline text-indigo-600"
+              target="_blank"
+              rel="noreferrer"
+              key={el.name}
+              href={el.url}
+            >
+              {el.url}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+type mediaPropType = {
+  allMedia: mediaType[];
+};
+export default Media;

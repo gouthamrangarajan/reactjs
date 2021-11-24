@@ -1,0 +1,244 @@
+{
+  "info": {
+    "about": "12 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
+    "media": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/gouthamrangarajan"
+      },
+      { "name": "Github", "url": "https://github.com/gouthamrangarajan" },
+      { "name": "Codepen", "url": "https://codepen.io/GouthamRangarajan" }
+    ],
+    "codePen": [
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/zYdmZPJ",
+        "imgSrc": "/imgs/codepen/CodePen16.png",
+        "title": "Vue 3 D3"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/oNeXKbN",
+        "imgSrc": "/imgs/codepen/CodePen15.png",
+        "title": "Vue 3 Feedback"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/YzQzEmm",
+        "imgSrc": "/imgs/codepen/CodePen14.png",
+        "title": "Vue 3 Drag & Drop"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/mdmLZvq",
+        "imgSrc": "/imgs/codepen/CodePen13.png",
+        "title": "Vue 3 Tailwind Switch"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/ZEevQPK",
+        "imgSrc": "/imgs/codepen/CodePen12.png",
+        "title": "Vue 3 DropDown Nav"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/GRraaYr",
+        "imgSrc": "/imgs/codepen/CodePen11.png",
+        "title": "Vue 3 Render Function"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/yLaGRzM",
+        "imgSrc": "/imgs/codepen/CodePen10.png",
+        "title": "Vue 3 DataGrid"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/BazXNgQ",
+        "imgSrc": "/imgs/codepen/CodePen9.png",
+        "title": "Vue 3 History Mode"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/OJNvNjy",
+        "imgSrc": "/imgs/codepen/CodePen8.png",
+        "title": "Vue 3 DropDown Menu"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/jOqVjQX",
+        "imgSrc": "/imgs/codepen/CodePen1.png",
+        "title": "Vue 3 Tailwind Sign Up"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/JjXdemz",
+        "imgSrc": "/imgs/codepen/CodePen2.png",
+        "title": "Vue 3 Tailwind Toastr"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/dyGvbLJ",
+        "imgSrc": "/imgs/codepen/CodePen5.png",
+        "title": "Vue Menu Icon Transition"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/VwLXoeK",
+        "imgSrc": "/imgs/codepen/CodePen6.png",
+        "title": "Vue Materialize DataTable"
+      }
+    ],
+    "gitHub": [
+      { "url": "https://github.com/gouthamrangarajan/Vuejs", "name": "Vue js" },
+      {
+        "url": "https://github.com/gouthamrangarajan/Reactjs",
+        "name": "React js"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/Asp.Net",
+        "name": "Asp.Net"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/DataStructuresCsharp",
+        "name": "Data Structures"
+      },
+      {
+        "items": [
+          {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/img-slider",
+            "title": "React Image Slider",
+            "imgSrc": "/imgs/github/ReactImgSlider.png",
+            "description": "Image Slider using Reactjs & Tailwind CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/SignalR%2BBackgroundService",
+            "title": "SignalR+BackgroundService",
+            "imgSrc": "/imgs/github/SignalR+BackgroundService.png",
+            "description": ".Net core SignalR + BackgroundService to send notification to client/user"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureADAuth",
+            "title": "AzureADWebApp+WebApi",
+            "imgSrc": "/imgs/github/AzureADWebApp+WebApi.png",
+            "description": ".Net core Azure AD authentication for web app and consume a Azure AD protected web api using Microsoft Identity Web"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/tailwind-date-range",
+            "title": "Date Range Picker",
+            "imgSrc": "/imgs/github/DateRangePicker.png",
+            "description": "Date Range Picker using Vue 3, Composition Api & Tailwind CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/nuxt-auth-101",
+            "title": "Nuxt Auth",
+            "imgSrc": "/imgs/github/NuxtAuth.png",
+            "description": "Simple Authorization implementation in nuxt using @nuxt/auth"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-bulma-lightbox-nasa",
+            "title": "Vue LightBox",
+            "imgSrc": "/imgs/github/LightBox.png",
+            "description": "Lightbox implementation using Vue & Bulma CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/WebApi%2BBackgroundTask",
+            "title": "WebApi+BackgroundTask",
+            "imgSrc": "/imgs/github/WebApi_BackgroundWorker.png",
+            "description": ".Net core web api + worker template example. Webapi + background task hosted on same instance"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/RoutesSearchUsingGraph",
+            "title": "Graph Data Structure in Asp.Net",
+            "imgSrc": "/imgs/github/Graph.png",
+            "description": "C# graph implementation to add and traverse routes. First searches fastest route using BFS and then searches all routes using DFS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AutoSuggestUsingTrie",
+            "title": "Trie Data Structure in Asp.Net",
+            "imgSrc": "/imgs/github/Trie.png",
+            "description": "Trie in c#, ui autosuggest goes to server for suggestion. Two tries one from simple countries collection and another from 2 mb lorem ipsum file."
+          }
+        ]
+      }
+    ],
+    "cloud": {
+      "firebase": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/WL1.png",
+          "description": "A PWA project using Vite, React and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation of the topics Vue, React, Nuxt, HTML, CSS frameworks etc ",
+          "url": "https://weblearnings-e679a.web.app/"
+        },
+        {
+          "order": 2,
+          "imgSrc": "/imgs/cloud/React_Chat.png",
+          "description": "A React PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
+          "url": "https://react-superchat-8b806.web.app/"
+        },
+        {
+          "order": 3,
+          "imgSrc": "/imgs/cloud/Calendar.png",
+          "description": "Google calendar inspired PWA app along with firestore data storage and firebase authentication",
+          "url": "https://calendar-b42b8.web.app/"
+        },
+        {
+          "order": 4,
+          "imgSrc": "/imgs/cloud/Chat.png",
+          "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
+          "url": "https://vue-superchat.web.app/"
+        },
+        {
+          "order": 5,
+          "imgSrc": "/imgs/cloud/Stock.png",
+          "description": "A Vue project with Firebase authentication to view tracked stocks with graph",
+          "url": "https://stockapi-90a27.firebaseapp.com/"
+        },
+        {
+          "order": 6,
+          "imgSrc": "/imgs/cloud/Locations.png",
+          "description": "A PWA project using Nuxt and Firebase to dispaly a collection of location visited using Google Maps",
+          "url": "https://location-list-279502.web.app/"
+        },
+        {
+          "other": [
+            {
+              "order": 6,
+              "url": "https://grocery-list-c0614.web.app/",
+              "imgSrc": "/imgs/cloud/GL.png"
+            }
+          ]
+        }
+      ],
+      "azure": [
+        {
+          "order": 1,
+          "description": "OAuth SSO implementation from multiple providers. Web Api for SSO token generation hosted in Azure App Service, Nuxt and Azure Storage hosting for UI.",
+          "imgSrc": "/imgs/cloud/SSO.png",
+          "url": "https://cleariam.z13.web.core.windows.net/admin"
+        },
+        {
+          "order": 2,
+          "description": "Serverless Chat application for SMS communication using Azure SignalR services. Twilio for mobile services, Vue 3 and Azure storage hosting for UI",
+          "imgSrc": "/imgs/cloud/Azure_Chat.png",
+          "url": "https://clearmessage.z13.web.core.windows.net/"
+        }
+      ],
+      "netlify": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/Self.png",
+          "description": "JAMSTACK implementation of my portfolio site with CI/CD in Netlify using Next.js",
+          "url": "https://portfolio-gouthamrangarajan.netlify.app/"
+        },
+        {
+          "order": 2,
+          "imgSrc": "/imgs/github/Drive.png",
+          "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
+          "url": "https://vue-3-drive.netlify.app/"
+        },
+        {
+          "other": [
+            {
+              "order": 3,
+              "url": "https://nuxt-materialize.netlify.app/",
+              "imgSrc": "/imgs/cloud/Materialize.png"
+            },
+            {
+              "order": 4,
+              "url": "https://vuebulmajsonplaceholder.netlify.app/",
+              "imgSrc": "/imgs/cloud/Bulma.png"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
