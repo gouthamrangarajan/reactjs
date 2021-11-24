@@ -215,7 +215,7 @@
         {
           "order": 1,
           "imgSrc": "/imgs/cloud/Self.png",
-          "description": "JAMSTACK implementation of my portfolio site with CI/CD in Netlify using Next.js",
+          "description": "JAMSTACK implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {
