@@ -1,8 +1,7 @@
 import { NextComponentType, NextPageContext } from "next";
 import { LegacyRef, useEffect, useRef, useState } from "react";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import useViewportChecker from "../hooks/useViewportChecker";
-import { AnimatePresence, motion } from "framer-motion";
+import ScrollBtns from "./ScrollBtns";
 
 const ScrollRowLayout: NextComponentType<
   NextPageContext,
@@ -63,40 +62,12 @@ const ScrollRowLayout: NextComponentType<
         <span className="w-0" ref={setLastEl}></span>
       </div>
       {!centered && windowWidth > 991 && (
-        <>
-          <AnimatePresence>
-            {showLeftScroll && (
-              <motion.button
-                initial={{ transform: "translateX(-4rem)" }}
-                animate={{ transform: "translateX(0)" }}
-                exit={{ transform: "translateX(-4rem)" }}
-                transition={{ duration: 0.3 }}
-                className="appearance-none outline-none absolute top-0 left-0 rounded-full mt-56
-               ml-1 transition duration-300 bg-pink-600 shadow-2xl opacity-50 hover:opacity-100 p-1 cursor-pointer
-              ring-2 ring-pink-600 focus:ring-offset-2 focus:ring-offset-pink-100 ease-in-out"
-                onClick={scrollLeft}
-              >
-                <ChevronLeftIcon className="w-8 h-8 text-white"></ChevronLeftIcon>
-              </motion.button>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {showRightScroll && (
-              <motion.button
-                initial={{ transform: "translateX(4rem)" }}
-                animate={{ transform: "translateX(0)" }}
-                exit={{ transform: "translateX(4rem)" }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="appearance-none outline-none absolute top-0 right-0 rounded-full mt-56
-                 mr-3 transition duration-300 bg-pink-600 shadow-2xl opacity-50 hover:opacity-100 p-1 cursor-pointer
-                ring-2 ring-pink-600 focus:ring-offset-2 focus:ring-offset-pink-100 ease-in-out"
-                onClick={scrollRight}
-              >
-                <ChevronRightIcon className="w-8 h-8 text-white"></ChevronRightIcon>
-              </motion.button>
-            )}
-          </AnimatePresence>
-        </>
+        <ScrollBtns
+          scrollLeft={scrollLeft}
+          scrollRight={scrollRight}
+          showLeftScroll={showLeftScroll}
+          showRightScroll={showRightScroll}
+        ></ScrollBtns>
       )}
     </div>
   );
