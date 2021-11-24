@@ -19,7 +19,7 @@ const ProjectCard: NextComponentType<
       className={`flex flex-col bg-white shadow-2xl rounded-lg cursor-pointer w-[400px] md:w-[600px]
       transition duration-300 hover:transform hover:-translate-y-1 flex-shrink-0 peer 
        peer-hover:translate-x-40 md:peer-hover:translate-x-64 ease-in-out ${
-         type == "GITHUB" ? "h-[425px] overflow-hidden" : ""
+         type == "GITHUB" ? "h-[300px] md:h-[425px] overflow-hidden" : ""
        }`}
       key={el.url}
     >
