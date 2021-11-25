@@ -23,14 +23,14 @@ const ScrollRowLayout: NextComponentType<
     if (scrollEl.current) {
       scrollEl.current.scrollTo({
         behavior: "smooth",
-        left: scrollEl.current.scrollLeft + (windowWidth > 991 ? 1000 : 500),
+        left: scrollEl.current.scrollLeft + 1000,
       });
       setShowLeftScroll(true);
     }
   };
   const scrollLeft = () => {
     if (scrollEl.current) {
-      let left = scrollEl.current.scrollLeft - (windowWidth > 991 ? 1000 : 500);
+      let left = scrollEl.current.scrollLeft - 1000;
       if (left < 0) left = 0;
 
       scrollEl.current.scrollTo({
@@ -59,7 +59,7 @@ const ScrollRowLayout: NextComponentType<
         {children}
         <span className="w-0" ref={setLastEl}></span>
       </div>
-      {!centered && windowWidth > 991 && (
+      {!centered && windowWidth > 1023 && (
         <ScrollBtns
           scrollLeft={scrollLeft}
           scrollRight={scrollRight}
