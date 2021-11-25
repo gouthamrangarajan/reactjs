@@ -1,6 +1,7 @@
 import { NextComponentType, NextPageContext } from "next";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 import useViewportChecker from "../hooks/useViewportChecker";
+import useWindowWidth from "../hooks/useWindowWidth";
 import ScrollBtns from "./ScrollBtns";
 
 const ScrollRowLayout: NextComponentType<
@@ -11,10 +12,7 @@ const ScrollRowLayout: NextComponentType<
   const scrollEl = useRef<HTMLDivElement>();
   const [showLeftScroll, setShowLeftScroll] = useState(false);
   const [showRightScroll, setShowRightScroll] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(991);
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
+  const windowWidth = useWindowWidth();
 
   const [_, setLastEl] = useViewportChecker(
     () => setShowRightScroll(false),
