@@ -5,16 +5,13 @@ const useCallbackRef = (
   removeAction: Function
 ): useCallbackRefType => {
   const el = useRef<HTMLElement>();
-  const setRefEl = useCallback(
-    (incomingElement: HTMLElement) => {
-      if (el.current) removeAction();
-      if (incomingElement) {
-        el.current = incomingElement;
-        addAction();
-      }
-    },
-    [el]
-  );
+  const setRefEl = useCallback((incomingElement: HTMLElement) => {
+    if (el.current) removeAction();
+    if (incomingElement) {
+      el.current = incomingElement;
+      addAction();
+    }
+  }, []);
   return [el, setRefEl];
 };
 export type useCallbackRefType = [
