@@ -153,33 +153,33 @@
       "firebase": [
         {
           "order": 1,
-          "imgSrc": "/imgs/cloud/WL1.png",
-          "description": "A PWA project using Vite, React and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation of the topics Vue, React, Nuxt, HTML, CSS frameworks etc ",
-          "url": "https://weblearnings-e679a.web.app/"
+          "imgSrc": "/imgs/cloud/Stock.png",
+          "description": "A PWA project using Vite, React, TailwindCSS, D3.js and Firebase to view tracked stocks with graph",
+          "url": "https://stockapi-90a27.web.app/"
         },
         {
           "order": 2,
+          "imgSrc": "/imgs/cloud/WL1.png",
+          "description": "A PWA project using Vite, React, TailwindCSS and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation of the topics Vue, React, Nuxt, HTML, CSS frameworks etc ",
+          "url": "https://weblearnings-e679a.web.app/"
+        },
+        {
+          "order": 3,
           "imgSrc": "/imgs/cloud/React_Chat.png",
           "description": "A React PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://react-superchat-8b806.web.app/"
         },
         {
-          "order": 3,
+          "order": 4,
           "imgSrc": "/imgs/cloud/Calendar.png",
           "description": "Google calendar inspired PWA app along with firestore data storage and firebase authentication",
           "url": "https://calendar-b42b8.web.app/"
         },
         {
-          "order": 4,
+          "order": 5,
           "imgSrc": "/imgs/cloud/Chat.png",
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://vue-superchat.web.app/"
-        },
-        {
-          "order": 5,
-          "imgSrc": "/imgs/cloud/Stock.png",
-          "description": "A Vue project with Firebase authentication to view tracked stocks with graph",
-          "url": "https://stockapi-90a27.firebaseapp.com/"
         },
         {
           "order": 6,
