@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import { NextComponentType, NextPageContext } from "next";
 import { LegacyRef, useEffect, useRef, useState } from "react";
 import useViewportChecker from "../hooks/useViewportChecker";
 import useWindowWidth from "../hooks/useWindowWidth";
+import { staggerChild } from "../utils/animationVariants";
 import ScrollBtns from "./ScrollBtns";
 
 const ScrollRowLayout: NextComponentType<
@@ -41,7 +43,11 @@ const ScrollRowLayout: NextComponentType<
     }
   };
   return (
-    <div className="flex flex-col mt-6 w-full flex-shrink-0 relative">
+    <motion.div
+      className="flex flex-col mt-6 w-full flex-shrink-0 relative"
+      variants={staggerChild}
+      key={title}
+    >
       <span className="text-xl text-pink-600 font-semibold w-full text-center">
         {title}
       </span>
@@ -67,7 +73,7 @@ const ScrollRowLayout: NextComponentType<
           showRightScroll={showRightScroll}
         ></ScrollBtns>
       )}
-    </div>
+    </motion.div>
   );
 };
 type scrollRowLayoutPropsType = {

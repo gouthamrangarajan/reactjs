@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
-import dataType, { cloudArrayType, cloudType } from "../models/dataType";
+import dataType from "../models/dataType";
 import About from "../components/About";
 import SecondRowLayout from "../components/SecondRowLayout";
 import Media from "../components/Media";
@@ -14,6 +14,8 @@ import {
   getProjects,
   getProjectsLength,
 } from "../utils/helpers";
+import { motion } from "framer-motion";
+import { staggerChild, staggerParent } from "../utils/animationVariants";
 
 const Home: NextPage<homePropType> = ({ data: { info } }) => {
   return (
@@ -34,43 +36,53 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
           scrollbar-thumb-rounded-md"
       >
         <Header></Header>
-        <About about={info.about}></About>
-        <SecondRowLayout>
-          <Media allMedia={info.media}></Media>
-          <Repos allRepos={info.gitHub}></Repos>
-          <DownloadResume></DownloadResume>
-        </SecondRowLayout>
-        <ScrollRowLayout title="Cloud Projects" centered></ScrollRowLayout>
-        <div className="-mt-6"></div>
-        {Object.keys(info.cloud)
-          .sort((a, b) => (a > b ? -1 : 1))
-          .map((el) => (
-            <ScrollRowLayout
-              title={el.toUpperCase()}
-              key={el}
-              centered={getProjectsLength(info.cloud, el) <= 3}
-            >
-              <ProjectCardList
-                info={getProjects(info.cloud, el)}
-                type="CLOUD"
-              ></ProjectCardList>
-            </ScrollRowLayout>
-          ))}
-        <ScrollRowLayout
-          title="GITHUB"
-          subtitle="Recent collection in React.js, Vue.js & Asp .Net"
+        <motion.div
+          className="flex flex-col"
+          variants={staggerParent}
+          initial="inactive"
+          animate="active"
         >
-          <ProjectCardList
-            info={getGitHubProjects(info.gitHub)}
-            type="GITHUB"
-          ></ProjectCardList>
-        </ScrollRowLayout>
-        <ScrollRowLayout
-          title="CODEPEN"
-          subtitle="Recent collection in HTML, CSS, Tailwind CSS & Vue.js"
-        >
-          <ProjectCardList info={info.codePen} type="CODEPEN"></ProjectCardList>
-        </ScrollRowLayout>
+          <About about={info.about}></About>
+          <SecondRowLayout keyVal={2}>
+            <Media allMedia={info.media}></Media>
+            <Repos allRepos={info.gitHub}></Repos>
+            <DownloadResume></DownloadResume>
+          </SecondRowLayout>
+          <ScrollRowLayout title="Cloud Projects" centered></ScrollRowLayout>
+          <div className="-mt-6" key={3}></div>
+          {Object.keys(info.cloud)
+            .sort((a, b) => (a > b ? -1 : 1))
+            .map((el) => (
+              <ScrollRowLayout
+                title={el.toUpperCase()}
+                key={el}
+                centered={getProjectsLength(info.cloud, el) <= 3}
+              >
+                <ProjectCardList
+                  info={getProjects(info.cloud, el)}
+                  type="CLOUD"
+                ></ProjectCardList>
+              </ScrollRowLayout>
+            ))}
+          <ScrollRowLayout
+            title="GITHUB"
+            subtitle="Recent collection in React.js, Vue.js & Asp .Net"
+          >
+            <ProjectCardList
+              info={getGitHubProjects(info.gitHub)}
+              type="GITHUB"
+            ></ProjectCardList>
+          </ScrollRowLayout>
+          <ScrollRowLayout
+            title="CODEPEN"
+            subtitle="Recent collection in HTML, CSS, Tailwind CSS & Vue.js"
+          >
+            <ProjectCardList
+              info={info.codePen}
+              type="CODEPEN"
+            ></ProjectCardList>
+          </ScrollRowLayout>
+        </motion.div>
       </div>
     </>
   );
