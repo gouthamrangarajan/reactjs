@@ -7,7 +7,7 @@ const Repos: NextComponentType<NextPageContext, {}, reposPropType> = ({
   return (
     <div
       className="bg-white shadow py-1 px-3 lg:py-2 lg:px-4 
-        xl:py-4 xl:px-6 rounded-lg flex flex-col space-y-2 font-semibold h-40 w-full lg:w-48"
+        xl:py-4 xl:px-6 rounded-lg flex flex-col space-y-2 font-semibold w-full lg:w-48"
     >
       <span className="text-red-500 text-lg">Github Repos</span>
       <div className="flex space-x-2">

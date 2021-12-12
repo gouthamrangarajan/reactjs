@@ -87,11 +87,21 @@
         "name": "Asp.Net"
       },
       {
+        "url": "https://github.com/gouthamrangarajan/Azure",
+        "name": "Azure Functions"
+      },
+      {
         "url": "https://github.com/gouthamrangarajan/DataStructuresCsharp",
         "name": "Data Structures"
       },
       {
         "items": [
+          {
+            "url": "https://github.com/gouthamrangarajan/Azure/tree/main/FileUpload",
+            "title": "Azure Function File Upload",
+            "imgSrc": "/imgs/github/FileUpload.png",
+            "description": "Simple http triggered Azure Function to Upload File"
+          },
           {
             "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/img-slider",
             "title": "React Image Slider",
