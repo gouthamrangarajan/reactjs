@@ -15,7 +15,7 @@ import {
   getProjectsLength,
 } from "../utils/helpers";
 import { motion } from "framer-motion";
-import { staggerChild, staggerParent } from "../utils/animationVariants";
+import { staggerParent } from "../utils/animationVariants";
 
 const Home: NextPage<homePropType> = ({ data: { info } }) => {
   return (
