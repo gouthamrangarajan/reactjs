@@ -6,30 +6,29 @@ const TIMER = 5000;
 const ImageSlider = ({ imgs, width = "100vw", height = "100vh" }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setPlaying] = useState(false);
-  const [sliderInterval, setSliderInterval] = useState(null);
-  const clear = () => {
-    if (sliderInterval) clearInterval(sliderInterval);
+  const stop = () => {
+    if (isPlaying) setPlaying(false);
   };
-  const resetInterval = (play) => {
-    setPlaying(play);
-    if (play)
-      setSliderInterval(
-        setInterval(() => {
-          setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
-        }, TIMER)
-      );
-    else clear();
+  const start = () => {
+    if (!isPlaying) setPlaying(true);
   };
   const goToIndex = (ind) => {
-    let wasPlaying = isPlaying;
-    if (wasPlaying) resetInterval(false);
     setCurrentIndex(ind);
-    if (wasPlaying) resetInterval(true);
   };
   useEffect(() => {
-    if (imgs.length > 0) resetInterval(true);
-    return () => clear();
-  }, [imgs]);
+    let timeout = null;
+    if (isPlaying && imgs.length > 0) {
+      timeout = setTimeout(() => {
+        setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
+      }, TIMER);
+    }
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [imgs, currentIndex, isPlaying]);
+  useEffect(() => {
+    start();
+  }, []);
   return (
     <div
       className={`overflow-hidden relative`}
@@ -51,12 +50,8 @@ const ImageSlider = ({ imgs, width = "100vw", height = "100vh" }) => {
         length={imgs.length}
         goTo={goToIndex}
         active={currentIndex}
-        pause={() => {
-          if (isPlaying) resetInterval(false);
-        }}
-        play={() => {
-          if (!isPlaying) resetInterval(true);
-        }}
+        pause={stop}
+        play={start}
         playing={isPlaying}
         timer={TIMER}
       ></SliderControls>
