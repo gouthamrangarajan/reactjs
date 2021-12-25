@@ -40,12 +40,20 @@ const [currentIndex, setCurrentIndex] = useState(0);
 const [isPlaying, setPlaying] = useState(false);
 ```
 
-4. setInterval to change currentIndex
+4. setTimeout + useEffect currentIndex dependency to change currentIndex
 
 ```javascript
-setInterval(() => {
-  setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
-}, TIMER);
+useEffect(() => {
+  let timeout = null;
+  if (isPlaying && imgs.length > 0) {
+    timeout = setTimeout(() => {
+      setCurrentIndex((currentIndex) => (currentIndex + 1) % imgs.length);
+    }, TIMER);
+  }
+  return () => {
+    if (timeout) clearTimeout(timeout);
+  };
+}, [imgs, currentIndex, isPlaying]);
 ```
 
 5. Transition using Tailwind CSS classes and translateX images to achieve slide
