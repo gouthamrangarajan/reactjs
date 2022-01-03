@@ -102,6 +102,12 @@
       {
         "items": [
           {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/snake-game",
+            "title": "React Snake game",
+            "imgSrc": "/imgs/github/SnakeGame.png",
+            "description": "Snake game using React & Vite"
+          },
+          {
             "url": "https://github.com/gouthamrangarajan/Azure/tree/main/FileUpload",
             "title": "Azure Function File Upload",
             "imgSrc": "/imgs/github/FileUpload.png",
