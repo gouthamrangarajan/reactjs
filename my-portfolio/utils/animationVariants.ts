@@ -7,7 +7,7 @@ export const staggerParent = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.5,
+      staggerChildren: 0.4,
       duration: 0.3,
     },
   },
