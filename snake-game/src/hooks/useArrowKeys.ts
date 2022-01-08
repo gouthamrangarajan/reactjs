@@ -39,7 +39,7 @@ export const useArrowKeys = (handler: GameDirectionInpFunctionType) => {
     else
       timeout = setTimeout(() => {
         shiftAndCallHandle(keyboardEventQueue, handler);
-      }, 50);
+      }, 100);
 
     return () => clearTimeout(timeout);
   }, [keyboardEventQueue]);
