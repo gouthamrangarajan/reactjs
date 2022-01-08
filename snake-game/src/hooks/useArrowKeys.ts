@@ -29,8 +29,8 @@ export const useArrowKeys = (handler: GameDirectionInpFunctionType) => {
     }
   };
   useEffect(() => {
-    window.addEventListener("keyup", arrowHandler);
-    return () => window.removeEventListener("keyup", arrowHandler);
+    window.addEventListener("keydown", arrowHandler);
+    return () => window.removeEventListener("keydown", arrowHandler);
   }, []);
   useEffect(() => {
     let timeout: number;
