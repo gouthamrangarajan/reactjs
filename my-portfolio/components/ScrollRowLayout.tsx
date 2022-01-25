@@ -55,11 +55,10 @@ const ScrollRowLayout: NextComponentType<
         {subtitle}
       </span>
       <div
-        className={`flex -space-x-40 md:-space-x-64 p-1 overflow-x-auto lg:overflow-x-hidden w-full
-                    scrollbar-none
-                     ${
-                       centered && windowWidth > 1023 ? "justify-center" : ""
-                     }  `}
+        className={`flex -space-x-40 md:-space-x-64 p-1 overflow-x-auto lg:overflow-x-hidden w-full scrollbar-none
+                    ${
+                      centered && windowWidth > 1023 ? "justify-center" : ""
+                    }  `}
         ref={scrollEl as LegacyRef<HTMLDivElement>}
       >
         {children}

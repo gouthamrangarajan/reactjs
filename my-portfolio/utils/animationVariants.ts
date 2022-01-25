@@ -7,8 +7,8 @@ export const staggerParent = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.4,
       duration: 0.3,
+      staggerChildren: 0.4,
     },
   },
 };
@@ -20,5 +20,10 @@ export const staggerChild = {
   active: {
     opacity: 1,
     y: 0,
+    transition: {
+      type: "spring",
+      damping: 7,
+      stiffness: 50,
+    },
   },
 };

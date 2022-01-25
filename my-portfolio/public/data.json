@@ -102,12 +102,6 @@
       {
         "items": [
           {
-            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/snake-game",
-            "title": "React Snake game",
-            "imgSrc": "/imgs/github/SnakeGame.png",
-            "description": "Snake game using React & Vite"
-          },
-          {
             "url": "https://github.com/gouthamrangarajan/Azure/tree/main/FileUpload",
             "title": "Azure Function File Upload",
             "imgSrc": "/imgs/github/FileUpload.png",
@@ -203,12 +197,6 @@
           "url": "https://vue-superchat.web.app/"
         },
         {
-          "order": 6,
-          "imgSrc": "/imgs/cloud/Locations.png",
-          "description": "A PWA project using Nuxt and Firebase to dispaly a collection of location visited using Google Maps",
-          "url": "https://location-list-279502.web.app/"
-        },
-        {
           "other": [
             {
               "order": 6,
@@ -216,20 +204,6 @@
               "imgSrc": "/imgs/cloud/GL.png"
             }
           ]
-        }
-      ],
-      "azure": [
-        {
-          "order": 1,
-          "description": "OAuth SSO implementation from multiple providers. Web Api for SSO token generation hosted in Azure App Service, Nuxt and Azure Storage hosting for UI.",
-          "imgSrc": "/imgs/cloud/SSO.png",
-          "url": "https://cleariam.z13.web.core.windows.net/admin"
-        },
-        {
-          "order": 2,
-          "description": "Serverless Chat application for SMS communication using Azure SignalR services. Twilio for mobile services, Vue 3 and Azure storage hosting for UI",
-          "imgSrc": "/imgs/cloud/Azure_Chat.png",
-          "url": "https://clearmessage.z13.web.core.windows.net/"
         }
       ],
       "netlify": [
@@ -246,18 +220,25 @@
           "url": "https://vue-3-drive.netlify.app/"
         },
         {
-          "other": [
-            {
-              "order": 3,
-              "url": "https://nuxt-materialize.netlify.app/",
-              "imgSrc": "/imgs/cloud/Materialize.png"
-            },
-            {
-              "order": 4,
-              "url": "https://vuebulmajsonplaceholder.netlify.app/",
-              "imgSrc": "/imgs/cloud/Bulma.png"
-            }
-          ]
+          "order": 3,
+          "url": "https://rg-react-snake-game.netlify.app/",
+          "title": "React Snake game",
+          "imgSrc": "/imgs/github/SnakeGame.png",
+          "description": "Snake game using React & Vite"
+        }
+      ],
+      "azure": [
+        {
+          "order": 1,
+          "description": "OAuth SSO implementation from multiple providers. Web Api for SSO token generation hosted in Azure App Service, Nuxt and Azure Storage hosting for UI.",
+          "imgSrc": "/imgs/cloud/SSO.png",
+          "url": "https://cleariam.z13.web.core.windows.net/admin"
+        },
+        {
+          "order": 2,
+          "description": "Serverless Chat application for SMS communication using Azure SignalR services. Twilio for mobile services, Vue 3 and Azure storage hosting for UI",
+          "imgSrc": "/imgs/cloud/Azure_Chat.png",
+          "url": "https://clearmessage.z13.web.core.windows.net/"
         }
       ]
     }

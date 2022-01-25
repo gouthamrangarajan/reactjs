@@ -50,20 +50,18 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
           </SecondRowLayout>
           <ScrollRowLayout title="Cloud Projects" centered></ScrollRowLayout>
           <div className="-mt-6" key={3}></div>
-          {Object.keys(info.cloud)
-            .sort((a, b) => (a > b ? -1 : 1))
-            .map((el) => (
-              <ScrollRowLayout
-                title={el.toUpperCase()}
-                key={el}
-                centered={getProjectsLength(info.cloud, el) <= 3}
-              >
-                <ProjectCardList
-                  info={getProjects(info.cloud, el)}
-                  type="CLOUD"
-                ></ProjectCardList>
-              </ScrollRowLayout>
-            ))}
+          {Object.keys(info.cloud).map((el) => (
+            <ScrollRowLayout
+              title={el.toUpperCase()}
+              key={el}
+              centered={getProjectsLength(info.cloud, el) <= 3}
+            >
+              <ProjectCardList
+                info={getProjects(info.cloud, el)}
+                type="CLOUD"
+              ></ProjectCardList>
+            </ScrollRowLayout>
+          ))}
           <ScrollRowLayout
             title="GITHUB"
             subtitle="Recent collection in React.js, Vue.js & Asp .Net"
