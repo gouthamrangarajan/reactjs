@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { NextComponentType, NextPageContext } from "next";
+import { NextPage } from "next";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 
-const ScrollBtns: NextComponentType<
-  NextPageContext,
-  {},
-  scrollRowBtnsPropsType
-> = ({ showLeftScroll, scrollLeft, showRightScroll, scrollRight }) => {
+const ScrollBtns: NextPage<scrollRowBtnsPropsType> = ({
+  showLeftScroll,
+  scrollLeft,
+  showRightScroll,
+  scrollRight,
+}) => {
   return (
     <>
       <AnimatePresence>

@@ -1,9 +1,7 @@
-import type { NextComponentType, NextPageContext } from "next";
+import type { NextPage } from "next";
 import { gitHubType } from "../models/dataType";
 
-const Repos: NextComponentType<NextPageContext, {}, reposPropType> = ({
-  allRepos,
-}) => {
+const Repos: NextPage<reposPropType> = ({ allRepos }) => {
   return (
     <div
       className="bg-white shadow py-1 px-3 lg:py-2 lg:px-4 

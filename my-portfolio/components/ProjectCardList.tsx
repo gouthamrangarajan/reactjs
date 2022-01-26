@@ -1,4 +1,4 @@
-import { NextComponentType, NextPageContext } from "next";
+import { NextPage } from "next";
 import {
   cloudArrayType,
   codePenType,
@@ -7,11 +7,10 @@ import {
 } from "../models/dataType";
 import ProjectCard from "./ProjectCard";
 
-const ProjectCardList: NextComponentType<
-  NextPageContext,
-  {},
-  projectCardListPropsType
-> = ({ info, type }) => {
+const ProjectCardList: NextPage<projectCardListPropsType> = ({
+  info,
+  type,
+}) => {
   let cloudArrayTypeInfo: cloudArrayType[] = [];
   let githubItemTypeInfo: githubItemType[] = [];
   let codePenTypeInfo: codePenType[] = [];

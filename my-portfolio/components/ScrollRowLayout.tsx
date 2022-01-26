@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
-import { NextComponentType, NextPageContext } from "next";
-import { LegacyRef, useEffect, useRef, useState } from "react";
+import { NextPage } from "next";
+import { LegacyRef, useRef, useState } from "react";
 import useViewportChecker from "../hooks/useViewportChecker";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { staggerChild } from "../utils/animationVariants";
 import ScrollBtns from "./ScrollBtns";
 
-const ScrollRowLayout: NextComponentType<
-  NextPageContext,
-  {},
-  scrollRowLayoutPropsType
-> = ({ title, subtitle, children, centered }) => {
+const ScrollRowLayout: NextPage<scrollRowLayoutPropsType> = ({
+  title,
+  subtitle,
+  children,
+  centered,
+}) => {
   const scrollEl = useRef<HTMLDivElement>();
   const [showLeftScroll, setShowLeftScroll] = useState(false);
   const [showRightScroll, setShowRightScroll] = useState(true);

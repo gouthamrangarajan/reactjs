@@ -1,5 +1,6 @@
 import { DownloadIcon } from "@heroicons/react/solid";
-const DownloadResume = () => {
+import { NextPage } from "next";
+const DownloadResume: NextPage = () => {
   return (
     <div
       className="bg-white shadow py-1 px-3 lg:py-2 lg:px-4 

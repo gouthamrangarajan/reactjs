@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import type { NextComponentType, NextPageContext } from "next";
+import type { NextPage } from "next";
 import { staggerChild } from "../utils/animationVariants";
 
-const SecondRowLayout: NextComponentType<NextPageContext, {}, layoutType> = ({
-  children,
-  keyVal,
-}) => {
+const SecondRowLayout: NextPage<layoutType> = ({ children, keyVal }) => {
   return (
     <motion.div
       className="flex w-full items-center justify-center mt-6 flex-shrink-0"

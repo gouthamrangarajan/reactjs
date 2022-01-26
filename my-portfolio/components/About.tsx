@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
-import type { NextComponentType, NextPageContext } from "next";
+import type { NextPage } from "next";
 import { staggerChild } from "../utils/animationVariants";
 
-const About: NextComponentType<NextPageContext, {}, aboutPropType> = ({
-  about,
-}) => {
+const About: NextPage<aboutPropType> = ({ about }) => {
   return (
     <motion.div
       className="w-full flex items-center justify-center -mt-6 flex-shrink-0"

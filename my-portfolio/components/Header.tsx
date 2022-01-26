@@ -1,6 +1,6 @@
-import type { NextComponentType } from "next";
+import type { NextPage } from "next";
 
-const Header: NextComponentType = () => {
+const Header: NextPage = () => {
   return (
     <header
       className="h-48 flex justify-between bg-gradient-to-b from-gray-900  to-gray-400 text-white w-full

@@ -1,9 +1,7 @@
-import type { NextComponentType, NextPageContext } from "next";
+import type { NextPage } from "next";
 import { mediaType } from "../models/dataType";
 
-const Media: NextComponentType<NextPageContext, {}, mediaPropType> = ({
-  allMedia,
-}) => {
+const Media: NextPage<mediaPropType> = ({ allMedia }) => {
   return (
     <div
       className="bg-white shadow py-1 px-3 lg:py-2 lg:px-4 
