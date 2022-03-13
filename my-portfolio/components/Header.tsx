@@ -11,13 +11,7 @@ import HeaderText from "./HeaderText";
 const Header: NextPage = () => {
   let {color}=useContext(ThemeContext);
   let dispatch=useContext(UpdateThemeContext);
-  let {data,updateData}=useLocalStorage<string>("theme");
-  useEffect(()=>{
-    if(data && dispatch){
-      if(data=="DARK") dispatch({action:"SET_DARK_COLOR_THEME"})
-      if(data=="LIGHT") dispatch({action:"SET_LIGHT_COLOR_THEME"})
-    }
-  },[data,dispatch])
+  let {updateData}=useLocalStorage<string>("theme");  
   let setDarkTheme=()=>{if(dispatch)dispatch({action:"SET_DARK_COLOR_THEME"}); updateData("DARK");}
   let setLightTheme=()=>{if(dispatch)dispatch({action:"SET_LIGHT_COLOR_THEME"}); updateData("LIGHT");}
   return (

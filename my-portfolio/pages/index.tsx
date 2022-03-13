@@ -16,11 +16,20 @@ import {
 } from "../utils/helpers";
 import { motion } from "framer-motion";
 import { staggerParent } from "../utils/animationVariants";
-import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { useContext, useEffect } from "react";
+import { ThemeContext, UpdateThemeContext } from "../contexts/ThemeContext";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Home: NextPage<homePropType> = ({ data: { info } }) => {
   let {color}=useContext(ThemeContext);
+  let dispatch=useContext(UpdateThemeContext);
+  let {data}=useLocalStorage<string>("theme");
+  useEffect(()=>{
+    if(data && dispatch){
+      if(data=="DARK") dispatch({action:"SET_DARK_COLOR_THEME"})
+      if(data=="LIGHT") dispatch({action:"SET_LIGHT_COLOR_THEME"})
+    }
+  },[data,dispatch])
   return (
     <>
       <Head>
