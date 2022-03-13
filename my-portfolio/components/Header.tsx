@@ -2,7 +2,7 @@ import { MoonIcon } from "@heroicons/react/outline";
 import { SunIcon } from "@heroicons/react/solid";
 import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ThemeContext, UpdateThemeContext } from "../contexts/ThemeContext";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { fade } from "../utils/animationVariants";
