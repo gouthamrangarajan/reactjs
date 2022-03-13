@@ -35,14 +35,14 @@ const Header: NextPage = () => {
             <motion.button className="absolute top-8 right-24 lg:right-32 appearance-none outline-none 
                   focus:ring-2 focus:ring-sky-400 p-1 rounded-lg transition duration-300" 
                 variants={fade} initial="hidden" animate="visible" exit="hidden" onClick={setDarkTheme} key={1}>
-              <MoonIcon className="cursor-pointer w-5 h-5 text-sky-400 hover:opacity-90 font-semibold">
+              <MoonIcon className="cursor-pointer w-5 h-5 text-sky-400 hover:opacity-90 font-semibold transition duration-300">
               </MoonIcon>
             </motion.button>)
             :
             (<motion.button className="absolute top-8 right-24 lg:right-32 appearance-none outline-none
                  focus:ring-2 focus:ring-gray-100 p-1 rounded-lg transition duration-300"
                variants={fade} initial="hidden" animate="visible" exit="hidden" onClick={setLightTheme} key={2}>
-              <SunIcon className="cursor-pointer w-5 h-5 text-gray-100 hover:opacity-90">
+              <SunIcon className="cursor-pointer w-5 h-5 text-gray-100 hover:opacity-90 transition duration-300">
               </SunIcon>
             </motion.button>)
           }
