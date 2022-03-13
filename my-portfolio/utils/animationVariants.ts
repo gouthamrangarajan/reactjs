@@ -27,3 +27,19 @@ export const staggerChild = {
     },
   },
 };
+export const fade={
+  hidden:{
+    opacity:0,
+    transition:{
+      ease:"easeInOut",
+      duration:0.1
+    }
+  },
+  visible:{
+    opacity:1,
+    transition:{
+      ease:"easeInOut",
+      duration:0.3
+    }
+  }
+}

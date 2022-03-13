@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
-import { LegacyRef, useRef, useState } from "react";
+import { LegacyRef, useContext, useRef, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 import useViewportChecker from "../hooks/useViewportChecker";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { staggerChild } from "../utils/animationVariants";
@@ -12,17 +13,17 @@ const ScrollRowLayout: NextPage<scrollRowLayoutPropsType> = ({
   children,
   centered,
 }) => {
-  const scrollEl = useRef<HTMLDivElement>();
-  const [showLeftScroll, setShowLeftScroll] = useState(false);
-  const [showRightScroll, setShowRightScroll] = useState(true);
-  const windowWidth = useWindowWidth();
+  let scrollEl = useRef<HTMLDivElement>();
+  let [showLeftScroll, setShowLeftScroll] = useState(false);
+  let [showRightScroll, setShowRightScroll] = useState(true);
+  let windowWidth = useWindowWidth();
 
-  const [_, setLastEl] = useViewportChecker(
+  let [_, setLastEl] = useViewportChecker(
     () => setShowRightScroll(false),
     () => setShowRightScroll(true)
   );
 
-  const scrollRight = () => {
+  let scrollRight = () => {
     if (scrollEl.current) {
       scrollEl.current.scrollTo({
         behavior: "smooth",
@@ -31,7 +32,7 @@ const ScrollRowLayout: NextPage<scrollRowLayoutPropsType> = ({
       setShowLeftScroll(true);
     }
   };
-  const scrollLeft = () => {
+  let scrollLeft = () => {
     if (scrollEl.current) {
       let left = scrollEl.current.scrollLeft - 1000;
       if (left < 0) left = 0;
@@ -43,16 +44,17 @@ const ScrollRowLayout: NextPage<scrollRowLayoutPropsType> = ({
       if (left == 0) setShowLeftScroll(false);
     }
   };
+  let {color}=useContext(ThemeContext);
   return (
     <motion.div
       className="flex flex-col mt-6 w-full flex-shrink-0 relative"
       variants={staggerChild}
       key={title}
     >
-      <span className="text-xl text-pink-600 font-semibold w-full text-center">
+      <span className={`text-xl font-semibold w-full text-center text-pink-600 dark:text-sky-400 }`}>
         {title}
       </span>
-      <span className="text-gray-600 font-semibold w-full text-center">
+      <span className={`font-semibold w-full text-center ${color=="DARK"?"text-sky-300":"text-gray-600"}`}>
         {subtitle}
       </span>
       <div

@@ -17,9 +17,9 @@ const ScrollBtns: NextPage<scrollRowBtnsPropsType> = ({
             animate={{ transform: "translateX(0)" }}
             exit={{ transform: "translateX(-4rem)" }}
             transition={{ duration: 0.3 }}
-            className="appearance-none outline-none absolute top-0 left-0 rounded-full mt-56
-       ml-1 transition duration-300 bg-pink-600 shadow-2xl opacity-50 hover:opacity-100 p-1 cursor-pointer
-      ring-2 ring-pink-600 focus:ring-offset-2 focus:ring-offset-pink-100 ease-in-out"
+            className="appearance-none outline-none absolute top-0 left-0 rounded-full mt-56 ml-1 transition duration-300 shadow-2xl 
+            opacity-75 hover:opacity-100 p-1 cursor-pointer bg-slate-600 dark:bg-sky-600 ring-2 ring-slate-600 dark:ring-sky-600
+            focus:ring-offset-2 focus:ring-offset-slate-100 dark:focus:ring-offset-sky-100 ease-in-out"
             onClick={() => scrollLeft()}
           >
             <ChevronLeftIcon className="w-8 h-8 text-white"></ChevronLeftIcon>
@@ -33,9 +33,9 @@ const ScrollBtns: NextPage<scrollRowBtnsPropsType> = ({
             animate={{ transform: "translateX(0)" }}
             exit={{ transform: "translateX(4rem)" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="appearance-none outline-none absolute top-0 right-0 rounded-full mt-56
-         mr-3 transition duration-300 bg-pink-600 shadow-2xl opacity-50 hover:opacity-100 p-1 cursor-pointer
-        ring-2 ring-pink-600 focus:ring-offset-2 focus:ring-offset-pink-100 ease-in-out"
+            className="appearance-none outline-none absolute top-0 right-0 rounded-full mt-56 mr-3 transition duration-300 shadow-2xl 
+            opacity-75 hover:opacity-100 p-1 cursor-pointer bg-slate-600 dark:bg-sky-400 ring-2 ring-slate-600 dark:ring-sky-400
+            focus:ring-offset-2 focus:ring-offset-slate-100 dark:focus:ring-offset-sky-100 ease-in-out"
             onClick={() => scrollRight()}
           >
             <ChevronRightIcon className="w-8 h-8 text-white"></ChevronRightIcon>

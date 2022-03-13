@@ -16,8 +16,11 @@ import {
 } from "../utils/helpers";
 import { motion } from "framer-motion";
 import { staggerParent } from "../utils/animationVariants";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const Home: NextPage<homePropType> = ({ data: { info } }) => {
+  let {color}=useContext(ThemeContext);
   return (
     <>
       <Head>
@@ -31,9 +34,9 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
         <link href="/manifest.json" rel="manifest"></link>
       </Head>
       <div
-        className="h-screen w-screen bg-gray-100 overflow-x-hidden overflow-y-auto flex flex-col 
+        className={`h-screen w-screen  overflow-x-hidden overflow-y-auto flex flex-col 
          font-sans pb-4 scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-300
-          scrollbar-thumb-rounded-md"
+          scrollbar-thumb-rounded-md ${color=="DARK"?"dark bg-gradient-to-r from-slate-900 to-slate-800":"bg-gray-100"}`}
       >
         <Header></Header>
         <motion.div

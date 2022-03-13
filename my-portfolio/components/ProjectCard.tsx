@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 import {
   cloudArrayType,
   codePenType,
@@ -7,14 +9,17 @@ import {
 } from "../models/dataType";
 
 const ProjectCard: NextPage<projectCardPropsType> = ({ el, type }) => {
-  const cloudEl = el as cloudArrayType;
-  const githubEl = el as githubItemType;
-  const codePenEl = el as codePenType;
+  let cloudEl = el as cloudArrayType;
+  let githubEl = el as githubItemType;
+  let codePenEl = el as codePenType;
+  let {color}=useContext(ThemeContext);
   return (
     <div
-      className={`flex flex-col bg-white shadow-2xl rounded-lg cursor-pointer w-[400px] md:w-[600px]
+      className={`flex flex-col shadow-2xl rounded-lg cursor-pointer w-[400px] md:w-[600px]
       transition duration-300 hover:transform hover:-translate-y-1 flex-shrink-0 peer 
-       peer-hover:translate-x-40 md:peer-hover:translate-x-64 ease-in-out ${
+       peer-hover:translate-x-40 md:peer-hover:translate-x-64 ease-in-out 
+       ${color=="DARK"?" bg-slate-700 border-t-2 border-r-2 border-l-2 border-slate-600":"bg-white"}
+       ${
          type == "GITHUB" ? "h-[300px] md:h-[425px] overflow-hidden" : ""
        }`}
       key={el.url}
@@ -25,7 +30,7 @@ const ProjectCard: NextPage<projectCardPropsType> = ({ el, type }) => {
         }`}
       >
         <a
-          className="text-lg text-indigo-600 font-semibold underline"
+          className={`text-lg font-semibold underline ${color=="DARK"?"text-gray-100 ":"text-indigo-600"}`}
           target="_blank"
           rel="noreferrer"
           href={el.url}
@@ -37,7 +42,7 @@ const ProjectCard: NextPage<projectCardPropsType> = ({ el, type }) => {
             : el.url}
         </a>
         {type != "CODEPEN" && (
-          <p className="p-1 text-sm text-gray-600 font-semibold">
+          <p className={`p-1 text-sm font-semibold ${color=="DARK"?"text-sky-300":"text-gray-600"}`}>
             {type == "GITHUB" ? githubEl.description : cloudEl.description}
           </p>
         )}
