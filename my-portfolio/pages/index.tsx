@@ -21,15 +21,15 @@ import { ThemeContext, UpdateThemeContext } from "../contexts/ThemeContext";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const Home: NextPage<homePropType> = ({ data: { info } }) => {
-  let {color}=useContext(ThemeContext);
-  let dispatch=useContext(UpdateThemeContext);
-  let {data}=useLocalStorage<string>("theme");
-  useEffect(()=>{
-    if(data && dispatch){
-      if(data=="DARK") dispatch({action:"SET_DARK_COLOR_THEME"})
-      if(data=="LIGHT") dispatch({action:"SET_LIGHT_COLOR_THEME"})
+  let { color } = useContext(ThemeContext);
+  let dispatch = useContext(UpdateThemeContext);
+  let { data } = useLocalStorage<string>("theme");
+  useEffect(() => {
+    if (data && dispatch) {
+      if (data == "DARK") dispatch({ action: "SET_DARK_COLOR_THEME" })
+      if (data == "LIGHT") dispatch({ action: "SET_LIGHT_COLOR_THEME" })
     }
-  },[data,dispatch])
+  }, [data, dispatch])
   return (
     <>
       <Head>
@@ -45,7 +45,7 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
       <div
         className={`h-screen w-screen  overflow-x-hidden overflow-y-auto flex flex-col 
          font-sans pb-4 scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-300
-          scrollbar-thumb-rounded-md ${color=="DARK"?"dark bg-gradient-to-r from-slate-900 to-slate-800":"bg-gray-100"}`}
+          scrollbar-thumb-rounded-md ${color == "DARK" ? "dark bg-gradient-to-r from-slate-900 to-slate-800" : "bg-gray-100"}`}
       >
         <Header></Header>
         <motion.div
