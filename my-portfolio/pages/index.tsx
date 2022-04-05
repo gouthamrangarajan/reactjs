@@ -45,7 +45,7 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
       <div
         className={`h-screen w-screen  overflow-x-hidden overflow-y-auto flex flex-col 
          font-sans pb-4 scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-300
-          scrollbar-thumb-rounded-md ${color == "DARK" ? "dark bg-gradient-to-r from-slate-900 to-slate-800" : "bg-gray-100"}`}
+          ${color == "DARK" ? "dark bg-gradient-to-r from-slate-900 to-slate-800" : "bg-white"}`}
       >
         <Header></Header>
         <motion.div

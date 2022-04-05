@@ -8,7 +8,8 @@ const HeaderText: NextPage<headerTextPropsType> = ({ classes, text }) => {
   let { color } = useContext(ThemeContext);
   return (
     <motion.div variants={headerTextChild}
-      className={` ${color == 'DARK' ? "bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400" : "text-white"}
+      className={` bg-clip-text text-transparent bg-gradient-to-r 
+        ${color == 'DARK' ? "from-sky-200 to-sky-400" : "from-sky-600 to-sky-800"}
        ${classes}`} key={text}>
       {text}
     </motion.div>
