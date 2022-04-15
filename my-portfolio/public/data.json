@@ -4,10 +4,24 @@
     "media": [
       {
         "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/gouthamrangarajan"
+        "url": "https://www.linkedin.com/in/gouthamrangarajan",
+        "imgSrc":"/imgs/media/linkedin-logo.png"
       },
-      { "name": "Github", "url": "https://github.com/gouthamrangarajan" },
-      { "name": "Codepen", "url": "https://codepen.io/GouthamRangarajan" }
+      { "name": "Github", "url": "https://github.com/gouthamrangarajan","imgSrc":"/imgs/media/github-logo.png" },
+      { "name": "Codepen", "url": "https://codepen.io/GouthamRangarajan" ,"imgSrc":"/imgs/media/codepen-logo.png" }
+    ],
+    "skills":[
+      {"name":"ReactJs","imgSrc":"imgs/skills/react.png"},
+      {"name":"NextJs","imgSrc":"imgs/skills/next.png"},
+      {"name":"VueJs","imgSrc":"imgs/skills/vue.png"},      
+      {"name":"NuxtJs","imgSrc":"imgs/skills/nuxt.png"},
+      {"name":".Net","imgSrc":"imgs/skills/dotnet_core.png"},
+      {"name":"TailwindCSS","imgSrc":"imgs/skills/tailwind.png"},
+      {"name":"Firebase","imgSrc":"imgs/skills/firebase.png"},
+      {"name":"Firebase Functions","imgSrc":"imgs/skills/firebase_function.png"},
+      {"name":"Netlify","imgSrc":"imgs/skills/netlify.png"},
+      {"name":"Azure","imgSrc":"imgs/skills/azure.png"},
+      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"}
     ],
     "codePen": [
       {

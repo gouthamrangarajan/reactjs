@@ -1,75 +1,28 @@
+import React from "react";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import {
-  cloudArrayType,
-  codePenType,
-  githubItemType,
-  projectType,
+  consolidatedDataType,
 } from "../models/dataType";
 import ProjectCard from "./ProjectCard";
+import { staggerParent, staggerChild } from "../utils/animationVariants";
 
 const ProjectCardList: NextPage<projectCardListPropsType> = ({
-  info,
-  type,
+  data
 }) => {
-  let cloudArrayTypeInfo: cloudArrayType[] = [];
-  let githubItemTypeInfo: githubItemType[] = [];
-  let codePenTypeInfo: codePenType[] = [];
-
-  switch (type) {
-    case "GITHUB": {
-      githubItemTypeInfo = info as githubItemType[];
-      break;
-    }
-    case "CODEPEN": {
-      codePenTypeInfo = info as codePenType[];
-      break;
-    }
-    default: {
-      cloudArrayTypeInfo = info as cloudArrayType[];
-      break;
-    }
-  }
-
   return (
-    <>
-      {cloudArrayTypeInfo.length > 0 &&
-        cloudArrayTypeInfo
-          .filter((el) => el.url != undefined)
-          .sort((a, b) => (a.order && b.order && a.order > b.order ? 1 : -1))
-          .map((el) => (
-            <ProjectCard el={el} key={el.url} type={type}></ProjectCard>
-          ))}
-      {cloudArrayTypeInfo.length > 0 &&
-        cloudArrayTypeInfo
-          .filter((el) => el.other != undefined)
-          .map(
-            (el) =>
-              el.other &&
-              el.other
-                .sort((a, b) =>
-                  a.order && b.order && a.order > b.order ? 1 : -1
-                )
-                .map((othEl) => (
-                  <ProjectCard
-                    el={othEl}
-                    key={othEl.url}
-                    type={type}
-                  ></ProjectCard>
-                ))
-          )}
-      {githubItemTypeInfo.length > 0 &&
-        githubItemTypeInfo.map((el) => (
-          <ProjectCard el={el} key={el.url} type={type}></ProjectCard>
-        ))}
-      {codePenTypeInfo.length > 0 &&
-        codePenTypeInfo.map((el) => (
-          <ProjectCard el={el} key={el.url} type={type}></ProjectCard>
-        ))}
-    </>
+    <motion.div className="p-1 grid grid-cols-1 xl:grid-cols-2 gap-3 items-center xl:items-stretch justify-center"
+      variants={staggerParent} initial="hidden" animate="show" layout="position">
+      {data.map(el =>
+      (<motion.div className="w-full" key={el.url} variants={staggerChild} layout="position">
+        <ProjectCard data={el} title={el.title}></ProjectCard>
+      </motion.div>)
+      )
+      }
+    </motion.div>
   );
 };
 type projectCardListPropsType = {
-  info: cloudArrayType[] | githubItemType[] | codePenType[];
-  type?: projectType;
+  data: consolidatedDataType[];
 };
-export default ProjectCardList;
+export default React.memo(ProjectCardList);

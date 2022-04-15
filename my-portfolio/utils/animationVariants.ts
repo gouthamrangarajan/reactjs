@@ -1,9 +1,9 @@
 export const staggerParent = {
-  inactive: {
+  hidden: {
     opacity: 0,
     y: "2rem",
   },
-  active: {
+  show: {
     opacity: 1,
     y: 0,
     transition: {
@@ -13,11 +13,11 @@ export const staggerParent = {
   },
 };
 export const staggerChild = {
-  inactive: {
+  hidden: {
     opacity: 0,
     y: "2rem",
   },
-  active: {
+  show: {
     opacity: 1,
     y: 0,
     transition: {
@@ -35,7 +35,7 @@ export const fade = {
       duration: 0.1
     }
   },
-  visible: {
+  show: {
     opacity: 1,
     transition: {
       ease: "easeInOut",

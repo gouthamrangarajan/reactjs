@@ -2,34 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import dataType from "../models/dataType";
-import About from "../components/About";
-import SecondRowLayout from "../components/SecondRowLayout";
-import Media from "../components/Media";
-import Repos from "../components/Repos";
-import DownloadResume from "../components/DownloadResume";
-import ScrollRowLayout from "../components/ScrollRowLayout";
-import ProjectCardList from "../components/ProjectCardList";
-import {
-  getGitHubProjects,
-  getProjects,
-  getProjectsLength,
-} from "../utils/helpers";
-import { motion } from "framer-motion";
-import { staggerParent } from "../utils/animationVariants";
-import { useContext, useEffect } from "react";
-import { ThemeContext, UpdateThemeContext } from "../contexts/ThemeContext";
-import useLocalStorage from "../hooks/useLocalStorage";
+import Skills from "../components/Skills";
+import Nav from "../components/Nav";
+import Link from "next/link";
 
-const Home: NextPage<homePropType> = ({ data: { info } }) => {
-  let { color } = useContext(ThemeContext);
-  let dispatch = useContext(UpdateThemeContext);
-  let { data } = useLocalStorage<string>("theme");
-  useEffect(() => {
-    if (data && dispatch) {
-      if (data == "DARK") dispatch({ action: "SET_DARK_COLOR_THEME" })
-      if (data == "LIGHT") dispatch({ action: "SET_LIGHT_COLOR_THEME" })
-    }
-  }, [data, dispatch])
+const Home: NextPage<homePropsType> = ({ data: { info } }) => {
+
   return (
     <>
       <Head>
@@ -42,58 +20,29 @@ const Home: NextPage<homePropType> = ({ data: { info } }) => {
         <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
         <link href="/manifest.json" rel="manifest"></link>
       </Head>
-      <div
-        className={`h-screen w-screen  overflow-x-hidden overflow-y-auto flex flex-col 
-         font-sans pb-4 scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-blue-300
-          ${color == "DARK" ? "dark bg-gradient-to-r from-slate-900 to-slate-800" : "bg-white"}`}
-      >
-        <Header></Header>
-        <motion.div
-          className="flex flex-col"
-          variants={staggerParent}
-          initial="inactive"
-          animate="active"
-        >
-          <About about={info.about}></About>
-          <SecondRowLayout keyVal={2}>
-            <Media allMedia={info.media}></Media>
-            <Repos allRepos={info.gitHub}></Repos>
-            <DownloadResume></DownloadResume>
-          </SecondRowLayout>
-          <ScrollRowLayout title="Cloud Projects" centered></ScrollRowLayout>
-          <div className="-mt-6" key={3}></div>
-          {Object.keys(info.cloud).map((el) => (
-            <ScrollRowLayout
-              title={el.toUpperCase()}
-              key={el}
-              centered={getProjectsLength(info.cloud, el) <= 3}
-            >
-              <ProjectCardList
-                info={getProjects(info.cloud, el)}
-                type="CLOUD"
-              ></ProjectCardList>
-            </ScrollRowLayout>
-          ))}
-          <ScrollRowLayout
-            title="GITHUB"
-            subtitle="Recent collection in React.js, Vue.js & Asp .Net"
-          >
-            <ProjectCardList
-              info={getGitHubProjects(info.gitHub)}
-              type="GITHUB"
-            ></ProjectCardList>
-          </ScrollRowLayout>
-          <ScrollRowLayout
-            title="CODEPEN"
-            subtitle="Recent collection in HTML, CSS, Tailwind CSS & Vue.js"
-          >
-            <ProjectCardList
-              info={info.codePen}
-              type="CODEPEN"
-            ></ProjectCardList>
-          </ScrollRowLayout>
-        </motion.div>
+      <div className="flex flex-col min-h-screen">
+        <Header media={info.media}></Header>
+        <div className="mt-4 w-full pb-16 lg:pb-4">
+          <Skills data={info.skills}></Skills>
+        </div>
       </div>
+      <Nav menu={<div className="flex-1 text-white flex space-x-3 items-center ">
+        <span className="text-gray-100 text-sm py-1 px-3">Check out my Demos</span>
+        <Link href="/cloud">
+          <a className="transition duration-300  text-white py-1 px-3 rounded-md
+                                hover:ring-2 hover:ring-white
+                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700">
+            Cloud Projects
+          </a>
+        </Link>
+        <Link href="/repo">
+          <a className="transition duration-300  text-white py-1 px-3 rounded-md
+                                hover:ring-2 hover:ring-white
+                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700">
+            Github &amp; Codepen
+          </a>
+        </Link>
+      </div>}></Nav>
     </>
   );
 };
@@ -105,7 +54,7 @@ export async function getStaticProps() {
     },
   };
 }
-type homePropType = {
+type homePropsType = {
   data: dataType;
 };
 export default Home;
