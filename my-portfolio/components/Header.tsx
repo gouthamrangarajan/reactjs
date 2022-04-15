@@ -1,59 +1,48 @@
-import { MoonIcon } from "@heroicons/react/outline";
-import { SunIcon } from "@heroicons/react/solid";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import { useContext } from "react";
-import { ThemeContext, UpdateThemeContext } from "../contexts/ThemeContext";
-import useLocalStorage from "../hooks/useLocalStorage";
-import { fade, headerTextParent } from "../utils/animationVariants";
+import { mediaType } from "../models/dataType";
+import { headerTextParent, staggerChild, staggerParent } from "../utils/animationVariants";
 import HeaderText from "./HeaderText";
 
-const Header: NextPage = () => {
-  let { color } = useContext(ThemeContext);
-  let dispatch = useContext(UpdateThemeContext);
-  let { updateData } = useLocalStorage<string>("theme");
-  let setDarkTheme = () => { if (dispatch) dispatch({ action: "SET_DARK_COLOR_THEME" }); updateData("DARK"); }
-  let setLightTheme = () => { if (dispatch) dispatch({ action: "SET_LIGHT_COLOR_THEME" }); updateData("LIGHT"); }
+const Header: NextPage<headerPropType> = ({ media }) => {
   return (
     <header
-      className={`h-48 flex justify-between w-full py-1 px-3 lg:py-2 lg:px-4 xl:py-4 xl:px-6 flex-shrink-0
-                  `}
+      className={`flex py-4 px-6  w-screen items-center justify-center flex-col space-y-6 flex-shrink-0
+      bg-gradient-to-r from-slate-900 to-slate-800`}
     >
-      <motion.div className="flex flex-col items-center justify-center w-full" variants={headerTextParent}
+      <div className="h-56 w-56 p-1 rounded-full bg-gradient-to-br from-pink-500 to-yellow-500">
+        <img
+          src="/my-avatar.jpg"
+          className="rounded-full object-contain"
+          alt="My Avatar"
+        ></img>
+      </div>
+      <motion.div className="flex flex-col items-center justify-center" variants={headerTextParent}
         initial="hidden" animate="show">
-        <HeaderText classes="font-semibold text-2xl" text="Goutham Rangarajan">
+        <HeaderText classes="font-semibold text-3xl h-12" text="Goutham Rangarajan">
         </HeaderText>
-        <HeaderText classes="italic font-semibold" text="RG">
+        <HeaderText classes="italic font-semibold tracking-wider" text="RG">
+        </HeaderText>
+        <HeaderText classes="text-lg" text="Front-end enthusiast">
         </HeaderText>
       </motion.div>
-      <div className="flex relative">
-        <AnimatePresence exitBeforeEnter>
-          {color == "LIGHT" ? (
-            <motion.button className="absolute top-4 md:top-8 right-[6.5rem] md:right-[7.5rem] lg:right-32 appearance-none outline-none 
-                      focus:ring-2 focus:ring-sky-400 p-1 rounded-lg transition duration-300"
-              variants={fade} initial="hidden" animate="visible" exit="hidden" onClick={setDarkTheme} key={1}>
-              <MoonIcon className="cursor-pointer w-5 h-5 text-sky-600 hover:opacity-90 transition duration-300">
-              </MoonIcon>
-            </motion.button>)
-            :
-            (<motion.button className="absolute top-4 md:top-8 right-[6.5rem] md:right-[7.5rem] lg:right-32 appearance-none outline-none
-                      focus:ring-2 focus:ring-sky-400 p-1 rounded-lg transition duration-300"
-              variants={fade} initial="hidden" animate="visible" exit="hidden" onClick={setLightTheme} key={2}>
-              <SunIcon className="cursor-pointer w-5 h-5 text-sky-400 hover:opacity-90 font-semibold transition duration-300">
-              </SunIcon>
-            </motion.button>)
-          }
-        </AnimatePresence>
-        <div className="h-[5.5rem] w-[5.5rem] cursor-pointer">
-          <img
-            src="/my-avatar.jpg"
-            className="rounded-full object-contain"
-            alt="My Avatar"
-          ></img>
-        </div>
-      </div>
+      <motion.div className="flex space-x-2" variants={staggerParent} initial="hidden" animate="show">
+        {media.map(med => (
+          <motion.a className="appearance-none outline-none h-14 w-14 p-1 rounded-full focus:ring-2 focus:ring-white"
+            variants={staggerChild} target="_blank" href={med.url} key={med.name} rel="noreferrer">
+            <img
+              src={med.imgSrc}
+              className="rounded-full object-contain"
+              alt={med.name}
+              title={med.name}
+            ></img>
+          </motion.a>
+        ))}
+      </motion.div>
     </header>
   );
 };
-
+type headerPropType = {
+  media: mediaType[];
+};
 export default Header;
