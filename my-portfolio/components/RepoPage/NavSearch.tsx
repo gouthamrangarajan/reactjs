@@ -36,10 +36,12 @@ const NavSearch = () => {
                 Codepen
             </button>
         </div>
-        <SearchTxt value={textFilter} onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
-            if (dispatch)
-                dispatch({ name: "SET_TEXT_FILTER", payload: ev.target.value })
-        }}></SearchTxt>
+        <div className="hidden md:inline-flex">
+            <SearchTxt value={textFilter} onChange={(ev: React.ChangeEvent<HTMLInputElement>) => {
+                if (dispatch)
+                    dispatch({ name: "SET_TEXT_FILTER", payload: ev.target.value })
+            }}></SearchTxt>
+        </div>
     </>
     )
 }
