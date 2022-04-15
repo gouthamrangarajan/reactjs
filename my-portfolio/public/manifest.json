@@ -6,44 +6,37 @@
     {
       "src": "icons/icon_64x64.ad75cc.png",
       "sizes": "64x64",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"      
     },
     {
       "src": "icons/icon_120x120.ad75cc.png",
       "sizes": "120x120",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"      
     },
     {
       "src": "icons/icon_144x144.ad75cc.png",
       "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icons/icon_152x152.ad75cc.png",
       "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "icons/icon_192x192.ad75cc.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"      
     },
     {
       "src": "icons/icon_384x384.ad75cc.png",
       "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"      
     },
     {
       "src": "icons/icon_512x512.ad75cc.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"      
     }
   ],
   "scope": "/",
