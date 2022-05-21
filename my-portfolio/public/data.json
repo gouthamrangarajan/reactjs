@@ -221,20 +221,26 @@
         }
       ],
       "netlify": [
-        {
+	 {
           "order": 1,
+          "imgSrc": "/imgs/cloud/Wordle.png",
+          "description": "Wordle clone implementation using React, Netlify functions(serverless), Vite & Tailwind CSS",
+          "url": "https://rg-wordle-clone.netlify.app/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Self.png",
           "description": "A simple SSG(Static Site Generator) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {
-          "order": 2,
+          "order": 3,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
         },
         {
-          "order": 3,
+          "order": 4,
           "url": "https://rg-react-snake-game.netlify.app/",
           "title": "React Snake game",
           "imgSrc": "/imgs/github/SnakeGame.png",

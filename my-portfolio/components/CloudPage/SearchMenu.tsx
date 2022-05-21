@@ -21,7 +21,7 @@ const SearchMenu = () => {
             <div className="flex flex-col pt-3 lg:pt-0 pl-0 lg:pl-6">
                 <span className="text-white font-semibold underline tracking-wider">Features</span>
                 <div className="p-1 flex flex-col space-y-3">
-                    {["Chat", "Stock", "Drive", "Calendar"].map(el => (
+                    {["Chat", "Stock", "Drive", "Calendar", "Clone"].map(el => (
                         <button className="transition duration-300  text-white py-1 px-3 rounded-md
                                 hover:ring-2 hover:ring-white text-left w-32
                                 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700" key={el}
