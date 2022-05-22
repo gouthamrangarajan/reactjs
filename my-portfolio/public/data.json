@@ -116,6 +116,12 @@
       {
         "items": [
           {
+            "url": "https://github.com/gouthamrangarajan/Azure/tree/main/Serverless-UI",
+            "title": "Azure Serverless UI",
+            "imgSrc": "/imgs/github/Serverless-UI.png",
+            "description": "Serverless function to render UI in Azure. An idea to send html response in Azure functions "
+          },
+          {
             "url": "https://github.com/gouthamrangarajan/Azure/tree/main/FileUpload",
             "title": "Azure Function File Upload",
             "imgSrc": "/imgs/github/FileUpload.png",
