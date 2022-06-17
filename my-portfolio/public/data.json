@@ -1,6 +1,6 @@
 {
   "info": {
-    "about": "12 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
+    "about": "13 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
     "media": [
       {
         "name": "LinkedIn",
@@ -24,6 +24,11 @@
       {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"}
     ],
     "codePen": [
+      {
+        "url":"https://codepen.io/GouthamRangarajan/full/yLvwRyx",
+        "imgSrc":"/imgs/codepen/CodePen18.png",
+        "title":"Vuetify Datatable with Server side pagination"
+      },
       {
         "url": "https://codepen.io/GouthamRangarajan/full/vYeeNOq",
         "imgSrc": "/imgs/codepen/CodePen17.png",
