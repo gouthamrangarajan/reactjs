@@ -247,7 +247,7 @@
         {
           "order": 2,
           "imgSrc": "/imgs/cloud/Self.png",
-          "description": "A simple SSG(Static Site Generator) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
+          "description": "A Next.js & TailwindCSS site of my portfolio with CI/CD from Netlify",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {
