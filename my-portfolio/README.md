@@ -1,3 +1,3 @@
-This is a simple SSG(Static Site Generator) implementation of my portfolio site with CI/CD in Netlify using Next.js, React.js & Tailwind CSS
+A Next.js & TailwindCSS site of my portfolio with CI/CD from Netlify
 
 Deployed to [Goutham Rangarajan - Porfolio](https://portfolio-gouthamrangarajan.netlify.app/)
