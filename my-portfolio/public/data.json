@@ -206,7 +206,7 @@
         {
           "order": 3,
           "imgSrc": "/imgs/cloud/WL1.png",
-          "description": "A PWA project using Vite, React, TailwindCSS and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation of the topics Vue, React, Nuxt, HTML, CSS frameworks etc ",
+          "description": "A PWA project using Vite, React, TailwindCSS and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation. ",
           "url": "https://weblearnings-e679a.web.app/"
         },
         {

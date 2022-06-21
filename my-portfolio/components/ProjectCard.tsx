@@ -14,7 +14,7 @@ const ProjectCard: NextPage<projectCardPropsType> = ({ data, title }) => {
           {data?.url}
         </a>
         {data && data.description && (
-          <p className=" text-sky-200 p-2"
+          <p className=" text-sky-200 p-2 xl:h-12"
             key={data?.description}>
             {data?.description}
           </p>)}
