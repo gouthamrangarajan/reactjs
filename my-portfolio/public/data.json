@@ -200,7 +200,7 @@
         {
           "order":2,
           "imgSrc": "/imgs/cloud/Stock.png",
-          "description": "A PWA project using Vite, React, TailwindCSS, Echarts.js and Firebase to view tracked stocks with graph",
+          "description": "A PWA project using Vite, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph",
           "url": "https://stockapi-90a27.web.app/"
         },
         {
