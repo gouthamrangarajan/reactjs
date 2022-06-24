@@ -5,7 +5,7 @@ import { consolidatedDataType } from "../../models/dataType"
 import ProjectCardList from "../ProjectCardList"
 
 const SearchResults: NextPage<searchResultsPropsType> = ({ cloudData }) => {
-    let [cardListData, setCardListData] = useState<consolidatedDataType[]>([]);
+    let [cardListData, setCardListData] = useState<consolidatedDataType[]>(cloudData);
     let { applicationTypeFilter, cloudProviderFilter, textFilter } = useContext(CloudPageContext);
     useEffect(() => {
         setCardListData(cloudData);
