@@ -1,28 +1,15 @@
+import React, { Suspense } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import Nav from "../../components/Nav";
-import useConsolidatedData from "../../hooks/useConsolidatedData";
-import dataType, { githubItemType } from "../../models/dataType";
-import { useEffect, useState } from "react";
-import RepoPageContextProvider from "../../contexts/RepoPageContext";
-import SearchResults from "../../components/RepoPage/SearchResults";
-import NavSearch from "../../components/RepoPage/NavSearch";
+const Nav = React.lazy(() => import("../../components/Nav"));
+import dataType, { consolidatedDataType } from "../../models/dataType";
+const RepoPageContextProvider = React.lazy(() => import("../../contexts/RepoPageContext"));
+const SearchResults = React.lazy(() => import("../../components/RepoPage/SearchResults"));
+const NavSearch = React.lazy(() => import("../../components/RepoPage/NavSearch"));
 import { createClient } from "redis";
 
 
-const Index: NextPage<repoPropsType> = ({ data: { info: { gitHub, codePen } } }) => {
-    let [githubItems, setGithubItems] = useState<githubItemType[]>([]);
-    useEffect(() => {
-        let itemType: githubItemType[] = [];
-        if (gitHub)
-            gitHub.forEach(el => {
-                el.items?.forEach(inEl => {
-                    itemType.push(inEl);
-                });
-            });
-        setGithubItems(itemType);
-    }, [gitHub, setGithubItems])
-    let { data } = useConsolidatedData("GITHUB_CODEPEN", undefined, undefined, undefined, githubItems, codePen);
+const Index: NextPage<repoPropsType> = ({ data }) => {
     return (
         <>
             <Head>
@@ -35,17 +22,18 @@ const Index: NextPage<repoPropsType> = ({ data: { info: { gitHub, codePen } } })
                 <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
                 <link href="/manifest.json" rel="manifest"></link>
             </Head>
-            <RepoPageContextProvider>
-                <div className="w-full bg-slate-700 flex flex-col">
-                    <Nav menu={<NavSearch></NavSearch>}>
-                    </Nav>
-                    <SearchResults cloudData={data}></SearchResults>
-                </div>
-            </RepoPageContextProvider>
+            <Suspense fallback={<></>}>
+                <RepoPageContextProvider>
+                    <div className="w-full bg-slate-700 flex flex-col">
+                        <Nav menu={<NavSearch></NavSearch>}></Nav>
+                        <SearchResults cloudData={data}></SearchResults>
+                    </div>
+                </RepoPageContextProvider>
+            </Suspense>
         </>)
 }
 type repoPropsType = {
-    data: dataType;
+    data: consolidatedDataType[];
 };
 export default Index
 export async function getStaticProps() {
@@ -55,12 +43,28 @@ export async function getStaticProps() {
     });
     redis_client.on('error', (err) => console.log('Redis Client Error', err));
     await redis_client.connect();
-    let data = JSON.parse(await redis_client.get("portfolio_data") || "{}");
-    await redis_client.disconnect();
+    let data = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
     //let data: dataType = await require("./../public/data.json");
+    await redis_client.disconnect();
+    let consolidatedData = getConsolidatedData(data);
+
     return {
         props: {
-            data,
+            data: consolidatedData
         },
     };
+}
+function getConsolidatedData({ info: { gitHub, codePen } }: dataType): consolidatedDataType[] {
+    let consolidated: Array<consolidatedDataType> = [];
+    gitHub.forEach(el => {
+        el.items?.forEach(item => {
+            if (item.imgSrc)
+                consolidated.push({ imgSrc: item.imgSrc, url: item.url || "", description: item.description, title: "GITHUB" });
+        });
+    });
+    codePen.forEach(el => {
+        if (el.imgSrc)
+            consolidated.push({ imgSrc: el.imgSrc, url: el.url || "", description: "", title: "CODEPEN" });
+    });
+    return consolidated;
 }

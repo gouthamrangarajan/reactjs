@@ -13,11 +13,10 @@ const ProjectCard: NextPage<projectCardPropsType> = ({ data, title }) => {
           href={data?.url} key={data?.url} target="_blank" rel="noreferrer">
           {data?.url}
         </a>
-        {data && data.description && (
-          <p className=" text-sky-200 p-2 xl:h-12"
-            key={data?.description}>
-            {data?.description}
-          </p>)}
+        <p className=" text-sky-200 p-2 xl:h-12"
+          key={data?.description}>
+          {data?.description}
+        </p>
       </div>
       <div className={`w-full h-full overflow-hidden`}>
         {data?.imgSrc &&

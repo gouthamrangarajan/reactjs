@@ -7,8 +7,8 @@ export const staggerParent = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
-      staggerChildren: 0.4,
+      duration: 0.2,
+      staggerChildren: 0.3,
     },
   },
 };
@@ -49,8 +49,8 @@ export const headerTextParent = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
-      staggerChildren: 0.4,
+      duration: 0.2,
+      staggerChildren: 0.3,
       staggerDirection: -1
     },
   },

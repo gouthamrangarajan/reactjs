@@ -1,16 +1,16 @@
+import React, { Suspense } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
-import SearchResults from "../../components/CloudPage/SearchResults";
-import Nav from "../../components/Nav";
-import CloudPageContextProvider from "../../contexts/CloudPageContext";
-import useConsolidatedData from "../../hooks/useConsolidatedData";
-import dataType from "../../models/dataType";
-import NavSearch from "../../components/CloudPage/NavSearch";
+const SearchResults = React.lazy(() => import("../../components/CloudPage/SearchResults"));
+const Nav = React.lazy(() => import("../../components/Nav"));
+const CloudPageContextProvider = React.lazy(() => import("../../contexts/CloudPageContext"));
+import dataType, { cloudType, consolidatedDataType } from "../../models/dataType";
+const NavSearch = React.lazy(() => import("../../components/CloudPage/NavSearch"));
 import { createClient } from "redis";
 
 
-const Index: NextPage<cloudPropsType> = ({ data: { info: { cloud: { firebase, netlify, azure } } } }) => {
-    let { data } = useConsolidatedData("CLOUD", firebase, netlify, azure, undefined, undefined);
+
+const Index: NextPage<cloudPropsType> = ({ data }) => {
     return (
         <>
             <Head>
@@ -23,17 +23,18 @@ const Index: NextPage<cloudPropsType> = ({ data: { info: { cloud: { firebase, ne
                 <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
                 <link href="/manifest.json" rel="manifest"></link>
             </Head>
-            <CloudPageContextProvider>
-                <div className="w-full bg-slate-700 flex flex-col">
-                    <Nav menu={<NavSearch></NavSearch>}>
-                    </Nav>
-                    <SearchResults cloudData={data}></SearchResults>
-                </div>
-            </CloudPageContextProvider>
+            <Suspense fallback={<></>}>
+                <CloudPageContextProvider>
+                    <div className="w-full bg-slate-700 flex flex-col">
+                        <Nav menu={<NavSearch></NavSearch>}></Nav>
+                        <SearchResults cloudData={data}></SearchResults>
+                    </div>
+                </CloudPageContextProvider>
+            </Suspense>
         </>)
 }
 type cloudPropsType = {
-    data: dataType;
+    data: consolidatedDataType[];
 };
 export default Index
 export async function getStaticProps() {
@@ -43,12 +44,54 @@ export async function getStaticProps() {
     });
     redis_client.on('error', (err) => console.log('Redis Client Error', err));
     await redis_client.connect();
-    let data = JSON.parse(await redis_client.get("portfolio_data") || "{}");
-    await redis_client.disconnect();
+    let { info: { cloud } } = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
     //let data: dataType = await require("./../public/data.json");
+    await redis_client.disconnect();
+    let cloudConsolidatedData = getConsolidatedData(cloud);
+
     return {
         props: {
-            data,
+            data: cloudConsolidatedData,
         },
     };
+}
+function getConsolidatedData({ firebase, azure, netlify }: cloudType): consolidatedDataType[] {
+    let consolidated: Array<consolidatedDataType> = [];
+    firebase.forEach(el => {
+        if (el.imgSrc)
+            consolidated.push({ imgSrc: el.imgSrc, url: el.url || "", description: el.description || "", title: "FIREBASE" });
+        if (el.other)
+            el.other.forEach(inEl => {
+                if (inEl.imgSrc)
+                    consolidated.push({
+                        imgSrc: inEl.imgSrc, url: inEl.url || "", description: inEl.description || "",
+                        title: "FIREBASE"
+                    })
+            })
+    });
+    netlify.forEach(el => {
+        if (el.imgSrc)
+            consolidated.push({ imgSrc: el.imgSrc, url: el.url || "", description: el.description || "", title: "NETLIFY" });
+        if (el.other)
+            el.other.forEach(inEl => {
+                if (inEl.imgSrc)
+                    consolidated.push({
+                        imgSrc: inEl.imgSrc, url: inEl.url || "", description: inEl.description || "",
+                        title: "NETLIFY"
+                    })
+            })
+    });
+    azure.forEach(el => {
+        if (el.imgSrc)
+            consolidated.push({ imgSrc: el.imgSrc, url: el.url || "", description: el.description || "", title: "AZURE" });
+        if (el.other)
+            el.other.forEach(inEl => {
+                if (inEl.imgSrc)
+                    consolidated.push({
+                        imgSrc: inEl.imgSrc, url: inEl.url || "", description: inEl.description || "",
+                        title: "AZURE"
+                    })
+            })
+    });
+    return consolidated;
 }
