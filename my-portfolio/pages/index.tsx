@@ -5,6 +5,7 @@ import dataType from "../models/dataType";
 import Skills from "../components/Skills";
 import Nav from "../components/Nav";
 import Link from "next/link";
+import { createClient } from "redis";
 
 const Home: NextPage<homePropsType> = ({ data: { info } }) => {
 
@@ -47,7 +48,15 @@ const Home: NextPage<homePropsType> = ({ data: { info } }) => {
   );
 };
 export async function getStaticProps() {
-  let data: dataType = await require("./../public/data.json");
+  const redis_client = createClient({
+    url: process.env.REDIS_URL,
+    password: process.env.REDIS_PWD
+  });
+  redis_client.on('error', (err) => console.log('Redis Client Error', err));
+  await redis_client.connect();
+  let data = JSON.parse(await redis_client.get("portfolio_data") || "{}");
+  await redis_client.disconnect();
+  //let data: dataType = await require("./../public/data.json");
   return {
     props: {
       data,

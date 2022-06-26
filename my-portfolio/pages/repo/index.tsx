@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import RepoPageContextProvider from "../../contexts/RepoPageContext";
 import SearchResults from "../../components/RepoPage/SearchResults";
 import NavSearch from "../../components/RepoPage/NavSearch";
+import { createClient } from "redis";
 
 
 const Index: NextPage<repoPropsType> = ({ data: { info: { gitHub, codePen } } }) => {
@@ -48,7 +49,15 @@ type repoPropsType = {
 };
 export default Index
 export async function getStaticProps() {
-    let data: dataType = await require("../../public/data.json");
+    const redis_client = createClient({
+        url: process.env.REDIS_URL,
+        password: process.env.REDIS_PWD
+    });
+    redis_client.on('error', (err) => console.log('Redis Client Error', err));
+    await redis_client.connect();
+    let data = JSON.parse(await redis_client.get("portfolio_data") || "{}");
+    await redis_client.disconnect();
+    //let data: dataType = await require("./../public/data.json");
     return {
         props: {
             data,

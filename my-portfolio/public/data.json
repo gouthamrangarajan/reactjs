@@ -241,7 +241,7 @@
 	 {
           "order": 1,
           "imgSrc": "/imgs/cloud/Wordle.png",
-          "description": "Wordle clone implementation using React, Netlify functions(serverless), Vite & Tailwind CSS",
+          "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
           "url": "https://rg-wordle-clone.netlify.app/"
         },
         {
