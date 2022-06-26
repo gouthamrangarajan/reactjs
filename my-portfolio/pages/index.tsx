@@ -7,6 +7,7 @@ const Skills = React.lazy(() => import("../components/Skills"));
 const Nav = React.lazy(() => import("../components/Nav"));
 import Link from "next/link";
 import { createClient } from "redis";
+import Loader from "../components/Loader";
 
 
 const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
@@ -22,7 +23,7 @@ const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
         <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
         <link href="/manifest.json" rel="manifest"></link>
       </Head>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={<Loader></Loader>}>
         <div className="flex flex-col min-h-screen">
           <Header media={media}></Header>
           <div className="mt-4 w-full pb-16 lg:pb-4">

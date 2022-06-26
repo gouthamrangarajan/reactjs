@@ -7,6 +7,7 @@ const CloudPageContextProvider = React.lazy(() => import("../../contexts/CloudPa
 import dataType, { cloudType, consolidatedDataType } from "../../models/dataType";
 const NavSearch = React.lazy(() => import("../../components/CloudPage/NavSearch"));
 import { createClient } from "redis";
+import Loader from "../../components/Loader";
 
 
 
@@ -23,7 +24,7 @@ const Index: NextPage<cloudPropsType> = ({ data }) => {
                 <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
                 <link href="/manifest.json" rel="manifest"></link>
             </Head>
-            <Suspense fallback={<></>}>
+            <Suspense fallback={<Loader></Loader>}>
                 <CloudPageContextProvider>
                     <div className="w-full bg-slate-700 flex flex-col">
                         <Nav menu={<NavSearch></NavSearch>}></Nav>

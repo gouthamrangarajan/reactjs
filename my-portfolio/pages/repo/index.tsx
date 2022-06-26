@@ -7,6 +7,7 @@ const RepoPageContextProvider = React.lazy(() => import("../../contexts/RepoPage
 const SearchResults = React.lazy(() => import("../../components/RepoPage/SearchResults"));
 const NavSearch = React.lazy(() => import("../../components/RepoPage/NavSearch"));
 import { createClient } from "redis";
+import Loader from "../../components/Loader";
 
 
 const Index: NextPage<repoPropsType> = ({ data }) => {
@@ -22,7 +23,7 @@ const Index: NextPage<repoPropsType> = ({ data }) => {
                 <link href="/favicon.ico" rel="icon" type="image/x-icon"></link>
                 <link href="/manifest.json" rel="manifest"></link>
             </Head>
-            <Suspense fallback={<></>}>
+            <Suspense fallback={<Loader></Loader>}>
                 <RepoPageContextProvider>
                     <div className="w-full bg-slate-700 flex flex-col">
                         <Nav menu={<NavSearch></NavSearch>}></Nav>
