@@ -19,12 +19,9 @@ const Header: NextPage<headerPropType> = ({ media }) => {
       </div>
       <motion.div className="flex flex-col items-center justify-center" variants={headerTextParent}
         initial="hidden" animate="show">
-        <HeaderText classes="font-semibold text-3xl h-12" text="Goutham Rangarajan">
-        </HeaderText>
-        <HeaderText classes="italic font-semibold tracking-wider" text="RG">
-        </HeaderText>
-        <HeaderText classes="text-lg" text="Front-end enthusiast">
-        </HeaderText>
+        <HeaderText classes="font-semibold text-3xl h-12" text="Goutham Rangarajan"></HeaderText>
+        <HeaderText classes="italic font-semibold tracking-wider" text="RG"></HeaderText>
+        <HeaderText classes="text-lg" text="Front-end enthusiast"></HeaderText>
       </motion.div>
       <motion.div className="flex space-x-2" variants={staggerParent} initial="hidden" animate="show">
         {media.map(med => (
