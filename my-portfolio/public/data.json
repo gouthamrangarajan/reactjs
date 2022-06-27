@@ -121,6 +121,12 @@
       {
         "items": [
           {
+            "url":"https://github.com/gouthamrangarajan/reactjs/tree/main/react-tailwind-multi-step-form",
+            "title":"React Multi Step Form",
+            "imgSrc":"/imgs/github/ReactMultiStep.gif",
+            "description":"Multi step form using React, Tailwind CSS & Framer Motion"
+          },
+          {
             "url": "https://github.com/gouthamrangarajan/Azure/tree/main/Serverless-UI",
             "title": "Azure Serverless UI",
             "imgSrc": "/imgs/github/Serverless-UI.png",

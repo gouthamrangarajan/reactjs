@@ -60,7 +60,7 @@ function getConsolidatedData({ info: { gitHub, codePen } }: dataType): consolida
     gitHub.forEach(el => {
         el.items?.forEach(item => {
             if (item.imgSrc)
-                consolidated.push({ imgSrc: item.imgSrc, url: item.url || "", description: item.description, title: "GITHUB" });
+                consolidated.push({ imgSrc: item.imgSrc, url: item.url || "", description: item.description || "", title: "GITHUB" });
         });
     });
     codePen.forEach(el => {
