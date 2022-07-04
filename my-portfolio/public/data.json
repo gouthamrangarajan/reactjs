@@ -199,7 +199,7 @@
       "firebase": [
         {
           "order":1,
-          "imgSrc": "/imgs/cloud/React_Drive.png",
+          "imgSrc": "/imgs/cloud/React_Drive.gif",
           "description": "A PWA drive using Vite, React, TailwindCSS and Firebase to store and access files and folders.",
           "url": "https://react-drive-2fd13.web.app/"
         },
