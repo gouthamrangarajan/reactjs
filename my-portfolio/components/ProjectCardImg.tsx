@@ -5,7 +5,7 @@ const ProjectCardImg: NextPage<projectCardImgPropsType> = ({ src, alt }) => {
         <img
             key={src}
             src={src}
-            className="object-fill rounded-xl"
+            className="object-fill rounded-b-xl"
             alt={alt}
         />
 
