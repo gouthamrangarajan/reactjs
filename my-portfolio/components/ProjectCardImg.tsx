@@ -1,12 +1,14 @@
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 
 const ProjectCardImg: NextPage<projectCardImgPropsType> = ({ src, alt }) => {
     return (
-        <img
+        <motion.img
             key={src}
             src={src}
             className="object-fill rounded-b-xl"
             alt={alt}
+            layout="position"
         />
 
     )
