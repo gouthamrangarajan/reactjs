@@ -121,6 +121,12 @@
       {
         "items": [
           {
+            "url":"https://github.com/gouthamrangarajan/vuejs/tree/master/vuetify-file-upload",
+            "title":"Vuetify File Input + Drag & Drop File Upload",            
+            "imgSrc":"/imgs/github/VuetifyFileUpload.png",
+            "description":"A simple Vuetify file input + drag and drop file upload"            
+          },
+          {
             "url":"https://github.com/gouthamrangarajan/reactjs/tree/main/react-tailwind-multi-step-form",
             "title":"React Multi Step Form",
             "imgSrc":"/imgs/github/ReactMultiStep.png",
