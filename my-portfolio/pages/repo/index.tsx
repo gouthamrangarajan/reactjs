@@ -3,12 +3,11 @@ import { NextPage } from "next";
 import Head from "next/head";
 const Nav = React.lazy(() => import("../../components/Nav"));
 import dataType, { consolidatedDataType } from "../../models/dataType";
-const RepoPageContextProvider = React.lazy(() => import("../../contexts/RepoPageContext"));
+const RepoPageContextProvider = React.lazy(() => import("../../contexts/RepoPageContextProvider"));
 const SearchResults = React.lazy(() => import("../../components/RepoPage/SearchResults"));
 const NavSearch = React.lazy(() => import("../../components/RepoPage/NavSearch"));
 import { createClient } from "redis";
 import Loader from "../../components/Loader";
-
 
 const Index: NextPage<repoPropsType> = ({ data }) => {
     return (

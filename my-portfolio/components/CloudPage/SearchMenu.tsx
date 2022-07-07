@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { CloudPageActionContext } from "../../contexts/CloudPageContext"
+import { CloudPageActionContext } from "../../contexts/CloudPageContextProvider"
 
 const SearchMenu = () => {
     let dispatch = useContext(CloudPageActionContext);

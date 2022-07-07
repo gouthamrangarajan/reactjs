@@ -3,13 +3,11 @@ import { NextPage } from "next";
 import Head from "next/head";
 const SearchResults = React.lazy(() => import("../../components/CloudPage/SearchResults"));
 const Nav = React.lazy(() => import("../../components/Nav"));
-const CloudPageContextProvider = React.lazy(() => import("../../contexts/CloudPageContext"));
+const CloudPageContextProvider = React.lazy(() => import("../../contexts/CloudPageContextProvider"));
 import dataType, { cloudType, consolidatedDataType } from "../../models/dataType";
 const NavSearch = React.lazy(() => import("../../components/CloudPage/NavSearch"));
 import { createClient } from "redis";
 import Loader from "../../components/Loader";
-
-
 
 const Index: NextPage<cloudPropsType> = ({ data }) => {
     return (

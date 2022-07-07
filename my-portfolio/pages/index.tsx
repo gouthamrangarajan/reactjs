@@ -9,7 +9,6 @@ import Link from "next/link";
 import { createClient } from "redis";
 import Loader from "../components/Loader";
 
-
 const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
   return (
     <>

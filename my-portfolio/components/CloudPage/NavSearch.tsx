@@ -1,7 +1,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import React, { Fragment, useContext } from 'react'
-import { CloudPageActionContext, CloudPageContext } from '../../contexts/CloudPageContext'
+import { CloudPageActionContext, CloudPageContext } from '../../contexts/CloudPageContextProvider'
 import SearchTxt from '../SearchTxt'
 import SearchMenu from './SearchMenu'
 

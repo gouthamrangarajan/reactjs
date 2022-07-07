@@ -1,29 +1,52 @@
 import { NextPage } from "next"
-import { useContext, useEffect, useState } from "react";
-import { RepoPageContext } from "../../contexts/RepoPageContext";
+import React from "react";
+import { Suspense, useContext, useEffect, useState, useTransition } from "react";
+import { RepoPageContext } from "../../contexts/RepoPageContextProvider";
 import { consolidatedDataType } from "../../models/dataType"
+import { AppContext } from "../../pages/_app";
+const Loader = React.lazy(() => import("../Loader"));
 import ProjectCardList from "../ProjectCardList"
 
 const SearchResults: NextPage<searchResultsPropsType> = ({ cloudData }) => {
     let [cardListData, setCardListData] = useState<consolidatedDataType[]>(cloudData);
     let { repoFilter, textFilter } = useContext(RepoPageContext);
+    let [isPendingTransition, startTransition] = useTransition();
+    let { scrollEl } = useContext(AppContext);
+
     useEffect(() => {
-        setCardListData(cloudData);
-        if (repoFilter != "")
-            setCardListData(cloudData.filter(el => el.title.toLowerCase() == repoFilter.toLowerCase()));
-        else if (textFilter != "")
-            setCardListData(cloudData.filter(el => el.description?.toLowerCase().includes(textFilter.toLowerCase())
-                || el.title.toLowerCase().includes(textFilter.toLowerCase())
-                || el.url.toLowerCase().includes(textFilter.toLowerCase())
-            ));
-    }, [cloudData, repoFilter, textFilter, setCardListData])
-    return (
+        if (scrollEl && scrollEl.current)
+            scrollEl.current.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        startTransition(() => {
+            setCardListData(getCardListData(cloudData, repoFilter, textFilter));
+        });
+    }, [cloudData, repoFilter, textFilter, setCardListData]);
+
+    return (<>
         <div className="p-1 lg:py-2 lg:px-4 w-full mt-1 min-h-screen">
             <ProjectCardList data={cardListData}></ProjectCardList>
         </div>
+        <Suspense fallback={<></>}>
+            {isPendingTransition &&
+                <Loader transparent></Loader>
+            }
+        </Suspense>
+    </>
     )
 }
 type searchResultsPropsType = {
     cloudData: consolidatedDataType[]
 }
 export default SearchResults
+
+function getCardListData(cloudData: consolidatedDataType[], repoFilter: string,
+    textFilter: string) {
+    let dt: consolidatedDataType[] = cloudData;
+    if (repoFilter != "")
+        dt = (cloudData.filter(el => el.title.toLowerCase() == repoFilter.toLowerCase()));
+    else if (textFilter != "")
+        dt = (cloudData.filter(el => el.description?.toLowerCase().includes(textFilter.toLowerCase())
+            || el.title.toLowerCase().includes(textFilter.toLowerCase())
+            || el.url.toLowerCase().includes(textFilter.toLowerCase())
+        ));
+    return dt;
+}

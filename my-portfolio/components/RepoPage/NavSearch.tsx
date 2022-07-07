@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { RepoPageActionContext, RepoPageContext } from '../../contexts/RepoPageContext'
+import { RepoPageActionContext, RepoPageContext } from '../../contexts/RepoPageContextProvider'
 import SearchTxt from '../SearchTxt';
 
 

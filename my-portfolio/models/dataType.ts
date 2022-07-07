@@ -1,3 +1,5 @@
+import React from "react";
+
 export default interface dataType {
   info: {
     about: string;
@@ -65,4 +67,8 @@ export type repoPageContextType = {
 export type reducerActionType<T> = {
   name: string;
   payload?: T;
+}
+
+export type appContextType = {
+  scrollEl: React.MutableRefObject<HTMLElement | undefined> | undefined;
 }

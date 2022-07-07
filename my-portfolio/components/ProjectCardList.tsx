@@ -12,7 +12,7 @@ const ProjectCardList: NextPage<projectCardListPropsType> = ({
 }) => {
   return (
     <motion.div className="p-1 grid grid-cols-1 xl:grid-cols-2 gap-3 items-center xl:items-stretch justify-center"
-      variants={staggerParent} initial="hidden" animate="show" layout="position">
+      variants={staggerParent} initial="hidden" animate="show" layout>
       {data.map(el =>
       (<motion.div className="w-full" key={el.url} variants={staggerChild} layout="position">
         <ProjectCard data={el} title={el.title}></ProjectCard>
