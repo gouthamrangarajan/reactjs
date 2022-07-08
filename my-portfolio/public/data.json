@@ -53,22 +53,7 @@
         "url": "https://codepen.io/GouthamRangarajan/full/mdmLZvq",
         "imgSrc": "/imgs/codepen/CodePen13.png",
         "title": "Vue 3 Tailwind Switch"
-      },
-      {
-        "url": "https://codepen.io/GouthamRangarajan/full/ZEevQPK",
-        "imgSrc": "/imgs/codepen/CodePen12.png",
-        "title": "Vue 3 DropDown Nav"
-      },
-      {
-        "url": "https://codepen.io/GouthamRangarajan/full/GRraaYr",
-        "imgSrc": "/imgs/codepen/CodePen11.png",
-        "title": "Vue 3 Render Function"
-      },
-      {
-        "url": "https://codepen.io/GouthamRangarajan/full/yLaGRzM",
-        "imgSrc": "/imgs/codepen/CodePen10.png",
-        "title": "Vue 3 DataGrid"
-      },
+      },               
       {
         "url": "https://codepen.io/GouthamRangarajan/full/BazXNgQ",
         "imgSrc": "/imgs/codepen/CodePen9.png",
@@ -167,37 +152,13 @@
             "title": "Date Range Picker",
             "imgSrc": "/imgs/github/DateRangePicker.png",
             "description": "Date Range Picker using Vue 3, Composition Api & Tailwind CSS"
-          },
-          {
-            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/nuxt-auth-101",
-            "title": "Nuxt Auth",
-            "imgSrc": "/imgs/github/NuxtAuth.png",
-            "description": "Simple Authorization implementation in nuxt using @nuxt/auth"
-          },
+          },          
           {
             "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-bulma-lightbox-nasa",
             "title": "Vue LightBox",
             "imgSrc": "/imgs/github/LightBox.png",
             "description": "Lightbox implementation using Vue & Bulma CSS"
-          },
-          {
-            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/WebApi%2BBackgroundTask",
-            "title": "WebApi+BackgroundTask",
-            "imgSrc": "/imgs/github/WebApi_BackgroundWorker.png",
-            "description": ".Net core web api + worker template example. Webapi + background task hosted on same instance"
-          },
-          {
-            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/RoutesSearchUsingGraph",
-            "title": "Graph Data Structure in Asp.Net",
-            "imgSrc": "/imgs/github/Graph.png",
-            "description": "C# graph implementation to add and traverse routes. First searches fastest route using BFS and then searches all routes using DFS"
-          },
-          {
-            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AutoSuggestUsingTrie",
-            "title": "Trie Data Structure in Asp.Net",
-            "imgSrc": "/imgs/github/Trie.png",
-            "description": "Trie in c#, ui autosuggest goes to server for suggestion. Two tries one from simple countries collection and another from 2 mb lorem ipsum file."
-          }
+          }               
         ]
       }
     ],
@@ -238,16 +199,7 @@
           "imgSrc": "/imgs/cloud/Chat.png",
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://vue-superchat.web.app/"
-        },
-        {
-          "other": [
-            {
-              "order": 6,
-              "url": "https://grocery-list-c0614.web.app/",
-              "imgSrc": "/imgs/cloud/GL.png"
-            }
-          ]
-        }
+        }       
       ],
       "netlify": [
 	 {
