@@ -25,6 +25,11 @@
     ],
     "codePen": [
       {
+        "url":"https://codepen.io/GouthamRangarajan/full/mdxPROp",
+        "imgSrc":"/imgs/codepen/CodePen19.png",
+        "title":"Vue 3 Cart"
+      },
+      {
         "url":"https://codepen.io/GouthamRangarajan/full/yLvwRyx",
         "imgSrc":"/imgs/codepen/CodePen18.png",
         "title":"Vuetify Datatable with Server side pagination"
