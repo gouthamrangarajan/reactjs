@@ -21,7 +21,9 @@
       {"name":"Firebase Functions","imgSrc":"imgs/skills/firebase_function.png"},
       {"name":"Netlify","imgSrc":"imgs/skills/netlify.png"},
       {"name":"Azure","imgSrc":"imgs/skills/azure.png"},
-      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"}
+      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"},
+      {"name":"Cloudflare Workers","imgSrc":"imgs/skills/cloudflare_workers.jpg"},
+      {"name":"Cloudflare Pages","imgSrc":"imgs/skills/cloudflare_pages.png"}
     ],
     "codePen": [
       {
@@ -167,7 +169,7 @@
         ]
       }
     ],
-    "cloud": {
+    "cloud": {      
       "firebase": [
         {
           "order":1,
@@ -205,6 +207,14 @@
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://vue-superchat.web.app/"
         }       
+      ],
+      "cloudflare": [
+        {
+             "order": 1,
+             "imgSrc": "/imgs/cloud/Notes.png",
+             "description": "A simple notes tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database",
+             "url": "http://rg-notes.pages.dev/"
+        }
       ],
       "netlify": [
 	 {

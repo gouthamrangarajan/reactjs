@@ -29,6 +29,7 @@ export interface cloudType {
   firebase: cloudArrayType[];
   azure: cloudArrayType[];
   netlify: cloudArrayType[];
+  cloudflare: cloudArrayType[];
 }
 export interface cloudArrayType {
   order?: number;

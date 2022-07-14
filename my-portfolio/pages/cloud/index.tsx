@@ -54,7 +54,7 @@ export async function getStaticProps() {
         },
     };
 }
-function getConsolidatedData({ firebase, azure, netlify }: cloudType): consolidatedDataType[] {
+function getConsolidatedData({ firebase, azure, netlify, cloudflare }: cloudType): consolidatedDataType[] {
     let consolidated: Array<consolidatedDataType> = [];
     firebase.forEach(el => {
         if (el.imgSrc)
@@ -65,6 +65,18 @@ function getConsolidatedData({ firebase, azure, netlify }: cloudType): consolida
                     consolidated.push({
                         imgSrc: inEl.imgSrc, url: inEl.url || "", description: inEl.description || "",
                         title: "FIREBASE"
+                    })
+            })
+    });
+    cloudflare.forEach(el => {
+        if (el.imgSrc)
+            consolidated.push({ imgSrc: el.imgSrc, url: el.url || "", description: el.description || "", title: "CLOUDFLARE" });
+        if (el.other)
+            el.other.forEach(inEl => {
+                if (inEl.imgSrc)
+                    consolidated.push({
+                        imgSrc: inEl.imgSrc, url: inEl.url || "", description: inEl.description || "",
+                        title: "NETLIFY"
                     })
             })
     });
