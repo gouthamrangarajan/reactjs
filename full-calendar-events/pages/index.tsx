@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Calendar from '../components/Calendar'
+import MonthCalendar from '../components/Month'
 import Nav from '../components/Home/Nav'
 import SidePanel from '../components/Home/SidePanel'
 import CalendarContextProvider from '../contexts/CalendarContextProvider'
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           <div className='flex'>
             <SidePanel></SidePanel>
             <div className='flex-1'>
-              <Calendar></Calendar>
+              <MonthCalendar></MonthCalendar>
             </div>
           </div>
         </DragItemContextProvider>
