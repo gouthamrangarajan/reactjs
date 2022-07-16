@@ -3,7 +3,8 @@ import Head from 'next/head'
 import Calendar from '../components/Calendar'
 import Nav from '../components/Home/Nav'
 import SidePanel from '../components/Home/SidePanel'
-import HomeContextProvider from '../contexts/HomeContextProvider'
+import CalendarContextProvider from '../contexts/CalendarContextProvider'
+import DragItemContextProvider from '../contexts/DragItemContextProvider'
 
 const Home: NextPage = () => {
   return (
@@ -13,15 +14,17 @@ const Home: NextPage = () => {
         <meta name="description" content="Full Calendar Events" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeContextProvider>
-        <Nav></Nav>
-        <div className='flex'>
-          <SidePanel></SidePanel>
-          <div className='flex-1'>
-            <Calendar></Calendar>
+      <CalendarContextProvider>
+        <DragItemContextProvider>
+          <Nav></Nav>
+          <div className='flex'>
+            <SidePanel></SidePanel>
+            <div className='flex-1'>
+              <Calendar></Calendar>
+            </div>
           </div>
-        </div>
-      </HomeContextProvider>
+        </DragItemContextProvider>
+      </CalendarContextProvider>
     </>
   )
 }

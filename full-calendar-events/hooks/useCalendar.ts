@@ -1,12 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CalendarActionContext, CalendarContext } from "../contexts/CalendarContextProvider";
 import { calendarDataType } from "../model";
 
 export default function useCalendar(): useCalendarReturnType {
     let dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    let dayNamesShort = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     let monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let monthNames = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
     let [weeksData, setWeeksData] = useState<calendarDataType>([]);
-    let [currYear, setCurrYear] = useState(new Date().getFullYear());
-    let [currMonthIndex, setCurrMonthIndex] = useState(new Date().getMonth());
+
+    let { currYear, currMonthIndex } = useContext(CalendarContext);
+    let dispatch = useContext(CalendarActionContext);
+
+    let [prevYear, setPrevYear] = useState(new Date().getFullYear());
+    let [prevMonthIndex, setPrevMonthIndex] = useState(new Date().getMonth());
+
+    let nextMonth = () => {
+        dispatch({ name: "INCREASE_MONTH", payload: undefined });
+    }
+
+    let prevMonth = () => {
+        dispatch({ name: "REDUCE_MONTH", payload: undefined });
+    }
+
+    let today = () => {
+        dispatch({ name: "SET_TODAY", payload: undefined });
+    }
 
     useEffect(() => {
         var retDt: calendarDataType = [];
@@ -49,15 +69,31 @@ export default function useCalendar(): useCalendarReturnType {
         setWeeksData(retDt);
     }, [currYear, currMonthIndex]);
 
-    return { dayNames, monthNamesShort, weeksData, currYear, currMonthIndex, setCurrYear, setCurrMonthIndex };
+    useEffect(() => {
+        setPrevYear(currYear);
+    }, [currYear]);
+
+    useEffect(() => {
+        setPrevMonthIndex(currMonthIndex);
+    }, [currMonthIndex]);
+
+    return {
+        dayNames, dayNamesShort, monthNames, monthNamesShort, weeksData,
+        currYear, prevYear, currMonthIndex, prevMonthIndex, nextMonth, prevMonth, today
+    };
 }
 
 type useCalendarReturnType = {
     dayNames: string[];
+    dayNamesShort: string[];
+    monthNames: string[],
     monthNamesShort: string[];
     weeksData: calendarDataType;
     currYear: number;
+    prevYear: number;
     currMonthIndex: number;
-    setCurrYear: (val: number) => void;
-    setCurrMonthIndex: (val: number) => void;
+    prevMonthIndex: number;
+    nextMonth: () => void;
+    prevMonth: () => void;
+    today: () => void;
 }

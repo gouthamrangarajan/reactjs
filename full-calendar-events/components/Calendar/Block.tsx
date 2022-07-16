@@ -1,12 +1,12 @@
 import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
 import { EventsActionContext } from "../../contexts/EventsContextProvider";
-import { HomeActionsContext, HomeContext } from "../../contexts/HomeContextProvider";
+import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
 
 
-function Td({ children, date, allowDrop }: TdPropsType) {
+function Block({ children, date, allowDrop }: BlockPropsType) {
     let tdEl = useRef<HTMLTableDataCellElement>();
-    let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(HomeContext);
-    let { setDateAndDraggedItemRelation } = useContext(HomeActionsContext);
+    let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(DragItemContext);
+    let { setDateAndDraggedItemRelation } = useContext(DragItemActionsContext);
     let [showDrop, setShowDrop] = useState(false);
     let dispatch = useContext(EventsActionContext);
 
@@ -47,9 +47,9 @@ function Td({ children, date, allowDrop }: TdPropsType) {
         </td>
     )
 }
-type TdPropsType = {
+type BlockPropsType = {
     children: React.ReactNode | React.ReactNode[];
     date: Date;
     allowDrop: boolean;
 }
-export default Td
+export default Block

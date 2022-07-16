@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
-import { calendarEventType, homeActionsContextType, homeContextType, positionType } from "../model";
+import { calendarEventType, dragItemActionsContextType, dragItemContextType, positionType } from "../model";
 import datesAndDraggedItemRelationReducer from "../reducers/datesAndDraggedItemRelationReducer";
 import { EventsActionContext } from "./EventsContextProvider";
 
-export const HomeContext = createContext<homeContextType>({
+export const DragItemContext = createContext<dragItemContextType>({
     positionOfDraggedItem: { x: 0, y: 0 },
     draggedItemData: { id: 0, title: '', randomIdForUIKey: '' },
     anyItemDragged: false,
@@ -11,14 +11,14 @@ export const HomeContext = createContext<homeContextType>({
     datesAndDraggedItemRelation: []
 });
 
-export const HomeActionsContext = createContext<homeActionsContextType>({
+export const DragItemActionsContext = createContext<dragItemActionsContextType>({
     setDraggedItemData: () => { },
     setAnyItemDragged: () => { },
     setPositionOfDraggedItem: () => { },
     setDateAndDraggedItemRelation: () => { }
 })
 
-function HomeContextProvider({ children }: ContextProviderProps) {
+function DragItemContextProvider({ children }: ContextProviderProps) {
     let [positionOfDraggedItem, setPositionOfDraggedItem] = useState<positionType>({ x: 0, y: 0 });
     let [draggedItemData, setDraggedItemData] = useState<calendarEventType>({ id: 0, title: '', randomIdForUIKey: '' });
     let [anyItemDragged, setAnyItemDragged] = useState(false);
@@ -59,17 +59,17 @@ function HomeContextProvider({ children }: ContextProviderProps) {
     }, [anyItemDragged]);
 
     return (
-        <HomeContext.Provider value={{
+        <DragItemContext.Provider value={{
             positionOfDraggedItem, draggedItemData, anyItemDragged,
             dragConstraintEl: containerEl as React.Ref<HTMLDivElement>,
             datesAndDraggedItemRelation
         }}>
-            <HomeActionsContext.Provider value={{ setDraggedItemData, setAnyItemDragged, setPositionOfDraggedItem, setDateAndDraggedItemRelation }}>
+            <DragItemActionsContext.Provider value={{ setDraggedItemData, setAnyItemDragged, setPositionOfDraggedItem, setDateAndDraggedItemRelation }}>
                 <div ref={containerEl as React.Ref<HTMLDivElement>}>
                     {children}
                 </div>
-            </HomeActionsContext.Provider>
-        </HomeContext.Provider>
+            </DragItemActionsContext.Provider>
+        </DragItemContext.Provider>
     )
 }
 
@@ -77,4 +77,4 @@ type ContextProviderProps = {
     children: React.ReactNode | React.ReactNode[];
 }
 
-export default HomeContextProvider
+export default DragItemContextProvider

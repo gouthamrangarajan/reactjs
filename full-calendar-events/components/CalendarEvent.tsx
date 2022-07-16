@@ -1,12 +1,12 @@
 import { motion } from "framer-motion"
 import { useContext, useRef } from "react";
-import { HomeActionsContext, HomeContext } from "../contexts/HomeContextProvider"
+import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider"
 import { calendarEventType } from "../model";
 
 
 function CalendarEvent({ info, width, padding }: CalendarEventPropsType) {
-  let { dragConstraintEl } = useContext(HomeContext);
-  let { setAnyItemDragged, setDraggedItemData } = useContext(HomeActionsContext);
+  let { dragConstraintEl } = useContext(DragItemContext);
+  let { setAnyItemDragged, setDraggedItemData } = useContext(DragItemActionsContext);
   let el = useRef<HTMLDivElement>();
 
   return (
@@ -22,7 +22,7 @@ function CalendarEvent({ info, width, padding }: CalendarEventPropsType) {
         setDraggedItemData(info);
       }}
       ref={el as React.Ref<HTMLDivElement>}
-      layoutId={info.id.toString()}
+      layout="position"
     >
       {info.title}
     </motion.div>

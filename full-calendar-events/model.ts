@@ -6,7 +6,7 @@ export type positionType = { x: number, y: number };
 
 export type calendarEventType = { id: number, title: string, randomIdForUIKey: string, date?: Date }
 
-export type homeContextType = {
+export type dragItemContextType = {
     positionOfDraggedItem: positionType,
     draggedItemData: calendarEventType;
     anyItemDragged: boolean;
@@ -16,12 +16,18 @@ export type homeContextType = {
 export type datesAndDraggedItemRelationType = Array<{ date: Date, draggedItemInPlace: boolean }>;
 
 
-export type homeActionsContextType = {
+export type dragItemActionsContextType = {
     setDraggedItemData: (item: calendarEventType) => void;
     setAnyItemDragged: (val: boolean) => void;
     setPositionOfDraggedItem: (position: positionType) => void;
     setDateAndDraggedItemRelation: Dispatch<reducerActionType>;
 }
+
+export type calendarContextType = {
+    currYear: number;
+    currMonthIndex: number;
+}
+export type calendarActionContextType = Dispatch<reducerActionType>;
 
 export type reducerActionType = {
     name: string;

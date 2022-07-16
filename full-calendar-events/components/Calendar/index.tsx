@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"
 import { calendarEventType } from "../../model";
 import CalendarEvent from "../CalendarEvent";
-import Td from "./Td";
+import Td from "./Block";
 
 
 function Calendar() {
-    let { weeksData, dayNames, monthNamesShort, currYear, currMonthIndex } = useCalendar();
+
+    let { weeksData, dayNames, monthNamesShort, currYear, prevYear, currMonthIndex, prevMonthIndex } = useCalendar();
     let events = useContext(EventsContext);
+
     return (
-        <motion.table className="table-fixed w-full bg-transparent">
+        <motion.table className="table-fixed w-full h-full bg-transparent overflow-hidden">
             <tbody>
                 {weeksData.map((dt, index) =>
-                (<tr key={`tr_${index}`}>
+                (<motion.tr key={`tr_${index}_${currMonthIndex}`}
+                    variants={prevYear < currYear || prevMonthIndex < currMonthIndex ? moveNext : movePrev}
+                    initial="initial" animate="animate">
                     {dt.map((idt, index1) =>
                     (
                         <Td key={`td_${index}_${index1}`} date={new Date(currYear, currMonthIndex, idt.date)}
@@ -36,7 +41,7 @@ function Calendar() {
                         </Td>
                     )
                     )}
-                </tr>)
+                </motion.tr>)
                 )}
             </tbody>
         </motion.table>
