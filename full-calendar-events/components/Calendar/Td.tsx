@@ -1,0 +1,55 @@
+import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
+import { EventsActionContext } from "../../contexts/EventsContextProvider";
+import { HomeActionsContext, HomeContext } from "../../contexts/HomeContextProvider";
+
+
+function Td({ children, date, allowDrop }: TdPropsType) {
+    let tdEl = useRef<HTMLTableDataCellElement>();
+    let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(HomeContext);
+    let { setDateAndDraggedItemRelation } = useContext(HomeActionsContext);
+    let [showDrop, setShowDrop] = useState(false);
+    let dispatch = useContext(EventsActionContext);
+
+    useEffect(() => {
+        if (!anyItemDragged && showDrop) { //dropped here            
+            dispatch({ name: 'SET_DATE', payload: { id: draggedItemData.id, date } })
+            setShowDrop(false);
+        }
+    }, [anyItemDragged]);
+
+    useEffect(() => {
+        if (tdEl.current && allowDrop) {
+            let { x: elX, y: elY, height: elHeight, width: elWidth } =
+                tdEl.current.getBoundingClientRect();
+            let { x, y } = positionOfDraggedItem;
+            if (x >= elX && x <= (elX + elWidth) && y >= elY && y <= (elY + elHeight)) {
+                setShowDrop(true);
+                setDateAndDraggedItemRelation({ name: 'IN_PLACE', payload: date });
+            }
+            else {
+                setShowDrop(false);
+                setDateAndDraggedItemRelation({ name: 'OUT_PLACE', payload: date });
+            }
+        }
+    }, [positionOfDraggedItem.x, positionOfDraggedItem.y]);
+
+    return (
+        <td className={`text-sm cursor-pointer transition-all duration-300
+         ${showDrop ? "border-2 border-dashed border-indigo-500" :
+                "border-gray-300 border-l border-b"}`}
+            ref={tdEl as LegacyRef<HTMLTableDataCellElement>}
+        >
+            <div className={`flex flex-col space-y-1 items-center h-32 
+                ${!anyItemDragged ? "overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300"
+                    : ""}`}>
+                {children}
+            </div>
+        </td>
+    )
+}
+type TdPropsType = {
+    children: React.ReactNode | React.ReactNode[];
+    date: Date;
+    allowDrop: boolean;
+}
+export default Td
