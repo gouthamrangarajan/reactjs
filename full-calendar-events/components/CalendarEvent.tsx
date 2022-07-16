@@ -13,11 +13,11 @@ function CalendarEvent({ info, width, padding }: CalendarEventPropsType) {
     <motion.div drag className={`${width} ${padding} mx-auto bg-indigo-600 text-white text-sm rounded shadow 
             cursor-pointer truncate`}
       whileDrag={{ scale: 0.9 }} dragConstraints={dragConstraintEl as React.RefObject<Element>}
-      onMouseDown={() => {
-        setAnyItemDragged(true);
-        setDraggedItemData(info);
+      // onDrag={callBackDrag}// does not work
+      onDragEnd={() => {
+        setAnyItemDragged(false);
       }}
-      onTouchStart={() => {
+      onDragStart={() => {
         setAnyItemDragged(true);
         setDraggedItemData(info);
       }}

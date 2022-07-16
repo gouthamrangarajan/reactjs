@@ -37,9 +37,7 @@ function DragItemContextProvider({ children }: ContextProviderProps) {
             if (anyItemDragged)
                 setPositionOfDraggedItem({ x: ev.touches[0].clientX, y: ev.touches[0].clientY });
         });
-        let mouseUpOrTouchEnd = (() => {
-            setAnyItemDragged(false);
-        });
+
         if (!anyItemDragged) {
             if (datesAndDraggedItemRelation.filter(el => el.draggedItemInPlace).length == 0) {
                 eventDispatch({ name: 'REMOVE_AND_ADD', payload: draggedItemData.id })
@@ -50,11 +48,9 @@ function DragItemContextProvider({ children }: ContextProviderProps) {
         }
         window.addEventListener('mousemove', mouseMove);
         window.addEventListener('touchmove', touchMove);
-        window.addEventListener('mouseup', mouseUpOrTouchEnd);
         return () => {
             window.removeEventListener('mousemove', mouseMove);
             window.removeEventListener('touchmove', touchMove);
-            window.removeEventListener('mouseup', mouseUpOrTouchEnd);
         }
     }, [anyItemDragged]);
 
