@@ -15,14 +15,15 @@ function Block({ children, date, allowDrop }: BlockPropsType) {
             dispatch({ name: 'SET_DATE', payload: { id: draggedItemData.id, date } })
             setShowDrop(false);
         }
-    }, [anyItemDragged]);
+    }, [anyItemDragged, date, dispatch, draggedItemData.id, showDrop]);
 
     useEffect(() => {
         if (tdEl.current && allowDrop) {
             let { x: elX, y: elY, height: elHeight, width: elWidth } =
                 tdEl.current.getBoundingClientRect();
-            let { x, y } = positionOfDraggedItem;
-            if (x >= elX && x <= (elX + elWidth) && y >= elY && y <= (elY + elHeight)) {
+
+            if (positionOfDraggedItem.x >= elX && positionOfDraggedItem.x <= (elX + elWidth)
+                && positionOfDraggedItem.y >= elY && positionOfDraggedItem.y <= (elY + elHeight)) {
                 setShowDrop(true);
                 setDateAndDraggedItemRelation({ name: 'IN_PLACE', payload: date });
             }
@@ -31,7 +32,7 @@ function Block({ children, date, allowDrop }: BlockPropsType) {
                 setDateAndDraggedItemRelation({ name: 'OUT_PLACE', payload: date });
             }
         }
-    }, [positionOfDraggedItem.x, positionOfDraggedItem.y]);
+    }, [positionOfDraggedItem.x, positionOfDraggedItem.y, allowDrop, setDateAndDraggedItemRelation, date]);
 
     return (
         <td className={`text-sm cursor-pointer transition-all duration-300
