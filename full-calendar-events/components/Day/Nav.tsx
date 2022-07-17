@@ -1,9 +1,10 @@
 import React from 'react'
 import useCalendar from '../../hooks/useCalendar'
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid"
+import { getDayOfWeek } from '../../util';
 
 function Nav() {
-    let { today, prevDay, nextDay, currYear, monthNames, currMonthIndex, currDayOfTheMonth } = useCalendar();
+    let { today, prevDay, nextDay, currYear, monthNames, currMonthIndex, currDayOfTheMonth, dayNames } = useCalendar();
 
     return (
         <nav className='z-10 bg-white py-2 px-4 sticky top-0 border-b border-gray-300 h-16 flex items-center'>
@@ -25,7 +26,9 @@ function Nav() {
                         <ChevronRightIcon className='w-6 h-6'></ChevronRightIcon>
                     </button>
                 </div>
-                <span className='text-gray-600 text-lg font-semibold'>{currDayOfTheMonth} {monthNames[currMonthIndex]} {currYear}</span>
+                <span className='text-gray-600 text-lg font-semibold'>
+                    {getDayOfWeek(dayNames, currDayOfTheMonth, currMonthIndex, currYear)} {currDayOfTheMonth} {monthNames[currMonthIndex]} {currYear}
+                </span>
             </div>
         </nav>
     )

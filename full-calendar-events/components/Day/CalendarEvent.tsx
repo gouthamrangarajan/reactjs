@@ -32,7 +32,7 @@ function CalendarEvent({ time, index }: CalendarEventPropsType) {
             ></motion.div>
             <motion.div style={{ height: itemHeight }}
                 className={`bg-indigo-600 flex-1 rounded mt-2 -z-10 text-white ${timeRange != "" ? "py-1 px-3 " : ""}`}>
-                {timeRange && <span className="text-sm">{timeRange}</span>}
+                {timeRange && <span className="text-xs">{timeRange}</span>}
             </motion.div>
         </motion.div>
     )

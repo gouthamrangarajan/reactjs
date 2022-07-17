@@ -45,3 +45,7 @@ export const calculateTimeRange = (totalHeight: number, currTime: string, currIn
     }
     return timeRange;
 }
+
+export const getDayOfWeek = (dayNames: string[], dayOfTheMonth: number, monthIndex: number, year: number): string => {
+    return dayNames[new Date(year, monthIndex, dayOfTheMonth).getDay()];
+}
