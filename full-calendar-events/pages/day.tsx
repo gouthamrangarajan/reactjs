@@ -5,7 +5,6 @@ import Nav from "../components/Day/Nav";
 import SidePanel from "../components/Day/SidePanel";
 
 const Day: NextPage = () => {
-
     return (
         <>
             <Head>
