@@ -6,6 +6,7 @@ import useCalendar from "../../hooks/useCalendar"
 import { calendarEventType } from "../../model";
 import CalendarEvent from "./CalendarEvent";
 import Td from "./Block";
+import { compareAsc } from "date-fns";
 
 
 function Index() {
@@ -55,5 +56,13 @@ const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number,
         yr == el.date.getFullYear() && monthIdx == el.date.getMonth() && date == el.date.getDate()
     );
     ft = [...ft];
-    return ft.sort((a, b) => a > b ? 1 : -1);
+    return ft.sort((a, b) => {
+        if (a.date && b.date)
+            return compareAsc(a.date, b.date);
+        else if (a.date)
+            return 1;
+        else if (b.date)
+            return -1;
+        return 0;
+    });
 }
