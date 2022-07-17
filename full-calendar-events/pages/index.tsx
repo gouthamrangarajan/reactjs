@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import MonthCalendar from '../components/Month'
-import Nav from '../components/Home/Nav'
-import SidePanel from '../components/Home/SidePanel'
-import CalendarContextProvider from '../contexts/CalendarContextProvider'
+import Nav from '../components/Month/Nav'
+import SidePanel from '../components/Month/SidePanel'
 import DragItemContextProvider from '../contexts/DragItemContextProvider'
 
 const Home: NextPage = () => {
@@ -14,17 +13,15 @@ const Home: NextPage = () => {
         <meta name="description" content="Full Calendar Events" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CalendarContextProvider>
-        <DragItemContextProvider>
-          <Nav></Nav>
-          <div className='flex'>
-            <SidePanel></SidePanel>
-            <div className='flex-1'>
-              <MonthCalendar></MonthCalendar>
-            </div>
+      <DragItemContextProvider>
+        <Nav></Nav>
+        <div className='flex'>
+          <SidePanel></SidePanel>
+          <div className='flex-1'>
+            <MonthCalendar></MonthCalendar>
           </div>
-        </DragItemContextProvider>
-      </CalendarContextProvider>
+        </div>
+      </DragItemContextProvider>
     </>
   )
 }

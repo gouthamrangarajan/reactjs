@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { CalendarActionContext, CalendarContext } from "../contexts/CalendarContextProvider";
 import { calendarDataType } from "../model";
 
@@ -10,23 +10,36 @@ export default function useCalendar(): useCalendarReturnType {
 
     let [weeksData, setWeeksData] = useState<calendarDataType>([]);
 
-    let { currYear, currMonthIndex } = useContext(CalendarContext);
+    let { currYear, currMonthIndex, currDayOfTheMonth } = useContext(CalendarContext);
     let dispatch = useContext(CalendarActionContext);
 
     let [prevYear, setPrevYear] = useState(new Date().getFullYear());
     let [prevMonthIndex, setPrevMonthIndex] = useState(new Date().getMonth());
+    let [prevDayOftheMonth, setPrevDayOfMonth] = useState(new Date().getDate());
 
-    let nextMonth = () => {
-        dispatch({ name: "INCREASE_MONTH", payload: undefined });
-    }
+    let nextMonth = useCallback(() => {
+        dispatch({ name: "SET_NEXT_MONTH", payload: undefined });
+    }, []);
 
-    let prevMonth = () => {
-        dispatch({ name: "REDUCE_MONTH", payload: undefined });
-    }
+    let nextDay = useCallback(() => {
+        dispatch({ name: "SET_NEXT_DATE", payload: undefined });
+    }, []);
 
-    let today = () => {
+    let prevMonth = useCallback(() => {
+        dispatch({ name: "SET_PREVIOUS_MONTH", payload: undefined });
+    }, []);
+
+    let prevDay = useCallback(() => {
+        dispatch({ name: "SET_PREVIOUS_DATE", payload: undefined });
+    }, []);
+
+    let setDate = useCallback((dt: Date) => {
+        dispatch({ name: "SET_DATE", payload: dt });
+    }, []);
+
+    let today = useCallback(() => {
         dispatch({ name: "SET_TODAY", payload: undefined });
-    }
+    }, []);
 
     useEffect(() => {
         var retDt: calendarDataType = [];
@@ -77,9 +90,14 @@ export default function useCalendar(): useCalendarReturnType {
         setPrevMonthIndex(currMonthIndex);
     }, [currMonthIndex]);
 
+    useEffect(() => {
+        setPrevDayOfMonth(currDayOfTheMonth);
+    }, [currDayOfTheMonth])
+
     return {
         dayNames, dayNamesShort, monthNames, monthNamesShort, weeksData,
-        currYear, prevYear, currMonthIndex, prevMonthIndex, nextMonth, prevMonth, today
+        currYear, prevYear, currMonthIndex, prevMonthIndex, currDayOfTheMonth, prevDayOftheMonth,
+        nextMonth, prevMonth, today, nextDay, prevDay, setDate
     };
 }
 
@@ -93,7 +111,12 @@ type useCalendarReturnType = {
     prevYear: number;
     currMonthIndex: number;
     prevMonthIndex: number;
+    currDayOfTheMonth: number;
+    prevDayOftheMonth: number;
     nextMonth: () => void;
     prevMonth: () => void;
     today: () => void;
+    nextDay: () => void;
+    prevDay: () => void;
+    setDate: (dt: Date) => void;
 }

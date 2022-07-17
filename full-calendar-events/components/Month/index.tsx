@@ -4,11 +4,11 @@ import { moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"
 import { calendarEventType } from "../../model";
-import CalendarEvent from "../CalendarEvent";
+import CalendarEvent from "./CalendarEvent";
 import Td from "./Block";
 
 
-function Calendar() {
+function Index() {
 
     let { weeksData, dayNames, monthNamesShort, currYear, prevYear, currMonthIndex, prevMonthIndex } = useCalendar();
     let events = useContext(EventsContext);
@@ -48,7 +48,7 @@ function Calendar() {
     )
 }
 
-export default Calendar;
+export default Index;
 
 const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number, date: number): calendarEventType[] => {
     let ft = events.filter(el => el.date &&

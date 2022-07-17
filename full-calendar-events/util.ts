@@ -1,0 +1,1 @@
+export const getDateInStringFormat = (dt: Date): string => `${dt.getFullYear()}-${dt.getMonth() + 1}-${dt.getDate()}`

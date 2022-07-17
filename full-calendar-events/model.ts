@@ -26,6 +26,7 @@ export type dragItemActionsContextType = {
 export type calendarContextType = {
     currYear: number;
     currMonthIndex: number;
+    currDayOfTheMonth: number;
 }
 export type calendarActionContextType = Dispatch<reducerActionType>;
 
