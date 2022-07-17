@@ -1,44 +1,52 @@
 import { motion, PanInfo, useMotionValue } from "framer-motion"
-import { useCallback, useState } from "react"
-import { calculateTimeRange } from "../../util";
+import { useCallback, useEffect, useState } from "react";
+import { calendarEventType } from "../../model"
+import { calculateHeightFromTimeRange, calculateTimeRange } from "../../util";
 
-function CalendarEvent({ time, index }: CalendarEventPropsType) {
+
+function CalendarEvent({ event: { from, to, title }, index }: CalendarEventPropsType) {
+    const itemHeight = useMotionValue(calculateHeightFromTimeRange(from, to));
     let [timeRange, setTimeRange] = useState("");
-    const itemHeight = useMotionValue(1);
 
-    const handleDrag = useCallback((ev: MouseEvent | TouchEvent, info: PanInfo) => {
+    const handleDragBottom = useCallback((ev: MouseEvent | TouchEvent, info: PanInfo) => {
         let newHeight = itemHeight.get() + info.delta.y;
         itemHeight.set(newHeight);
-        let calculatedTimeRange = calculateTimeRange(newHeight, time, index);
-        if (calculatedTimeRange != time)
+        let calculatedTimeRange = calculateTimeRange(newHeight, from, index);
+        if (calculatedTimeRange != from)
             setTimeRange(calculatedTimeRange);
 
-    }, [index, time, itemHeight]);
+    }, [index, from, itemHeight]);
+
+    useEffect(() => {
+        setTimeRange(`${from} - ${to}`);
+    }, [from, to]);
 
     return (
-        <motion.div className="absolute -top-2 left-14 w-full flex items-start" layout>
-            <motion.div className="p-2 rounded-full bg-indigo-600 cursor-n-resize" layout="position"
+        <motion.div className="absolute top-0 left-16 w-full flex flex-col justify-between bg-indigo-600 rounded select-none" layout
+            style={{ height: itemHeight }}>
+            <div className="flex flex-col text-white py-1 px-3">
+                <span>{title}</span>
+                <span className="text-xs italic">{timeRange}</span>
+            </div>
+            {/* <motion.div className="w-full bg-indigo-600 cursor-ns-resize h-[1px] rounded"
+                layout="position"
                 drag="y"
                 dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                 dragElastic={0}
                 dragMomentum={false}
-                onDrag={handleDrag}
+                onDrag={handleDragBottom}
                 onDragEnd={() => {
 
                 }}
                 onDragStart={() => {
 
                 }}
-            ></motion.div>
-            <motion.div style={{ height: itemHeight }}
-                className={`bg-indigo-600 flex-1 rounded mt-2 -z-10 text-white ${timeRange != "" ? "py-1 px-3 " : ""}`}>
-                {timeRange && <span className="text-xs">{timeRange}</span>}
-            </motion.div>
+            ></motion.div> */}
         </motion.div>
     )
 }
 type CalendarEventPropsType = {
-    time: string;
+    event: calendarEventType;
     index: number;
 }
 export default CalendarEvent

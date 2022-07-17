@@ -4,7 +4,14 @@ export type calendarDataType = Array<Array<{ date: number, ind: number | string 
 
 export type positionType = { x: number, y: number };
 
-export type calendarEventType = { id: number, title: string, randomIdForUIKey: string, date?: Date }
+export type calendarEventType = {
+    id: number,
+    title: string,
+    randomIdForUIKey: string,
+    date?: Date,
+    from: string,
+    to: string
+}
 
 export type dragItemContextType = {
     positionOfDraggedItem: positionType,
@@ -63,19 +70,27 @@ export const TIME_ARRAY = [
 export const MOCK_EVENTS: calendarEventType[] = [{
     id: 1,
     title: 'Event 1',
-    randomIdForUIKey: (Math.random() * 100000000).toFixed(0)
+    randomIdForUIKey: (Math.random() * 100000000).toFixed(0),
+    from: "9 AM",
+    to: "10 AM"
 }, {
     id: 2,
     title: 'Event 2',
-    randomIdForUIKey: (Math.random() * 100000000).toFixed(0)
+    randomIdForUIKey: (Math.random() * 100000000).toFixed(0),
+    from: "9 AM",
+    to: "10 AM"
 },
 {
     id: 3,
     title: 'Event 3',
-    randomIdForUIKey: (Math.random() * 100000000).toFixed(0)
+    randomIdForUIKey: (Math.random() * 100000000).toFixed(0),
+    from: "9 AM",
+    to: "10 AM"
 }
     , {
     id: 4,
     title: 'Event 4',
-    randomIdForUIKey: (Math.random() * 100000000).toFixed(0)
+    randomIdForUIKey: (Math.random() * 100000000).toFixed(0),
+    from: "9 AM",
+    to: "10 AM"
 }];

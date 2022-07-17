@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { moveNext, movePrev } from "../../animation";
+import { eventAnimate, moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"
 import { calendarEventType } from "../../model";
 import CalendarEvent from "./CalendarEvent";
 import Td from "./Block";
 import { compareAsc } from "date-fns";
+import { getDayEvents } from "../../util";
 
 
 function Index() {
@@ -26,16 +27,18 @@ function Index() {
                         <Td key={`td_${index}_${index1}`} date={new Date(currYear, currMonthIndex, idt.date)}
                             allowDrop={idt.ind == 'curr'}>
                             {index == 0 && <span>{dayNames[index1]}</span>}
-                            <h5 className={`${idt.ind != 'curr' ? "text-gray-400" : "text-black"} px-2 py-1
-                                                     text-center mb-1
-                                                        `}><>{idt.date}&nbsp;
+                            <h5 className={`${idt.ind != 'curr' ? "text-gray-400" : ""} px-2 py-1
+                                            text-center mb-1 rounded select-none
+                                ${idt.ind == 'curr' && idt.date == new Date().getDate() ? "bg-blue-600 text-white" : ""}`}>
+                                <>
+                                    {idt.date}&nbsp;
                                     {idt.date == 1 && index == 0 ? monthNamesShort[currMonthIndex]
                                         : idt.date == 1 ? monthNamesShort[currMonthIndex + 1] : <></>}
                                 </>
                             </h5>
-                            {idt.ind == 'curr' && getDayEvents(events, currYear, currMonthIndex, idt.date).map(el => (
-                                <motion.div className="w-full" key={el.randomIdForUIKey} initial={{ scale: 1.1 }}
-                                    animate={{ scale: 1, transition: { duration: 0.3, ease: 'easeInOut' } }}>
+                            {idt.ind == 'curr' && getDayEvents(events, currYear, currMonthIndex, idt.date, "").map(el => (
+                                <motion.div className="w-full" key={el.randomIdForUIKey}
+                                    variants={eventAnimate} initial="initial" animate="animate">
                                     <CalendarEvent info={el} width="w-10/12" padding="py-1 px-3"></CalendarEvent>
                                 </motion.div>
                             ))}
@@ -50,19 +53,3 @@ function Index() {
 }
 
 export default Index;
-
-const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number, date: number): calendarEventType[] => {
-    let ft = events.filter(el => el.date &&
-        yr == el.date.getFullYear() && monthIdx == el.date.getMonth() && date == el.date.getDate()
-    );
-    ft = [...ft];
-    return ft.sort((a, b) => {
-        if (a.date && b.date)
-            return compareAsc(a.date, b.date);
-        else if (a.date)
-            return 1;
-        else if (b.date)
-            return -1;
-        return 0;
-    });
-}

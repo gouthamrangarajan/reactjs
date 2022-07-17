@@ -7,7 +7,7 @@ function Nav() {
     let { today, prevDay, nextDay, currYear, monthNames, currMonthIndex, currDayOfTheMonth, dayNames } = useCalendar();
 
     return (
-        <nav className='z-10 bg-white py-2 px-4 sticky top-0 border-b border-gray-300 h-16 flex items-center'>
+        <nav className='z-10 bg-white py-2 px-4 sticky top-0 border-b border-gray-300 h-16 flex items-center select-none'>
             <img className="object-contain mr-4 h-10 rounded-full" src="/imgs/logo.png" alt="Logo" />
             <span className="text-xl font-semibold text-gray-600">Calendar</span>
             <div className='flex ml-16 space-x-6 items-center'>
