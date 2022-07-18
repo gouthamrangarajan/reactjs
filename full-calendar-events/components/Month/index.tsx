@@ -27,7 +27,10 @@ function Index() {
                             {index == 0 && <span className="select-none">{dayNames[index1]}</span>}
                             <h5 className={`${idt.ind != 'curr' ? "text-gray-400" : ""} px-2 py-1
                                             text-center mb-1 rounded select-none
-                                ${idt.ind == 'curr' && idt.date == new Date().getDate() ? "bg-blue-600 text-white" : ""}`}>
+                                ${idt.ind == 'curr' && idt.date == new Date().getDate()
+                                    && currMonthIndex == new Date().getMonth()
+                                    && currYear == new Date().getFullYear()
+                                    ? "bg-blue-600 text-white" : ""}`}>
                                 <>
                                     {idt.date}&nbsp;
                                     {idt.date == 1 && index == 0 ? monthNamesShort[currMonthIndex]
