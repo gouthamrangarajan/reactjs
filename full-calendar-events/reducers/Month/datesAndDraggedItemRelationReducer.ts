@@ -1,4 +1,4 @@
-import { datesAndDraggedItemRelationType, reducerActionType } from "../model";
+import { datesAndDraggedItemRelationType, reducerActionType } from "../../model";
 
 export default function datesAndDraggedItemRelationReducer(currentState: datesAndDraggedItemRelationType,
     action: reducerActionType): datesAndDraggedItemRelationType {

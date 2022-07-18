@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
 import { calendarEventType, monthDragItemActionsContextType, monthDragItemContextType, positionType } from "../../model";
-import datesAndDraggedItemRelationReducer from "../../reducers/datesAndDraggedItemRelationReducer";
+import datesAndDraggedItemRelationReducer from "../../reducers/Month/datesAndDraggedItemRelationReducer";
 import { EventsActionContext } from "../EventsContextProvider";
 
 export const DragItemContext = createContext<monthDragItemContextType>({
