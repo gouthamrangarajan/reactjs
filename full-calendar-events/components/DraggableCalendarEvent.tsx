@@ -7,7 +7,6 @@ import { calendarEventType } from "../model";
 function DraggableCalendarEvent({ info, width, padding }: CalendarEventPropsType) {
   let { dragConstraintEl } = useContext(DragItemContext);
   let { setAnyItemDragged, setDraggedItemData } = useContext(DragItemActionsContext);
-  let el = useRef<HTMLDivElement>();
 
   return (
     <motion.div drag className={`${width} ${padding} mx-auto bg-indigo-600 text-white text-sm rounded shadow 
@@ -21,7 +20,6 @@ function DraggableCalendarEvent({ info, width, padding }: CalendarEventPropsType
         setAnyItemDragged(true);
         setDraggedItemData(info);
       }}
-      ref={el as React.Ref<HTMLDivElement>}
       layout="position"
     >
       <span className="select-none">{info.title}</span>

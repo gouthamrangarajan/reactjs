@@ -125,7 +125,7 @@ export const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: 
     return ft.sort((a, b) => {
         if (a.date && b.date) {
             let aDateTime = getDateTimeFromDateAndTime(a.date.getFullYear(), a.date.getMonth(), a.date.getDate(), a.from);
-            let bDateTime = getDateTimeFromDateAndTime(b.date.getFullYear(), b.date.getMonth(), b.date.getDate(), a.from);
+            let bDateTime = getDateTimeFromDateAndTime(b.date.getFullYear(), b.date.getMonth(), b.date.getDate(), b.from);
             return compareAsc(aDateTime, bDateTime);
         }
         else if (a.date)
