@@ -1,12 +1,12 @@
 import { motion, PanInfo, useMotionValue } from "framer-motion"
 import { useCallback, useContext, useState } from "react"
 import { fade } from "../../animation";
-import { DragItemContext } from "../../contexts/Day/DragItemContextProvider";
+import { DayDragItemContext } from "../../contexts/Day/DayDragItemContextProvider";
 import { calculateTimeRange, getMarginTopForTime } from "../../util";
 
 function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
     let [timeRange, setTimeRange] = useState("");
-    let { dragConstraintEl } = useContext(DragItemContext);
+    let { dragConstraintEl } = useContext(DayDragItemContext);
 
     const itemHeight = useMotionValue(1);
 

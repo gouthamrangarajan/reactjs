@@ -3,7 +3,7 @@ import Head from "next/head";
 import DayCalendar from "../components/Day";
 import Nav from "../components/Day/Nav";
 import SidePanel from "../components/Day/SidePanel";
-import DragItemContextProvider from "../contexts/Day/DragItemContextProvider";
+import DayDragItemContextProvider from "../contexts/Day/DayDragItemContextProvider";
 
 const Day: NextPage = () => {
     return (
@@ -16,11 +16,11 @@ const Day: NextPage = () => {
             <Nav></Nav>
             <div className='flex'>
                 <SidePanel></SidePanel>
-                <DragItemContextProvider>
+                <DayDragItemContextProvider>
                     <div className='flex-1 relative'>
                         <DayCalendar></DayCalendar>
                     </div>
-                </DragItemContextProvider>
+                </DayDragItemContextProvider>
             </div>
         </>
     )

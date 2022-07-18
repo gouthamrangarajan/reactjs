@@ -1,21 +1,21 @@
 import React, { createContext, useRef } from "react";
 import { dayDragItemContextType } from "../../model";
 
-export const DragItemContext = createContext<dayDragItemContextType>({
+export const DayDragItemContext = createContext<dayDragItemContextType>({
     dragConstraintEl: null,
 });
 
-function DragItemContextProvider({ children }: ContextProviderProps) {
+function DayDragItemContextProvider({ children }: ContextProviderProps) {
     let containerEl = useRef<HTMLDivElement>();
 
     return (
-        <DragItemContext.Provider value={{
+        <DayDragItemContext.Provider value={{
             dragConstraintEl: containerEl as React.Ref<HTMLDivElement>
         }}>
             <div ref={containerEl as React.Ref<HTMLDivElement>} className="w-full">
                 {children}
             </div>
-        </DragItemContext.Provider>
+        </DayDragItemContext.Provider>
     )
 }
 
@@ -23,4 +23,4 @@ type ContextProviderProps = {
     children: React.ReactNode | React.ReactNode[];
 }
 
-export default DragItemContextProvider
+export default DayDragItemContextProvider
