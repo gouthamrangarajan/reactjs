@@ -1,9 +1,13 @@
 import { motion, PanInfo, useMotionValue } from "framer-motion"
-import { useCallback, useState } from "react"
-import { calculateTimeRange } from "../../util";
+import { useCallback, useContext, useState } from "react"
+import { fade } from "../../animation";
+import { DragItemContext } from "../../contexts/Day/DragItemContextProvider";
+import { calculateTimeRange, getMarginTopForTime } from "../../util";
 
 function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
     let [timeRange, setTimeRange] = useState("");
+    let { dragConstraintEl } = useContext(DragItemContext);
+
     const itemHeight = useMotionValue(1);
 
     const handleDrag = useCallback((ev: MouseEvent | TouchEvent, info: PanInfo) => {
@@ -16,10 +20,13 @@ function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
     }, [index, time, itemHeight]);
 
     return (
-        <motion.div className="absolute -top-2 left-14 w-full flex items-start" layout>
+        <motion.div className="absolute -top-2 left-12 w-full flex items-start"
+            style={{ marginTop: getMarginTopForTime(time, false) }}
+            variants={fade} initial="initial" animate="animate"
+            layout>
             <motion.div className="p-2 rounded-full bg-indigo-600 cursor-n-resize" layout="position"
                 drag="y"
-                dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+                dragConstraints={dragConstraintEl as React.RefObject<Element>}
                 dragElastic={0}
                 dragMomentum={false}
                 onDrag={handleDrag}
@@ -31,7 +38,7 @@ function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
                 }}
             ></motion.div>
             <motion.div style={{ height: itemHeight }}
-                className={`bg-indigo-600 flex-1 rounded mt-2 -z-10 text-white ${timeRange != "" ? "py-1 px-3 " : ""}`}>
+                className={`bg-indigo-600 flex-1 rounded mt-2 text-white ${timeRange != "" ? "py-1 px-3 " : ""}`}>
                 {timeRange && <span className="text-xs select-none">{timeRange}</span>}
             </motion.div>
         </motion.div>

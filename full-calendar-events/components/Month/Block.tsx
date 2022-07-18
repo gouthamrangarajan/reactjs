@@ -1,6 +1,6 @@
 import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
 import { EventsActionContext } from "../../contexts/EventsContextProvider";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
+import { DragItemActionsContext, DragItemContext } from "../../contexts/Month/DragItemContextProvider";
 import { useRouter } from "next/router";
 import useCalendar from "../../hooks/useCalendar";
 

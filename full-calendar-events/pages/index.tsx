@@ -3,7 +3,7 @@ import Head from 'next/head'
 import MonthCalendar from '../components/Month'
 import Nav from '../components/Month/Nav'
 import SidePanel from '../components/Month/SidePanel'
-import DragItemContextProvider from '../contexts/DragItemContextProvider'
+import DragItemContextProvider from '../contexts/Month/DragItemContextProvider'
 
 const Home: NextPage = () => {
   return (

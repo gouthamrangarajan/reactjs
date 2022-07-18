@@ -9,21 +9,24 @@ export type calendarEventType = {
     title: string,
     randomIdForUIKey: string,
     date?: Date,
-    from: string,
-    to: string
+    from?: string,
+    to?: string
 }
 
-export type dragItemContextType = {
+export type monthDragItemContextType = {
     positionOfDraggedItem: positionType,
     draggedItemData: calendarEventType;
     anyItemDragged: boolean;
     dragConstraintEl: React.Ref<HTMLDivElement>;
     datesAndDraggedItemRelation: datesAndDraggedItemRelationType;
 }
+export type dayDragItemContextType = {
+    dragConstraintEl: React.Ref<HTMLDivElement>;
+}
 export type datesAndDraggedItemRelationType = Array<{ date: Date, draggedItemInPlace: boolean }>;
 
 
-export type dragItemActionsContextType = {
+export type monthDragItemActionsContextType = {
     setDraggedItemData: (item: calendarEventType) => void;
     setAnyItemDragged: (val: boolean) => void;
     setPositionOfDraggedItem: (position: positionType) => void;

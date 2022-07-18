@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { useContext, useRef } from "react";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider"
+import { DragItemActionsContext, DragItemContext } from "../../contexts/Month/DragItemContextProvider"
 import { calendarEventType } from "../../model";
 
 

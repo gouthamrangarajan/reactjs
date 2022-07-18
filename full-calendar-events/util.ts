@@ -9,23 +9,25 @@ export const getDateTimeArrayFromTimeArray = (year: number, monthIndex: number, 
     }).sort(compareAsc);
 
 export const getDateTimeFromDateAndTime = (year: number, monthIndex: number,
-    dayOfTheMonth: number, time: string): Date => {
+    dayOfTheMonth: number, time: string | undefined): Date => {
+    let hrs = 0;
     let minutes = 0;
-    if (time.includes(":")) {
-        minutes = parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
-        time = time.replace(`:${minutes.toString()}`, "");
+    if (time && time.trim() != '') {
+        if (time.includes(":")) {
+            minutes = parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
+            time = time.replace(`:${minutes.toString()}`, "");
+        }
+        if (time.includes('AM'))
+            return new Date(year, monthIndex, dayOfTheMonth, parseInt(time.replace('AM', '')), minutes, 0);
+
+        hrs = parseInt(time.replace('PM', ''));
+        if (hrs < 12)
+            hrs = hrs + 12;
     }
-    if (time == '')
-        return new Date(year, monthIndex, dayOfTheMonth, 0, 0, 0);
-    if (time.includes('AM'))
-        return new Date(year, monthIndex, dayOfTheMonth, parseInt(time.replace('AM', '')), minutes, 0);
-    let hrs = parseInt(time.replace('PM', ''));
-    if (hrs < 12)
-        hrs = hrs + 12;
     return new Date(year, monthIndex, dayOfTheMonth, hrs, minutes, 0);
 }
 
-export const calculateTimeRange = (totalHeight: number, currTime: string, currIndex: number): string => {
+export const calculateTimeRange = (totalHeight: number, currTime: string | undefined, currIndex: number): string => {
     //height 56 is one hour   
     //every fifteen minute is 56/4~14            
     let totalNumberOfFifteenMinutes = Math.floor(totalHeight / 14);
@@ -53,9 +55,9 @@ export const calculateTimeRange = (totalHeight: number, currTime: string, currIn
                 timeRange = `${timeRange} - ${endHours} ${isAMInEndHours ? "AM" : "PM"}`;
         }
     }
-    return timeRange;
+    return timeRange || "";
 }
-export const calculateHeightFromTimeRange = (fromTime: string, toTime: string): number => {
+export const calculateHeightFromTimeRange = (fromTime: string | undefined, toTime: string | undefined): number => {
     //height 56 is one hour   
     //every fifteen minute is 56/4~14            
     let start: Date = getDateTimeFromDateAndTime(new Date().getFullYear(), new Date().getMonth(),
@@ -70,17 +72,28 @@ export const calculateHeightFromTimeRange = (fromTime: string, toTime: string): 
     if (duration.hours)
         totalHeight += duration.hours * 56;
     if (duration.minutes)
-        totalHeight += duration.minutes * 14;
+        totalHeight += Math.floor(duration.minutes / 15) * 14;
     return totalHeight;
 }
-export const getMarginTopFromTime = (time: string): string => {
+export const getMarginTopForTime = (time: string | undefined, isRelative: boolean): string => {
     //height 56 is one hour   
     //every fifteen minute is 56/4~14   
-    if (time.includes(":")) {
-        let minutes = parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
-        return `${Math.floor(minutes / 15) * 14}px`;
+    let retVal = 0;
+
+    let hrs = 0;
+    if (time) {
+        if (time.includes(":")) {
+            hrs = parseInt(time.substring(0, time.indexOf(":")).trim());
+            let minutes = parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
+            retVal += Math.floor(minutes / 15) * 14;
+        }
+        else
+            hrs = parseInt(time.substring(0, time.indexOf(" ")).trim());
     }
-    return "0";
+    if (!isRelative)
+        retVal += hrs * 56;
+
+    return `${retVal}px`;
 }
 export const getDayOfWeek = (dayNames: string[], dayOfTheMonth: number, monthIndex: number, year: number): string =>
     dayNames[new Date(year, monthIndex, dayOfTheMonth).getDay()];
@@ -122,6 +135,3 @@ export const replaceMinutesInTime = (time: string): string => {
     }
     return timeToCheck;
 }
-
-export const getMarginBottomOfDayCalendarItem = (itemHeight: MotionValue<number>): string => `-${itemHeight.get() - 5}px`
-export const getMarginTopOfDayCalendarItem = (itemHeight: MotionValue<number>): string => `${itemHeight.get() - 5}px`

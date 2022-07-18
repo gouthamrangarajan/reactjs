@@ -3,10 +3,8 @@ import { useContext } from "react";
 import { eventAnimate, moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"
-import { calendarEventType } from "../../model";
 import CalendarEvent from "./CalendarEvent";
 import Td from "./Block";
-import { compareAsc } from "date-fns";
 import { getDayEvents } from "../../util";
 
 

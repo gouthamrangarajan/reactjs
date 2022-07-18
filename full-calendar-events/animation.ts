@@ -11,3 +11,8 @@ export const eventAnimate = {
     initial: { scale: 1.1 },
     animate: { scale: 1, transition: { duration: 0.3, ease: 'easeInOut' } }
 }
+
+export const fade = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } }
+}
