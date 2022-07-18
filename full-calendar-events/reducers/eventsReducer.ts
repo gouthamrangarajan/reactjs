@@ -25,6 +25,15 @@ export default function eventsReducer(currentState: calendarEventType[], action:
             }
             break;
         }
+        case "SET_TO": {
+            let payload: { to: string, eventId: number } = action.payload;
+            let { to, eventId } = payload;
+            let ft = newState.filter(el => el.id == eventId)[0];
+            if (ft) {
+                ft.to = to;
+            }
+            break;
+        }
     }
     return newState;
 }

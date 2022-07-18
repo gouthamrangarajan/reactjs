@@ -15,7 +15,7 @@ const Day: NextPage = () => {
             <Nav></Nav>
             <div className='flex'>
                 <SidePanel></SidePanel>
-                <div className='flex-1'>
+                <div className='flex-1 relative'>
                     <DayCalendar></DayCalendar>
                 </div>
             </div>

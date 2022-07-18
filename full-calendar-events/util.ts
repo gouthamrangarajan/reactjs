@@ -1,4 +1,5 @@
 import { compareAsc, intervalToDuration, minutesToHours } from "date-fns";
+import { MotionValue } from "framer-motion";
 import { calendarEventType, TIME_ARRAY } from "./model"
 
 
@@ -42,13 +43,15 @@ export const calculateTimeRange = (totalHeight: number, currTime: string, currIn
         minutes = "30";
     if (totalNumberOfFifteenMinutes > 2)
         minutes = "45";
-    let isAMInEndHours = endHours.includes("AM") ? true : false;
-    endHours = endHours.replace("AM", "").replace("PM", "").trim();
-    if (minutes != "")
-        timeRange = `${timeRange} - ${endHours}:${minutes} ${isAMInEndHours ? "AM" : "PM"}`;
-    else {
-        if (timeRange != `${endHours} ${isAMInEndHours ? "AM" : "PM"}`)
-            timeRange = `${timeRange} - ${endHours} ${isAMInEndHours ? "AM" : "PM"}`;
+    if (endHours) {
+        let isAMInEndHours = endHours.includes("AM") ? true : false;
+        endHours = endHours.replace("AM", "").replace("PM", "").trim();
+        if (minutes != "")
+            timeRange = `${timeRange} - ${endHours}:${minutes} ${isAMInEndHours ? "AM" : "PM"}`;
+        else {
+            if (timeRange != `${endHours} ${isAMInEndHours ? "AM" : "PM"}`)
+                timeRange = `${timeRange} - ${endHours} ${isAMInEndHours ? "AM" : "PM"}`;
+        }
     }
     return timeRange;
 }
@@ -119,3 +122,6 @@ export const replaceMinutesInTime = (time: string): string => {
     }
     return timeToCheck;
 }
+
+export const getMarginBottomOfDayCalendarItem = (itemHeight: MotionValue<number>): string => `-${itemHeight.get() - 5}px`
+export const getMarginTopOfDayCalendarItem = (itemHeight: MotionValue<number>): string => `${itemHeight.get() - 5}px`

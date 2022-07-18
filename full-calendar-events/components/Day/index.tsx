@@ -10,7 +10,7 @@ function Index() {
     return (
         <>
             {TIME_ARRAY.map((el, ind) => (
-                <motion.div className="flex w-full items-start relative" key={`${currDayOfTheMonth}_${el}`}
+                <motion.div className="flex w-full items-start" key={`${currDayOfTheMonth}_${el}`}
                     variants={prevDayOftheMonth < currDayOfTheMonth || prevMonthIndex < currMonthIndex ? moveNext : movePrev}
                     initial="initial" animate="animate">
                     <span className="text-gray-600 text-xs px-3 -mt-2 w-16 select-none">{el}</span>

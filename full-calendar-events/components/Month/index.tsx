@@ -26,7 +26,7 @@ function Index() {
                     (
                         <Td key={`td_${index}_${index1}`} date={new Date(currYear, currMonthIndex, idt.date)}
                             allowDrop={idt.ind == 'curr'}>
-                            {index == 0 && <span>{dayNames[index1]}</span>}
+                            {index == 0 && <span className="select-none">{dayNames[index1]}</span>}
                             <h5 className={`${idt.ind != 'curr' ? "text-gray-400" : ""} px-2 py-1
                                             text-center mb-1 rounded select-none
                                 ${idt.ind == 'curr' && idt.date == new Date().getDate() ? "bg-blue-600 text-white" : ""}`}>

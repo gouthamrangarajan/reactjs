@@ -24,7 +24,7 @@ function CalendarEvent({ info, width, padding }: CalendarEventPropsType) {
       ref={el as React.Ref<HTMLDivElement>}
       layout="position"
     >
-      {info.title}
+      <span className="select-none">{info.title}</span>
     </motion.div>
   )
 }
