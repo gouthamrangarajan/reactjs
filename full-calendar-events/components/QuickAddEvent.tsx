@@ -1,5 +1,5 @@
 import React, { FormEvent, useContext, useRef } from 'react'
-import { EventsActionContext } from '../../contexts/EventsContextProvider';
+import { EventsActionContext } from '../contexts/EventsContextProvider'
 
 function QuickAddEvent() {
     let dispatch = useContext(EventsActionContext);

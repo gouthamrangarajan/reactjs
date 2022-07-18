@@ -12,7 +12,7 @@ function DayDragItemContextProvider({ children }: ContextProviderProps) {
         <DayDragItemContext.Provider value={{
             dragConstraintEl: containerEl as React.Ref<HTMLDivElement>
         }}>
-            <div ref={containerEl as React.Ref<HTMLDivElement>} className="w-full">
+            <div ref={containerEl as React.Ref<HTMLDivElement>} className="w-full flex-1">
                 {children}
             </div>
         </DayDragItemContext.Provider>

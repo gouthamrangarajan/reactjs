@@ -13,24 +13,24 @@ export type calendarEventType = {
     to?: string
 }
 
-export type monthDragItemContextType = {
+export type dragItemContextType = {
     positionOfDraggedItem: positionType,
     draggedItemData: calendarEventType;
     anyItemDragged: boolean;
     dragConstraintEl: React.Ref<HTMLDivElement>;
-    datesAndDraggedItemRelation: datesAndDraggedItemRelationType;
+    screenToDraggedItemRelation: screenToDraggedItemRelationType;
 }
 export type dayDragItemContextType = {
     dragConstraintEl: React.Ref<HTMLDivElement>;
 }
-export type datesAndDraggedItemRelationType = Array<{ date: Date, draggedItemInPlace: boolean }>;
+export type screenToDraggedItemRelationType = Array<{ date: Date, draggedItemInPlace: boolean, from: string, to: string }>;
 
 
-export type monthDragItemActionsContextType = {
+export type dragItemActionsContextType = {
     setDraggedItemData: (item: calendarEventType) => void;
     setAnyItemDragged: (val: boolean) => void;
     setPositionOfDraggedItem: (position: positionType) => void;
-    setDateAndDraggedItemRelation: Dispatch<reducerActionType>;
+    setScreenToDraggedItemRelation: Dispatch<reducerActionType>;
 }
 
 export type calendarContextType = {

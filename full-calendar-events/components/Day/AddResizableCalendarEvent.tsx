@@ -4,7 +4,7 @@ import { fade } from "../../animation";
 import { DayDragItemContext } from "../../contexts/Day/DayDragItemContextProvider";
 import { calculateTimeRange, getMarginTopForTime } from "../../util";
 
-function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
+function AddResizableCalendarEvent({ time, index }: AddResizableCalendarEventPropsType) {
     let [timeRange, setTimeRange] = useState("");
     let { dragConstraintEl } = useContext(DayDragItemContext);
 
@@ -44,8 +44,8 @@ function CalendarEvent({ time, index }: AddCalendarEventPropsType) {
         </motion.div>
     )
 }
-type AddCalendarEventPropsType = {
+type AddResizableCalendarEventPropsType = {
     time: string;
     index: number;
 }
-export default CalendarEvent
+export default AddResizableCalendarEvent

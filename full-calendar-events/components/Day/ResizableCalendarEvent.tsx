@@ -6,7 +6,7 @@ import { calendarEventType } from "../../model"
 import { calculateHeightFromTimeRange, calculateTimeRange, getDateTimeArrayFromTimeArray, getDateTimeFromDateAndTime, getMarginTopForTime } from "../../util";
 
 
-function CalendarEvent({ event: { date, from, to, title, id } }: CalendarEventPropsType) {
+function ResizableCalendarEvent({ event: { date, from, to, title, id } }: ResizableCalendarEventPropsType) {
     const itemHeight = useMotionValue(calculateHeightFromTimeRange(from, to));
     let [timeRange, setTimeRange] = useState("");
     let dispatchEventAction = useContext(EventsActionContext);
@@ -22,8 +22,13 @@ function CalendarEvent({ event: { date, from, to, title, id } }: CalendarEventPr
         if (!index)
             index = 0;
         let calculatedTimeRange = calculateTimeRange(newHeight, from, index);
-        if (calculatedTimeRange != from)
+        if (calculatedTimeRange != from) {
+            if (calculatedTimeRange.startsWith(":"))
+                calculatedTimeRange = `12${calculatedTimeRange}`;
+            if (calculatedTimeRange.startsWith("-"))
+                calculatedTimeRange = `12 AM ${calculatedTimeRange};`
             setTimeRange(calculatedTimeRange);
+        }
 
     }, [from, itemHeight, date]);
 
@@ -61,7 +66,7 @@ function CalendarEvent({ event: { date, from, to, title, id } }: CalendarEventPr
         </>
     )
 }
-type CalendarEventPropsType = {
+type ResizableCalendarEventPropsType = {
     event: calendarEventType;
 }
-export default CalendarEvent
+export default ResizableCalendarEvent

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { eventAnimate, moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"
-import CalendarEvent from "./CalendarEvent";
+import DraggableCalendarEvent from "../DraggableCalendarEvent";
 import Td from "./Block";
 import { getDayEvents } from "../../util";
 
@@ -40,7 +40,7 @@ function Index() {
                             {idt.ind == 'curr' && getDayEvents(events, currYear, currMonthIndex, idt.date, "").map(el => (
                                 <motion.div className="w-full" key={el.randomIdForUIKey}
                                     variants={eventAnimate} initial="initial" animate="animate">
-                                    <CalendarEvent info={el} width="w-10/12" padding="py-1 px-3"></CalendarEvent>
+                                    <DraggableCalendarEvent info={el} width="w-10/12" padding="py-1 px-3"></DraggableCalendarEvent>
                                 </motion.div>
                             ))}
                         </Td>

@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import EventsContextProvider from '../contexts/EventsContextProvider';
 import CalendarContextProvider from '../contexts/CalendarContextProvider';
+import DragItemContextProvider from '../contexts/DragItemContextProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (<main className='bg-white h-screen w-max-content overflow-x-hidden flex flex-col
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 '>
     <EventsContextProvider>
       <CalendarContextProvider>
-        <Component {...pageProps} />
+        <DragItemContextProvider>
+          <Component {...pageProps} />
+        </DragItemContextProvider>
       </CalendarContextProvider>
     </EventsContextProvider>
   </main>)

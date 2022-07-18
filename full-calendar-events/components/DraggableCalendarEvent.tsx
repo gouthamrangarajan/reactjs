@@ -1,10 +1,10 @@
 import { motion } from "framer-motion"
 import { useContext, useRef } from "react";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/Month/DragItemContextProvider"
-import { calendarEventType } from "../../model";
+import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider"
+import { calendarEventType } from "../model";
 
 
-function CalendarEvent({ info, width, padding }: CalendarEventPropsType) {
+function DraggableCalendarEvent({ info, width, padding }: CalendarEventPropsType) {
   let { dragConstraintEl } = useContext(DragItemContext);
   let { setAnyItemDragged, setDraggedItemData } = useContext(DragItemActionsContext);
   let el = useRef<HTMLDivElement>();
@@ -33,4 +33,4 @@ type CalendarEventPropsType = {
   width: string;
   padding: string;
 }
-export default CalendarEvent
+export default DraggableCalendarEvent

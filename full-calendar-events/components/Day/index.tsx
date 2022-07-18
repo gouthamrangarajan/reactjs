@@ -6,8 +6,8 @@ import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar";
 import { TIME_ARRAY } from "../../model";
 import { getDateTimeArrayFromTimeArray, getDayEvents } from "../../util";
-import CalendarEvent from "./CalendarEvent";
-import AddCalendarEvent from "./AddCalendarEvent";
+import ResizableCalendarEvent from "./ResizableCalendarEvent";
+import AddResizableCalendarEvent from "./AddResizableCalendarEvent";
 import Block from "./Block";
 
 function Index() {
@@ -43,9 +43,9 @@ function Index() {
                     <Block index={ind}></Block>
                 </motion.div>
             ))}
-            {showAddCalendarEvent && <AddCalendarEvent time={timeForAddCalendar} index={indexForAddCalendar}></AddCalendarEvent>}
+            {showAddCalendarEvent && <AddResizableCalendarEvent time={timeForAddCalendar} index={indexForAddCalendar}></AddResizableCalendarEvent>}
             {getDayEvents(events, currYear, currMonthIndex, currDayOfTheMonth, "").map(el => (
-                <CalendarEvent key={el.randomIdForUIKey} event={el}></CalendarEvent>
+                <ResizableCalendarEvent key={el.randomIdForUIKey} event={el}></ResizableCalendarEvent>
             ))}
         </>
     )

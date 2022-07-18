@@ -1,5 +1,4 @@
 import { compareAsc, intervalToDuration, minutesToHours } from "date-fns";
-import { MotionValue } from "framer-motion";
 import { calendarEventType, TIME_ARRAY } from "./model"
 
 
@@ -45,16 +44,19 @@ export const calculateTimeRange = (totalHeight: number, currTime: string | undef
         minutes = "30";
     if (totalNumberOfFifteenMinutes > 2)
         minutes = "45";
-    if (endHours) {
-        let isAMInEndHours = endHours.includes("AM") ? true : false;
-        endHours = endHours.replace("AM", "").replace("PM", "").trim();
-        if (minutes != "")
-            timeRange = `${timeRange} - ${endHours}:${minutes} ${isAMInEndHours ? "AM" : "PM"}`;
-        else {
-            if (timeRange != `${endHours} ${isAMInEndHours ? "AM" : "PM"}`)
-                timeRange = `${timeRange} - ${endHours} ${isAMInEndHours ? "AM" : "PM"}`;
-        }
+
+    if (!endHours)
+        endHours = "12 AM"; //e.g 11 PM - 12 AM
+
+    let isAMInEndHours = endHours.includes("AM") ? true : false;
+    endHours = endHours.replace("AM", "").replace("PM", "").trim();
+    if (minutes != "")
+        timeRange = `${timeRange} - ${endHours}:${minutes} ${isAMInEndHours ? "AM" : "PM"}`;
+    else {
+        if (timeRange != `${endHours} ${isAMInEndHours ? "AM" : "PM"}`)
+            timeRange = `${timeRange} - ${endHours} ${isAMInEndHours ? "AM" : "PM"}`;
     }
+
     return timeRange || "";
 }
 export const calculateHeightFromTimeRange = (fromTime: string | undefined, toTime: string | undefined): number => {
@@ -64,6 +66,10 @@ export const calculateHeightFromTimeRange = (fromTime: string | undefined, toTim
         new Date().getDate(), fromTime);
     let end: Date = getDateTimeFromDateAndTime(new Date().getFullYear(), new Date().getMonth(),
         new Date().getDate(), toTime);
+
+    if (toTime == "12 AM") // e.g 11 PM - 12 AM
+        end = getDateTimeFromDateAndTime(new Date().getFullYear(), new Date().getMonth(),
+            new Date().getDate() + 1, toTime);
 
     let interval: Interval = { start, end };
     let duration: Duration = intervalToDuration(interval);
@@ -87,12 +93,15 @@ export const getMarginTopForTime = (time: string | undefined, isRelative: boolea
             let minutes = parseInt(time.substring(time.indexOf(":") + 1, time.indexOf(" ")));
             retVal += Math.floor(minutes / 15) * 14;
         }
-        else
+        else {
             hrs = parseInt(time.substring(0, time.indexOf(" ")).trim());
+            if (time.includes("PM") && hrs < 12)
+                hrs += 12;
+        }
     }
     if (!isRelative)
         retVal += hrs * 56;
-
+    console.log(time, retVal);
     return `${retVal}px`;
 }
 export const getDayOfWeek = (dayNames: string[], dayOfTheMonth: number, monthIndex: number, year: number): string =>

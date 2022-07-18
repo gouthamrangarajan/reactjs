@@ -1,6 +1,6 @@
 import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
 import { EventsActionContext } from "../../contexts/EventsContextProvider";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/Month/DragItemContextProvider";
+import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
 import { useRouter } from "next/router";
 import useCalendar from "../../hooks/useCalendar";
 
@@ -8,19 +8,19 @@ import useCalendar from "../../hooks/useCalendar";
 function Block({ children, date, allowDrop }: BlockPropsType) {
     let tdEl = useRef<HTMLTableDataCellElement>();
     let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(DragItemContext);
-    let { setDateAndDraggedItemRelation } = useContext(DragItemActionsContext);
+    let { setScreenToDraggedItemRelation } = useContext(DragItemActionsContext);
     let { setDate: setUseCalendarDate } = useCalendar();
     let [showDrop, setShowDrop] = useState(false);
-    let dispatch = useContext(EventsActionContext);
+    let eventsDispatch = useContext(EventsActionContext);
 
     const router = useRouter();
 
     useEffect(() => {
         if (!anyItemDragged && showDrop) { //dropped here            
-            dispatch({ name: 'SET_DATE', payload: { id: draggedItemData.id, date } })
+            eventsDispatch({ name: 'SET_DATE', payload: { id: draggedItemData.id, date } })
             setShowDrop(false);
         }
-    }, [anyItemDragged, date, dispatch, draggedItemData.id, showDrop]);
+    }, [anyItemDragged, date, eventsDispatch, draggedItemData.id, showDrop]);
 
     useEffect(() => {
         if (tdEl.current && allowDrop) {
@@ -30,14 +30,14 @@ function Block({ children, date, allowDrop }: BlockPropsType) {
             if (positionOfDraggedItem.x >= elX && positionOfDraggedItem.x <= (elX + elWidth)
                 && positionOfDraggedItem.y >= elY && positionOfDraggedItem.y <= (elY + elHeight)) {
                 setShowDrop(true);
-                setDateAndDraggedItemRelation({ name: 'IN_PLACE', payload: date });
+                setScreenToDraggedItemRelation({ name: 'IN_PLACE', payload: { date, from: '', to: '' } });
             }
             else {
                 setShowDrop(false);
-                setDateAndDraggedItemRelation({ name: 'OUT_PLACE', payload: date });
+                setScreenToDraggedItemRelation({ name: 'OUT_PLACE', payload: { date, from: '', to: '' } });
             }
         }
-    }, [positionOfDraggedItem.x, positionOfDraggedItem.y, allowDrop, setDateAndDraggedItemRelation, date]);
+    }, [positionOfDraggedItem.x, positionOfDraggedItem.y, allowDrop, setScreenToDraggedItemRelation, date]);
 
     return (
         <td className={`text-sm cursor-pointer transition-all duration-300

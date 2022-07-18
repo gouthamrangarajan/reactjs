@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import DayCalendar from "../components/Day";
 import Nav from "../components/Day/Nav";
-import SidePanel from "../components/Day/SidePanel";
+import SidePanel from "../components/SidePanel";
 import DayDragItemContextProvider from "../contexts/Day/DayDragItemContextProvider";
 
 const Day: NextPage = () => {

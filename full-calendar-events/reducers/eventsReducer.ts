@@ -26,6 +26,18 @@ export default function eventsReducer(currentState: calendarEventType[], action:
             }
             break;
         }
+        case 'SET_DATETIME': {
+            let payloadType: { id: number, date: Date, from: string, to: string };
+            let payload = action.payload as typeof payloadType;
+            let ft = newState.filter(el => el.id == payload.id)[0];
+            if (ft) {
+                ft.date = payload.date;
+                ft.from = payload.from;
+                ft.to = payload.to;
+                ft.randomIdForUIKey = (Math.random() * 10000000).toFixed(0);
+            }
+            break;
+        }
         case 'REMOVE_AND_ADD': {
             let eventId = action.payload as number;
             let ft = newState.filter(el => el.id == eventId)[0];

@@ -1,28 +1,28 @@
 import React, { createContext, useContext, useEffect, useReducer, useRef, useState } from "react";
-import { calendarEventType, monthDragItemActionsContextType, monthDragItemContextType, positionType } from "../../model";
-import datesAndDraggedItemRelationReducer from "../../reducers/Month/datesAndDraggedItemRelationReducer";
-import { EventsActionContext } from "../EventsContextProvider";
+import { calendarEventType, dragItemActionsContextType, dragItemContextType, positionType } from "../model";
+import screenToDraggedItemRelationReducer from "../reducers/screenToDraggedItemRelationReducer";
+import { EventsActionContext } from "./EventsContextProvider";
 
-export const DragItemContext = createContext<monthDragItemContextType>({
+export const DragItemContext = createContext<dragItemContextType>({
     positionOfDraggedItem: { x: 0, y: 0 },
     draggedItemData: { id: 0, title: '', randomIdForUIKey: '', from: '', to: '' },
     anyItemDragged: false,
     dragConstraintEl: null,
-    datesAndDraggedItemRelation: []
+    screenToDraggedItemRelation: []
 });
 
-export const DragItemActionsContext = createContext<monthDragItemActionsContextType>({
+export const DragItemActionsContext = createContext<dragItemActionsContextType>({
     setDraggedItemData: () => { },
     setAnyItemDragged: () => { },
     setPositionOfDraggedItem: () => { },
-    setDateAndDraggedItemRelation: () => { }
+    setScreenToDraggedItemRelation: () => { }
 })
 
 function DragItemContextProvider({ children }: ContextProviderProps) {
     let [positionOfDraggedItem, setPositionOfDraggedItem] = useState<positionType>({ x: 0, y: 0 });
     let [draggedItemData, setDraggedItemData] = useState<calendarEventType>({ id: 0, title: '', randomIdForUIKey: '', from: '', to: '' });
     let [anyItemDragged, setAnyItemDragged] = useState(false);
-    let [datesAndDraggedItemRelation, setDateAndDraggedItemRelation] = useReducer(datesAndDraggedItemRelationReducer, []);
+    let [screenToDraggedItemRelation, setScreenToDraggedItemRelation] = useReducer(screenToDraggedItemRelationReducer, []);
     let eventDispatch = useContext(EventsActionContext);
 
     let containerEl = useRef<HTMLDivElement>();
@@ -39,10 +39,10 @@ function DragItemContextProvider({ children }: ContextProviderProps) {
         });
 
         if (!anyItemDragged) {
-            if (datesAndDraggedItemRelation.filter(el => el.draggedItemInPlace).length == 0) {
+            if (screenToDraggedItemRelation.filter(el => el.draggedItemInPlace).length == 0) {
                 eventDispatch({ name: 'REMOVE_AND_ADD', payload: draggedItemData.id })
             }
-            setDateAndDraggedItemRelation({ name: 'RESET', payload: new Date() });
+            setScreenToDraggedItemRelation({ name: 'RESET', payload: new Date() });
             setDraggedItemData({ id: 0, title: '', randomIdForUIKey: '', from: '', to: '' });
             setPositionOfDraggedItem({ x: 0, y: 0 });
         }
@@ -58,9 +58,12 @@ function DragItemContextProvider({ children }: ContextProviderProps) {
         <DragItemContext.Provider value={{
             positionOfDraggedItem, draggedItemData, anyItemDragged,
             dragConstraintEl: containerEl as React.Ref<HTMLDivElement>,
-            datesAndDraggedItemRelation
+            screenToDraggedItemRelation
         }}>
-            <DragItemActionsContext.Provider value={{ setDraggedItemData, setAnyItemDragged, setPositionOfDraggedItem, setDateAndDraggedItemRelation }}>
+            <DragItemActionsContext.Provider value={{
+                setDraggedItemData, setAnyItemDragged,
+                setPositionOfDraggedItem, setScreenToDraggedItemRelation
+            }}>
                 <div ref={containerEl as React.Ref<HTMLDivElement>}>
                     {children}
                 </div>
