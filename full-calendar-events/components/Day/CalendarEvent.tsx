@@ -25,7 +25,7 @@ function CalendarEvent({ event: { date, from, to, title, id } }: CalendarEventPr
         if (calculatedTimeRange != from)
             setTimeRange(calculatedTimeRange);
 
-    }, [from, itemHeight]);
+    }, [from, itemHeight, date]);
 
     useEffect(() => {
         setTimeRange(`${from} - ${to}`);
