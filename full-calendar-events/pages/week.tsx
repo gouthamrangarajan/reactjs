@@ -9,7 +9,7 @@ const Week: NextPage = () => {
     <>
       <Head>
         <title>Week - Full Calendar Events</title>
-        <meta name="description" content="Full Calendar Events" />
+        <meta name="description" content="Full Calendar Events, Week View" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav></Nav>

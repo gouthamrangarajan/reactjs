@@ -10,7 +10,7 @@ const Day: NextPage = () => {
         <>
             <Head>
                 <title>Day - Full Calendar Events</title>
-                <meta name="description" content="Full Calendar Events" />
+                <meta name="description" content="Full Calendar Events, Day View" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Nav></Nav>

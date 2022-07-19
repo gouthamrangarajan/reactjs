@@ -8,8 +8,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Full Calendar Events</title>
-        <meta name="description" content="Full Calendar Events" />
+        <title>Month - Full Calendar Events</title>
+        <meta name="description" content="Full Calendar Events, Month view" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav></Nav>
