@@ -1,4 +1,4 @@
-import { startOfWeek } from "date-fns";
+import { addDays, isEqual, startOfWeek } from "date-fns";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { CalendarActionContext, CalendarContext } from "../contexts/CalendarContextProvider";
 import { calendarDataType, weekDataType } from "../model";
@@ -47,24 +47,19 @@ export default function useCalendar(): useCalendarReturnType {
     useEffect(() => {
         let retDt: calendarDataType = [];
         let firstDt = new Date(currYear, currMonthIndex, 1)
-        let dy = firstDt.getDay()
-        let firstArr = [{ date: 1, ind: 'curr' }]
-        while (dy > 0) {
-            if (firstArr[0].date == 1) {
-                let prevMonthLastDate = new Date(currYear, currMonthIndex, 0).getDate()
-                firstArr.unshift({ date: prevMonthLastDate, ind: 'prev' })
-            }
-            else {
-                firstArr.unshift({ date: firstArr[0].date - 1, ind: 'prev' })
-            }
-            dy--;
+        let possibleOtherMonthDate = startOfWeek(firstDt);
+        let firstArr: Array<{ date: number, ind: string | number }> = [];
+        while (!isEqual(firstDt, possibleOtherMonthDate)) {
+            firstArr.push({ date: possibleOtherMonthDate.getDate(), ind: 'prev' })
+            possibleOtherMonthDate = addDays(possibleOtherMonthDate, 1);
         }
+        firstArr.push({ date: 1, ind: 'curr' });
         while (firstArr.length < 7) {
             firstArr.push({ date: firstArr[firstArr.length - 1].date + 1, ind: 'curr' })
         }
-        retDt.push(firstArr)
+        retDt.push(firstArr);
         let lastDate = new Date(currYear, currMonthIndex + 1, 0).getDate()
-        let lastEntry = firstArr[firstArr.length - 1].date
+        let lastEntry = firstArr[firstArr.length - 1].date;
         let completed = false
         while (lastEntry < lastDate && !completed) {
             let otherArr = [];
