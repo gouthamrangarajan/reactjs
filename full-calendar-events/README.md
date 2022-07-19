@@ -5,10 +5,10 @@
 - Adjust time (increase/decrease) on week and Day Views
 
 ##### Frameworks & Libraries used
-- [React Js] (https://reactjs.org/)
-- [Next Js] (https://nextjs.org/)
-- [Framer motion] (https://www.framer.com/motion/)
-- [Tailwind CSS] (https://tailwindcss.com/)
+- [React Js](https://reactjs.org/)
+- [Next Js](https://nextjs.org/)
+- [Framer motion](https://www.framer.com/motion/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [date-fns](https://date-fns.org/)
 
 ##### Screenshots
