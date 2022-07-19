@@ -11,8 +11,8 @@
 - [Tailwind CSS] (https://tailwindcss.com/)
 
 ##### Screenshots
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot1.PNG)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot2.PNG)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot3.PNG)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot4.PNG)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot5.PNG)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot1.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot2.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot3.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot4.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot5.png)
