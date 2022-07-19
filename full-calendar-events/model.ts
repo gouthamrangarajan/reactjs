@@ -1,7 +1,7 @@
 import React, { Dispatch } from "react";
 
 export type calendarDataType = Array<Array<{ date: number, ind: number | string }>>;
-
+export type weekDataType = Date[];
 export type positionType = { x: number, y: number };
 
 export type calendarEventType = {
@@ -37,6 +37,7 @@ export type calendarContextType = {
     currYear: number;
     currMonthIndex: number;
     currDayOfTheMonth: number;
+    currWeekOfTheYear: number;
 }
 export type calendarActionContextType = Dispatch<reducerActionType>;
 

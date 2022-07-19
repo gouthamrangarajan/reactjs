@@ -1,26 +1,27 @@
+import { startOfWeek } from "date-fns";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { CalendarActionContext, CalendarContext } from "../contexts/CalendarContextProvider";
-import { calendarDataType } from "../model";
+import { calendarDataType, weekDataType } from "../model";
 
 export default function useCalendar(): useCalendarReturnType {
-    let dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    let dayNamesShort = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-    let monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let monthNames = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    let [weeksData, setWeeksData] = useState<calendarDataType>([]);
+    let [monthData, setMonthData] = useState<calendarDataType>([]);
+    let [weekData, setWeekData] = useState<weekDataType>([]);
 
-    let { currYear, currMonthIndex, currDayOfTheMonth } = useContext(CalendarContext);
+    let { currYear, currMonthIndex, currDayOfTheMonth, currWeekOfTheYear } = useContext(CalendarContext);
     let dispatch = useContext(CalendarActionContext);
 
     let [prevYear, setPrevYear] = useState(new Date().getFullYear());
     let [prevMonthIndex, setPrevMonthIndex] = useState(new Date().getMonth());
     let [prevDayOftheMonth, setPrevDayOfMonth] = useState(new Date().getDate());
+    let [prevWeekOfTheYear, setPrevWeekOfTheYear] = useState(currWeekOfTheYear);
 
     let nextMonth = useCallback(() => {
         dispatch({ name: "SET_NEXT_MONTH", payload: undefined });
     }, []);
-
+    let nextWeek = useCallback(() => {
+        dispatch({ name: "SET_NEXT_WEEK", payload: undefined });
+    }, []);
     let nextDay = useCallback(() => {
         dispatch({ name: "SET_NEXT_DATE", payload: undefined });
     }, []);
@@ -28,7 +29,9 @@ export default function useCalendar(): useCalendarReturnType {
     let prevMonth = useCallback(() => {
         dispatch({ name: "SET_PREVIOUS_MONTH", payload: undefined });
     }, []);
-
+    let prevWeek = useCallback(() => {
+        dispatch({ name: "SET_PREV_WEEK", payload: undefined });
+    }, []);
     let prevDay = useCallback(() => {
         dispatch({ name: "SET_PREVIOUS_DATE", payload: undefined });
     }, []);
@@ -42,13 +45,13 @@ export default function useCalendar(): useCalendarReturnType {
     }, []);
 
     useEffect(() => {
-        var retDt: calendarDataType = [];
-        var firstDt = new Date(currYear, currMonthIndex, 1)
-        var dy = firstDt.getDay()
-        var firstArr = [{ date: 1, ind: 'curr' }]
+        let retDt: calendarDataType = [];
+        let firstDt = new Date(currYear, currMonthIndex, 1)
+        let dy = firstDt.getDay()
+        let firstArr = [{ date: 1, ind: 'curr' }]
         while (dy > 0) {
             if (firstArr[0].date == 1) {
-                var prevMonthLastDate = new Date(currYear, currMonthIndex, 0).getDate()
+                let prevMonthLastDate = new Date(currYear, currMonthIndex, 0).getDate()
                 firstArr.unshift({ date: prevMonthLastDate, ind: 'prev' })
             }
             else {
@@ -60,17 +63,18 @@ export default function useCalendar(): useCalendarReturnType {
             firstArr.push({ date: firstArr[firstArr.length - 1].date + 1, ind: 'curr' })
         }
         retDt.push(firstArr)
-        var lastDate = new Date(currYear, currMonthIndex + 1, 0).getDate()
-        var lastEntry = firstArr[firstArr.length - 1].date
-        var completed = false
+        let lastDate = new Date(currYear, currMonthIndex + 1, 0).getDate()
+        let lastEntry = firstArr[firstArr.length - 1].date
+        let completed = false
         while (lastEntry < lastDate && !completed) {
-            var otherArr = []
+            let otherArr = [];
+            let i = 1;
             for (i = 1; i <= 7; i++) {
                 if (lastEntry + i <= lastDate) {
                     otherArr.push({ date: lastEntry + i, ind: 'curr' })
                 }
             }
-            var i = 1;
+            i = 1;
             while (otherArr.length < 7) {
                 completed = true
                 otherArr.push({ date: i, ind: 'next' })
@@ -79,8 +83,17 @@ export default function useCalendar(): useCalendarReturnType {
             retDt.push(otherArr)
             lastEntry = otherArr[otherArr.length - 1].date
         }
-        setWeeksData(retDt);
+        setMonthData(retDt);
     }, [currYear, currMonthIndex]);
+
+    useEffect(() => {
+        let retDt: weekDataType = [];
+        let firstDateOfCurrWeek = startOfWeek(new Date(currYear, currMonthIndex, currDayOfTheMonth));
+        retDt.push(firstDateOfCurrWeek);
+        for (let i = 1; i <= 6; i++)
+            retDt.push(new Date(firstDateOfCurrWeek.getFullYear(), firstDateOfCurrWeek.getMonth(), firstDateOfCurrWeek.getDate() + i));
+        setWeekData(retDt);
+    }, [currWeekOfTheYear, currYear, currMonthIndex]);
 
     useEffect(() => {
         setPrevYear(currYear);
@@ -91,32 +104,37 @@ export default function useCalendar(): useCalendarReturnType {
     }, [currMonthIndex]);
 
     useEffect(() => {
+        setPrevWeekOfTheYear(currWeekOfTheYear);
+    }, [currWeekOfTheYear]);
+
+    useEffect(() => {
         setPrevDayOfMonth(currDayOfTheMonth);
     }, [currDayOfTheMonth])
 
     return {
-        dayNames, dayNamesShort, monthNames, monthNamesShort, weeksData,
-        currYear, prevYear, currMonthIndex, prevMonthIndex, currDayOfTheMonth, prevDayOftheMonth,
-        nextMonth, prevMonth, today, nextDay, prevDay, setDate
+        weekData, monthData, currYear, prevYear, currMonthIndex, prevMonthIndex, currDayOfTheMonth, prevDayOftheMonth,
+        currWeekOfTheYear, prevWeekOfTheYear, nextMonth, prevMonth, today, nextDay, prevDay, setDate,
+        prevWeek, nextWeek
     };
 }
 
 type useCalendarReturnType = {
-    dayNames: string[];
-    dayNamesShort: string[];
-    monthNames: string[],
-    monthNamesShort: string[];
-    weeksData: calendarDataType;
+    weekData: weekDataType;
+    monthData: calendarDataType;
     currYear: number;
     prevYear: number;
     currMonthIndex: number;
     prevMonthIndex: number;
     currDayOfTheMonth: number;
     prevDayOftheMonth: number;
+    currWeekOfTheYear: number;
+    prevWeekOfTheYear: number;
     nextMonth: () => void;
     prevMonth: () => void;
     today: () => void;
     nextDay: () => void;
     prevDay: () => void;
     setDate: (dt: Date) => void;
+    prevWeek: () => void;
+    nextWeek: () => void;
 }

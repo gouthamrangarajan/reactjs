@@ -1,4 +1,4 @@
-import { compareAsc, intervalToDuration, minutesToHours } from "date-fns";
+import { compareAsc, format, intervalToDuration, minutesToHours } from "date-fns";
 import { calendarEventType, TIME_ARRAY } from "./model"
 
 
@@ -101,11 +101,16 @@ export const getMarginTopForTime = (time: string | undefined, isRelative: boolea
     }
     if (!isRelative)
         retVal += hrs * 56;
-    console.log(time, retVal);
+
     return `${retVal}px`;
 }
-export const getDayOfWeek = (dayNames: string[], dayOfTheMonth: number, monthIndex: number, year: number): string =>
-    dayNames[new Date(year, monthIndex, dayOfTheMonth).getDay()];
+export const getDayName = (dayOfTheMonth: number, monthIndex: number, year: number): string =>
+    format(new Date(year, monthIndex, dayOfTheMonth), "E");
+
+export const getMonthNameShort = (monthIndex: number): string => format(new Date(new Date().setMonth(monthIndex)), "MMM")
+
+export const getMonthName = (monthIndex: number): string => format(new Date(new Date().setMonth(monthIndex)), "MMMM")
+
 
 export const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number,
     date: number, time: string): calendarEventType[] => {

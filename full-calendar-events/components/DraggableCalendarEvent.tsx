@@ -4,12 +4,12 @@ import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemCon
 import { calendarEventType } from "../model";
 
 
-function DraggableCalendarEvent({ info, width, padding }: CalendarEventPropsType) {
+function DraggableCalendarEvent({ info, width, padding, margin }: CalendarEventPropsType) {
   let { dragConstraintEl } = useContext(DragItemContext);
   let { setAnyItemDragged, setDraggedItemData } = useContext(DragItemActionsContext);
 
   return (
-    <motion.div drag className={`${width} ${padding} mx-auto bg-indigo-600 text-white text-sm rounded shadow 
+    <motion.div drag className={`${width} ${padding} ${margin ? margin : "mx-auto"} bg-indigo-600 text-white text-sm rounded shadow 
             cursor-pointer truncate`}
       whileDrag={{ scale: 0.9 }} dragConstraints={dragConstraintEl as React.RefObject<Element>}
       // onDrag={callBackDrag}// does not work
@@ -30,5 +30,6 @@ type CalendarEventPropsType = {
   info: calendarEventType;
   width: string;
   padding: string;
+  margin: string;
 }
 export default DraggableCalendarEvent

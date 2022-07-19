@@ -11,7 +11,7 @@ function SidePanel() {
             <QuickAddEvent></QuickAddEvent>
             <span className="text-gray-600 font-semibold select-none">Event List</span>
             {events.filter(el => !el.date).map(el => (
-                <DraggableCalendarEvent info={el} key={el.randomIdForUIKey} width="w-11/12" padding="py-2 px-4"></DraggableCalendarEvent>
+                <DraggableCalendarEvent info={el} key={el.randomIdForUIKey} width="w-11/12" padding="py-2 px-4" margin='' />
             ))}
         </div>
     )
