@@ -111,8 +111,7 @@ export const getMonthNameShort = (monthIndex: number): string => format(new Date
 
 export const getMonthName = (monthIndex: number): string => format(new Date(new Date().setMonth(monthIndex)), "MMMM")
 
-
-export const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number,
+export const getDayTimeEvents = (events: calendarEventType[], yr: number, monthIdx: number,
     date: number, time: string): calendarEventType[] => {
     let ft = events.filter(el => el.date &&
         yr == el.date.getFullYear() && monthIdx == el.date.getMonth() && date == el.date.getDate()
@@ -126,6 +125,25 @@ export const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: 
             return false;
         });
     }
+    ft = [...ft];
+    return ft.sort((a, b) => {
+        if (a.date && b.date) {
+            let aDateTime = getDateTimeFromDateAndTime(a.date.getFullYear(), a.date.getMonth(), a.date.getDate(), a.from);
+            let bDateTime = getDateTimeFromDateAndTime(b.date.getFullYear(), b.date.getMonth(), b.date.getDate(), b.from);
+            return compareAsc(aDateTime, bDateTime);
+        }
+        else if (a.date)
+            return 1;
+        else if (b.date)
+            return -1;
+        return 0;
+    });
+}
+export const getDayEvents = (events: calendarEventType[], yr: number, monthIdx: number,
+    date: number): calendarEventType[] => {
+    let ft = events.filter(el => el.date &&
+        yr == el.date.getFullYear() && monthIdx == el.date.getMonth() && date == el.date.getDate()
+    );
     ft = [...ft];
     return ft.sort((a, b) => {
         if (a.date && b.date) {

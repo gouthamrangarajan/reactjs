@@ -1,10 +1,10 @@
 import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
-import { EventsActionContext } from "../contexts/EventsContextProvider";
-import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider";
+import { EventsActionContext } from "../../contexts/EventsContextProvider";
+import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
 import { useRouter } from "next/router";
-import useCalendar from "../hooks/useCalendar";
+import useCalendar from "../../hooks/useCalendar";
 
-function Block({ children, date, allowDrop, isWeekCalendar = false }: BlockPropsType) {
+function Block({ children, date, allowDrop }: BlockPropsType) {
     let tdEl = useRef<HTMLTableDataCellElement>();
     let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(DragItemContext);
     let { setScreenToDraggedItemRelation } = useContext(DragItemActionsContext);
@@ -48,7 +48,7 @@ function Block({ children, date, allowDrop, isWeekCalendar = false }: BlockProps
                 router.push(`/day`);
             }}
         >
-            <div className={`flex flex-col space-y-1 items-center ${isWeekCalendar ? "h-full" : "h-32"} 
+            <div className={`flex flex-col space-y-1 items-center h-32
                 ${!anyItemDragged ? "overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-300"
                     : ""}`}>
                 {children}
@@ -60,6 +60,5 @@ type BlockPropsType = {
     children: React.ReactNode | React.ReactNode[];
     date: Date;
     allowDrop: boolean;
-    isWeekCalendar?: boolean;
 }
 export default Block;

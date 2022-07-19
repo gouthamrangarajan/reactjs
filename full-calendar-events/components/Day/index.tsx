@@ -6,9 +6,9 @@ import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar";
 import { TIME_ARRAY } from "../../model";
 import { getDateTimeArrayFromTimeArray, getDayEvents } from "../../util";
-import ResizableCalendarEvent from "./ResizableCalendarEvent";
+import ResizableCalendarEvent from "../ResizableCalendarEvent";
 import AddResizableCalendarEvent from "./AddResizableCalendarEvent";
-import Block from "./Block";
+import Block from "../TimeRangeBlock";
 
 function Index() {
     let { currDayOfTheMonth, prevDayOftheMonth, currMonthIndex, prevMonthIndex, currYear } = useCalendar();
@@ -40,11 +40,12 @@ function Index() {
                     variants={prevDayOftheMonth < currDayOfTheMonth || prevMonthIndex < currMonthIndex ? moveNext : movePrev}
                     initial="initial" animate="animate">
                     <span className="text-gray-600 text-xs px-3 -mt-2 w-16 select-none">{el}</span>
-                    <Block index={ind}></Block>
+                    <Block index={ind} date={new Date(currYear, currMonthIndex, currDayOfTheMonth)}
+                        autoScrollToCurrTime={true}></Block>
                 </motion.div>
             ))}
             {showAddCalendarEvent && <AddResizableCalendarEvent time={timeForAddCalendar} index={indexForAddCalendar}></AddResizableCalendarEvent>}
-            {getDayEvents(events, currYear, currMonthIndex, currDayOfTheMonth, "").map(el => (
+            {getDayEvents(events, currYear, currMonthIndex, currDayOfTheMonth).map(el => (
                 <ResizableCalendarEvent key={el.randomIdForUIKey} event={el}></ResizableCalendarEvent>
             ))}
         </>

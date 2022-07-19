@@ -1,12 +1,12 @@
 import { closestIndexTo } from "date-fns";
 import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
-import { EventsActionContext } from "../../contexts/EventsContextProvider";
-import useCalendar from "../../hooks/useCalendar";
-import { TIME_ARRAY } from "../../model";
-import { getDateTimeArrayFromTimeArray } from "../../util";
+import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider";
+import { EventsActionContext } from "../contexts/EventsContextProvider";
+import useCalendar from "../hooks/useCalendar";
+import { TIME_ARRAY } from "../model";
+import { getDateTimeArrayFromTimeArray } from "../util";
 
-function Block({ index }: BlockPropsType) {
+function TimeRangeBlock({ index, date, autoScrollToCurrTime = false }: BlockPropsType) {
     let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(DragItemContext);
     let { setScreenToDraggedItemRelation } = useContext(DragItemActionsContext);
     let { currDayOfTheMonth, currMonthIndex, currYear } = useCalendar();
@@ -18,13 +18,13 @@ function Block({ index }: BlockPropsType) {
     useEffect(() => {
         let allDateTime = getDateTimeArrayFromTimeArray(currYear, currMonthIndex, currDayOfTheMonth);
         let indClosest = closestIndexTo(new Date(), allDateTime);
-        if (index == indClosest && refEl.current && new Date().getDate() == allDateTime[index].getDate())
+        if (index == indClosest && refEl.current && new Date().getDate() == allDateTime[index].getDate()
+            && autoScrollToCurrTime)
             refEl.current.scrollIntoView({ behavior: 'smooth', block: "center" });
 
-    }, [index, currDayOfTheMonth, currMonthIndex, currYear]);
+    }, [index, currDayOfTheMonth, currMonthIndex, currYear, autoScrollToCurrTime]);
 
     useEffect(() => {
-        let date = new Date(currYear, currMonthIndex, currDayOfTheMonth);
         if (!anyItemDragged && showDrop) { //dropped here            
             let from = TIME_ARRAY[index];
             let to = TIME_ARRAY[index + 1];
@@ -33,7 +33,8 @@ function Block({ index }: BlockPropsType) {
             eventsDispatch({ name: 'SET_DATETIME', payload: { id: draggedItemData.id, date, from, to } })
             setShowDrop(false);
         }
-    }, [anyItemDragged, eventsDispatch, draggedItemData.id, showDrop, currYear, currMonthIndex, currDayOfTheMonth, index]);
+    }, [anyItemDragged, eventsDispatch, draggedItemData.id, showDrop,
+        currYear, currMonthIndex, currDayOfTheMonth, index, date]);
 
     useEffect(() => {
         if (refEl.current) {
@@ -67,7 +68,9 @@ function Block({ index }: BlockPropsType) {
 }
 
 type BlockPropsType = {
-    index: number
+    index: number,
+    date: Date,
+    autoScrollToCurrTime?: boolean;
 }
 
-export default Block
+export default TimeRangeBlock;

@@ -1,13 +1,13 @@
 import { closestIndexTo } from "date-fns";
 import { motion, PanInfo, useMotionValue } from "framer-motion"
 import { useCallback, useContext, useEffect, useState } from "react";
-import { DragItemActionsContext, DragItemContext } from "../../contexts/DragItemContextProvider";
-import { EventsActionContext } from "../../contexts/EventsContextProvider";
-import { calendarEventType } from "../../model"
-import { calculateHeightFromTimeRange, calculateTimeRange, getDateTimeArrayFromTimeArray, getDateTimeFromDateAndTime, getMarginTopForTime } from "../../util";
+import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider";
+import { EventsActionContext } from "../contexts/EventsContextProvider";
+import { calendarEventType } from "../model"
+import { calculateHeightFromTimeRange, calculateTimeRange, getDateTimeArrayFromTimeArray, getDateTimeFromDateAndTime, getMarginTopForTime } from "../util";
 
 
-function ResizableCalendarEvent({ event }: ResizableCalendarEventPropsType) {
+function ResizableCalendarEvent({ event, widthAndLeft }: ResizableCalendarEventPropsType) {
     const itemHeight = useMotionValue(calculateHeightFromTimeRange(event.from, event.to));
     let [timeRange, setTimeRange] = useState("");
     let dispatchEventAction = useContext(EventsActionContext);
@@ -26,22 +26,19 @@ function ResizableCalendarEvent({ event }: ResizableCalendarEventPropsType) {
             index = 0;
         let calculatedTimeRange = calculateTimeRange(newHeight, event.from, index);
         if (calculatedTimeRange != event.from) {
-            if (calculatedTimeRange.startsWith(":"))
-                calculatedTimeRange = `12${calculatedTimeRange}`;
-            if (calculatedTimeRange.startsWith("-"))
-                calculatedTimeRange = `12 AM ${calculatedTimeRange};`
+            calculatedTimeRange = checkAndAppend12AMToFrom(calculatedTimeRange);
             setTimeRange(calculatedTimeRange);
         }
 
     }, [event.from, itemHeight, event.date]);
 
     useEffect(() => {
-        setTimeRange(`${event.from} - ${event.to}`);
+        setTimeRange(checkAndAppend12AMToFrom(`${event.from} - ${event.to}`));
     }, [event.from, event.to]);
 
     return (
         <>
-            <motion.div className="absolute top-0 left-16 w-full bg-indigo-600 rounded flex flex-col justify-between p-0"
+            <motion.div className={`absolute top-0 ${widthAndLeft ? widthAndLeft : "left-16 w-full"}  bg-indigo-600 rounded flex flex-col justify-between p-0`}
                 layout
                 drag
                 whileDrag={{ scale: 0.9 }} dragConstraints={dragConstraintEl as React.RefObject<Element>}
@@ -81,5 +78,16 @@ function ResizableCalendarEvent({ event }: ResizableCalendarEventPropsType) {
 }
 type ResizableCalendarEventPropsType = {
     event: calendarEventType;
+    widthAndLeft?: string;
 }
 export default ResizableCalendarEvent
+
+const checkAndAppend12AMToFrom = (calculatedTimeRange: string): string => {
+    if (!!calculatedTimeRange) {
+        if (calculatedTimeRange.startsWith(" :"))
+            return `12${calculatedTimeRange}`;
+        if (calculatedTimeRange.startsWith(" -"))
+            return `12 AM ${calculatedTimeRange}`;
+    }
+    return calculatedTimeRange;
+}
