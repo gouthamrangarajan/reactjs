@@ -9,6 +9,7 @@
 - [Next Js] (https://nextjs.org/)
 - [Framer motion] (https://www.framer.com/motion/)
 - [Tailwind CSS] (https://tailwindcss.com/)
+- [date-fns](https://date-fns.org/)
 
 ##### Screenshots
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot1.png)
