@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { eventAnimate, moveNext, movePrev } from "../../animation";
 import { EventsContext } from "../../contexts/EventsContextProvider";
 import useCalendar from "../../hooks/useCalendar"

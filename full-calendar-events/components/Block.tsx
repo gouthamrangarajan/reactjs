@@ -4,7 +4,6 @@ import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemCon
 import { useRouter } from "next/router";
 import useCalendar from "../hooks/useCalendar";
 
-
 function Block({ children, date, allowDrop, isWeekCalendar = false }: BlockPropsType) {
     let tdEl = useRef<HTMLTableDataCellElement>();
     let { positionOfDraggedItem, anyItemDragged, draggedItemData } = useContext(DragItemContext);

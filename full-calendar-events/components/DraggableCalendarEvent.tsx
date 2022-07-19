@@ -1,8 +1,7 @@
 import { motion } from "framer-motion"
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { DragItemActionsContext, DragItemContext } from "../contexts/DragItemContextProvider"
 import { calendarEventType } from "../model";
-
 
 function DraggableCalendarEvent({ info, width, padding, margin }: CalendarEventPropsType) {
   let { dragConstraintEl } = useContext(DragItemContext);

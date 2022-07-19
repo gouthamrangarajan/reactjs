@@ -1,5 +1,5 @@
 import { getWeek, startOfWeek } from 'date-fns';
-import React, { createContext, useReducer, useState } from 'react'
+import React, { createContext, useReducer } from 'react'
 import { calendarActionContextType, calendarContextType } from '../model'
 import calendarReducer from '../reducers/calendarReducer'
 

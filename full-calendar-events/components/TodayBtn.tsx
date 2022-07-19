@@ -1,6 +1,5 @@
 import useCalendar from "../hooks/useCalendar"
 
-
 function TodayBtn() {
     let { today } = useCalendar();
     return (
