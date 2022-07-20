@@ -19,7 +19,7 @@ const SearchResults: NextPage<searchResultsPropsType> = ({ cloudData }) => {
         startTransition(() => {
             setCardListData(getCardListData(cloudData, repoFilter, textFilter));
         });
-    }, [cloudData, repoFilter, textFilter, setCardListData]);
+    }, [cloudData, repoFilter, textFilter, setCardListData, scrollEl]);
 
     return (<>
         <div className="p-1 lg:py-2 lg:px-4 w-full mt-1 min-h-screen">

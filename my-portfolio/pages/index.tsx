@@ -51,21 +51,33 @@ const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
   );
 };
 export async function getStaticProps() {
-  const redis_client = createClient({
-    url: process.env.REDIS_URL,
-    password: process.env.REDIS_PWD
-  });
-  redis_client.on('error', (err) => console.log('Redis Client Error', err));
-  await redis_client.connect();
-  let { info: { media, skills } } = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
-  //let data: dataType = await require("./../public/data.json");
-  await redis_client.disconnect();
-
+  let data: dataType = {
+    info: {
+      media: [], skills: [], about: "",
+      cloud: { firebase: [], azure: [], netlify: [], cloudflare: [] }, codePen: [], gitHub: []
+    }
+  };
+  try {
+    const redis_client = createClient({
+      url: process.env.REDIS_URL,
+      password: process.env.REDIS_PWD
+    });
+    redis_client.on('error', (err) => console.log('Redis Client Error', err));
+    await redis_client.connect();
+    data = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
+    await redis_client.disconnect();
+  }
+  catch (err) {
+    console.log('Redis Client Error', err)
+  }
+  if (!data || data.info.skills.length == 0) {
+    data = await import("../public/data.json");
+  }
   return {
     props: {
       data: {
-        media,
-        skills
+        media: data.info.media,
+        skills: data.info.skills
       },
     },
   };

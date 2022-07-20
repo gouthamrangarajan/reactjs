@@ -19,7 +19,7 @@ const SearchResults: NextPage<searchResultsPropsType> = ({ cloudData }) => {
         startTransition(() => {
             setCardListData(getCardListData(cloudData, cloudProviderFilter, applicationTypeFilter, textFilter));
         });
-    }, [cloudData, cloudProviderFilter, applicationTypeFilter, textFilter, setCardListData]);
+    }, [cloudData, cloudProviderFilter, applicationTypeFilter, textFilter, setCardListData, scrollEl]);
 
     return (
         <>

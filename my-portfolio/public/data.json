@@ -42,11 +42,6 @@
         "title": "Tailwind CSS Material Theme Input"
       },
       {
-        "url": "https://codepen.io/GouthamRangarajan/full/zYdmZPJ",
-        "imgSrc": "/imgs/codepen/CodePen16.png",
-        "title": "Vue 3 D3"
-      },
-      {
         "url": "https://codepen.io/GouthamRangarajan/full/oNeXKbN",
         "imgSrc": "/imgs/codepen/CodePen15.png",
         "title": "Vue 3 Feedback"
@@ -112,6 +107,12 @@
       },
       {
         "items": [
+          {
+            "url":"https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
+            "title":"React FullCalendar Events.",            
+            "imgSrc":"/imgs/github/ReactFullCalendar.png",
+            "description":"React FullCalendar Events. Month, Week & Day views along with ability to drag, drop events & adjust(increase/decrease) duration of events."            
+          },
           {
             "url":"https://github.com/gouthamrangarajan/vuejs/tree/master/vuetify-file-upload",
             "title":"Vuetify File Input + Drag & Drop File Upload",            
@@ -226,7 +227,7 @@
         {
           "order": 2,
           "imgSrc": "/imgs/cloud/Self.png",
-          "description": "A simple SSG(Static Site Generator) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
+          "description": "A simple ISR(Incremental Static Regeneration) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {

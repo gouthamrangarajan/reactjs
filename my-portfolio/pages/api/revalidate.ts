@@ -1,0 +1,24 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+type Data = {
+    message: string;
+}
+
+export default async function handler(req: NextApiRequest,
+    res: NextApiResponse<Data>) {
+    // Check for secret to confirm this is a valid request
+    if (req.query.secret !== process.env.REVALIDATION_TOKEN) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
+
+    try {
+        await res.revalidate('/');
+        await res.revalidate('/cloud');
+        await res.revalidate('/repo');
+        return res.json({ message: "success" });
+    } catch (err) {
+        // If there was an error, Next.js will continue
+        // to show the last successfully generated page
+        return res.status(500).send({ message: 'Error revalidating' });
+    }
+}

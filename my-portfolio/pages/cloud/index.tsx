@@ -37,17 +37,25 @@ type cloudPropsType = {
 };
 export default Index
 export async function getStaticProps() {
-    const redis_client = createClient({
-        url: process.env.REDIS_URL,
-        password: process.env.REDIS_PWD
-    });
-    redis_client.on('error', (err) => console.log('Redis Client Error', err));
-    await redis_client.connect();
-    let { info: { cloud } } = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
-    //let data: dataType = await require("./../public/data.json");
-    await redis_client.disconnect();
-    let cloudConsolidatedData = getConsolidatedData(cloud);
-
+    let cloudConsolidatedData: consolidatedDataType[] = [];
+    try {
+        const redis_client = createClient({
+            url: process.env.REDIS_URL,
+            password: process.env.REDIS_PWD
+        });
+        redis_client.on('error', (err) => console.log('Redis Client Error', err));
+        await redis_client.connect();
+        let data = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
+        await redis_client.disconnect();
+        cloudConsolidatedData = getConsolidatedData(data.info.cloud);
+    }
+    catch (err) {
+        console.log('Redis Client Error', err)
+    }
+    if (cloudConsolidatedData.length == 0) {
+        let data: dataType = await import("../../public/data.json");
+        cloudConsolidatedData = getConsolidatedData(data.info.cloud);
+    }
     return {
         props: {
             data: cloudConsolidatedData,
