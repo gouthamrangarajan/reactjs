@@ -19,7 +19,6 @@
     "redis": "^4.1.0"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.12.2",
     "@types/node": "16.11.9",
     "@types/react": "^18.0.14",
     "autoprefixer": "^10.4.0",
