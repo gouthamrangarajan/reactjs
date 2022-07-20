@@ -60,6 +60,7 @@ export async function getStaticProps() {
         props: {
             data: cloudConsolidatedData,
         },
+        revalidate: 60
     };
 }
 function getConsolidatedData({ firebase, azure, netlify, cloudflare }: cloudType): consolidatedDataType[] {

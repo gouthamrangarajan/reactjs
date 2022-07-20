@@ -59,7 +59,8 @@ export async function getStaticProps() {
     return {
         props: {
             data: consolidatedData
-        }
+        },
+        revalidate: 60
     };
 }
 function getConsolidatedData({ info: { gitHub, codePen } }: dataType): consolidatedDataType[] {

@@ -80,6 +80,7 @@ export async function getStaticProps() {
         skills: data.info.skills
       },
     },
+    revalidate: 60
   };
 }
 type homePropsType = {
