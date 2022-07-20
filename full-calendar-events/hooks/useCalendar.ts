@@ -1,11 +1,11 @@
-import { addDays, isEqual, startOfWeek } from "date-fns";
+import { addDays, eachWeekOfInterval, startOfWeek } from "date-fns";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { CalendarActionContext, CalendarContext } from "../contexts/CalendarContextProvider";
-import { calendarDataType, weekDataType } from "../model";
+import { monthDataType, weekDataType } from "../model";
 
 export default function useCalendar(): useCalendarReturnType {
 
-    let [monthData, setMonthData] = useState<calendarDataType>([]);
+    let [monthData, setMonthData] = useState<monthDataType>([]);
     let [weekData, setWeekData] = useState<weekDataType>([]);
 
     let { currYear, currMonthIndex, currDayOfTheMonth, currWeekOfTheYear } = useContext(CalendarContext);
@@ -45,39 +45,22 @@ export default function useCalendar(): useCalendarReturnType {
     }, []);
 
     useEffect(() => {
-        let retDt: calendarDataType = [];
-        let firstDt = new Date(currYear, currMonthIndex, 1)
-        let possibleOtherMonthDate = startOfWeek(firstDt);
-        let firstArr: Array<{ date: number, ind: string | number }> = [];
-        while (!isEqual(firstDt, possibleOtherMonthDate)) {
-            firstArr.push({ date: possibleOtherMonthDate.getDate(), ind: 'prev' })
-            possibleOtherMonthDate = addDays(possibleOtherMonthDate, 1);
-        }
-        firstArr.push({ date: 1, ind: 'curr' });
-        while (firstArr.length < 7) {
-            firstArr.push({ date: firstArr[firstArr.length - 1].date + 1, ind: 'curr' })
-        }
-        retDt.push(firstArr);
-        let lastDate = new Date(currYear, currMonthIndex + 1, 0).getDate()
-        let lastEntry = firstArr[firstArr.length - 1].date;
-        let completed = false
-        while (lastEntry < lastDate && !completed) {
-            let otherArr = [];
-            let i = 1;
-            for (i = 1; i <= 7; i++) {
-                if (lastEntry + i <= lastDate) {
-                    otherArr.push({ date: lastEntry + i, ind: 'curr' })
-                }
+        let retDt: monthDataType = [];
+        let firstDtOfMonth = new Date(currYear, currMonthIndex, 1);
+        let lastDtOfMonth = new Date(currYear, currMonthIndex + 1, 0);
+        let range = eachWeekOfInterval({ start: firstDtOfMonth, end: lastDtOfMonth });
+
+        range.forEach((firstDateOfEachWeek: Date) => {
+            let arr: Array<{ date: Date, ind: string }> = [];
+            for (let i = 0; i < 7; i++) {
+                let dt = addDays(firstDateOfEachWeek, i);
+                let ind = dt.getMonth() < currMonthIndex ? 'prev' : dt.getMonth() > currMonthIndex ? 'next' : 'curr';
+                arr.push({ date: dt, ind });
             }
-            i = 1;
-            while (otherArr.length < 7) {
-                completed = true
-                otherArr.push({ date: i, ind: 'next' })
-                i++
-            }
-            retDt.push(otherArr)
-            lastEntry = otherArr[otherArr.length - 1].date
-        }
+            retDt.push(arr);
+        });
+
+
         setMonthData(retDt);
     }, [currYear, currMonthIndex]);
 
@@ -115,7 +98,7 @@ export default function useCalendar(): useCalendarReturnType {
 
 type useCalendarReturnType = {
     weekData: weekDataType;
-    monthData: calendarDataType;
+    monthData: monthDataType;
     currYear: number;
     prevYear: number;
     currMonthIndex: number;

@@ -24,7 +24,7 @@ function Index() {
                     initial="initial" animate="animate">
                     {weekData.map((dt, weekIndex) =>
                     (
-                        <td key={`td_${weekIndex}_${currWeekOfTheYear}`} className="border-r border-gray-300">
+                        <td key={`td_${weekIndex}_${currWeekOfTheYear}`} className="border-r border-gray-300 text-sm">
                             <div className="flex flex-col space-y-1 items-center">
                                 <span className="select-none">{format(dt, "E")}</span>
                                 <h5 className={` px-2 py-1

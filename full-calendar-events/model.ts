@@ -1,6 +1,6 @@
 import React, { Dispatch } from "react";
 
-export type calendarDataType = Array<Array<{ date: number, ind: number | string }>>;
+export type monthDataType = Array<Array<{ date: Date, ind: string }>>;
 export type weekDataType = Date[];
 export type positionType = { x: number, y: number };
 
