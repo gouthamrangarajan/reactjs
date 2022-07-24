@@ -1,36 +1,25 @@
 import { NextPage } from "next"
 import React from "react";
-import { Suspense, useContext, useEffect, useState, useTransition } from "react";
+import { useContext, useEffect } from "react";
 import { CloudPageContext } from "../../contexts/CloudPageContextProvider";
 import { consolidatedDataType } from "../../models/dataType"
 import { AppContext } from "../../pages/_app";
-const Loader = React.lazy(() => import("../Loader"));
 import ProjectCardList from "../ProjectCardList"
 
 const SearchResults: NextPage<searchResultsPropsType> = ({ cloudData }) => {
-    let [cardListData, setCardListData] = useState<consolidatedDataType[]>(cloudData);
     let { applicationTypeFilter, cloudProviderFilter, textFilter } = useContext(CloudPageContext);
-    let [isPendingTransition, startTransition] = useTransition();
     let { scrollEl } = useContext(AppContext);
 
     useEffect(() => {
         if (scrollEl && scrollEl.current)
             scrollEl.current.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-        startTransition(() => {
-            setCardListData(getCardListData(cloudData, cloudProviderFilter, applicationTypeFilter, textFilter));
-        });
-    }, [cloudData, cloudProviderFilter, applicationTypeFilter, textFilter, setCardListData, scrollEl]);
+    }, [cloudData, cloudProviderFilter, applicationTypeFilter, textFilter, scrollEl]);
 
     return (
         <>
             <div className="p-1 lg:py-2 lg:px-4 w-full mt-1 min-h-screen">
-                <ProjectCardList data={cardListData}></ProjectCardList>
+                <ProjectCardList data={getCardListData(cloudData, cloudProviderFilter, applicationTypeFilter, textFilter)}></ProjectCardList>
             </div>
-            <Suspense fallback={<></>}>
-                {isPendingTransition &&
-                    <Loader transparent></Loader>
-                }
-            </Suspense>
         </>
     )
 }

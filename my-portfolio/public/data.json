@@ -21,9 +21,7 @@
       {"name":"Firebase Functions","imgSrc":"imgs/skills/firebase_function.png"},
       {"name":"Netlify","imgSrc":"imgs/skills/netlify.png"},
       {"name":"Azure","imgSrc":"imgs/skills/azure.png"},
-      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"},
-      {"name":"Cloudflare Workers","imgSrc":"imgs/skills/cloudflare_workers.jpg"},
-      {"name":"Cloudflare Pages","imgSrc":"imgs/skills/cloudflare_pages.png"}
+      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"}      
     ],
     "codePen": [
       {
