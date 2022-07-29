@@ -1,2 +1,2 @@
-# reactjs
-a repository to try out react js framework
+# Reactjs
+a repository to try out Reactjs framework
