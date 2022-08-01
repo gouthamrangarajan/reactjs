@@ -12,8 +12,6 @@
 - [date-fns](https://date-fns.org/)
 
 ##### Screenshots
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot1.png)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot2.png)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot3.png)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot4.png)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/Screenshot5.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/FullCalendar_Day_View.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/FullCalendar_Month_View.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/full-calendar-events/FullCalendar_Week_View.gif)
