@@ -4,6 +4,7 @@
 - Column Ordering using Drag and Drop
 - Column Chooser 
 - Row Expansion
+- Sorting
 
 ##### Frameworks & Libraries used
 - [React Js](https://reactjs.org/)
@@ -16,4 +17,6 @@
 ##### Screenshots
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/tanstack-table/Screenshot_1.gif)
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/tanstack-table/Screenshot_2.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/tanstack-table/Screenshot_3.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/tanstack-table/Screenshot_4.gif)
 

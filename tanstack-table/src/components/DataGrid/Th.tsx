@@ -1,8 +1,9 @@
 import { Column, flexRender, Header, Table } from "@tanstack/react-table";
 import { userType } from "../../util/model";
 import { useDrag, useDrop } from 'react-dnd';
-import { reorderColumn } from "../../util/helper";
-import { DotsVerticalIcon } from "@heroicons/react/solid";
+import { fadeAnimationVariant, reorderColumn } from "../../util/helper";
+import { ChevronDownIcon, ChevronUpIcon, DotsVerticalIcon } from "@heroicons/react/solid";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Th({ table, header }: ThPropsType) {
     const { getState, setColumnOrder } = table
@@ -40,8 +41,24 @@ function Th({ table, header }: ThPropsType) {
                 {header.isPlaceholder
                     ? null
                     : flexRender(header.column.columnDef.header, header.getContext())}
-                <button className="outline-none appearance-none"
-                    ref={dragRef}><DotsVerticalIcon className="w-5 h-5 text-gray-100"></DotsVerticalIcon></button>
+                <div className="flex items-center space-x-1" ref={dragRef}>
+                    <motion.button className="outline-none appearance-none" 
+                        ><DotsVerticalIcon className="w-5 h-5 text-gray-100"></DotsVerticalIcon></motion.button>
+                    <AnimatePresence exitBeforeEnter>
+                        {header.column.getIsSorted()?(
+                        <motion.button className="outline-none appearance-none" initial="initial" animate="animate"
+                            exit="initial" variants={fadeAnimationVariant} onClick={header.column.getToggleSortingHandler()}
+                            key={1}>                            
+                                <ChevronUpIcon className={`text-gray-100 transition duration-300 w-4 h-4
+                                        ${header.column.getIsSorted()=='desc'?'transform rotate-180':""}`}></ChevronUpIcon>
+                        </motion.button>):(<motion.button className="flex flex-col" initial="initial" animate="animate"
+                        exit="initial"  variants={fadeAnimationVariant} onClick={header.column.getToggleSortingHandler()}
+                        key={2}>
+                            <ChevronUpIcon className="text-gray-100/70 w-3 h-3"></ChevronUpIcon>
+                            <ChevronDownIcon className="text-gray-100/70 w-3 h-3"></ChevronDownIcon>
+                        </motion.button>)}
+                    </AnimatePresence>
+                </div>
             </div>
         </th>
     )

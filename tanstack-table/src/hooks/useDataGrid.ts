@@ -2,6 +2,7 @@ import {
   ColumnDef,
   ColumnOrderState,
   ExpandedState,
+  SortingState,
 } from "@tanstack/react-table";
 import React, { Dispatch, SetStateAction, useEffect } from "react";
 import { userType } from "../util/model";
@@ -18,11 +19,11 @@ function useDataGrid(
   let [columnVisibility, setColumnVisibility] = React.useState({});
   let [showColumnChooser, setShowColumnChooser] = React.useState(false);
   let [expanded, setExpanded] = React.useState<ExpandedState>({});
+  let [sorting, setSorting] = React.useState<SortingState>([])
 
   useEffect(() => {
     async function populateData() {
       let dt = await getUserData();
-      console.log(dt);
       setData(dt);
     }
     populateData();
@@ -38,6 +39,8 @@ function useDataGrid(
     setShowColumnChooser,
     expanded,
     setExpanded,
+    sorting,
+    setSorting
   };
 }
 type useDataGridReturnType = {
@@ -50,5 +53,7 @@ type useDataGridReturnType = {
   setShowColumnChooser: Dispatch<SetStateAction<boolean>>;
   expanded: ExpandedState;
   setExpanded: Dispatch<SetStateAction<ExpandedState>>;
+  sorting:SortingState;
+  setSorting:Dispatch<SetStateAction<SortingState>>;
 };
 export default useDataGrid;
