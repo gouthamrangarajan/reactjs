@@ -8,7 +8,7 @@ function App() {
       <Nav></Nav>
       <div className="bg-white rounded w-11/12  mx-auto shadow mt-12 flex flex-col">
         <span className="w-full text-gray-700  py-1 px-3">
-          <span className="font-semibold">Features Implemented :</span> Column Ordering, Column Chooser, Row Expansion, Sorting
+          <span className="font-semibold">Features Implemented :</span> Column Ordering, Column Chooser, Row Expansion, Sorting, Pagination
         </span>
         <DataGrid></DataGrid>
       </div>

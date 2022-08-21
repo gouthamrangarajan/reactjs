@@ -5,7 +5,8 @@ import {
     getCoreRowModel,
     useReactTable,
     getExpandedRowModel,
-    getSortedRowModel
+    getSortedRowModel,
+    getPaginationRowModel
 } from '@tanstack/react-table';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { Fragment } from 'react';
@@ -14,7 +15,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import useDataGrid from '../../hooks/useDataGrid';
 import { slideDownAnimationVariant, userTypeDataGridColumnHelper as columnHelper } from '../../util/helper';
 import { userType } from '../../util/model';
-import ColumnChooser from './ColumnChooser';
+import TFoot from './TFoot';
 import Th from './Th';
 
 function Index() {
@@ -102,6 +103,7 @@ function Index() {
         getRowCanExpand: () => true,
         getSortedRowModel:getSortedRowModel(),
         onSortingChange: setSorting,
+        getPaginationRowModel:getPaginationRowModel()
     });
     return (
         <DndProvider backend={HTML5Backend}>
@@ -184,23 +186,7 @@ function Index() {
                         ))
                     }
                 </motion.tbody>
-                <motion.tfoot className='shadow h-12'>
-                    {table.getFooterGroups().map(footerGroup => (
-                        <tr key={footerGroup.id}>
-                            <th key="foot" className='py-2 px-4 flex' colSpan={footerGroup.headers.length}>
-                                <div className='relative'>
-                                    <ColumnChooser display={showColumnChooser} table={table}
-                                        closeAction={() => setShowColumnChooser(false)}
-                                        position="absolute -top-[13.5rem] -left-2"></ColumnChooser>
-                                </div>
-                                <button className="appearance-none outline-none py-1 px-3 text-white font-semibold
-                                    bg-green-600  focus:ring-2 transition duration-300 rounded
-                                    focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50"
-                                    onClick={() => setShowColumnChooser(chooser => !chooser)}>Choose Columns</button>
-                            </th>
-                        </tr>
-                    ))}
-                </motion.tfoot>
+                <TFoot setShowColumnChooser={setShowColumnChooser} showColumnChooser={showColumnChooser} table={table}></TFoot>
             </motion.table>
         </DndProvider>
     )
