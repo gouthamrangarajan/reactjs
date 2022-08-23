@@ -19,7 +19,7 @@ function useDataGrid(
   let [columnVisibility, setColumnVisibility] = React.useState({});
   let [showColumnChooser, setShowColumnChooser] = React.useState(false);
   let [expanded, setExpanded] = React.useState<ExpandedState>({});
-  let [sorting, setSorting] = React.useState<SortingState>([])
+  let [sorting, setSorting] = React.useState<SortingState>([]);
 
   useEffect(() => {
     async function populateData() {
@@ -40,7 +40,7 @@ function useDataGrid(
     expanded,
     setExpanded,
     sorting,
-    setSorting
+    setSorting,
   };
 }
 type useDataGridReturnType = {
@@ -53,7 +53,7 @@ type useDataGridReturnType = {
   setShowColumnChooser: Dispatch<SetStateAction<boolean>>;
   expanded: ExpandedState;
   setExpanded: Dispatch<SetStateAction<ExpandedState>>;
-  sorting:SortingState;
-  setSorting:Dispatch<SetStateAction<SortingState>>;
+  sorting: SortingState;
+  setSorting: Dispatch<SetStateAction<SortingState>>;
 };
 export default useDataGrid;
