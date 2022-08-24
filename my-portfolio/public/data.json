@@ -5,34 +5,50 @@
       {
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/gouthamrangarajan",
-        "imgSrc":"/imgs/media/linkedin-logo.png"
+        "imgSrc": "/imgs/media/linkedin-logo.png"
       },
-      { "name": "Github", "url": "https://github.com/gouthamrangarajan","imgSrc":"/imgs/media/github-logo.png" },
-      { "name": "Codepen", "url": "https://codepen.io/GouthamRangarajan" ,"imgSrc":"/imgs/media/codepen-logo.png" }
+      {
+        "name": "Github",
+        "url": "https://github.com/gouthamrangarajan",
+        "imgSrc": "/imgs/media/github-logo.png"
+      },
+      {
+        "name": "Codepen",
+        "url": "https://codepen.io/GouthamRangarajan",
+        "imgSrc": "/imgs/media/codepen-logo.png"
+      }
     ],
-    "skills":[
-      {"name":"ReactJs","imgSrc":"imgs/skills/react.png"},
-      {"name":"NextJs","imgSrc":"imgs/skills/next.png"},
-      {"name":"VueJs","imgSrc":"imgs/skills/vue.png"},      
-      {"name":"NuxtJs","imgSrc":"imgs/skills/nuxt.png"},
-      {"name":".Net","imgSrc":"imgs/skills/dotnet_core.png"},
-      {"name":"TailwindCSS","imgSrc":"imgs/skills/tailwind.png"},
-      {"name":"Firebase","imgSrc":"imgs/skills/firebase.png"},
-      {"name":"Firebase Functions","imgSrc":"imgs/skills/firebase_function.png"},
-      {"name":"Netlify","imgSrc":"imgs/skills/netlify.png"},
-      {"name":"Azure","imgSrc":"imgs/skills/azure.png"},
-      {"name":"Azure Functions","imgSrc":"imgs/skills/azure_function.png"}      
+    "skills": [
+      { "name": "ReactJs", "imgSrc": "imgs/skills/react.png" },
+      { "name": "NextJs", "imgSrc": "imgs/skills/next.png" },
+      { "name": "VueJs", "imgSrc": "imgs/skills/vue.png" },
+      { "name": "NuxtJs", "imgSrc": "imgs/skills/nuxt.png" },
+      { "name": ".Net", "imgSrc": "imgs/skills/dotnet_core.png" },
+      { "name": "TailwindCSS", "imgSrc": "imgs/skills/tailwind.png" },
+      { "name": "Firebase", "imgSrc": "imgs/skills/firebase.png" },
+      {
+        "name": "Firebase Functions",
+        "imgSrc": "imgs/skills/firebase_function.png"
+      },
+      { "name": "Netlify", "imgSrc": "imgs/skills/netlify.png" },
+      { "name": "Azure", "imgSrc": "imgs/skills/azure.png" },
+      { "name": "Azure Functions", "imgSrc": "imgs/skills/azure_function.png" }
     ],
     "codePen": [
       {
-        "url":"https://codepen.io/GouthamRangarajan/full/mdxPROp",
-        "imgSrc":"/imgs/codepen/CodePen19.png",
-        "title":"Vue 3 Cart"
+        "url": "https://codepen.io/GouthamRangarajan/full/XWEGOJK",
+        "imgSrc": "/imgs/codepen/CodePen20.png",
+        "title": "Vue 3 QRCode Generator"
       },
       {
-        "url":"https://codepen.io/GouthamRangarajan/full/yLvwRyx",
-        "imgSrc":"/imgs/codepen/CodePen18.png",
-        "title":"Vuetify Datatable with Server side pagination"
+        "url": "https://codepen.io/GouthamRangarajan/full/mdxPROp",
+        "imgSrc": "/imgs/codepen/CodePen19.png",
+        "title": "Vue 3 Cart"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/yLvwRyx",
+        "imgSrc": "/imgs/codepen/CodePen18.png",
+        "title": "Vuetify Datatable with Server side pagination"
       },
       {
         "url": "https://codepen.io/GouthamRangarajan/full/vYeeNOq",
@@ -53,7 +69,7 @@
         "url": "https://codepen.io/GouthamRangarajan/full/mdmLZvq",
         "imgSrc": "/imgs/codepen/CodePen13.png",
         "title": "Vue 3 Tailwind Switch"
-      },               
+      },
       {
         "url": "https://codepen.io/GouthamRangarajan/full/BazXNgQ",
         "imgSrc": "/imgs/codepen/CodePen9.png",
@@ -106,22 +122,22 @@
       {
         "items": [
           {
-            "url":"https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
-            "title":"React FullCalendar Events.",            
-            "imgSrc":"/imgs/github/ReactFullCalendar.png",
-            "description":"React FullCalendar Events. Month, Week & Day views along with ability to drag, drop events & adjust(increase/decrease) duration of events."            
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
+            "title": "React FullCalendar Events.",
+            "imgSrc": "/imgs/github/ReactFullCalendar.png",
+            "description": "React FullCalendar Events. Month, Week & Day views along with ability to drag, drop events & adjust(increase/decrease) duration of events."
           },
           {
-            "url":"https://github.com/gouthamrangarajan/vuejs/tree/master/vuetify-file-upload",
-            "title":"Vuetify File Input + Drag & Drop File Upload",            
-            "imgSrc":"/imgs/github/VuetifyFileUpload.png",
-            "description":"A simple Vuetify file input + drag and drop file upload"            
+            "url": "https://github.com/gouthamrangarajan/vuejs/tree/master/vuetify-file-upload",
+            "title": "Vuetify File Input + Drag & Drop File Upload",
+            "imgSrc": "/imgs/github/VuetifyFileUpload.png",
+            "description": "A simple Vuetify file input + drag and drop file upload"
           },
           {
-            "url":"https://github.com/gouthamrangarajan/reactjs/tree/main/react-tailwind-multi-step-form",
-            "title":"React Multi Step Form",
-            "imgSrc":"/imgs/github/ReactMultiStep.png",
-            "description":"Multi step form using React, Tailwind CSS & Framer Motion"
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/react-tailwind-multi-step-form",
+            "title": "React Multi Step Form",
+            "imgSrc": "/imgs/github/ReactMultiStep.png",
+            "description": "Multi step form using React, Tailwind CSS & Framer Motion"
           },
           {
             "url": "https://github.com/gouthamrangarajan/Azure/tree/main/Serverless-UI",
@@ -158,26 +174,26 @@
             "title": "Date Range Picker",
             "imgSrc": "/imgs/github/DateRangePicker.png",
             "description": "Date Range Picker using Vue 3, Composition Api & Tailwind CSS"
-          },          
+          },
           {
             "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-bulma-lightbox-nasa",
             "title": "Vue LightBox",
             "imgSrc": "/imgs/github/LightBox.png",
             "description": "Lightbox implementation using Vue & Bulma CSS"
-          }               
+          }
         ]
       }
     ],
-    "cloud": {      
+    "cloud": {
       "firebase": [
         {
-          "order":1,
+          "order": 1,
           "imgSrc": "/imgs/cloud/React_Drive.png",
           "description": "A PWA drive using Vite, React, TailwindCSS and Firebase to store and access files and folders.",
           "url": "https://react-drive-2fd13.web.app/"
         },
         {
-          "order":2,
+          "order": 2,
           "imgSrc": "/imgs/cloud/Stock.png",
           "description": "A PWA project using Vite, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph",
           "url": "https://stockapi-90a27.web.app/"
@@ -205,18 +221,18 @@
           "imgSrc": "/imgs/cloud/Chat.png",
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://vue-superchat.web.app/"
-        }       
+        }
       ],
       "cloudflare": [
         {
-             "order": 1,
-             "imgSrc": "/imgs/cloud/Notes.png",
-             "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
-             "url": "https://rg-notes.pages.dev/"
+          "order": 1,
+          "imgSrc": "/imgs/cloud/Notes.png",
+          "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
+          "url": "https://rg-notes.pages.dev/"
         }
       ],
       "netlify": [
-	 {
+        {
           "order": 1,
           "imgSrc": "/imgs/cloud/Wordle.png",
           "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
