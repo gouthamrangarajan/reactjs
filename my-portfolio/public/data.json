@@ -116,11 +116,17 @@
         "name": "Azure Functions"
       },
       {
-        "url": "https://github.com/gouthamrangarajan/DataStructuresCsharp",
-        "name": "Data Structures"
+        "url": "https://github.com/gouthamrangarajan/cloudflare-workers",
+        "name": "Cloudflare Workers"
       },
       {
         "items": [
+          {
+            "url": "https://github.com/gouthamrangarajan/cloudflare-workers/tree/main/nuxt-nitro-101",
+            "title": "Nuxt 3 Nitro 101",
+            "imgSrc": "/imgs/github/NuxtNitro101.png",
+            "description": "Nuxt 3 SSR to diplay JsonPlaceholder data including search hoisted in Cloudflare Worker."
+          },
           {
             "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
             "title": "React FullCalendar Events.",
