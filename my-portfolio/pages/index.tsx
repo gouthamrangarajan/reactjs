@@ -29,23 +29,33 @@ const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
             <Skills data={skills}></Skills>
           </div>
         </div>
-        <Nav menu={<div className="flex-1 text-white flex space-x-3 items-center ">
-          <span className="text-gray-100 text-sm py-1 px-3">Check out my Demos</span>
-          <Link href="/cloud">
-            <a className="transition duration-300  text-white py-1 px-3 rounded-md
+        <Nav
+          menu={
+            <div className="flex-1 text-white flex space-x-3 items-center ">
+              <span className="text-gray-100 text-sm py-1 px-3">
+                Check out my Demos
+              </span>
+              <Link href="/cloud">
+                <a
+                  className="transition duration-300  text-white py-1 px-3 rounded-md
                                 hover:ring-2 hover:ring-white
-                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700">
-              Cloud Projects
-            </a>
-          </Link>
-          <Link href="/repo">
-            <a className="transition duration-300  text-white py-1 px-3 rounded-md
+                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700"
+                >
+                  Cloud Projects
+                </a>
+              </Link>
+              <Link href="/repo">
+                <a
+                  className="transition duration-300  text-white py-1 px-3 rounded-md
                                 hover:ring-2 hover:ring-white
-                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700">
-              Github &amp; Codepen
-            </a>
-          </Link>
-        </div>}></Nav>
+                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700"
+                >
+                  Github &amp; Codepen
+                </a>
+              </Link>
+            </div>
+          }
+        ></Nav>
       </Suspense>
     </>
   );
@@ -53,22 +63,27 @@ const Home: NextPage<homePropsType> = ({ data: { media, skills } }) => {
 export async function getStaticProps() {
   let data: dataType = {
     info: {
-      media: [], skills: [], about: "",
-      cloud: { firebase: [], azure: [], netlify: [], cloudflare: [] }, codePen: [], gitHub: []
-    }
+      media: [],
+      skills: [],
+      about: "",
+      cloud: { firebase: [], azure: [], netlify: [], cloudflare: [] },
+      codePen: [],
+      gitHub: [],
+    },
   };
   try {
     const redis_client = createClient({
       url: process.env.REDIS_URL,
-      password: process.env.REDIS_PWD
+      password: process.env.REDIS_PWD,
     });
-    redis_client.on('error', (err) => console.log('Redis Client Error', err));
+    redis_client.on("error", (err) => console.log("Redis Client Error", err));
     await redis_client.connect();
-    data = JSON.parse(await redis_client.get("portfolio_data") || "{}") as dataType;
+    data = JSON.parse(
+      (await redis_client.get("portfolio_data")) || "{}"
+    ) as dataType;
     await redis_client.disconnect();
-  }
-  catch (err) {
-    console.log('Redis Client Error', err)
+  } catch (err) {
+    console.log("Redis Client Error", err);
   }
   if (!data || data.info.skills.length == 0) {
     data = await import("../public/data.json");
@@ -77,16 +92,16 @@ export async function getStaticProps() {
     props: {
       data: {
         media: data.info.media,
-        skills: data.info.skills
+        skills: data.info.skills,
       },
     },
-    revalidate: 60
+    revalidate: 60,
   };
 }
 type homePropsType = {
   data: {
     media: mediaType[];
     skills: skillType[];
-  }
+  };
 };
 export default Home;

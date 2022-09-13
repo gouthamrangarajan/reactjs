@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import { mediaType } from "../models/dataType";
-import { headerTextParent, staggerChild, staggerParent } from "../utils/animationVariants";
+import {
+  headerTextParent,
+  staggerChild,
+  staggerParent,
+} from "../utils/animationVariants";
 import HeaderText from "./HeaderText";
 
 const Header: NextPage<headerPropType> = ({ media }) => {
@@ -17,16 +21,37 @@ const Header: NextPage<headerPropType> = ({ media }) => {
           alt="My Avatar"
         ></img>
       </div>
-      <motion.div className="flex flex-col items-center justify-center" variants={headerTextParent}
-        initial="hidden" animate="show">
-        <HeaderText classes="font-semibold text-3xl h-12" text="Goutham Rangarajan"></HeaderText>
-        <HeaderText classes="italic font-semibold tracking-wider" text="RG"></HeaderText>
+      <motion.div
+        className="flex flex-col items-center justify-center"
+        variants={headerTextParent}
+        initial="hidden"
+        animate="show"
+      >
+        <HeaderText
+          classes="font-semibold text-3xl h-12"
+          text="Goutham Rangarajan"
+        ></HeaderText>
+        <HeaderText
+          classes="italic font-semibold tracking-wider"
+          text="RG"
+        ></HeaderText>
         <HeaderText classes="text-lg" text="Front-end enthusiast"></HeaderText>
       </motion.div>
-      <motion.div className="flex space-x-2" variants={staggerParent} initial="hidden" animate="show">
-        {media.map(med => (
-          <motion.a className="appearance-none outline-none h-14 w-14 p-1 rounded-full focus:ring-2 focus:ring-white"
-            variants={staggerChild} target="_blank" href={med.url} key={med.name} rel="noreferrer">
+      <motion.div
+        className="flex space-x-2 items-center"
+        variants={staggerParent}
+        initial="hidden"
+        animate="show"
+      >
+        {media.map((med) => (
+          <motion.a
+            className="appearance-none outline-none h-14 w-14 p-1 rounded-full focus:ring-2 focus:ring-white"
+            variants={staggerChild}
+            target="_blank"
+            href={med.url}
+            key={med.name}
+            rel="noreferrer"
+          >
             <img
               src={med.imgSrc}
               className="rounded-full object-contain"

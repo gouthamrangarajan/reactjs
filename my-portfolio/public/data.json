@@ -3,6 +3,11 @@
     "about": "13 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
     "media": [
       {
+        "name": "Twitter",
+        "url": "https://twitter.com/rgouthamraja",
+        "imgSrc": "/imgs/media/twitter-logo.png"
+      },
+      {
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/gouthamrangarajan",
         "imgSrc": "/imgs/media/linkedin-logo.png"
@@ -32,7 +37,15 @@
       },
       { "name": "Netlify", "imgSrc": "imgs/skills/netlify.png" },
       { "name": "Azure", "imgSrc": "imgs/skills/azure.png" },
-      { "name": "Azure Functions", "imgSrc": "imgs/skills/azure_function.png" }
+      { "name": "Azure Functions", "imgSrc": "imgs/skills/azure_function.png" },
+      {
+        "name": "Cloudflare Workers",
+        "imgSrc": "imgs/skills/cloudflare_workers.png"
+      },
+      {
+        "name": "Cloudflare Pages",
+        "imgSrc": "imgs/skills/cloudflare_pages.png"
+      }
     ],
     "codePen": [
       {
