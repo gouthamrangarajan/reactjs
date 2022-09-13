@@ -71,20 +71,20 @@ export async function getStaticProps() {
       gitHub: [],
     },
   };
-  // try {
-  //   const redis_client = createClient({
-  //     url: process.env.REDIS_URL,
-  //     password: process.env.REDIS_PWD,
-  //   });
-  //   redis_client.on("error", (err) => console.log("Redis Client Error", err));
-  //   await redis_client.connect();
-  //   data = JSON.parse(
-  //     (await redis_client.get("portfolio_data")) || "{}"
-  //   ) as dataType;
-  //   await redis_client.disconnect();
-  // } catch (err) {
-  //   console.log("Redis Client Error", err);
-  // }
+  try {
+    const redis_client = createClient({
+      url: process.env.REDIS_URL,
+      password: process.env.REDIS_PWD,
+    });
+    redis_client.on("error", (err) => console.log("Redis Client Error", err));
+    await redis_client.connect();
+    data = JSON.parse(
+      (await redis_client.get("portfolio_data")) || "{}"
+    ) as dataType;
+    await redis_client.disconnect();
+  } catch (err) {
+    console.log("Redis Client Error", err);
+  }
   if (!data || data.info.skills.length == 0) {
     data = await import("../public/data.json");
   }
