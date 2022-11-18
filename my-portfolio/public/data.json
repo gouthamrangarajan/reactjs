@@ -230,9 +230,9 @@
         },
         {
           "order": 3,
-          "imgSrc": "/imgs/cloud/WL1.png",
-          "description": "A PWA project using Vite, React, TailwindCSS and Firebase to display a collection of You tube videos(along with the ability to play video) and documentation. ",
-          "url": "https://weblearnings-e679a.web.app/"
+          "imgSrc": "/imgs/cloud/WL.png",
+          "description": "A React Remix project using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
+          "url": "https://web-learnings.netlify.app/"
         },
         {
           "order": 4,
