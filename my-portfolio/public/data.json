@@ -140,6 +140,12 @@
       {
         "items": [
           {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-grocery-list",
+            "title": "Vue 3 Grocery List",
+            "imgSrc": "/imgs/github/grocery-list.png",
+            "description": "A simple Vite PWA code for tracking grocery list using Vue 3, Tailwind CSS & VueUse"
+          },
+          {
             "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureAD%2BGmailAuth",
             "title": "AzureAD & Gmail Auth",
             "imgSrc": "/imgs/github/AzureAD+GmailAuth.png",
