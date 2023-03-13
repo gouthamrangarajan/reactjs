@@ -237,7 +237,7 @@
         {
           "order": 3,
           "imgSrc": "/imgs/cloud/WL.png",
-          "description": "A React Remix project using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
+          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
           "url": "https://web-learnings.netlify.app/"
         },
         {
