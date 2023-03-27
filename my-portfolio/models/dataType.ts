@@ -30,6 +30,7 @@ export interface cloudType {
   azure: cloudArrayType[];
   netlify: cloudArrayType[];
   cloudflare: cloudArrayType[];
+  vercel: cloudArrayType[];
 }
 export interface cloudArrayType {
   order?: number;
@@ -55,21 +56,21 @@ export type consolidatedDataType = {
   url: string;
   description?: string;
   title: string;
-}
+};
 export type cloudPageContextType = {
   cloudProviderFilter: string;
   applicationTypeFilter: string;
   textFilter: string;
-}
+};
 export type repoPageContextType = {
   repoFilter: string;
   textFilter: string;
-}
+};
 export type reducerActionType<T> = {
   name: string;
   payload?: T;
-}
+};
 
 export type appContextType = {
   scrollEl: React.MutableRefObject<HTMLElement | undefined> | undefined;
-}
+};

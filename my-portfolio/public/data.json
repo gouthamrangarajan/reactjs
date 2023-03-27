@@ -140,10 +140,10 @@
       {
         "items": [
           {
-            "url":"https://github.com/gouthamrangarajan/Vuejs/tree/master/file-processing-audit",
-            "title":"Audit UI for File Watcher & Processor",
-            "imgSrc":"/imgs/github/audit-ui.png",
-            "description":"A simple Audit UI for File Watcher & Processor using Vue 3 & Tailwind CSS"
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/file-processing-audit",
+            "title": "Audit UI for File Watcher & Processor",
+            "imgSrc": "/imgs/github/audit-ui.png",
+            "description": "A simple Audit UI for File Watcher & Processor using Vue 3 & Tailwind CSS"
           },
           {
             "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-grocery-list",
@@ -186,7 +186,7 @@
             "title": "Azure Serverless UI",
             "imgSrc": "/imgs/github/Serverless-UI.png",
             "description": "Serverless function to render UI in Azure. An idea to send html response in Azure functions "
-          },          
+          },
           {
             "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/img-slider",
             "title": "React Image Slider",
@@ -239,7 +239,7 @@
           "imgSrc": "/imgs/cloud/Stock.png",
           "description": "A PWA project using Vite, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph",
           "url": "https://stockapi-90a27.web.app/"
-        },        
+        },
         {
           "order": 4,
           "imgSrc": "/imgs/cloud/React_Chat.png",
@@ -292,6 +292,14 @@
           "title": "React Snake game",
           "imgSrc": "/imgs/github/SnakeGame.png",
           "description": "Snake game using React & Vite"
+        }
+      ],
+      "vercel": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/EmailSummarize.png",
+          "description": "A simple tool to summarize email body using Next.js (v13), OpenAI & Tailwind CSS",
+          "url": "https://rg-email-summarizer.vercel.app/"
         }
       ],
       "azure": [

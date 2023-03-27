@@ -79,6 +79,7 @@ function getConsolidatedData({
   azure,
   netlify,
   cloudflare,
+  vercel,
 }: cloudType): consolidatedDataType[] {
   let consolidated: Array<consolidatedDataType> = [];
   firebase.forEach((el) => {
@@ -135,6 +136,25 @@ function getConsolidatedData({
             url: inEl.url || "",
             description: inEl.description || "",
             title: "NETLIFY",
+          });
+      });
+  });
+  vercel.forEach((el) => {
+    if (el.imgSrc)
+      consolidated.push({
+        imgSrc: el.imgSrc,
+        url: el.url || "",
+        description: el.description || "",
+        title: "VERCEL",
+      });
+    if (el.other)
+      el.other.forEach((inEl) => {
+        if (inEl.imgSrc)
+          consolidated.push({
+            imgSrc: inEl.imgSrc,
+            url: inEl.url || "",
+            description: inEl.description || "",
+            title: "VERCEL",
           });
       });
   });
