@@ -2,10 +2,10 @@
 
 - [Next.Js Testing official information](https://nextjs.org/docs/testing)
 - [github example](https://github.com/vercel/next.js/tree/canary/examples/with-jest)
-- [React Testing Library] (https://testing-library.com/docs/react-testing-library/intro/)
-- [Testing Library Cheatsheet] (https://testing-library.com/docs/react-testing-library/cheatsheet/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
 
-- Sample test code for input text filter on datatable
+#### Sample test code for input text filter on datatable
 
 ```js
 describe("test search", () => {
