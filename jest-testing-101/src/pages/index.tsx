@@ -1,28 +1,14 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import Datatable from "@/components/Datatable";
+import { GET_USERS_DATA, type userType } from "@/helpers/api";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export interface userType {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  website: string;
-}
-
 export async function getServerSideProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  let dt = await res.json();
-  dt = dt.map((el: any) => ({
-    name: el.name,
-    username: el.username,
-    email: el.email,
-    website: el.website,
-  }));
+  let dt = await GET_USERS_DATA();
   return {
-    props: { dt }, // will be passed to the page component as props
+    props: { dt: (dt as userType[]) || [] }, // will be passed to the page component as props
   };
 }
 
