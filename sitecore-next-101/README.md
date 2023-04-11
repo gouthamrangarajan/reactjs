@@ -8,13 +8,11 @@
 
 ##### sample screenshots (with new pages included)
 
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/Screenshot1.gif)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/Screenshot2.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/Screenshot1.png)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/Screenshot2.png)
 
 ##### sample connecting codes
 
--[Test.tsx](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/src/components/test/Users.tsx)
-
--[Routes=>test/users](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/data/routes/test/users/en.json)
-
--[Component to Route Definition](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/sitecore/definitions/components/Users.sitecore.ts)
+- [Test.tsx](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/src/components/test/Users.tsx)
+- [Routes=>test/users](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/data/routes/test/users/en.json)
+- [Component to Route Definition](https://github.com/gouthamrangarajan/reactjs/blob/main/sitecore-next-101/sitecore/definitions/components/Users.sitecore.ts)
