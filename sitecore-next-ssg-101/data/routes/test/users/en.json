@@ -1,0 +1,8 @@
+{
+  "fields": {
+    "pageTitle": "Test Page, Users"
+  },
+  "placeholders": {
+    "jss-main": [{ "componentName": "Users" }]
+  }
+}

@@ -1,0 +1,73 @@
+.test {
+  .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .w-full {
+    width: 100%;
+  }
+  &.landing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .welcomeText {
+    @extend .w-full;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: rgb(249 115 22);
+  }
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background-color: #f9fafb;
+    @extend .w-full;
+    @extend .py-1;
+    @extend .px-3;
+    list-style-type: none;
+    a {
+      @extend .py-1;
+      @extend .px-3;
+      transition-property: all;
+      transition-duration: 300ms;
+      color: #4338ca;
+      border-radius: 0.25rem;
+      appearance: none;
+      outline: 0;
+      text-decoration: none;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      &:hover {
+        opacity: 0.8;
+      }
+      &:focus {
+        box-shadow: 0 0 0 1px #4338ca;
+      }
+    }
+  }
+  table.users {
+    @extend .w-full;
+    th,
+    td {
+      @extend .py-1;
+      @extend .px-3;
+    }
+    tr {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    }
+  }
+}
