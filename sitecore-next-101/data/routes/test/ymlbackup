@@ -1,0 +1,5 @@
+fields:
+  pageTitle: Test Page
+placeholders:
+  jss-main:
+    - componentName: Test
