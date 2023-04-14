@@ -1,4 +1,4 @@
-### Sitecore JSS Next.js SSG Sample Application in disconnected mode
+### Sitecore JSS Next.js SSG code first sample application in disconnected mode
 
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/210/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-next-js.html)
 
