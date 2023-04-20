@@ -26,7 +26,7 @@ export const loader: LoaderFunction = async ({
     }
     return sortRet;
   });
-  return new Promise((res, _) => setTimeout(() => res(ret), 250));
+  return new Promise((res, _) => setTimeout(() => res(ret), 600));
 };
 
 export const action: ActionFunction = async ({ params, request }) => {
