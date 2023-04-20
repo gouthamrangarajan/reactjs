@@ -1,7 +1,9 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 import { Grocery_Item_Status, type Grocery_Item } from "./models/grocery";
 
-export const loader: LoaderFunction = ({ request }): Array<Grocery_Item> => {
+export const loader: LoaderFunction = async ({
+  request,
+}): Promise<Array<Grocery_Item>> => {
   const items = window.localStorage.getItem("grocery");
   // Parse stored json or if none return initialValue
   let ret: Array<Grocery_Item> = items ? JSON.parse(items) : [];
@@ -24,7 +26,7 @@ export const loader: LoaderFunction = ({ request }): Array<Grocery_Item> => {
     }
     return sortRet;
   });
-  return ret;
+  return new Promise((res, _) => setTimeout(() => res(ret), 250));
 };
 
 export const action: ActionFunction = async ({ params, request }) => {
