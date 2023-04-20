@@ -2,18 +2,16 @@ import TrashIcon from "@heroicons/react/24/solid/TrashIcon";
 import { motion } from "framer-motion";
 import { useFetcher } from "react-router-dom";
 import { memo } from "react";
+import { scaleVariants } from "../../data/animation";
 
 const ClearAllBtn = () => {
   const fetcher = useFetcher();
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0 }}
-      exit={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        transition: { type: "spring", damping: 9, stiffness: 50 },
-      }}
+      variants={scaleVariants}
+      initial="initial"
+      exit="initial"
+      animate="animate"
       key={1}
       layout="position"
       className="mb-2 lg:mb-4"

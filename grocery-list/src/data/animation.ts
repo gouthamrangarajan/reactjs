@@ -77,3 +77,21 @@ export const slideLeftChildrenVariants = {
     },
   },
 };
+
+export const scaleVariants = {
+  initial: { opacity: 0, scale: 0 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", damping: 9, stiffness: 50 },
+  },
+};
+
+export const addFormVariants = {
+  initial: { opacity: 0, y: 100 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 9, stiffness: 50 },
+  },
+};

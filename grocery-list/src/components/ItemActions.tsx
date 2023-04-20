@@ -5,6 +5,7 @@ import ItemAddForm from "./ItemAddForm";
 import ClearAllBtn from "./Buttons/ClearAllBtn";
 import DownloadBtn from "./Buttons/DownloadBtn";
 import UploadBtn from "./Buttons/UploadBtn";
+import { addFormVariants, scaleVariants } from "../data/animation";
 
 export default function ItemActions() {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -36,13 +37,10 @@ export default function ItemActions() {
         <AnimatePresence mode="wait">
           {showAddForm ? (
             <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              exit={{ opacity: 0, y: 100 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { type: "spring", damping: 9, stiffness: 50 },
-              }}
+              variants={addFormVariants}
+              initial="initial"
+              exit="initial"
+              animate="animate"
               key={1}
               layout="position"
               className="w-full"
@@ -53,13 +51,10 @@ export default function ItemActions() {
             </motion.div>
           ) : (
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              exit={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                transition: { type: "spring", damping: 9, stiffness: 50 },
-              }}
+              variants={scaleVariants}
+              initial="initial"
+              exit="initial"
+              animate="animate"
               key={2}
               layout="position"
               className="mb-2 lg:mb-4"
