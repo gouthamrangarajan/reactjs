@@ -1,6 +1,7 @@
 import { memo, useRef, useState } from "react";
 import ArrowUpTrayIcon from "@heroicons/react/24/solid/ArrowUpTrayIcon";
 import { useFetcher } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const UploadBtn = () => {
   const [formAction, setFormAction] = useState("/");
@@ -25,14 +26,16 @@ const UploadBtn = () => {
   };
   return (
     <>
-      <button
+      <motion.button
+        layout="position"
+        key={"upload_button"}
         className="appearance-none outline-none rounded-full shadow-2xl bg-purple-600 text-white hover:bg-opacity-80 transition-all duration-300 focus:ring-1 focus:ring-offset-2 focus:ring-purple-600 focus:ring-offset-purple-50 p-1 font-semibold"
         onClick={() => {
           if (fileEl.current) fileEl.current.click();
         }}
       >
         <ArrowUpTrayIcon className="w-7 h-7"></ArrowUpTrayIcon>
-      </button>
+      </motion.button>
       <fetcher.Form method="PUT" ref={formEl} action={formAction}>
         <input
           type="file"
