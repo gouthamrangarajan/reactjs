@@ -10,7 +10,7 @@ const UploadBtn = () => {
   const formEl = useRef<HTMLFormElement>(null);
   const fileChanged = (ev: React.ChangeEvent<HTMLInputElement>) => {
     let fl = ev.target.files?.[0];
-    if (fl) {
+    if (fl && fl.type == "application/json") {
       var fr = new FileReader();
       fr.onload = () => {
         setFormAction(`/?data=${fr.result as string}`);
