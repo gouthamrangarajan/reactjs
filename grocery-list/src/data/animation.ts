@@ -30,9 +30,8 @@ export const slideRightParentVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
-      damping: 7,
-      stiffness: 50,
+      ease: "easeIn",
+      duration: 0.3,
       staggerChildren: 0.07,
       delayChildren: 0.3,
     },
@@ -44,9 +43,8 @@ export const slideRightChildrenVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
-      damping: 7,
-      stiffness: 50,
+      ease: "easeIn",
+      duration: 0.3,
     },
   },
 };
@@ -57,9 +55,8 @@ export const slideLeftParentVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
-      damping: 7,
-      stiffness: 50,
+      ease: "easeIn",
+      duration: 0.3,
       staggerChildren: 0.07,
       delayChildren: 0.3,
     },
@@ -71,9 +68,8 @@ export const slideLeftChildrenVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
-      damping: 7,
-      stiffness: 50,
+      ease: "easeIn",
+      duration: 0.3,
     },
   },
 };
