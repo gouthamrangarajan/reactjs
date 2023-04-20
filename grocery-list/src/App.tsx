@@ -5,7 +5,7 @@ import ItemsOrderChange from "./components/ItemsOrderChange";
 
 function App() {
   return (
-    <main className="flex flex-col w-full min-h-full py-1 px-3 gap-3 items-center justify-center pb-12 lg:pb-0">
+    <main className="flex flex-col w-full min-h-full lg:h-full py-1 px-3 gap-3 items-center justify-center pb-12 lg:pb-0">
       <ItemCardsContainerGrid></ItemCardsContainerGrid>
       <div className="w-full max-w-xl mx-auto flex justify-center lg:justify-end ">
         <ItemsOrderChange></ItemsOrderChange>
