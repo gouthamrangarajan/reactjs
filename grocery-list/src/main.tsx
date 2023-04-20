@@ -13,14 +13,22 @@ import About from "./About";
 import { useRegisterSW } from "virtual:pwa-register/react";
 const intervalMS = 60 * 60 * 1000;
 
-useRegisterSW({
-  onRegistered(r) {
-    r &&
-      setInterval(() => {
-        r.update();
-      }, intervalMS);
-  },
-});
+function ServiceWorker({
+  children,
+}: {
+  children: React.ReactNode | React.ReactNode[];
+}) {
+  useRegisterSW({
+    onRegistered(r) {
+      r &&
+        setInterval(() => {
+          r.update();
+        }, intervalMS);
+    },
+  });
+  return <>{children}</>;
+}
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -32,6 +40,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ServiceWorker>
+      <RouterProvider router={router} />
+    </ServiceWorker>
   </React.StrictMode>
 );
