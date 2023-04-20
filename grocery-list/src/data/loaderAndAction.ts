@@ -1,6 +1,6 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 import { Grocery_Item_Status, type Grocery_Item } from "./models/grocery";
-
+let firstLoad = true;
 export const loader: LoaderFunction = async ({
   request,
 }): Promise<Array<Grocery_Item>> => {
@@ -26,7 +26,12 @@ export const loader: LoaderFunction = async ({
     }
     return sortRet;
   });
-  return new Promise((res, _) => setTimeout(() => res(ret), 600));
+  let timeout = 1;
+  if (firstLoad) {
+    timeout = 600;
+    firstLoad = false;
+  }
+  return new Promise((res, _) => setTimeout(() => res(ret), timeout));
 };
 
 export const action: ActionFunction = async ({ params, request }) => {

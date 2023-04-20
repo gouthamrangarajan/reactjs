@@ -1,4 +1,5 @@
 import XMarkIcon from "@heroicons/react/24/solid/XMarkIcon";
+import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 
 export default function ItemAddForm({
@@ -7,6 +8,10 @@ export default function ItemAddForm({
   closeFormAction: () => void;
 }) {
   const fetcher = useFetcher();
+  const elToFocus = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (elToFocus.current) elToFocus.current.focus();
+  }, []);
   return (
     <div className="shadow-2xl rounded-t-lg bg-white py-2 lg:py-4 px-4 lg:px-6 flex flex-col w-full z-10">
       <div className="flex justify-between items-start border-b-2 border-gray-300">
@@ -24,6 +29,7 @@ export default function ItemAddForm({
           placeholder="Item e.g Apple"
           name="name"
           className="outline-none appearance-none py-1 border-b-2 border-gray-300 focus:border-green-600 transition-colors duration-300 placeholder:italic placeholder:text-gray-600"
+          ref={elToFocus}
         />
 
         <input
