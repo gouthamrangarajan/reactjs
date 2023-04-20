@@ -21,7 +21,7 @@ export default function ItemCardsContainerGrid() {
   }, []);
   return (
     <div
-      className="grid grid-cols-1 lg:grid-cols-2 gap-3 justify-center items-center"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-3 justify-center items-center flex-shrink-0"
       ref={dragConstraintDiv}
     >
       <div className="w-full flex justify-start lg:justify-end">

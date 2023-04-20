@@ -7,7 +7,7 @@ import {
 
 export default function About() {
   return (
-    <main className="grid w-full h-full items-center justify-center py-1 px-3">
+    <main className="grid w-full min-h-full items-center justify-center py-1 px-3">
       <motion.div
         className="flex flex-col items-start justify-center"
         initial="initial"
