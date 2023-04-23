@@ -140,16 +140,16 @@
       {
         "items": [
           {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/master/grocery-list",
+            "title": "React Grocery List",
+            "imgSrc": "/imgs/github/react-grocery-list.png",
+            "description": "A simple Vite PWA code for tracking grocery list using Reactjs, Tailwind CSS & Framer motion"
+          },
+          {
             "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/file-processing-audit",
             "title": "Audit UI for File Watcher & Processor",
             "imgSrc": "/imgs/github/audit-ui.png",
             "description": "A simple Audit UI for File Watcher & Processor using Vue 3 & Tailwind CSS"
-          },
-          {
-            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-grocery-list",
-            "title": "Vue 3 Grocery List",
-            "imgSrc": "/imgs/github/grocery-list.png",
-            "description": "A simple Vite PWA code for tracking grocery list using Vue 3, Tailwind CSS & VueUse"
           },
           {
             "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureAD%2BGmailAuth",
