@@ -39,7 +39,6 @@ export const action: ActionFunction = async ({ params, request }) => {
     window.localStorage.getItem("grocery") as string
   ) as Array<Grocery_Item>;
   let frmData = await request.formData();
-  let actionData = Object.fromEntries(frmData);
   switch (request.method) {
     case "DELETE": {
       items.splice(0);
@@ -52,12 +51,8 @@ export const action: ActionFunction = async ({ params, request }) => {
       break;
     }
     case "POST": {
-      const kys = Object.keys(actionData);
-      let action = kys.includes("remove")
-        ? "remove"
-        : kys.includes("add")
-        ? "add"
-        : "move";
+      let action = frmData.get("action");
+      if (!action) action = "move";
       let urlData = Object.fromEntries(
         new URL(request.url).searchParams
       ) as unknown as Grocery_Item;
@@ -70,6 +65,8 @@ export const action: ActionFunction = async ({ params, request }) => {
           break;
         }
         case "add": {
+          frmData.append("status", Grocery_Item_Status.TO_BUY.toString());
+          let actionData = Object.fromEntries(frmData);
           let newDt = actionData as unknown as Grocery_Item;
           newDt.name = newDt.name.trim();
           newDt.quantity = parseFloat(newDt.quantity.toString());

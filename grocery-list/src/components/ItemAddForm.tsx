@@ -40,7 +40,8 @@ export default function ItemAddForm({
         />
         <button
           type="submit"
-          name="add"
+          name="action"
+          value="add"
           className="appearance-none outline-none uppercase flex justify-center rounded bg-green-600 text-white hover:bg-opacity-80 transition-all duration-300 focus:ring-1 focus:ring-offset-2 focus:ring-green-600 focus:ring-offset-green-50 py-1 px-3"
         >
           <span>Submit</span>

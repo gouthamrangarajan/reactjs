@@ -69,7 +69,8 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
           </span>
           <button
             className="outline-none appearance-none text-gray-600 p-1 hover:opacity-90 rounded-full focus:ring-1 focus:ring-gray-600 cursor-pointer transition-all duration-300"
-            name="remove"
+            name="action"
+            value="remove"
           >
             <MinusCircleIcon className="w-5 h-5"></MinusCircleIcon>
           </button>
@@ -94,7 +95,8 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
           {item.status == Grocery_Item_Status.TO_BUY && (
             <button
               className="outline-none appearance-none text-gray-600 p-1 hover:opacity-90 rounded-full focus:ring-1 focus:ring-gray-600 cursor-pointer transition-all duration-300"
-              name="move"
+              name="action"
+              value="move"
             >
               <PaperAirplaneIcon className="w-5 h-5"></PaperAirplaneIcon>
             </button>
