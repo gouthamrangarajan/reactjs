@@ -21,3 +21,7 @@
 - [Vite PWA](https://vite-pwa-org.netlify.app/guide/)
 
 #### Check the [demo](http://rg-grocery-list.netlify.app/)
+
+###### Screenshot
+
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/grocery-list/Screenshot.gif)
