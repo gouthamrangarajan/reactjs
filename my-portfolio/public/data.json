@@ -140,7 +140,7 @@
       {
         "items": [
           {
-            "url": "https://github.com/gouthamrangarajan/reactjs/tree/master/grocery-list",
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/grocery-list",
             "title": "React Grocery List",
             "imgSrc": "/imgs/github/react-grocery-list.png",
             "description": "A simple Vite PWA code for tracking grocery list using Reactjs, Tailwind CSS & Framer motion"
