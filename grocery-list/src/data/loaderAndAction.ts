@@ -1,13 +1,17 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 import { Grocery_Item_Status, type Grocery_Item } from "./models/grocery";
+import localforage from "localforage";
 let firstLoad = true;
 export const loader: LoaderFunction = async ({
   request,
 }): Promise<Array<Grocery_Item>> => {
-  const items = window.localStorage.getItem("grocery");
-  // Parse stored json or if none return initialValue
-  let ret: Array<Grocery_Item> = items ? JSON.parse(items) : [];
-  if (!items) window.localStorage.setItem("grocery", JSON.stringify(ret));
+  let ret: Array<Grocery_Item> = [];
+  try {
+    const items = (await localforage.getItem("grocery")) as Array<Grocery_Item>;
+    if (items) ret = items;
+  } catch (err) {
+    console.log(`Error accessing localforage: ${err}`);
+  }
   let { sort } = Object.fromEntries(
     new URL(request.url).searchParams
   ) as unknown as { sort: string };
@@ -35,9 +39,15 @@ export const loader: LoaderFunction = async ({
 };
 
 export const action: ActionFunction = async ({ params, request }) => {
-  let items = JSON.parse(
-    window.localStorage.getItem("grocery") as string
-  ) as Array<Grocery_Item>;
+  let items: Array<Grocery_Item> = [];
+  try {
+    const localforageItems = (await localforage.getItem(
+      "grocery"
+    )) as Array<Grocery_Item>;
+    if (localforageItems) items = localforageItems;
+  } catch (err) {
+    console.log(`Error accessing localforage: ${err}`);
+  }
   let frmData = await request.formData();
   switch (request.method) {
     case "DELETE": {
@@ -86,27 +96,41 @@ export const action: ActionFunction = async ({ params, request }) => {
           }
           break;
         }
-        case "move": {
-          let ft = items.filter(
-            (el) => el.name == urlData.name && el.status == urlData.status
-          )[0];
-          ft.status =
-            ft.status == Grocery_Item_Status.TO_BUY
-              ? Grocery_Item_Status.BOUGHT
-              : Grocery_Item_Status.TO_BUY;
-          if (ft.status == Grocery_Item_Status.BOUGHT)
-            ft.bought_date = new Date().toISOString();
-          else {
-            ft.bought_date = undefined;
-            ft.add_date = new Date().toISOString();
+        case "move":
+          {
+            let ft = items.filter(
+              (el) => el.name == urlData.name && el.status == urlData.status
+            )[0];
+            let otherStatusEl = items.filter(
+              (el) => el.name == urlData.name && el.status != urlData.status
+            )[0];
+            if (otherStatusEl) {
+              otherStatusEl.quantity = otherStatusEl.quantity + ft.quantity;
+              let idx = items.findIndex(
+                (item) => item.name == ft.name && item.status == ft.status
+              );
+              if (idx > -1) items.splice(idx, 1);
+              ft = otherStatusEl;
+            } else
+              ft.status =
+                ft.status == Grocery_Item_Status.TO_BUY
+                  ? Grocery_Item_Status.BOUGHT
+                  : Grocery_Item_Status.TO_BUY;
+
+            if (ft.status == Grocery_Item_Status.BOUGHT)
+              ft.bought_date = new Date().toISOString();
+            else {
+              ft.bought_date = undefined;
+              ft.add_date = new Date().toISOString();
+            }
           }
           break;
-        }
       }
+
       break;
     }
   }
 
-  window.localStorage.setItem("grocery", JSON.stringify(items));
+  await localforage.setItem("grocery", items);
   return null;
 };
