@@ -117,5 +117,6 @@ function getClientY(ev: MouseEvent | TouchEvent | PointerEvent): number {
   if (ev instanceof TouchEvent && ev.touches.length > 0)
     ret = ev.touches[0].clientY;
   else if (ev instanceof MouseEvent && ev.clientY) ret = ev.clientY;
+  else if (ev instanceof PointerEvent && ev.clientY) ret = ev.clientY;
   return ret;
 }
