@@ -43,14 +43,13 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
       whileDrag={{ position: "fixed", zIndex: 10, cursor: "grabbing" }}
       onDragStart={() => {
         setItemBeingDragged(item);
-        if (
-          cardEl.current &&
-          cardEl.current.parentElement &&
-          cardEl.current.parentElement.parentElement &&
-          cardEl.current.parentElement.parentElement.scrollTop > 0
-        ) {
+        if (cardEl.current) {
+          let parentsScrollTop = aggregateAllParentsScrollTop(
+            cardEl.current,
+            0
+          );
           let { top: cardElTop } = cardEl.current.getBoundingClientRect();
-          cardElTop -= cardEl.current.parentElement.parentElement.scrollTop;
+          cardElTop -= parentsScrollTop;
           cardEl.current.style.top = cardElTop + "px";
         }
       }}
@@ -114,3 +113,12 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
   );
 };
 export default memo(ItemCard);
+
+function aggregateAllParentsScrollTop(el: HTMLElement, scrollTop: number) {
+  if (el.parentElement) {
+    if (el.parentElement.scrollTop && el.parentElement.scrollTop > 0)
+      scrollTop += el.parentElement.scrollTop;
+    scrollTop = aggregateAllParentsScrollTop(el.parentElement, scrollTop);
+  }
+  return scrollTop;
+}
