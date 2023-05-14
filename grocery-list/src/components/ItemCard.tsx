@@ -51,14 +51,14 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
         ) {
           let tch = touchEvent.touches[0];
           if (cardEl.current) {
-            cardEl.current.style.top = tch.clientY + "px";
-            cardEl.current.style.left = tch.clientX + "px";
+            cardEl.current.style.top = tch.clientY - 10 + "px";
+            cardEl.current.style.left = tch.clientX - 10 + "px";
           }
         } else {
           let mouseEvent = ev as MouseEvent;
           if (mouseEvent && mouseEvent.clientY && cardEl.current) {
-            cardEl.current.style.top = mouseEvent.clientY + "px";
-            cardEl.current.style.left = mouseEvent.clientX + "px";
+            cardEl.current.style.top = mouseEvent.clientY - 10 + "px";
+            cardEl.current.style.left = mouseEvent.clientX - 10 + "px";
           }
         }
         setItemBeingDragged(item);
