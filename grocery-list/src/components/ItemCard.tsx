@@ -27,10 +27,13 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
   const draggedItemInBoughtSection = useDragItemStore(
     (state) => state.draggedItemInBoughtSection
   );
+  const isDraggedInItemInOppositeSection = () =>
+    (draggedItemInBoughtSection && item.status == Grocery_Item_Status.TO_BUY) ||
+    (draggedItemInToBuySection && item.status == Grocery_Item_Status.BOUGHT);
   return (
     <motion.div
       layout="position"
-      className="shadow rounded-lg py-2 px-4 w-80 lg:w-96 bg-white flex items-stretch gap-3 cursor-grab"
+      className="shadow rounded-lg py-2 px-4 w-[19rem] lg:w-96 bg-white flex items-stretch gap-3 cursor-grab"
       variants={
         item.status == Grocery_Item_Status.TO_BUY
           ? slideRightChildrenVariants
@@ -38,16 +41,30 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
       }
       drag
       whileDrag={{ position: "fixed", zIndex: 10, cursor: "grabbing" }}
-      onDragStart={() => {
+      onDragStart={(ev) => {
+        let touchEvent = ev as TouchEvent;
+        if (
+          touchEvent &&
+          touchEvent.touches &&
+          touchEvent.touches.length &&
+          touchEvent.touches.length > 0
+        ) {
+          let tch = touchEvent.touches[0];
+          if (cardEl.current) {
+            cardEl.current.style.top = tch.clientY + "px";
+            cardEl.current.style.left = tch.clientX + "px";
+          }
+        } else {
+          let mouseEvent = ev as MouseEvent;
+          if (mouseEvent && mouseEvent.clientY && cardEl.current) {
+            cardEl.current.style.top = mouseEvent.clientY + "px";
+            cardEl.current.style.left = mouseEvent.clientX + "px";
+          }
+        }
         setItemBeingDragged(item);
       }}
       onDragEnd={() => {
-        if (
-          (draggedItemInBoughtSection &&
-            item.status == Grocery_Item_Status.TO_BUY) ||
-          (draggedItemInToBuySection &&
-            item.status == Grocery_Item_Status.BOUGHT)
-        ) {
+        if (isDraggedInItemInOppositeSection()) {
           fetcher.submit(null, {
             method: "POST",
             action: `/?name=${item.name}&status=${item.status}`,
