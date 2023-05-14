@@ -14,6 +14,7 @@ import {
 
 const ItemCard = ({ item }: { item: Grocery_Item }) => {
   const cardEl = useRef<HTMLDivElement>(null);
+  const elAlrdyDragged = useRef<boolean>(false);
   const fetcher = useFetcher();
   const timeAgoLabelText =
     item.status == Grocery_Item_Status.TO_BUY ? "Added" : "Bought";
@@ -41,16 +42,13 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
       }
       drag
       whileDrag={{ position: "fixed", zIndex: 10, cursor: "grabbing" }}
-      onDragStart={() => {
+      onDragStart={(ev) => {
         setItemBeingDragged(item);
         if (cardEl.current) {
-          let parentsScrollTop = aggregateAllParentsScrollTop(
-            cardEl.current,
-            0
-          );
-          let { top: cardElTop } = cardEl.current.getBoundingClientRect();
-          cardElTop -= parentsScrollTop;
-          cardEl.current.style.top = cardElTop + "px";
+          if (!elAlrdyDragged.current) {
+            cardEl.current.style.top = getClientY(ev) + "px";
+            elAlrdyDragged.current = true;
+          }
         }
       }}
       onDragEnd={() => {
@@ -114,11 +112,10 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
 };
 export default memo(ItemCard);
 
-function aggregateAllParentsScrollTop(el: HTMLElement, scrollTop: number) {
-  if (el.parentElement) {
-    if (el.parentElement.scrollTop && el.parentElement.scrollTop > 0)
-      scrollTop += el.parentElement.scrollTop;
-    scrollTop = aggregateAllParentsScrollTop(el.parentElement, scrollTop);
-  }
-  return scrollTop;
+function getClientY(ev: MouseEvent | TouchEvent | PointerEvent): number {
+  let ret = 0;
+  if (ev instanceof TouchEvent && ev.touches.length > 0)
+    ret = ev.touches[0].clientY;
+  else if (ev instanceof MouseEvent && ev.clientY) ret = ev.clientY;
+  return ret;
 }
