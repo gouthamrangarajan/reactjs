@@ -59,7 +59,7 @@ export const action: ActionFunction = async ({ params, request }) => {
         new URL(request.url).search
           .replace("?data=", "")
           .replaceAll("%22", '"')
-          .replaceAll("%20", '""')
+          .replaceAll("%20", '"')
       ) as Array<Grocery_Item>;
       break;
     }
