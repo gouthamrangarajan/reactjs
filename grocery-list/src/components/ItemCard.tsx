@@ -51,13 +51,13 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
         ) {
           let tch = touchEvent.touches[0];
           if (cardEl.current) {
-            cardEl.current.style.top = tch.clientY - 100 + "px";
+            cardEl.current.style.top = tch.clientY - 50 + "px";
             cardEl.current.style.left = tch.clientX - 100 + "px";
           }
         } else {
           let mouseEvent = ev as MouseEvent;
           if (mouseEvent && mouseEvent.clientY && cardEl.current) {
-            cardEl.current.style.top = mouseEvent.clientY - 100 + "px";
+            cardEl.current.style.top = mouseEvent.clientY - 50 + "px";
             cardEl.current.style.left = mouseEvent.clientX - 100 + "px";
           }
         }
