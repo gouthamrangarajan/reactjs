@@ -105,7 +105,7 @@ export default function ItemCardsContainer({
         initial="initial"
         animate="animate"
         className="py-1 px-3 pr-7 lg:pr-3  flex flex-col w-[22rem] lg:w-[26rem] h-64 lg:h-96 overflow-y-auto
-             overflow-x-hidden scrollbar-thin scrollbar-track-green-50 scrollbar-thumb-green-500"
+             overflow-x-hidden scrollbar-thin scrollbar-track-green-50 scrollbar-thumb-green-500 relative"
       >
         {items.map((item) => (
           <div className="mt-4" key={item.name}>

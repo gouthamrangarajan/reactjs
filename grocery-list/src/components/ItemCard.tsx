@@ -27,7 +27,7 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
   const draggedItemInBoughtSection = useDragItemStore(
     (state) => state.draggedItemInBoughtSection
   );
-  const isDraggedInItemInOppositeSection = () =>
+  const isItemDraggedInOppositeSection = () =>
     (draggedItemInBoughtSection && item.status == Grocery_Item_Status.TO_BUY) ||
     (draggedItemInToBuySection && item.status == Grocery_Item_Status.BOUGHT);
   return (
@@ -41,35 +41,25 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
       }
       drag
       whileDrag={{ position: "fixed", zIndex: 10, cursor: "grabbing" }}
-      onDragStart={(ev) => {
-        let touchEvent = ev as TouchEvent;
-        if (
-          touchEvent &&
-          touchEvent.touches &&
-          touchEvent.touches.length &&
-          touchEvent.touches.length > 0
-        ) {
-          let tch = touchEvent.touches[0];
-          if (cardEl.current) {
-            cardEl.current.style.top = tch.clientY - 30 + "px";
-            cardEl.current.style.left = tch.clientX - 60 + "px";
-          }
-        } else {
-          let mouseEvent = ev as MouseEvent;
-          if (mouseEvent && mouseEvent.clientY && cardEl.current) {
-            cardEl.current.style.top = mouseEvent.clientY - 30 + "px";
-            cardEl.current.style.left = mouseEvent.clientX - 120 + "px";
-          }
-        }
+      onDragStart={() => {
         setItemBeingDragged(item);
+        if (
+          cardEl.current &&
+          cardEl.current.parentElement &&
+          cardEl.current.parentElement.parentElement &&
+          cardEl.current.parentElement.parentElement.scrollTop > 0
+        ) {
+          let { top: cardElTop } = cardEl.current.getBoundingClientRect();
+          cardElTop -= cardEl.current.parentElement.parentElement.scrollTop;
+          cardEl.current.style.top = cardElTop + "px";
+        }
       }}
       onDragEnd={() => {
-        if (isDraggedInItemInOppositeSection()) {
+        if (isItemDraggedInOppositeSection())
           fetcher.submit(null, {
             method: "POST",
             action: `/?name=${item.name}&status=${item.status}`,
           });
-        }
         setItemBeingDragged(undefined);
       }}
       ref={cardEl}
