@@ -4,7 +4,7 @@ import MinusCircleIcon from "@heroicons/react/24/solid/MinusCircleIcon";
 import PaperAirplaneIcon from "@heroicons/react/24/solid/PaperAirplaneIcon";
 import { useFetcher } from "react-router-dom";
 import TimeAgo from "react-timeago";
-import { useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import useDragItemStore from "../stores/useDragItemStore";
 import { memo } from "react";
 import {
@@ -14,7 +14,6 @@ import {
 
 const ItemCard = ({ item }: { item: Grocery_Item }) => {
   const cardEl = useRef<HTMLDivElement>(null);
-  const elAlrdyDragged = useRef<boolean>(false);
   const fetcher = useFetcher();
   const timeAgoLabelText =
     item.status == Grocery_Item_Status.TO_BUY ? "Added" : "Bought";
@@ -28,9 +27,41 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
   const draggedItemInBoughtSection = useDragItemStore(
     (state) => state.draggedItemInBoughtSection
   );
-  const isItemDraggedInOppositeSection = () =>
-    (draggedItemInBoughtSection && item.status == Grocery_Item_Status.TO_BUY) ||
-    (draggedItemInToBuySection && item.status == Grocery_Item_Status.BOUGHT);
+  const isItemDraggedInOppositeSection = useMemo(
+    () =>
+      (draggedItemInBoughtSection &&
+        item.status == Grocery_Item_Status.TO_BUY) ||
+      (draggedItemInToBuySection && item.status == Grocery_Item_Status.BOUGHT),
+    [draggedItemInBoughtSection, draggedItemInToBuySection, item.status]
+  );
+
+  useEffect(() => {
+    function handleMove(event: MouseEvent | TouchEvent) {
+      if (cardEl.current) {
+        let clientY = getClientY(event);
+        let transform = cardEl.current.style.transform;
+        let translateYValInd =
+          transform.indexOf("translateY(") + "translateY(".length;
+        let translateY = parseInt(
+          transform.substring(
+            translateYValInd,
+            transform.indexOf(")", translateYValInd)
+          )
+        );
+        if (isNaN(translateY)) translateY = 0;
+        cardEl.current.style.top = clientY - translateY + "px";
+      }
+    }
+    if (isItemDraggedInOppositeSection) {
+      window.addEventListener("mousemove", handleMove);
+      window.addEventListener("touchmove", handleMove);
+    }
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+    };
+  }, [isItemDraggedInOppositeSection]);
+
   return (
     <motion.div
       layout="position"
@@ -41,18 +72,16 @@ const ItemCard = ({ item }: { item: Grocery_Item }) => {
           : slideLeftChildrenVariants
       }
       drag
-      whileDrag={{ position: "fixed", zIndex: 10, cursor: "grabbing" }}
+      whileDrag={
+        isItemDraggedInOppositeSection
+          ? { position: "fixed", zIndex: 10, cursor: "grabbing" }
+          : { zIndex: 10, cursor: "grabbing" }
+      }
       onDragStart={(ev) => {
         setItemBeingDragged(item);
-        if (cardEl.current) {
-          if (!elAlrdyDragged.current) {
-            cardEl.current.style.top = getClientY(ev) + "px";
-            elAlrdyDragged.current = true;
-          }
-        }
       }}
       onDragEnd={() => {
-        if (isItemDraggedInOppositeSection())
+        if (isItemDraggedInOppositeSection)
           fetcher.submit(null, {
             method: "POST",
             action: `/?name=${item.name}&status=${item.status}`,
