@@ -271,6 +271,12 @@
           "imgSrc": "/imgs/cloud/Notes.png",
           "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
           "url": "https://rg-notes.pages.dev/"
+        },
+        {
+          "order": 3,
+          "imgSrc": "/imgs/cloud/WL.png",
+          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Cloudflare Pages.",
+          "url": "https://web-learnings.pages.dev/"
         }
       ],
       "netlify": [
