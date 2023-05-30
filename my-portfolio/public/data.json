@@ -262,6 +262,12 @@
       "cloudflare": [
         {
           "order": 1,
+          "imgSrc": "/imgs/cloud/PlacesToVisit.png",
+          "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
+          "url": "http://placestovisit.pages.dev/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Notes.png",
           "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
           "url": "https://rg-notes.pages.dev/"
