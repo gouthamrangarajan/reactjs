@@ -23,6 +23,7 @@ const Skills: NextPage<skillsPropType> = ({ data }) => {
                                                   [
                                                     "NextJs",
                                                     "Azure Functions",
+                                                    "Remix"
                                                   ].includes(el.name)
                                                     ? "pt-8 h-32 w-32"
                                                     : "h-24 w-24"

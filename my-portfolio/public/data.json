@@ -25,6 +25,7 @@
     ],
     "skills": [
       { "name": "ReactJs", "imgSrc": "imgs/skills/react.png" },
+      { "name": "Remix", "imgSrc": "imgs/skills/remix.svg" },
       { "name": "NextJs", "imgSrc": "imgs/skills/next.png" },
       { "name": "VueJs", "imgSrc": "imgs/skills/vue.png" },
       { "name": "NuxtJs", "imgSrc": "imgs/skills/nuxt.png" },
