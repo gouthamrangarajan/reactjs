@@ -82,25 +82,6 @@ function getConsolidatedData({
   vercel,
 }: cloudType): consolidatedDataType[] {
   let consolidated: Array<consolidatedDataType> = [];
-  firebase.forEach((el) => {
-    if (el.imgSrc)
-      consolidated.push({
-        imgSrc: el.imgSrc,
-        url: el.url || "",
-        description: el.description || "",
-        title: "FIREBASE",
-      });
-    if (el.other)
-      el.other.forEach((inEl) => {
-        if (inEl.imgSrc)
-          consolidated.push({
-            imgSrc: inEl.imgSrc,
-            url: inEl.url || "",
-            description: inEl.description || "",
-            title: "FIREBASE",
-          });
-      });
-  });
   cloudflare.forEach((el) => {
     if (el.imgSrc)
       consolidated.push({
@@ -117,6 +98,25 @@ function getConsolidatedData({
             url: inEl.url || "",
             description: inEl.description || "",
             title: "NETLIFY",
+          });
+      });
+  });
+  firebase.forEach((el) => {
+    if (el.imgSrc)
+      consolidated.push({
+        imgSrc: el.imgSrc,
+        url: el.url || "",
+        description: el.description || "",
+        title: "FIREBASE",
+      });
+    if (el.other)
+      el.other.forEach((inEl) => {
+        if (inEl.imgSrc)
+          consolidated.push({
+            imgSrc: inEl.imgSrc,
+            url: inEl.url || "",
+            description: inEl.description || "",
+            title: "FIREBASE",
           });
       });
   });
