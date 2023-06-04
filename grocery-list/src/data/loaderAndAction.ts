@@ -1,7 +1,7 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 import { Grocery_Item_Status, type Grocery_Item } from "./models/grocery";
 import localforage from "localforage";
-let firstLoad = true;
+
 export const loader: LoaderFunction = async ({
   request,
 }): Promise<Array<Grocery_Item>> => {
@@ -30,12 +30,8 @@ export const loader: LoaderFunction = async ({
     }
     return sortRet;
   });
-  let timeout = 1;
-  if (firstLoad) {
-    timeout = 600;
-    firstLoad = false;
-  }
-  return new Promise((res, _) => setTimeout(() => res(ret), timeout));
+
+  return ret;
 };
 
 export const action: ActionFunction = async ({ params, request }) => {
@@ -55,7 +51,6 @@ export const action: ActionFunction = async ({ params, request }) => {
       break;
     }
     case "PUT": {
-      console.log(new URL(request.url).search);
       items = JSON.parse(
         new URL(request.url).search
           .replace("?data=", "")
@@ -108,6 +103,7 @@ export const action: ActionFunction = async ({ params, request }) => {
             let otherStatusEl = items.filter(
               (el) => el.name == urlData.name && el.status != urlData.status
             )[0];
+
             if (otherStatusEl) {
               otherStatusEl.quantity = otherStatusEl.quantity + ft.quantity;
               let idx = items.findIndex(
