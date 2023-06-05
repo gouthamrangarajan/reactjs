@@ -6,6 +6,10 @@ import TimeAgo from "react-timeago";
 import { memo } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { motion } from "framer-motion";
+import {
+  slideLeftChildrenVariants,
+  slideRightChildrenVariants,
+} from "../data/animation";
 
 const ItemCard = ({ item, idx }: { item: Grocery_Item; idx: number }) => {
   const fetcher = useFetcher();
@@ -13,7 +17,16 @@ const ItemCard = ({ item, idx }: { item: Grocery_Item; idx: number }) => {
     item.status == Grocery_Item_Status.TO_BUY ? "Added" : "Bought";
 
   return (
-    <motion.div layout="position">
+    <motion.div
+      layout="position"
+      variants={
+        item.status == Grocery_Item_Status.TO_BUY
+          ? slideRightChildrenVariants
+          : slideLeftChildrenVariants
+      }
+      initial="initial"
+      animate="animate"
+    >
       <Draggable
         draggableId={`draggable_${item.name}_${item.status}`}
         index={idx}
