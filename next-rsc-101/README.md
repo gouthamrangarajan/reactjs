@@ -37,6 +37,6 @@ return (
 
 ##### screenshots
 
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/next-rsc-101/react_rsc.gif)
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/next-rsc-101/Screenshot1.png)
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/next-rsc-101/Screenshot2.png)
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/next-rsc-101/react_rsc.gif)
