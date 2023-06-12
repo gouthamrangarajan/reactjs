@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Next RSC 101
 
-## Getting Started
+#### simeple code to play around React Server Components
 
-First, run the development server:
+-code in pages.tsx
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```jsx
+<UserTableContainer>
+  <span className="text-xl font-medium text-green-600">Users</span>
+  <UserTableSearch></UserTableSearch>
+  <UserTableSearchResults search={user}></UserTableSearchResults>
+</UserTableContainer>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-UserTableContainer is component with "use client"
+-code in UserTableSearch.tsx
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```jsx
+async function search(data: FormData) {
+  "use server";
+  const { search } = Object.fromEntries(data.entries());
+  if (search) redirect(`/?user=${search.toString().trim()}`);
+  else redirect(`/`);
+}
+return (
+  <form
+    className="mt-2 w-full rounded border-2 border-indigo-600 px-3 py-1 transition duration-300 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-indigo-50"
+    action={search}
+  >
+    <UserTableSearchInput />
+  </form>
+);
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-UserTableSearchResults.tsx takes the user as props, filters and displays in table format
+-UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-[screenshot](https://github.com/gouthamrangarajan/reactjs/tree/main/next-rsc-101/react_rsc.gif)
