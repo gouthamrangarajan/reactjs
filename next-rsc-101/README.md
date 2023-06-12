@@ -2,7 +2,7 @@
 
 #### simeple code to play around React Server Components
 
--code in pages.tsx
+- code in pages.tsx
 
 ```jsx
 <UserTableContainer>
@@ -12,8 +12,8 @@
 </UserTableContainer>
 ```
 
--UserTableContainer is component with "use client"
--code in UserTableSearch.tsx
+- UserTableContainer is component with "use client"
+- code in UserTableSearch.tsx
 
 ```jsx
 async function search(data: FormData) {
@@ -32,7 +32,7 @@ return (
 );
 ```
 
--UserTableSearchResults.tsx takes the user as props, filters and displays in table format
--UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
+- UserTableSearchResults.tsx takes the user as props, filters and displays in table format
+- UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
 
--[screenshot](https://github.com/gouthamrangarajan/reactjs/tree/main/next-rsc-101/react_rsc.gif)
+![screenshot](https://github.com/gouthamrangarajan/reactjs/tree/main/next-rsc-101/react_rsc.gif)
