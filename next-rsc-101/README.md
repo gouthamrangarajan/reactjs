@@ -35,4 +35,4 @@ return (
 - UserTableSearchResults.tsx takes the user as props, filters and displays in table format
 - UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
 
-![screenshot](https://github.com/gouthamrangarajan/reactjs/tree/main/next-rsc-101/react_rsc.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/tree/main/next-rsc-101/react_rsc.gif)
