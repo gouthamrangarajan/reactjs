@@ -44,8 +44,7 @@ const loaderData = useLoaderData() as {
 </UserTableContainer>
 ```
 
-- code in UserTableSearch.tsx
-- this component uses Form component from Remix to submit search (form submit)
+- code in UserTableSearch.tsx, this component uses Form component from Remix to submit search (form submit)
 
 ```jsx
 return (
