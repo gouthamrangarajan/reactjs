@@ -1,6 +1,6 @@
 ### Next RSC 101
 
-#### simeple code to play around React Server Components
+#### simple code to play around React Server Components
 
 - code in pages.tsx
 
@@ -12,7 +12,7 @@
 </UserTableContainer>
 ```
 
-- UserTableContainer is component with "use client"
+- UserTableContainer is a layout component, can be made client side by using "use client"
 - code in UserTableSearch.tsx
 
 ```jsx
@@ -32,7 +32,7 @@ return (
 );
 ```
 
-- UserTableSearchResults.tsx takes the user as props, filters and displays in table format
+- UserTableSearchResults.tsx takes the searched user as props, filters and displays in table format
 - UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
 
 ##### screenshots
