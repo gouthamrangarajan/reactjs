@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import UserTableContainer from "./components/UserTableContainer";
 import UserTableSearch from "./components/UserTableSearch";
 import UserTableSearchResults from "./components/UserTableSearchResults";
@@ -13,7 +14,9 @@ export default function Home({
       <UserTableContainer>
         <span className="text-xl font-medium text-green-600">Users</span>
         <UserTableSearch></UserTableSearch>
-        <UserTableSearchResults search={user}></UserTableSearchResults>
+        <Suspense fallback={<></>}>
+          <UserTableSearchResults search={user}></UserTableSearchResults>
+        </Suspense>
       </UserTableContainer>
     </main>
   );
