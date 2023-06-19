@@ -8,7 +8,9 @@
 <UserTableContainer>
   <span className="text-xl font-medium text-green-600">Users</span>
   <UserTableSearch></UserTableSearch>
-  <UserTableSearchResults search={user}></UserTableSearchResults>
+  <Suspense fallback={<></>}>
+    <UserTableSearchResults search={user}></UserTableSearchResults>
+  </Suspense>
 </UserTableContainer>
 ```
 
