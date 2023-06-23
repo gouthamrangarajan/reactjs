@@ -97,8 +97,8 @@ Sample Image Slider using React & Browser View Transition Api
 
 #### Links to check
 
-- ![MDN link](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
-- ![Chrome Developer Docs](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [MDN link](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
+- [Chrome Developer Docs](https://developer.chrome.com/docs/web-platform/view-transitions/)
 
 #### Screenshots
 
