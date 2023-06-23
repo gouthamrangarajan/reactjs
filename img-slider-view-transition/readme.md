@@ -95,6 +95,13 @@ Sample Image Slider using React & Browser View Transition Api
 }
 ```
 
+#### Points to note
+
+- ::view-transition-old(root) & ::view-transition-new(root) is absolutely necessary and wont work without atleast one of them
+- To ignore transition for elements (buttons/slider-controls in my case) there is a view-transition-name:none but somehow it did not work for me and I had to use transition:none
+- To give different transition for elements (slider-text in my case) use view-transition-name: <<custom>>;
+- I was not able to figure out a away (using view transition api) to slide opposite direction when index is reduced (probably will figure out in future 😊)
+
 #### Links to check
 
 - [MDN link](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
