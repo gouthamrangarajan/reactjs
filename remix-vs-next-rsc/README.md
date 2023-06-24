@@ -67,7 +67,7 @@ return (
 - Remix provides a Form component which automatically post to route action/form get to route loader
 - Remix runs the search and sends only the data ( however in case of low network speed the whole form will be submitted and whole ui will be rendered)
 
-##### screenshots , first one is remix and second one is next js +rsc (verify the input focus state during search)
+##### screenshots , first one is remix and second one is next js +rsc
 
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/remix-vs-next-rsc/remix.gif)
 ![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/remix-vs-next-rsc/react_rsc.gif)
