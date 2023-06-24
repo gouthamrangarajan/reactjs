@@ -62,7 +62,7 @@ return (
 ##### highlights
 
 - In both Nextjs with RSC & Remix the data fetch and filter logic runs in server
-- Nextjs needs manual wiring to form action and redirect with search params
+- Nextjs needs manual wiring to form action and redirect/router.push with search params
 - Nextjs runs the search and sends the component as stream (not only data the whole component)
 - Remix provides a Form component which automatically post to route action/form get to route loader
 - Remix runs the search and sends only the data ( however in case of low network speed the whole form will be submitted and whole ui will be rendered)

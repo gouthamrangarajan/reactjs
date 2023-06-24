@@ -15,27 +15,31 @@
 ```
 
 - UserTableContainer is a layout component, can be made client side by using "use client"
+- UserTableSearch.tsx is a client component which uses UseRouter hook to set searchParams
 - code in UserTableSearch.tsx
 
 ```jsx
-async function search(data: FormData) {
-  "use server";
-  const { search } = Object.fromEntries(data.entries());
-  if (search) redirect(`/?user=${search.toString().trim()}`);
-  else redirect(`/`);
-}
+const router = useRouter();
+  const formSubmit = (ev: FormEvent) => {
+    ev.preventDefault();
+    const { search } = Object.fromEntries(
+      new FormData(ev.target as HTMLFormElement).entries()
+    );
+    if (search) router.push(`/?user=${search.toString().trim()}`);
+    else router.push(`/`);
+};
 return (
   <form
     className="mt-2 w-full rounded border-2 border-indigo-600 px-3 py-1 transition duration-300 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-indigo-50"
-    action={search}
+     onSubmit={formSubmit}
   >
     <UserTableSearchInput />
   </form>
 );
 ```
 
-- UserTableSearchResults.tsx takes the searched user as props, filters and displays in table format
-- UserTableSearchInput.tsx is a component with "use client", stores value in input based on search params
+- UserTableSearchInput.tsx is a component in UserTableSearch stores value in input based on search params
+- UserTableSearchResults.tsx takes the searched user as props, filters and displays in table format 
 
 ##### screenshots
 
