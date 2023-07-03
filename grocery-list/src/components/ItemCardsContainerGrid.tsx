@@ -36,11 +36,11 @@ export default function ItemCardsContainerGrid() {
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 justify-center items-center flex-shrink-0">
+      <div className="grid flex-shrink-0 grid-cols-1 items-center justify-center gap-3 lg:grid-cols-2">
         <Droppable droppableId={`droppable_${Grocery_Item_Status.TO_BUY}`}>
           {(provided, snapshot) => (
             <div
-              className={`w-full flex justify-start lg:justify-end rounded border-2 border-dashed ${
+              className={`flex w-full justify-start rounded border-2 border-dashed lg:justify-end ${
                 snapshot.isDraggingOver
                   ? "border-blue-600"
                   : "border-transparent"
@@ -52,7 +52,7 @@ export default function ItemCardsContainerGrid() {
                 type={Grocery_Item_Status.TO_BUY}
                 items={toBuyItems}
                 header={
-                  <span className="text-xl text-fuchsia-600 font-semibold pl-5">
+                  <span className="pl-5 text-xl font-semibold text-fuchsia-600">
                     Item(s) To Buy
                   </span>
                 }
@@ -64,7 +64,7 @@ export default function ItemCardsContainerGrid() {
         <Droppable droppableId={`droppable_${Grocery_Item_Status.BOUGHT}`}>
           {(provided, snapshot) => (
             <div
-              className={`w-full flex justify-start rounded border-2 border-dashed ${
+              className={`flex w-full justify-start rounded border-2 border-dashed ${
                 snapshot.isDraggingOver
                   ? "border-blue-600"
                   : "border-transparent"
@@ -76,7 +76,7 @@ export default function ItemCardsContainerGrid() {
                 type={Grocery_Item_Status.BOUGHT}
                 items={boughtItems}
                 header={
-                  <span className="text-xl text-red-600 font-semibold pl-5">
+                  <span className="pl-5 text-xl font-semibold text-red-600">
                     Item(s) Bought
                   </span>
                 }

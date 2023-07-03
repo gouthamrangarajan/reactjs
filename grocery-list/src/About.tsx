@@ -7,7 +7,7 @@ import {
 
 export default function About() {
   return (
-    <main className="grid w-full h-full items-center justify-center py-1 px-3">
+    <main className="grid h-full w-full items-center justify-center px-3 py-1">
       <motion.div
         className="flex flex-col items-start justify-center"
         initial="initial"
@@ -15,14 +15,14 @@ export default function About() {
         variants={slideUpParentVariants}
       >
         <motion.span
-          className="text-xl text-gray-700 font-semibold"
+          className="text-xl font-semibold text-gray-700"
           key={1}
           variants={slideUpChildrenVariants}
         >
           Simple Grocery List
         </motion.span>
         <motion.ul
-          className="list-disc mt-2 py-4 px-6"
+          className="mt-2 list-disc px-6 py-4"
           key={2}
           variants={slideUpParentVariants}
         >
@@ -46,7 +46,7 @@ export default function About() {
         <motion.div key={8} variants={slideUpChildrenVariants}>
           <Link
             to="/"
-            className="appearance-none outline-none mt-2 text-gray-700 text-lg hover:opacity-90 border-b-2 border-transparent focus:border-green-700 transition-colors duration-300"
+            className="mt-2 appearance-none border-b-2 border-transparent text-lg text-gray-700 outline-none transition-colors duration-300 hover:opacity-90 focus:border-green-700"
           >
             Home
           </Link>

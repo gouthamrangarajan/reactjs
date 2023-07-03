@@ -1,6 +1,9 @@
 import XMarkIcon from "@heroicons/react/24/solid/XMarkIcon";
-import { useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 import { useFetcher } from "react-router-dom";
+import { addFormVariants } from "../data/animation";
 
 export default function ItemAddForm({
   closeFormAction,
@@ -9,44 +12,94 @@ export default function ItemAddForm({
 }) {
   const fetcher = useFetcher();
   const elToFocus = useRef<HTMLInputElement>(null);
+  const firstFocusableEl = useRef<HTMLButtonElement>(null);
+  const lastFocusableEl = useRef<HTMLButtonElement>(null);
+  const timeout = useRef<number>();
+  const [showForm, setShowForm] = useState(true);
   useEffect(() => {
     if (elToFocus.current) elToFocus.current.focus();
+    return () => {
+      if (timeout.current) clearTimeout(timeout.current);
+    };
   }, []);
-  return (
-    <div className="shadow-2xl rounded-t-lg bg-white py-2 lg:py-4 px-4 lg:px-6 flex flex-col w-full z-10">
-      <div className="flex justify-between items-start border-b-2 border-gray-300">
-        <span className="text-green-600 text-lg font-semibold">Add Item</span>
-        <button
-          className="appearance-none outline-none -mr-3 -mt-1 lg:-mt-3 rounded-full bg-gray-600 text-white hover:bg-opacity-90 transition-all duration-300 focus:ring-1 focus:ring-offset-2 focus:ring-gray-600 focus:ring-offset-gray-50 p-1"
-          onClick={closeFormAction}
-        >
-          <XMarkIcon className="w-4 h-4"></XMarkIcon>
-        </button>
-      </div>
-      <fetcher.Form method="POST" className="flex flex-col mt-6 gap-6">
-        <input
-          type="text"
-          placeholder="Item e.g Apple"
-          name="name"
-          className="outline-none appearance-none py-1 border-b-2 border-gray-300 focus:border-green-600 transition-colors duration-300 placeholder:italic placeholder:text-gray-600"
-          ref={elToFocus}
-        />
+  const close = () => {
+    setShowForm(false);
+    timeout.current = setTimeout(() => {
+      closeFormAction();
+    }, 300);
+  };
+  const keyDown = (ev: KeyboardEvent<HTMLDivElement>) => {
+    if (ev.key === "Tab") {
+      if (ev.shiftKey) {
+        if (document.activeElement === firstFocusableEl.current) {
+          ev.preventDefault();
+          lastFocusableEl.current?.focus();
+        }
+      } else if (document.activeElement === lastFocusableEl.current) {
+        ev.preventDefault();
+        firstFocusableEl.current?.focus();
+      }
+    }
+  };
+  return createPortal(
+    <div
+      className=" fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black/50 transition duration-300"
+      onClick={close}
+      onKeyDown={keyDown}
+    >
+      <AnimatePresence>
+        {showForm && (
+          <motion.div
+            className="z-10 flex w-11/12 flex-col rounded-xl bg-white px-4 py-2 shadow-2xl md:w-8/12 lg:w-3/12 lg:px-6 lg:py-4"
+            variants={addFormVariants}
+            initial="initial"
+            exit="initial"
+            animate="animate"
+            onClick={(ev) => {
+              ev.stopPropagation();
+            }}
+          >
+            <div className="flex items-start justify-between border-b-2 border-gray-300">
+              <span className="text-lg font-semibold text-green-600">
+                Add Item
+              </span>
+              <button
+                className="-mr-3 -mt-1 appearance-none rounded-full bg-gray-600 p-1 text-white outline-none transition-all duration-300 hover:bg-opacity-90 focus:ring-1 focus:ring-gray-600 focus:ring-offset-2 focus:ring-offset-gray-50 lg:-mt-3"
+                onClick={close}
+                ref={firstFocusableEl}
+              >
+                <XMarkIcon className="h-4 w-4"></XMarkIcon>
+              </button>
+            </div>
+            <fetcher.Form method="POST" className="mt-6 flex flex-col gap-6">
+              <input
+                type="text"
+                placeholder="Item e.g Apple"
+                name="name"
+                className="appearance-none border-b-2 border-gray-300 py-1 outline-none transition-colors duration-300 placeholder:italic placeholder:text-gray-600 focus:border-green-600"
+                ref={elToFocus}
+              />
 
-        <input
-          type="number"
-          placeholder="Quantity e.g 2"
-          className="outline-none appearance-none py-1 border-b-2 border-gray-300 focus:border-green-600 transition-colors duration-300 placeholder:italic placeholder:text-gray-600"
-          name="quantity"
-        />
-        <button
-          type="submit"
-          name="action"
-          value="add"
-          className="appearance-none outline-none uppercase flex justify-center rounded bg-green-600 text-white hover:bg-opacity-80 transition-all duration-300 focus:ring-1 focus:ring-offset-2 focus:ring-green-600 focus:ring-offset-green-50 py-1 px-3"
-        >
-          <span>Submit</span>
-        </button>
-      </fetcher.Form>
-    </div>
+              <input
+                type="number"
+                placeholder="Quantity e.g 2"
+                className="appearance-none border-b-2 border-gray-300 py-1 outline-none transition-colors duration-300 placeholder:italic placeholder:text-gray-600 focus:border-green-600"
+                name="quantity"
+              />
+              <button
+                type="submit"
+                name="action"
+                value="add"
+                className="flex appearance-none justify-center rounded bg-green-600 px-3 py-1 uppercase text-white outline-none transition-all duration-300 hover:bg-opacity-80 focus:ring-1 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50"
+                ref={lastFocusableEl}
+              >
+                <span>Submit</span>
+              </button>
+            </fetcher.Form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>,
+    document.body
   );
 }

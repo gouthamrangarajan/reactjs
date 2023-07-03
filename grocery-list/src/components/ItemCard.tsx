@@ -33,7 +33,7 @@ const ItemCard = ({ item, idx }: { item: Grocery_Item; idx: number }) => {
       >
         {(provided, snapshot) => (
           <div
-            className="shadow rounded-lg py-2 px-4 w-[19rem] lg:w-96 bg-white flex items-stretch gap-3 cursor-grab"
+            className="flex w-[19rem] cursor-grab items-stretch gap-3 rounded-lg bg-white px-4 py-2 shadow lg:w-96"
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
@@ -41,21 +41,21 @@ const ItemCard = ({ item, idx }: { item: Grocery_Item; idx: number }) => {
             <fetcher.Form
               action={`/?name=${item.name}&status=${item.status}`}
               method="POST"
-              className="flex flex-col items-start gap-2 flex-1"
+              className="flex flex-1 flex-col items-start gap-2"
             >
-              <div className="flex justify-between w-full items-center">
-                <span className="font-semibold underline underline-offset-[6px] text-lg text-gray-600">
+              <div className="flex w-full items-center justify-between">
+                <span className="text-lg font-semibold text-gray-600 underline underline-offset-[6px]">
                   {item.name}
                 </span>
                 <button
-                  className="outline-none appearance-none text-gray-600 p-1 hover:opacity-90 rounded-full focus:ring-1 focus:ring-gray-600 cursor-pointer transition-all duration-300"
+                  className="cursor-pointer appearance-none rounded-full p-1 text-gray-600 outline-none transition-all duration-300 hover:opacity-90 focus:ring-1 focus:ring-gray-600"
                   name="action"
                   value="remove"
                 >
-                  <MinusCircleIcon className="w-5 h-5"></MinusCircleIcon>
+                  <MinusCircleIcon className="h-5 w-5"></MinusCircleIcon>
                 </button>
               </div>
-              <div className="flex gap-3 text-sm text-gray-500 items-center">
+              <div className="flex items-center gap-3 text-sm text-gray-500">
                 <div>
                   <span className="italic">Quantity: </span>
                   <span className="font-semibold"> {item.quantity}</span>
@@ -74,11 +74,11 @@ const ItemCard = ({ item, idx }: { item: Grocery_Item; idx: number }) => {
                 </div>
                 {item.status == Grocery_Item_Status.TO_BUY && (
                   <button
-                    className="outline-none appearance-none text-gray-600 p-1 hover:opacity-90 rounded-full focus:ring-1 focus:ring-gray-600 cursor-pointer transition-all duration-300"
+                    className="cursor-pointer appearance-none rounded-full p-1 text-gray-600 outline-none transition-all duration-300 hover:opacity-90 focus:ring-1 focus:ring-gray-600"
                     name="action"
                     value="move"
                   >
-                    <PaperAirplaneIcon className="w-5 h-5"></PaperAirplaneIcon>
+                    <PaperAirplaneIcon className="h-5 w-5"></PaperAirplaneIcon>
                   </button>
                 )}
               </div>

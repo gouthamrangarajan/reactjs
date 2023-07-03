@@ -5,15 +5,15 @@ import ItemsOrderChange from "./components/ItemsOrderChange";
 
 function App() {
   return (
-    <main className="flex flex-col w-full min-h-full lg:h-full py-1 px-3 gap-3 items-center justify-center pb-12 lg:pb-0">
+    <main className="flex min-h-full w-screen flex-col items-center justify-center gap-3 overflow-x-hidden px-3 py-1 pb-12 lg:h-full lg:pb-0">
       <ItemCardsContainerGrid></ItemCardsContainerGrid>
-      <div className="w-full max-w-xl mx-auto flex justify-center lg:justify-end ">
+      <div className="mx-auto flex w-full max-w-xl justify-center lg:justify-end ">
         <ItemsOrderChange></ItemsOrderChange>
       </div>
-      <div className="w-full flex justify-center lg:mt-24">
+      <div className="flex w-full justify-center lg:mt-24">
         <Link
           to="/about"
-          className="appearance-none outline-none mr-14 text-gray-700 text-lg hover:opacity-90 border-b-2 border-transparent focus:border-green-700 transition-all duration-300"
+          className="mr-14 appearance-none border-b-2 border-transparent text-lg text-gray-700 outline-none transition-all duration-300 hover:opacity-90 focus:border-green-700"
         >
           About
         </Link>

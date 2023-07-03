@@ -13,11 +13,11 @@ export default function ItemCardsContainer({
   droppablePlaceholder: React.ReactNode;
 }) {
   return (
-    <div className={`py-2 px-4 rounded flex flex-col`}>
+    <div className={`flex flex-col rounded px-4 py-2`}>
       {header}
       <div
-        className={`py-1 px-3 pr-7 lg:pr-3  flex flex-col w-[22rem] lg:w-[26rem] h-64 lg:h-96 overflow-y-auto
-             overflow-x-hidden scrollbar-thin scrollbar-track-green-50 scrollbar-thumb-green-500 relative 
+        className={`relative flex h-64 w-[22rem]  flex-col overflow-y-auto overflow-x-hidden px-3 py-1 pr-7 scrollbar-thin
+             scrollbar-track-green-50 scrollbar-thumb-green-500 lg:h-96 lg:w-[26rem] lg:pr-3 
              `}
       >
         {items.map((item, idx) => (

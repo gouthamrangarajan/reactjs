@@ -19,16 +19,16 @@ export default function ItemsOrderChange() {
   return (
     <div className="flex flex-row items-center gap-2">
       <label className="text-gray-700">Item(s) display order</label>
-      <div className="relative cursor-pointer rounded w-24 shadow border-2 border-green-600 focus-within:ring-1 focus-within:ring-green-600 focus-within:ring-offset-2 focus-within:ring-offset-green-50 transition-all duration-300">
+      <div className="relative w-24 cursor-pointer rounded border-2 border-green-600 shadow transition-all duration-300 focus-within:ring-1 focus-within:ring-green-600 focus-within:ring-offset-2 focus-within:ring-offset-green-50">
         <select
-          className="appearance-none outline-none w-full cursor-pointer py-1 px-3 bg-transparent"
+          className="w-full cursor-pointer appearance-none bg-transparent px-3 py-1 outline-none"
           onChange={sortChanged}
           value={defaultValue}
         >
           <option value="name">Name</option>
           <option value="date">Date</option>
         </select>
-        <ChevronUpDownIcon className="w-5 h-5 absolute top-[0.4rem] right-1 text-gray-500 -z-10"></ChevronUpDownIcon>
+        <ChevronUpDownIcon className="absolute right-1 top-[0.4rem] -z-10 h-5 w-5 text-gray-500"></ChevronUpDownIcon>
       </div>
     </div>
   );
