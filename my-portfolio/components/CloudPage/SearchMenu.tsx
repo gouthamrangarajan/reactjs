@@ -10,25 +10,23 @@ const SearchMenu = () => {
           Providers
         </span>
         <div className="p-1 flex flex-col space-y-3">
-          {["Firebase", "Netlify", "Cloudflare", "Vercel", "Azure"].map(
-            (el) => (
-              <button
-                className="transition duration-300  text-white py-1 px-3 rounded-md
+          {["Firebase", "Netlify", "Cloudflare", "Vercel"].map((el) => (
+            <button
+              className="transition duration-300  text-white py-1 px-3 rounded-md
                             hover:ring-2 hover:ring-white text-left w-32
                             focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-700"
-                key={el}
-                onClick={() => {
-                  if (dispatch)
-                    dispatch({
-                      name: "SET_CLOUD_PROVIDER_FILTER",
-                      payload: el,
-                    });
-                }}
-              >
-                {el}
-              </button>
-            )
-          )}
+              key={el}
+              onClick={() => {
+                if (dispatch)
+                  dispatch({
+                    name: "SET_CLOUD_PROVIDER_FILTER",
+                    payload: el,
+                  });
+              }}
+            >
+              {el}
+            </button>
+          ))}
         </div>
       </div>
       <div className="flex flex-col pt-3 lg:pt-0 pl-0 lg:pl-6">

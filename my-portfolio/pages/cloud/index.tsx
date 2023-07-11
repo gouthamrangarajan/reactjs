@@ -76,7 +76,7 @@ export async function getStaticProps() {
 }
 function getConsolidatedData({
   firebase,
-  azure,
+  // azure,
   netlify,
   cloudflare,
   vercel,
@@ -158,24 +158,24 @@ function getConsolidatedData({
           });
       });
   });
-  azure.forEach((el) => {
-    if (el.imgSrc)
-      consolidated.push({
-        imgSrc: el.imgSrc,
-        url: el.url || "",
-        description: el.description || "",
-        title: "AZURE",
-      });
-    if (el.other)
-      el.other.forEach((inEl) => {
-        if (inEl.imgSrc)
-          consolidated.push({
-            imgSrc: inEl.imgSrc,
-            url: inEl.url || "",
-            description: inEl.description || "",
-            title: "AZURE",
-          });
-      });
-  });
+  // azure.forEach((el) => {
+  //   if (el.imgSrc)
+  //     consolidated.push({
+  //       imgSrc: el.imgSrc,
+  //       url: el.url || "",
+  //       description: el.description || "",
+  //       title: "AZURE",
+  //     });
+  //   if (el.other)
+  //     el.other.forEach((inEl) => {
+  //       if (inEl.imgSrc)
+  //         consolidated.push({
+  //           imgSrc: inEl.imgSrc,
+  //           url: inEl.url || "",
+  //           description: inEl.description || "",
+  //           title: "AZURE",
+  //         });
+  //     });
+  // });
   return consolidated;
 }

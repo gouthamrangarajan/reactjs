@@ -27,7 +27,7 @@ export interface gitHubType {
 }
 export interface cloudType {
   firebase: cloudArrayType[];
-  azure: cloudArrayType[];
+  // azure: cloudArrayType[];
   netlify: cloudArrayType[];
   cloudflare: cloudArrayType[];
   vercel: cloudArrayType[];

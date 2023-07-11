@@ -66,7 +66,7 @@ export async function getStaticProps() {
       media: [],
       skills: [],
       about: "",
-      cloud: { firebase: [], azure: [], netlify: [], cloudflare: [], vercel: [] },
+      cloud: { firebase: [], netlify: [], cloudflare: [], vercel: [] },
       codePen: [],
       gitHub: [],
     },
