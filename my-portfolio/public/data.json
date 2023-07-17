@@ -50,6 +50,11 @@
     ],
     "codePen": [
       {
+        "url": "https://codepen.io/GouthamRangarajan/full/poQewOO",
+        "imgSrc": "/imgs/codepen/CodePen22.png",
+        "title": "Vue DatePicker"
+      },
+      {
         "url": "https://codepen.io/GouthamRangarajan/full/YzvWoZK",
         "imgSrc": "/imgs/codepen/CodePen21.png",
         "title": "Vue Tailwind Image Card"
