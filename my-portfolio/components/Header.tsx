@@ -54,7 +54,9 @@ const Header: NextPage<headerPropType> = ({ media }) => {
           >
             <img
               src={med.imgSrc}
-              className="rounded-full object-contain"
+              className={`rounded-full object-contain ${
+                med.name == "Twitter" ? "bg-white mt-0.5" : ""
+              }`}
               alt={med.name}
               title={med.name}
             ></img>
