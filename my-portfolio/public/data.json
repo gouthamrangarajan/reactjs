@@ -290,12 +290,18 @@
       "netlify": [
         {
           "order": 1,
+          "imgSrc": "/imgs/cloud/OpenAI_Chat.png",
+          "description": "A Simple Open AI Chat using Remix, Open AI API, Tailwind CSS deployed as Netlify functions",
+          "url": "https://rg-openai-chat.netlify.app/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Wordle.png",
           "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
           "url": "https://rg-wordle-clone.netlify.app/"
         },
         {
-          "order": 2,
+          "order": 3,
           "imgSrc": "/imgs/cloud/Self.png",
           "description": "A simple ISR(Incremental Static Regeneration) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
