@@ -331,28 +331,27 @@
       "netlify": [
         {
           "order": 1,
+          "imgSrc": "/imgs/cloud/Stock.png",
+          "description": "Web application using Remix, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph with CI/CD in Netlify",
+          "url": "https://rg-stock.netlify.app/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Wordle.png",
           "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
           "url": "https://rg-wordle-clone.netlify.app/"
         },
         {
-          "order": 2,
+          "order": 3,
           "imgSrc": "/imgs/cloud/Self.png",
           "description": "A simple ISR(Incremental Static Regeneration) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {
-          "order": 3,
+          "order": 4,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
-        },
-        {
-          "order": 4,
-          "url": "https://rg-react-snake-game.netlify.app/",
-          "title": "React Snake game",
-          "imgSrc": "/imgs/github/SnakeGame.png",
-          "description": "Snake game using React & Vite"
         }
       ],
       "vercel": [
