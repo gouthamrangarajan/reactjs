@@ -332,7 +332,7 @@
         {
           "order": 1,
           "imgSrc": "/imgs/cloud/Stock.png",
-          "description": "Web application using Remix, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph with CI/CD in Netlify",
+          "description": "Web application using Remix, React, TailwindCSS, Echarts and Firebase to view tracked stocks with CI/CD in Netlify",
           "url": "https://rg-stock.netlify.app/"
         },
         {
