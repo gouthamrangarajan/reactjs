@@ -273,30 +273,24 @@
         },
         {
           "order": 2,
-          "imgSrc": "/imgs/cloud/Stock.png",
-          "description": "A PWA project using Vite, React, TailwindCSS, Echarts and Firebase to view tracked stocks with graph",
-          "url": "https://stockapi-90a27.web.app/"
-        },
-        {
-          "order": 3,
           "imgSrc": "/imgs/cloud/WL.png",
           "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
           "url": "https://web-learnings.netlify.app/"
         },
         {
-          "order": 4,
+          "order": 3,
           "imgSrc": "/imgs/cloud/React_Chat.png",
           "description": "A React PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://react-superchat-8b806.web.app/"
         },
         {
-          "order": 5,
+          "order": 4,
           "imgSrc": "/imgs/cloud/Calendar.png",
           "description": "Google calendar inspired PWA app along with firestore data storage and firebase authentication",
           "url": "https://calendar-b42b8.web.app/"
         },
         {
-          "order": 6,
+          "order": 5,
           "imgSrc": "/imgs/cloud/Chat.png",
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
           "url": "https://vue-superchat.web.app/"
@@ -331,8 +325,8 @@
       "netlify": [
         {
           "order": 1,
-          "imgSrc": "/imgs/cloud/Stock.png",
-          "description": "Web application using Remix, React, TailwindCSS, Echarts and Firebase to view tracked stocks with CI/CD in Netlify",
+          "imgSrc": "/imgs/cloud/Stock_Remix.png",
+          "description": "A PWA using Remix, React, TailwindCSS, Echarts and Firebase to view personal tracked stocks with CI/CD in Netlify",
           "url": "https://rg-stock.netlify.app/"
         },
         {
