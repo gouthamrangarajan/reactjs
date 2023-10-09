@@ -44,7 +44,7 @@ export default function Header({ media }: { media: mediaArrayType }) {
       >
         {media.map((med) => (
           <motion.a
-            className="h-14 w-14 appearance-none rounded-full p-1 outline-none focus:ring-2 focus:ring-white"
+            className="h-14 w-14 appearance-none rounded-full p-1 outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white"
             variants={staggerChild}
             target="_blank"
             href={med.url}

@@ -23,8 +23,8 @@ export default function App() {
         <Links />
       </head>
       <body
-        className="flex min-h-screen w-screen  flex-col overflow-y-auto overflow-x-hidden font-sans
-        scrollbar-thin  scrollbar-track-gray-300 scrollbar-thumb-gray-500 "
+        className="relative flex min-h-screen  w-screen flex-col overflow-y-auto overflow-x-hidden
+        font-sans  scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-500"
       >
         <Outlet />
         <ScrollRestoration />

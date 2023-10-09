@@ -15,8 +15,9 @@
 //   };
 // }
 
-import { type MetaFunction, useLoaderData } from "@remix-run/react";
+import { type MetaFunction, useLoaderData, Link } from "@remix-run/react";
 import Header from "~/components/Header";
+import Nav from "~/components/Nav";
 import Skills from "~/components/Skills";
 import { getData } from "~/utils/helpers.server";
 import { mediaAndSkillsDataSchema } from "~/utils/schema";
@@ -46,6 +47,31 @@ export default function Index() {
           <Skills data={skills}></Skills>
         </div>
       </div>
+      <Nav
+        menu={
+          <div className="flex flex-1 items-center space-x-3 text-white ">
+            <span className="px-3 py-1 text-sm text-gray-100">
+              Check out my Demos
+            </span>
+            <Link to="/cloud">
+              <a
+                className="rounded-md px-3  py-1 text-white transition duration-300
+                                hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+              >
+                Cloud Projects
+              </a>
+            </Link>
+            <Link to="/repo">
+              <a
+                className="rounded-md px-3  py-1 text-white transition duration-300
+                hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+              >
+                Github &amp; Codepen
+              </a>
+            </Link>
+          </div>
+        }
+      ></Nav>
     </main>
   );
 }
