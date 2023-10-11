@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { headerTextParent, staggerParent } from "../utils/animationVariants";
 import { Link, useLocation } from "@remix-run/react";
 import ArrowLeftIcon from "@heroicons/react/24/solid/ArrowLeftIcon";
 
@@ -10,16 +8,13 @@ export default function Nav({
 }) {
   const { pathname } = useLocation();
   return (
-    <motion.nav
+    <nav
       className={` flex w-full items-center space-x-3 px-4 py-2 lg:justify-center lg:px-8                          
                      ${
                        pathname != "/"
                          ? "sticky top-0 z-10 bg-slate-800 "
                          : "fixed bottom-0 bg-slate-800"
                      }`}
-      variants={pathname != "/" ? headerTextParent : staggerParent}
-      initial="hidden"
-      animate="show"
     >
       {pathname != "/" && (
         <Link to="/">
@@ -32,6 +27,6 @@ export default function Nav({
         </Link>
       )}
       {menu && menu}
-    </motion.nav>
+    </nav>
   );
 }

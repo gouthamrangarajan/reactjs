@@ -62,10 +62,10 @@ function getSlideUpAnimateClass(ind: number) {
     case 0:
       return ``;
     case 1:
-      return `animate-[slide-up_0.6s_ease-in]`;
+      return `animate-[slide-up_0.6s_ease-in-out]`;
     case 2:
-      return `animate-[slide-up_0.9s_ease-in]`;
+      return `animate-[slide-up_0.7s_ease-in-out]`;
     case 3:
-      return `animate-[slide-up_1.2s_ease-in]`;
+      return `animate-[slide-up_0.8s_ease-in-out]`;
   }
 }
