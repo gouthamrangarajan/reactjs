@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { headerTextChild } from "../utils/animationVariants";
-
 export default function HeaderText({
   classes = "",
   text,
@@ -9,13 +6,12 @@ export default function HeaderText({
   text: string;
 }) {
   return (
-    <motion.div
-      variants={headerTextChild}
+    <div
       className={` bg-gradient-to-r from-sky-200 to-sky-400 bg-clip-text text-transparent 
        ${classes}`}
       key={text}
     >
       {text}
-    </motion.div>
+    </div>
   );
 }

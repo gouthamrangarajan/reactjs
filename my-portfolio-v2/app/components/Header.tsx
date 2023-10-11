@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  headerTextParent,
-  staggerChild,
-  staggerParent,
-} from "../utils/animationVariants";
+import { staggerChild, staggerParent } from "../utils/animationVariants";
 import HeaderText from "./HeaderText";
 import { type mediaArrayType } from "~/utils/schema";
 
@@ -20,32 +16,28 @@ export default function Header({ media }: { media: mediaArrayType }) {
           alt="My Avatar"
         ></img>
       </div>
-      <motion.div
-        className="flex flex-col items-center justify-center"
-        variants={headerTextParent}
-        initial="hidden"
-        animate="show"
-      >
+      <div className="flex flex-col items-center justify-center">
         <HeaderText
           classes="font-semibold text-3xl h-12"
           text="Goutham Rangarajan"
         ></HeaderText>
         <HeaderText
-          classes="italic font-semibold tracking-wider"
+          classes="italic font-semibold tracking-wider animate-[slide-down_0.6s_ease-in]"
           text="RG"
         ></HeaderText>
-        <HeaderText classes="text-lg" text="Front-end enthusiast"></HeaderText>
-      </motion.div>
-      <motion.div
-        className="flex items-center space-x-2"
-        variants={staggerParent}
-        initial="hidden"
-        animate="show"
-      >
-        {media.map((med) => (
-          <motion.a
-            className="h-14 w-14 appearance-none rounded-full p-1 outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white"
-            variants={staggerChild}
+        <HeaderText
+          classes="text-lg animate-[slide-down_0.9s_ease-in]"
+          text="Front-end enthusiast"
+        ></HeaderText>
+      </div>
+      <div className="flex items-center space-x-2">
+        {media.map((med, ind) => (
+          <a
+            className={`h-14 w-14 appearance-none rounded-full p-1 outline-none hover:opacity-90
+                        focus-visible:ring-2 focus-visible:ring-white ${getSlideUpAnimateClass(
+                          ind,
+                        )} 
+                        `}
             target="_blank"
             href={med.url}
             key={med.name}
@@ -59,9 +51,21 @@ export default function Header({ media }: { media: mediaArrayType }) {
               alt={med.name}
               title={med.name}
             ></img>
-          </motion.a>
+          </a>
         ))}
-      </motion.div>
+      </div>
     </header>
   );
+}
+function getSlideUpAnimateClass(ind: number) {
+  switch (ind) {
+    case 0:
+      return ``;
+    case 1:
+      return `animate-[slide-up_0.6s_ease-in]`;
+    case 2:
+      return `animate-[slide-up_0.9s_ease-in]`;
+    case 3:
+      return `animate-[slide-up_1.2s_ease-in]`;
+  }
 }
