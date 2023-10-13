@@ -31,10 +31,21 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
+const skillsToFilter = [
+  "NuxtJs",
+  "NextJs",
+  "Firebase Functions",
+  "Azure",
+  "Azure Functions",
+];
 export async function loader() {
   const data = await getData();
-  return { media: data?.info.media, skills: data?.info.skills };
+  const media = data?.info.media;
+  let skills = data?.info.skills;
+  if (skills) {
+    skills = skills.filter((el) => !skillsToFilter.includes(el.name));
+  }
+  return { media, skills };
 }
 export default function Index() {
   const loaderData = useLoaderData();
@@ -53,21 +64,19 @@ export default function Index() {
             <span className="px-3 py-1 text-sm text-gray-100">
               Check out my Demos
             </span>
-            <Link to="/cloud">
-              <a
-                className="rounded-md px-3  py-1 text-white transition duration-300
-                                hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
-              >
-                Cloud Projects
-              </a>
+            <Link
+              to="/cloud"
+              className="rounded-md px-3  py-1 text-white transition duration-300
+                                hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+            >
+              Cloud Projects
             </Link>
-            <Link to="/repo">
-              <a
-                className="rounded-md px-3  py-1 text-white transition duration-300
-                hover:opacity-90 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
-              >
-                Github &amp; Codepen
-              </a>
+            <Link
+              to="/repo"
+              className="rounded-md px-3  py-1 text-white transition duration-300
+                hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+            >
+              Github &amp; Codepen
             </Link>
           </div>
         }

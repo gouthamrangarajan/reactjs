@@ -22,22 +22,33 @@ const urlTitleAndImgSrc = z.object({
   title: z.string(),
   imgSrc: z.string(),
 });
+
 const urlTitleImgSrcAndDescription = z.object({
   url: z.string(),
   title: z.string(),
   imgSrc: z.string(),
   description: z.string(),
 });
+export const urlTitleImgSrcAndDescriptionArraySchema = z.array(
+  urlTitleImgSrcAndDescription,
+);
+export type urlTitleImgSrcAndDescriptionArrayType = z.infer<
+  typeof urlTitleImgSrcAndDescriptionArraySchema
+>;
+
 const urlImgSrcDescriptionAndOrder = z.object({
   url: z.string(),
   imgSrc: z.string(),
   description: z.string(),
   order: z.number(),
 });
+
 const gitHubSchema = z
   .object({ url: z.string(), name: z.string() })
   .or(z.object({ items: z.array(urlTitleImgSrcAndDescription) }));
+
 const cloudSchema = z.record(z.string(), z.array(urlImgSrcDescriptionAndOrder));
+export type cloudType = z.infer<typeof cloudSchema>;
 
 export const dataSchema = z.object({
   info: z.object({

@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import { LinksFunction } from "@remix-run/react/dist/routeModules";
 import stylesheet from "~/tailwind.css";
+import Loader from "./components/Loader";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -27,6 +28,7 @@ export default function App() {
         font-sans  scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-500"
       >
         <Outlet />
+        <Loader></Loader>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
