@@ -18,6 +18,7 @@ export default function Nav({
     >
       {pathname != "/" && (
         <Link
+          prefetch="intent"
           to="/"
           className="rounded-full  p-1 text-white  transition duration-300 hover:bg-slate-700
         focus:ring-offset-2 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-gray-700"

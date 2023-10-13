@@ -66,6 +66,7 @@ export default function Index() {
             </span>
             <Link
               to="/cloud"
+              prefetch="intent"
               className="rounded-md px-3  py-1 text-white transition duration-300
                                 hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
             >
@@ -73,6 +74,7 @@ export default function Index() {
             </Link>
             <Link
               to="/repo"
+              prefetch="intent"
               className="rounded-md px-3  py-1 text-white transition duration-300
                 hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
             >
