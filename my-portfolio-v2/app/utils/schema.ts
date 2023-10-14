@@ -22,6 +22,8 @@ const urlTitleAndImgSrc = z.object({
   title: z.string(),
   imgSrc: z.string(),
 });
+const urlTitleAndImgSrcArray = z.array(urlTitleAndImgSrc);
+export type codePenArrayType = z.infer<typeof urlTitleAndImgSrcArray>;
 
 const urlTitleImgSrcAndDescription = z.object({
   url: z.string(),
@@ -46,6 +48,13 @@ const urlImgSrcDescriptionAndOrder = z.object({
 const gitHubSchema = z
   .object({ url: z.string(), name: z.string() })
   .or(z.object({ items: z.array(urlTitleImgSrcAndDescription) }));
+const githubArraySchema = z.array(gitHubSchema);
+export type githubArrayType = z.infer<typeof githubArraySchema>;
+
+export const gitHubArrayAndCodePenArraySchema = z.object({
+  gitHub: githubArraySchema,
+  codePen: urlTitleAndImgSrcArray,
+});
 
 const cloudSchema = z.record(z.string(), z.array(urlImgSrcDescriptionAndOrder));
 export type cloudType = z.infer<typeof cloudSchema>;
@@ -55,8 +64,8 @@ export const dataSchema = z.object({
     about: z.string(),
     media: nameUrlAndImgSrcArraySchema,
     skills: nameAndImgSrcArraySchema,
-    codePen: z.array(urlTitleAndImgSrc),
-    github: z.array(gitHubSchema),
+    codePen: urlTitleAndImgSrcArray,
+    gitHub: githubArraySchema,
     cloud: cloudSchema,
   }),
 });

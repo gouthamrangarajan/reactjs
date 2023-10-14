@@ -5,6 +5,8 @@ import {
   type cloudType,
   dataSchema,
   type urlTitleImgSrcAndDescriptionArrayType,
+  type githubArrayType,
+  type codePenArrayType,
 } from "./schema";
 
 const envSchema = z.object({
@@ -81,5 +83,38 @@ export function getCloudConsolidatedData(allCloudData: cloudType) {
           title: "VERCEL",
         });
     });
+  return consolidated;
+}
+
+export function getRepoConsolidatedData({
+  gitHub,
+  codePen,
+}: {
+  gitHub: githubArrayType;
+  codePen: codePenArrayType;
+}) {
+  let consolidated: urlTitleImgSrcAndDescriptionArrayType = [];
+  gitHub.forEach((el) => {
+    if ("items" in el) {
+      el.items.forEach((item) => {
+        if (item.imgSrc)
+          consolidated.push({
+            imgSrc: item.imgSrc,
+            url: item.url || "",
+            description: item.description || "",
+            title: "GITHUB",
+          });
+      });
+    }
+  });
+  codePen.forEach((el) => {
+    if (el.imgSrc)
+      consolidated.push({
+        imgSrc: el.imgSrc,
+        url: el.url || "",
+        description: "",
+        title: "CODEPEN",
+      });
+  });
   return consolidated;
 }
