@@ -51,11 +51,6 @@ const gitHubSchema = z
 const githubArraySchema = z.array(gitHubSchema);
 export type githubArrayType = z.infer<typeof githubArraySchema>;
 
-export const gitHubArrayAndCodePenArraySchema = z.object({
-  gitHub: githubArraySchema,
-  codePen: urlTitleAndImgSrcArray,
-});
-
 const cloudSchema = z.record(z.string(), z.array(urlImgSrcDescriptionAndOrder));
 export type cloudType = z.infer<typeof cloudSchema>;
 
