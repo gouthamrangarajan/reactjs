@@ -10,7 +10,7 @@ export default function Search() {
     window.clearTimeout(timeout.current);
     timeout.current = window.setTimeout(() => {
       fetcher.submit((ev.target as HTMLInputElement).form);
-    }, 300);
+    }, 600);
   };
   useEffect(() => {
     return () => {
@@ -26,11 +26,12 @@ export default function Search() {
     >
       <input
         type="text"
-        className="order-2 flex-1 appearance-none bg-transparent outline-none lg:order-1 lg:w-64"
+        className="order-2 flex-1 appearance-none bg-transparent outline-none placeholder:italic placeholder:text-gray-600 lg:order-1 lg:w-64"
         name="search"
         onKeyUp={(ev) => {
           debouncedSubmit(ev);
         }}
+        placeholder="Search..."
       />
       <SearchIcon className="order-1 h-6 w-6 lg:order-2"></SearchIcon>
     </fetcher.Form>
