@@ -1,8 +1,8 @@
-import { useLoaderData, type MetaFunction } from "@remix-run/react";
+import { type MetaFunction } from "@remix-run/react";
 import Nav from "~/components/Nav";
 import ProjectCardList from "~/components/ProjectCardList";
+import useSearch from "~/hooks/useSearch";
 import { getData, getRepoConsolidatedData } from "~/utils/helpers.server";
-import { urlTitleImgSrcAndDescriptionArraySchema } from "~/utils/schema";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,23 +14,32 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader() {
+export async function loader({ request }: { request: Request }) {
+  const search =
+    new URL(request.url).searchParams.get("search")?.toString().toLowerCase() ||
+    "";
   const data = await getData();
-  const repoData = getRepoConsolidatedData({
+  let repoData = getRepoConsolidatedData({
     codePen: data?.info.codePen || [],
     gitHub: data?.info.gitHub || [],
   });
+  if (search)
+    repoData = repoData.filter(
+      (el) =>
+        el.title.toLowerCase().includes(search) ||
+        el.description.toLowerCase().includes(search) ||
+        el.url.toLowerCase().includes(search),
+    );
   return repoData;
 }
 
 export default function repo() {
-  const loaderData = useLoaderData();
-  const parsedData = urlTitleImgSrcAndDescriptionArraySchema.parse(loaderData);
+  const displayData = useSearch();
   return (
     <div className="flex w-full flex-col  bg-slate-700">
       <Nav menu={<></>}></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
-        <ProjectCardList data={parsedData}></ProjectCardList>
+        <ProjectCardList data={displayData}></ProjectCardList>
       </div>
     </div>
   );
