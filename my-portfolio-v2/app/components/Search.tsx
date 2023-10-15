@@ -19,9 +19,8 @@ export default function Search() {
   }, []);
   return (
     <fetcher.Form
-      className="flex items-center rounded-md bg-white px-3 py-1
-  text-gray-700 transition duration-300 focus-within:ring-2 
-  focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-700"
+      className="flex items-center rounded-md bg-white px-3 py-1 text-gray-700 transition duration-300 focus-within:ring-2 
+        focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-gray-700"
       method="GET"
     >
       <input
