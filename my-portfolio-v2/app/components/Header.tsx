@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { staggerChild, staggerParent } from "../utils/animationVariants";
+import { getSlideUpAnimateClass } from "~/utils/helpers";
 import HeaderText from "./HeaderText";
 import { type mediaArrayType } from "~/utils/schema";
 
@@ -56,16 +55,4 @@ export default function Header({ media }: { media: mediaArrayType }) {
       </div>
     </header>
   );
-}
-function getSlideUpAnimateClass(ind: number) {
-  switch (ind) {
-    case 0:
-      return ``;
-    case 1:
-      return `animate-[slide-up_0.6s_ease-in-out]`;
-    case 2:
-      return `animate-[slide-up_0.7s_ease-in-out]`;
-    case 3:
-      return `animate-[slide-up_0.8s_ease-in-out]`;
-  }
 }

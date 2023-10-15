@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@remix-run/react";
 import ArrowLeftIcon from "@heroicons/react/24/solid/ArrowLeftIcon";
+import Search from "./Search";
 
 export default function Nav({
   menu,
@@ -27,6 +28,7 @@ export default function Nav({
         </Link>
       )}
       {menu && menu}
+      {pathname != "/" && <Search></Search>}
     </nav>
   );
 }

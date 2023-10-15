@@ -1,4 +1,4 @@
-import { getSlideUpAnimateClass } from "~/utils/helpers.client";
+import { getSlideUpAnimateClass } from "~/utils/helpers";
 import { type skillsArrayType } from "~/utils/schema";
 
 export default function Skills({ data }: { data: skillsArrayType }) {

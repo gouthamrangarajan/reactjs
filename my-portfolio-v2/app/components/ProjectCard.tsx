@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Img from "./ProjectCardImg";
-import { getSlideUpAnimateClass } from "~/utils/helpers.client";
+import { getSlideUpAnimateClass } from "~/utils/helpers";
 
 export default function ProjectCard({
   data,
