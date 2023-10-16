@@ -21,5 +21,10 @@ export default function useSearch() {
       setDisplayData(parsedFetcherData);
     }
   }, [searchFetcher?.data, searchFetcher?.state]);
+
+  useEffect(() => {
+    setDisplayData(loaderData);
+  }, [loaderData]);
+
   return displayData;
 }
