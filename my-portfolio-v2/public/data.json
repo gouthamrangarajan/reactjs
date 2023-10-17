@@ -1,0 +1,375 @@
+{
+  "info": {
+    "about": "13 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
+    "media": [
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/rgouthamraja",
+        "imgSrc": "/imgs/media/twitter-logo.png"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/gouthamrangarajan",
+        "imgSrc": "/imgs/media/linkedin-logo.png"
+      },
+      {
+        "name": "Github",
+        "url": "https://github.com/gouthamrangarajan",
+        "imgSrc": "/imgs/media/github-logo.png"
+      },
+      {
+        "name": "Codepen",
+        "url": "https://codepen.io/GouthamRangarajan",
+        "imgSrc": "/imgs/media/codepen-logo.png"
+      }
+    ],
+    "skills": [
+      {
+        "name": "ReactJs",
+        "imgSrc": "imgs/skills/react.png"
+      },
+      {
+        "name": "Remix",
+        "imgSrc": "imgs/skills/remix.svg"
+      },
+      {
+        "name": "NextJs",
+        "imgSrc": "imgs/skills/next.png"
+      },
+      {
+        "name": "VueJs",
+        "imgSrc": "imgs/skills/vue.png"
+      },
+      {
+        "name": "NuxtJs",
+        "imgSrc": "imgs/skills/nuxt.png"
+      },
+      {
+        "name": ".Net",
+        "imgSrc": "imgs/skills/dotnet_core.png"
+      },
+      {
+        "name": "TailwindCSS",
+        "imgSrc": "imgs/skills/tailwind.png"
+      },
+      {
+        "name": "Firebase",
+        "imgSrc": "imgs/skills/firebase.png"
+      },
+      {
+        "name": "Firebase Functions",
+        "imgSrc": "imgs/skills/firebase_function.png"
+      },
+      {
+        "name": "Netlify",
+        "imgSrc": "imgs/skills/netlify.png"
+      },
+      {
+        "name": "Azure",
+        "imgSrc": "imgs/skills/azure.png"
+      },
+      {
+        "name": "Azure Functions",
+        "imgSrc": "imgs/skills/azure_function.png"
+      },
+      {
+        "name": "Cloudflare Workers",
+        "imgSrc": "imgs/skills/cloudflare_workers.png"
+      },
+      {
+        "name": "Cloudflare Pages",
+        "imgSrc": "imgs/skills/cloudflare_pages.png"
+      }
+    ],
+    "codePen": [
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/poQewOO",
+        "imgSrc": "/imgs/codepen/CodePen22.png",
+        "title": "Vue DatePicker"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/XWEGOJK",
+        "imgSrc": "/imgs/codepen/CodePen20.png",
+        "title": "Vue 3 QRCode Generator"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/mdxPROp",
+        "imgSrc": "/imgs/codepen/CodePen19.png",
+        "title": "Vue 3 Cart"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/yLvwRyx",
+        "imgSrc": "/imgs/codepen/CodePen18.png",
+        "title": "Vuetify Datatable with Server side pagination"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/vYeeNOq",
+        "imgSrc": "/imgs/codepen/CodePen17.png",
+        "title": "Tailwind CSS Material Theme Input"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/oNeXKbN",
+        "imgSrc": "/imgs/codepen/CodePen15.png",
+        "title": "Vue 3 Feedback"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/YzQzEmm",
+        "imgSrc": "/imgs/codepen/CodePen14.png",
+        "title": "Vue 3 Drag & Drop"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/mdmLZvq",
+        "imgSrc": "/imgs/codepen/CodePen13.png",
+        "title": "Vue 3 Tailwind Switch"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/BazXNgQ",
+        "imgSrc": "/imgs/codepen/CodePen9.png",
+        "title": "Vue 3 History Mode"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/OJNvNjy",
+        "imgSrc": "/imgs/codepen/CodePen8.png",
+        "title": "Vue 3 DropDown Menu"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/jOqVjQX",
+        "imgSrc": "/imgs/codepen/CodePen1.png",
+        "title": "Vue 3 Tailwind Sign Up"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/JjXdemz",
+        "imgSrc": "/imgs/codepen/CodePen2.png",
+        "title": "Vue 3 Tailwind Toastr"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/dyGvbLJ",
+        "imgSrc": "/imgs/codepen/CodePen5.png",
+        "title": "Vue Menu Icon Transition"
+      },
+      {
+        "url": "https://codepen.io/GouthamRangarajan/full/VwLXoeK",
+        "imgSrc": "/imgs/codepen/CodePen6.png",
+        "title": "Vue Materialize DataTable"
+      }
+    ],
+    "gitHub": [
+      {
+        "url": "https://github.com/gouthamrangarajan/Vuejs",
+        "name": "Vue js"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/Reactjs",
+        "name": "React js"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/Asp.Net",
+        "name": "Asp.Net"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/Azure",
+        "name": "Azure Functions"
+      },
+      {
+        "url": "https://github.com/gouthamrangarajan/cloudflare-workers",
+        "name": "Cloudflare Workers"
+      },
+      {
+        "items": [
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/htmx101",
+            "title": "HTMX 101",
+            "imgSrc": "imgs/github/htmx.png",
+            "description": "A simple poc to use htmx to load html generated by ASP.Net for user search"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/grocery-list",
+            "title": "React Grocery List",
+            "imgSrc": "/imgs/github/react-grocery-list.png",
+            "description": "A simple Vite PWA code for tracking grocery list using Reactjs, Tailwind CSS & Framer motion"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/file-processing-audit",
+            "title": "Audit UI for File Watcher & Processor",
+            "imgSrc": "/imgs/github/audit-ui.png",
+            "description": "A simple Audit UI for File Watcher & Processor using Vue 3 & Tailwind CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureAD%2BGmailAuth",
+            "title": "AzureAD & Gmail Auth",
+            "imgSrc": "/imgs/github/AzureAD+GmailAuth.png",
+            "description": ".Net core Azure AD & Gmail authentication for web app"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/cloudflare-workers/tree/main/remix-101",
+            "title": "Remix 101",
+            "imgSrc": "/imgs/github/Remix101.png",
+            "description": "React + Remix POC to diplay JsonPlaceholder data including search hoisted in Cloudflare Worker."
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
+            "title": "React FullCalendar Events.",
+            "imgSrc": "/imgs/github/ReactFullCalendar.png",
+            "description": "React FullCalendar Events. Month, Week & Day views along with ability to drag, drop events & adjust(increase/decrease) duration of events."
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/vuejs/tree/master/vuetify-file-upload",
+            "title": "Vuetify File Input + Drag & Drop File Upload",
+            "imgSrc": "/imgs/github/VuetifyFileUpload.png",
+            "description": "A simple Vuetify file input + drag and drop file upload"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/react-tailwind-multi-step-form",
+            "title": "React Multi Step Form",
+            "imgSrc": "/imgs/github/ReactMultiStep.png",
+            "description": "Multi step form using React, Tailwind CSS & Framer Motion"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Azure/tree/main/Serverless-UI",
+            "title": "Azure Serverless UI",
+            "imgSrc": "/imgs/github/Serverless-UI.png",
+            "description": "Serverless function to render UI in Azure. An idea to send html response in Azure functions "
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/img-slider",
+            "title": "React Image Slider",
+            "imgSrc": "/imgs/github/ReactImgSlider.png",
+            "description": "Image Slider using Reactjs & Tailwind CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/SignalR%2BBackgroundService",
+            "title": "SignalR+BackgroundService",
+            "imgSrc": "/imgs/github/SignalR+BackgroundService.png",
+            "description": ".Net core SignalR + BackgroundService to send notification to client/user"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureADAuth",
+            "title": "AzureADWebApp+WebApi",
+            "imgSrc": "/imgs/github/AzureADWebApp+WebApi.png",
+            "description": ".Net core Azure AD authentication for web app and consume a Azure AD protected web api using Microsoft Identity Web"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/tailwind-date-range",
+            "title": "Date Range Picker",
+            "imgSrc": "/imgs/github/DateRangePicker.png",
+            "description": "Date Range Picker using Vue 3, Composition Api & Tailwind CSS"
+          },
+          {
+            "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-bulma-lightbox-nasa",
+            "title": "Vue LightBox",
+            "imgSrc": "/imgs/github/LightBox.png",
+            "description": "Lightbox implementation using Vue & Bulma CSS"
+          }
+        ]
+      }
+    ],
+    "cloud": {
+      "firebase": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/React_Drive.png",
+          "description": "A PWA drive using Vite, React, TailwindCSS and Firebase to store and access files and folders.",
+          "url": "https://react-drive-2fd13.web.app/"
+        },
+        {
+          "order": 2,
+          "imgSrc": "/imgs/cloud/WL.png",
+          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
+          "url": "https://web-learnings.netlify.app/"
+        },
+        {
+          "order": 3,
+          "imgSrc": "/imgs/cloud/React_Chat.png",
+          "description": "A React PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
+          "url": "https://react-superchat-8b806.web.app/"
+        },
+        {
+          "order": 4,
+          "imgSrc": "/imgs/cloud/Calendar.png",
+          "description": "Google calendar inspired PWA app along with firestore data storage and firebase authentication",
+          "url": "https://calendar-b42b8.web.app/"
+        },
+        {
+          "order": 5,
+          "imgSrc": "/imgs/cloud/Chat.png",
+          "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data for real time listener",
+          "url": "https://vue-superchat.web.app/"
+        }
+      ],
+      "cloudflare": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/OpenAI_Chat.png",
+          "description": "A Simple OpenAI Chat using Remix, OpenAI API, Tailwind CSS deployed as Cloudflare pages",
+          "url": "https://rg-openai-chat.pages.dev/"
+        },
+        {
+          "order": 2,
+          "imgSrc": "/imgs/cloud/PlacesToVisit.png",
+          "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
+          "url": "http://placestovisit.pages.dev/"
+        },
+        {
+          "order": 3,
+          "imgSrc": "/imgs/cloud/WL.png",
+          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Cloudflare Pages.",
+          "url": "https://web-learnings.pages.dev/"
+        },
+        {
+          "order": 4,
+          "imgSrc": "/imgs/cloud/Notes.png",
+          "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
+          "url": "https://rg-notes.pages.dev/"
+        }
+      ],
+      "netlify": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/Stock_Remix.png",
+          "description": "A PWA using Remix, React, TailwindCSS, Echarts and Firebase to view personal tracked stocks with CI/CD in Netlify",
+          "url": "https://rg-stock.netlify.app/"
+        },
+        {
+          "order": 2,
+          "imgSrc": "/imgs/cloud/Wordle.png",
+          "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
+          "url": "https://rg-wordle-clone.netlify.app/"
+        },
+        {
+          "order": 3,
+          "imgSrc": "/imgs/cloud/Self.png",
+          "description": "A simple ISR(Incremental Static Regeneration) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
+          "url": "https://portfolio-gouthamrangarajan.netlify.app/"
+        },
+        {
+          "order": 4,
+          "imgSrc": "/imgs/github/Drive.png",
+          "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
+          "url": "https://vue-3-drive.netlify.app/"
+        }
+      ],
+      "vercel": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/EmailSummarize.png",
+          "description": "A simple tool to summarize email body using Next.js (v13), OpenAI & Tailwind CSS",
+          "url": "https://rg-email-summarizer.vercel.app/"
+        }
+      ],
+      "azure": [
+        {
+          "order": 1,
+          "description": "OAuth SSO implementation from multiple providers. Web Api for SSO token generation hosted in Azure App Service, Nuxt and Azure Storage hosting for UI.",
+          "imgSrc": "/imgs/cloud/SSO.png",
+          "url": "https://cleariam.z13.web.core.windows.net/admin"
+        },
+        {
+          "order": 2,
+          "description": "Serverless Chat application for SMS communication using Azure SignalR services. Twilio for mobile services, Vue 3 and Azure storage hosting for UI",
+          "imgSrc": "/imgs/cloud/Azure_Chat.png",
+          "url": "https://clearmessage.z13.web.core.windows.net/"
+        }
+      ]
+    }
+  }
+}
