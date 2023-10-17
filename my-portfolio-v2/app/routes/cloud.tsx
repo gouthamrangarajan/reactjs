@@ -1,4 +1,5 @@
 import { type MetaFunction } from "@remix-run/react";
+import CloudCategoriesMenu from "~/components/CloudCategoriesMenu";
 import Nav from "~/components/Nav";
 import ProjectCardList from "~/components/ProjectCardList";
 import useSearch from "~/hooks/useSearch";
@@ -15,11 +16,20 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ request }: { request: Request }) {
+  const url = new URL(request.url);
   const search =
-    new URL(request.url).searchParams.get("search")?.toString().toLowerCase() ||
-    "";
+    new URL(url).searchParams.get("search")?.toString().toLowerCase() || "";
+  const category =
+    url.searchParams.get("category")?.toString().toLowerCase() || "";
   const data = await getData();
   let cloudData = getCloudConsolidatedData(data?.info.cloud || {});
+  if (category)
+    cloudData = cloudData.filter(
+      (el) =>
+        el.title.toLowerCase().includes(category) ||
+        el.description.toLowerCase().includes(category) ||
+        el.url.toLowerCase().includes(category),
+    );
   if (search)
     cloudData = cloudData.filter(
       (el) =>
@@ -33,7 +43,15 @@ export default function cloud() {
   const displayData = useSearch();
   return (
     <div className="flex w-full flex-col  bg-slate-700">
-      <Nav menu={<></>}></Nav>
+      <Nav
+        menu={
+          <>
+            <div className="flex flex-1 gap-3">
+              <CloudCategoriesMenu></CloudCategoriesMenu>
+            </div>
+          </>
+        }
+      ></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
         <ProjectCardList data={displayData}></ProjectCardList>
       </div>
