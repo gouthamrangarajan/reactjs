@@ -1,4 +1,4 @@
-import { type MetaFunction } from "@remix-run/react";
+import { Link, type MetaFunction } from "@remix-run/react";
 import CloudCategoriesMenu from "~/components/CloudCategoriesMenu";
 import Nav from "~/components/Nav";
 import ProjectCardList from "~/components/ProjectCardList";
@@ -47,6 +47,14 @@ export default function cloud() {
         menu={
           <>
             <div className="flex flex-1 gap-3">
+              <Link
+                to="/cloud"
+                prefetch="intent"
+                className="rounded-md px-3  py-1 text-white transition duration-300
+                                hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+              >
+                All
+              </Link>
               <CloudCategoriesMenu></CloudCategoriesMenu>
             </div>
           </>
