@@ -34,7 +34,7 @@ export async function action({ request }: { request: Request }) {
     },
     body: JSON.stringify({
       from: "RG <gouthamrangarajan@resend.dev>",
-      to: [email],
+      to: "rgouthamraja@yahoo.com",
       subject: "New Contact",
       html: emailTemplate,
     }),
