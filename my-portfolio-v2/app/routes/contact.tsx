@@ -41,6 +41,8 @@ export async function action({ request }: { request: Request }) {
   });
 
   if (!emailResp.ok) {
+    let jsonResp = await emailResp.json();
+    console.log("error sending email", jsonResp);
     return { message: "Error sending email. Please validate your email" };
   }
 
