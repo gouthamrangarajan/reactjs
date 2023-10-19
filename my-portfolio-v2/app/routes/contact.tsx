@@ -35,7 +35,7 @@ export async function action({ request }: { request: Request }) {
     body: JSON.stringify({
       from: "RG <gouthamrangarajan@resend.dev>",
       to: ["rgouthamraja@yahoo.com"],
-      subject: "New Contact",
+      subject: "New Message",
       html: emailTemplate,
     }),
   });
@@ -43,7 +43,7 @@ export async function action({ request }: { request: Request }) {
   if (!emailResp.ok) {
     let jsonResp = await emailResp.json();
     console.log("error sending email", jsonResp);
-    return { message: "Error sending email. Please validate your email" };
+    return { message: "Error sending email." };
   }
 
   return {
