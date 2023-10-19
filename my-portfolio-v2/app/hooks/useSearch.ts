@@ -1,13 +1,20 @@
 import { useFetchers, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { urlTitleImgSrcAndDescriptionArraySchema } from "~/utils/schema";
+import {
+  urlTitleImgSrcAndDescriptionArraySchema,
+  type urlTitleImgSrcAndDescriptionArrayType,
+} from "~/utils/schema";
 
 export default function useSearch() {
   const loaderData = useLoaderData();
   const parsedLoaderData =
     urlTitleImgSrcAndDescriptionArraySchema.parse(loaderData);
   const [displayData, setDisplayData] = useState(parsedLoaderData);
-  const searchFetcher = useFetchers()[0]; //TO DO find a better way
+  const searchFetcher = useFetchers().filter(
+    (el) =>
+      el.data &&
+      (el.data as Array<urlTitleImgSrcAndDescriptionArrayType>) != null,
+  )[0]; //TO DO find a better way
 
   useEffect(() => {
     if (
