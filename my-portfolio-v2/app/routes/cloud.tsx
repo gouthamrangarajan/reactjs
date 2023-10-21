@@ -71,7 +71,7 @@ export function ErrorBoundary() {
     <main className="flex w-full flex-col  bg-slate-700">
       <Nav menu={<></>}></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
-        <p className="text-red-600">
+        <p className="text-red-300">
           🥺 Error parsing data... Probably read limit exceeded. Please try
           refreshing again.
         </p>
