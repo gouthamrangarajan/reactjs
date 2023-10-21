@@ -38,8 +38,8 @@ const skillsToFilter = [
   "Azure",
   "Azure Functions",
 ];
-export async function loader() {
-  const data = await getData();
+export function loader() {
+  const data = getData();
   const media = data?.info.media;
   let skills = data?.info.skills;
   if (skills) {

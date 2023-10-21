@@ -7,7 +7,7 @@ import {
 } from "./schema";
 import data from "./../../public/data.json";
 
-export async function getData() {
+export function getData() {
   return dataSchema.parse(data);
 }
 
