@@ -3,7 +3,7 @@ import { type skillsArrayType } from "~/utils/schema";
 
 export default function Skills({ data }: { data: skillsArrayType }) {
   return (
-    <div className="w-full">
+    <div className="w-full pb-3 lg:pb-0">
       <div className="flex w-full flex-shrink-0 flex-col">
         <span className="w-full text-center text-3xl font-semibold italic tracking-widest text-sky-700">
           Skills

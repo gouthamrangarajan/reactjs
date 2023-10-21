@@ -86,3 +86,40 @@ export default function Index() {
     </main>
   );
 }
+export function ErrorBoundary() {
+  return (
+    <main>
+      <div className="flex min-h-screen flex-col">
+        <p className="text-red-600">
+          🥺 Error parsing data... Probably read limit exceeded. Please try
+          refreshing again.
+        </p>
+      </div>
+      <Nav
+        menu={
+          <div className="flex flex-1 items-center space-x-3 text-white ">
+            <span className="px-3 py-1 text-sm text-gray-100">
+              Check out my Demos
+            </span>
+            <Link
+              to="/cloud"
+              prefetch="intent"
+              className="rounded-md px-3  py-1 text-white transition duration-300
+                                hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+            >
+              Cloud Projects
+            </Link>
+            <Link
+              to="/repo"
+              prefetch="intent"
+              className="rounded-md px-3  py-1 text-white transition duration-300
+                hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
+            >
+              Github &amp; Codepen
+            </Link>
+          </div>
+        }
+      ></Nav>
+    </main>
+  );
+}

@@ -338,7 +338,7 @@
         {
           "order": 3,
           "imgSrc": "/imgs/cloud/Self.png",
-          "description": "A simple ISR(Incremental Static Regeneration) implementation of my portfolio site with CI/CD in Netlify using Next.js & Tailwind CSS",
+          "description": "A PWA of my Portfolio using Remix, React, TailwindCSS & Netlify Edge Functions",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {

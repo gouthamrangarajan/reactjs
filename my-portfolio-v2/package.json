@@ -4,11 +4,15 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "remix build",
+    "build": "run-s build:*",
     "predev": "rimraf ./.netlify/edge-functions/",
-    "dev": "remix dev",
     "start": "netlify serve",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "build:remix": "remix build",
+    "build:worker": "remix-pwa build",
+    "dev": "run-p dev:*",
+    "dev:remix": "remix dev",
+    "dev:worker": "remix-pwa dev"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -20,7 +24,13 @@
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "dotenv": "^16.3.1",
+    "@remix-pwa/cache": "^2.0.12",
+    "@remix-pwa/sw": "^2.1.12",
+    "@remix-pwa/strategy": "^2.1.9",
+    "@remix-pwa/client": "^2.0.1",
+    "@remix-pwa/sync": "^2.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.0.1",
@@ -34,7 +44,12 @@
     "rimraf": "^4.1.4",
     "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.1.0"
+    "typescript": "^5.1.0",
+    "@remix-pwa/worker-runtime": "^2.0.8",
+    "@remix-pwa/dev": "2.0.31",
+    "remix-pwa": "^3.0.19",
+    "npm-run-all": "^4.1.5",
+    "glob": "^10.3.10"
   },
   "engines": {
     "node": ">=18"

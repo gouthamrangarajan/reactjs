@@ -59,7 +59,7 @@ export async function loader({ request }: { request: Request }) {
 export default function repo() {
   const displayData = useSearch();
   return (
-    <div className="flex w-full flex-col  bg-slate-700">
+    <main className="flex w-full flex-col  bg-slate-700">
       <Nav
         menu={
           <>
@@ -95,6 +95,20 @@ export default function repo() {
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
         <ProjectCardList data={displayData}></ProjectCardList>
       </div>
-    </div>
+    </main>
+  );
+}
+
+export function ErrorBoundary() {
+  return (
+    <main className="flex w-full flex-col  bg-slate-700">
+      <Nav menu={<></>}></Nav>
+      <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
+        <p className="text-red-600">
+          🥺 Error parsing data... Probably read limit exceeded. Please try
+          refreshing again.
+        </p>
+      </div>
+    </main>
   );
 }
