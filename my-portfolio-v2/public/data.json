@@ -338,7 +338,7 @@
         {
           "order": 3,
           "imgSrc": "/imgs/cloud/Self.png",
-          "description": "A PWA of my Portfolio using Remix, React, TailwindCSS & Netlify Edge Functions",
+          "description": "Simple Portfolio site using Remix, React, TailwindCSS & Netlify Edge Functions",
           "url": "https://portfolio-gouthamrangarajan.netlify.app/"
         },
         {
