@@ -29,9 +29,9 @@ export default function useSearch() {
     }
   }, [searchFetcher?.data, searchFetcher?.state]);
 
-  useEffect(() => {
-    setDisplayData(loaderData);
-  }, [loaderData]);
+  useEffect(() => {    
+    setDisplayData(parsedLoaderData);
+  }, [parsedLoaderData]);
 
   return displayData;
 }

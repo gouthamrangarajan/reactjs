@@ -42,7 +42,7 @@ export async function loader({ request }: { request: Request }) {
 export default function cloud() {
   const displayData = useSearch();
   return (
-    <main className="flex w-full flex-col  bg-slate-700">
+    <main className=" flex w-full  flex-col bg-slate-700">
       <Nav
         menu={
           <>
