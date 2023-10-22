@@ -29,9 +29,11 @@ export default function useSearch() {
     }
   }, [searchFetcher?.data, searchFetcher?.state]);
 
-  useEffect(() => {    
+  useEffect(() => {
+    const parsedLoaderData =
+      urlTitleImgSrcAndDescriptionArraySchema.parse(loaderData);
     setDisplayData(parsedLoaderData);
-  }, [parsedLoaderData]);
+  }, [loaderData]);
 
   return displayData;
 }
