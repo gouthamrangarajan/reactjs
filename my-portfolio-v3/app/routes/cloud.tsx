@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { Link, type MetaFunction } from "@remix-run/react";
 import CloudCategoriesMenu from "~/components/CloudCategoriesMenu";
 import Nav from "~/components/Nav";
@@ -37,10 +38,10 @@ export async function loader({ request }: { request: Request }) {
         el.description.toLowerCase().includes(search) ||
         el.url.toLowerCase().includes(search),
     );
-  return cloudData;
+  return json({ key: "cloud", data: cloudData });
 }
 export default function cloud() {
-  const displayData = useSearch();
+  const displayData = useSearch("cloud");
   return (
     <main className=" flex w-full  flex-col bg-slate-700">
       <Nav

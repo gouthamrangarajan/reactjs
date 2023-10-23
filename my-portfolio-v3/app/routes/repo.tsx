@@ -1,3 +1,4 @@
+import { json } from "@remix-run/node";
 import { Link, type MetaFunction } from "@remix-run/react";
 import Nav from "~/components/Nav";
 import ProjectCardList from "~/components/ProjectCardList";
@@ -15,7 +16,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async  function loader({ request }: { request: Request }) {
+export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const search = url.searchParams.get("search")?.toString().toLowerCase() || "";
   const category =
@@ -53,11 +54,11 @@ export async  function loader({ request }: { request: Request }) {
         el.description.toLowerCase().includes(search) ||
         el.url.toLowerCase().includes(search),
     );
-  return repoData;
+  return json({ key: "repo", data: repoData });
 }
 
 export default function repo() {
-  const displayData = useSearch();
+  const displayData = useSearch("repo");
   return (
     <main className="flex w-full flex-col  bg-slate-700">
       <Nav

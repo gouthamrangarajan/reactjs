@@ -37,6 +37,10 @@ export const urlTitleImgSrcAndDescriptionArraySchema = z.array(
 export type urlTitleImgSrcAndDescriptionArrayType = z.infer<
   typeof urlTitleImgSrcAndDescriptionArraySchema
 >;
+export const searchSchema = z.object({
+  key: z.string(),
+  data: urlTitleImgSrcAndDescriptionArraySchema,
+});
 
 const urlImgSrcDescriptionAndOrder = z.object({
   url: z.string(),

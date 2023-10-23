@@ -1,20 +1,14 @@
 import { useFetchers, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import {
-  urlTitleImgSrcAndDescriptionArraySchema,
-  type urlTitleImgSrcAndDescriptionArrayType,
-} from "~/utils/schema";
+import { searchSchema } from "~/utils/schema";
 
-export default function useSearch() {
+export default function useSearch(key: string) {
   const loaderData = useLoaderData();
-  const parsedLoaderData =
-    urlTitleImgSrcAndDescriptionArraySchema.parse(loaderData);
-  const [displayData, setDisplayData] = useState(parsedLoaderData);
+  const parsedLoaderData = searchSchema.parse(loaderData);
+  const [displayData, setDisplayData] = useState(parsedLoaderData.data);
   const searchFetcher = useFetchers().filter(
-    (el) =>
-      el.data &&
-      (el.data as Array<urlTitleImgSrcAndDescriptionArrayType>) != null,
-  )[0]; //TO DO find a better way
+    (el) => el.data && el.data.key && el.data.key == key,
+  )[0];
 
   useEffect(() => {
     if (
@@ -22,17 +16,14 @@ export default function useSearch() {
       typeof searchFetcher.data !== "undefined" &&
       searchFetcher.state == "idle"
     ) {
-      const parsedFetcherData = urlTitleImgSrcAndDescriptionArraySchema.parse(
-        searchFetcher.data,
-      );
-      setDisplayData(parsedFetcherData);
+      const parsedFetcherData = searchSchema.parse(searchFetcher.data);
+      setDisplayData(parsedFetcherData.data);
     }
   }, [searchFetcher?.data, searchFetcher?.state]);
 
   useEffect(() => {
-    const parsedLoaderData =
-      urlTitleImgSrcAndDescriptionArraySchema.parse(loaderData);
-    setDisplayData(parsedLoaderData);
+    const parsedLoaderData = searchSchema.parse(loaderData);
+    setDisplayData(parsedLoaderData.data);
   }, [loaderData]);
 
   return displayData;
