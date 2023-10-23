@@ -31,20 +31,11 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-const skillsToFilter = [
-  "NuxtJs",
-  "NextJs",
-  "Firebase Functions",
-  "Azure",
-  "Azure Functions",
-];
+
 export async function loader() {
   const data = await getData();
   const media = data?.info.media;
-  let skills = data?.info.skills;
-  if (skills) {
-    skills = skills.filter((el) => !skillsToFilter.includes(el.name));
-  }
+  const skills = data?.info.skills;
   return { media, skills };
 }
 export default function Index() {

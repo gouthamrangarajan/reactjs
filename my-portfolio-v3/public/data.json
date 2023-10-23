@@ -1,6 +1,6 @@
 {
   "info": {
-    "about": "13 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
+    "about": "14 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
     "media": [
       {
         "name": "Twitter",
@@ -33,16 +33,8 @@
         "imgSrc": "imgs/skills/remix.svg"
       },
       {
-        "name": "NextJs",
-        "imgSrc": "imgs/skills/next.png"
-      },
-      {
         "name": "VueJs",
         "imgSrc": "imgs/skills/vue.png"
-      },
-      {
-        "name": "NuxtJs",
-        "imgSrc": "imgs/skills/nuxt.png"
       },
       {
         "name": ".Net",
@@ -57,20 +49,8 @@
         "imgSrc": "imgs/skills/firebase.png"
       },
       {
-        "name": "Firebase Functions",
-        "imgSrc": "imgs/skills/firebase_function.png"
-      },
-      {
         "name": "Netlify",
         "imgSrc": "imgs/skills/netlify.png"
-      },
-      {
-        "name": "Azure",
-        "imgSrc": "imgs/skills/azure.png"
-      },
-      {
-        "name": "Azure Functions",
-        "imgSrc": "imgs/skills/azure_function.png"
       },
       {
         "name": "Cloudflare Workers",
@@ -337,15 +317,17 @@
         },
         {
           "order": 3,
-          "imgSrc": "/imgs/cloud/Self.png",
-          "description": "Simple Portfolio site using Remix, React, TailwindCSS & Netlify Edge Functions",
-          "url": "https://portfolio-gouthamrangarajan.netlify.app/"
-        },
-        {
-          "order": 4,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
+        }
+      ],
+      "fly": [
+        {
+          "order": 1,
+          "imgSrc": "/imgs/cloud/Self.png",
+          "description": "Portfolio site built with Remix, React & TailwindCSS deployed to fly",
+          "url": "https://portfolio-gouthamrangarajan.fly.dev/"
         }
       ],
       "vercel": [

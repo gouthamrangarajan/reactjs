@@ -27,9 +27,9 @@ const redisStorage = createStorage({
 });
 
 export async function getData() {
-  return await redisStorage.getItem<z.infer<typeof dataSchema>>(
-    "portfolio_data",
-  );
+  const data =
+    await redisStorage.getItem<z.infer<typeof dataSchema>>("portfolio_data_v2");
+  return data;
 }
 
 export function getCloudConsolidatedData(allCloudData: cloudType) {
@@ -38,6 +38,7 @@ export function getCloudConsolidatedData(allCloudData: cloudType) {
   const firebase = allCloudData["firebase"];
   const netlify = allCloudData["netlify"];
   const vercel = allCloudData["vercel"];
+  const fly = allCloudData["fly"];
 
   cloudflare
     .sort((a, b) => (a.order > b.order ? 1 : -1))
@@ -70,6 +71,17 @@ export function getCloudConsolidatedData(allCloudData: cloudType) {
           url: el.url || "",
           description: el.description || "",
           title: "NETLIFY",
+        });
+    });
+  fly
+    .sort((a, b) => (a.order > b.order ? 1 : -1))
+    .forEach((el) => {
+      if (el.imgSrc)
+        consolidated.push({
+          imgSrc: el.imgSrc,
+          url: el.url || "",
+          description: el.description || "",
+          title: "FLY",
         });
     });
   vercel

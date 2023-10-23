@@ -37,16 +37,18 @@ export default function CloudCategoriesMenu() {
                   Providers
                 </span>
                 <div className="flex flex-col space-y-3 p-1">
-                  {["Firebase", "Netlify", "Cloudflare", "Vercel"].map((el) => (
-                    <Link
-                      className="w-32 rounded-md px-3  py-1 text-white transition duration-300
+                  {["Firebase", "Netlify", "Cloudflare", "Fly", "Vercel"].map(
+                    (el) => (
+                      <Link
+                        className="w-32 rounded-md px-3  py-1 text-white transition duration-300
                       hover:bg-slate-600 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-700"
-                      key={el}
-                      to={`/cloud?category=${el}`}
-                    >
-                      {el}
-                    </Link>
-                  ))}
+                        key={el}
+                        to={`/cloud?category=${el}`}
+                      >
+                        {el}
+                      </Link>
+                    ),
+                  )}
                 </div>
               </div>
               <div className="flex flex-col pl-0 pt-3 lg:pl-6 lg:pt-0">
