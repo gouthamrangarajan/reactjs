@@ -20,7 +20,7 @@ const env = envSchema.parse(process.env);
 const redisStorage = createStorage({
   driver: redisDriver({
     url: `reds://${env.REDIS_USER}:${env.REDIS_PWD}@${env.REDIS_HOST}:${env.REDIS_PORT}`,
-    maxRetriesPerRequest: 1,
+    maxRetriesPerRequest: 3,
     commandTimeout: 500,
     connectTimeout: 500,
   }),

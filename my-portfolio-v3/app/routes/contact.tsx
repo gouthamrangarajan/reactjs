@@ -5,8 +5,8 @@ import { template } from "~/utils/email_template.server";
 
 export async function action({ request }: { request: Request }) {
   const fmData = await request.formData();
-  const email = fmData.get("email")?.toString() || "";
-  const message = fmData.get("message")?.toString() || "";
+  const email = fmData.get("email")?.toString().trim() || "";
+  const message = fmData.get("message")?.toString().trim() || "";
   const inValidEmail =
     !email || !email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
   const inValidMessage = !message || message.length < 10;
@@ -93,7 +93,7 @@ export default function contact() {
         </motion.h1>
         {fetcherDataMessage && (
           <p
-            className={`animate-contact-message w-96 py-1 text-sm font-semibold ${
+            className={`w-96 animate-contact-message py-1 text-sm font-semibold ${
               fetcherDataMessage.includes("Error")
                 ? "text-red-600"
                 : "text-teal-700"
@@ -121,7 +121,8 @@ export default function contact() {
           </label>
           <textarea
             className="w-96 appearance-none rounded border-2 border-slate-700 px-3 py-1 outline-none transition
-                     duration-300 placeholder:italic focus:ring-1 focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-50"
+                     duration-300 scrollbar-thin scrollbar-track-gray-50  scrollbar-thumb-gray-500 placeholder:italic focus:ring-1
+                     focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-50"
             name="message"
             id="message"
             rows={5}
