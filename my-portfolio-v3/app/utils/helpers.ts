@@ -1,7 +1,7 @@
 export function getSlideUpAnimateClass(ind: number) {
   switch (ind) {
     case 0:
-      return ``;
+      return `animate-[slide-up_0.3s_ease-in-out]`;
     case 1:
       return `animate-[slide-up_0.6s_ease-in-out]`;
     case 2:
