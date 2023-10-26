@@ -94,7 +94,13 @@ export default function repo() {
         }
       ></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
-        <ProjectCardList data={displayData}></ProjectCardList>
+        {displayData.length > 0 ? (
+          <ProjectCardList data={displayData}></ProjectCardList>
+        ) : (
+          <p className="w-full animate-slide-up text-center text-gray-50">
+            No results found... Please verify the search text
+          </p>
+        )}
       </div>
     </main>
   );
@@ -105,7 +111,7 @@ export function ErrorBoundary() {
     <main className="flex w-full flex-col  bg-slate-700">
       <Nav menu={<></>}></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
-        <p className="text-red-300">
+        <p className="w-full text-center text-red-300">
           🥺 Error parsing data... Probably read limit exceeded. Please try
           refreshing again.
         </p>
