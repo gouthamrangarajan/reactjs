@@ -15,6 +15,7 @@
 //   };
 // }
 
+import { type LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { type MetaFunction, useLoaderData, Link } from "@remix-run/react";
 import Header from "~/components/Header";
 import Nav from "~/components/Nav";
@@ -32,8 +33,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export  function loader() {
-  const data =  getData();
+export async function loader({ context }: LoaderFunctionArgs) {
+  const data = await getData(context);
   const media = data?.info.media;
   const skills = data?.info.skills;
   return { media, skills };

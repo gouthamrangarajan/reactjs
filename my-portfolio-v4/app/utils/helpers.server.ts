@@ -1,4 +1,3 @@
-import { z } from "zod";
 import {
   type cloudType,
   dataSchema,
@@ -6,10 +5,13 @@ import {
   type githubArrayType,
   type codePenArrayType,
 } from "./schema";
-import data from "../../public/data.json";
+import { type AppLoadContext } from "@remix-run/cloudflare";
 
-export function getData() {
-  const parsedData = dataSchema.parse(data);
+export async function getData(context: AppLoadContext) {
+  const typedContext = context as { env: { my_portfolio: KVNamespace } };
+  const kv = typedContext.env.my_portfolio;
+  const data = await kv.get("data_v2");
+  const parsedData = dataSchema.parse(JSON.parse(data || "{}"));
   return parsedData;
 }
 

@@ -16,12 +16,12 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request, context }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const search = url.searchParams.get("search")?.toString().toLowerCase() || "";
   const category =
     url.searchParams.get("category")?.toString().toLowerCase() || "";
-  const data = getData();
+  const data = await getData(context);
   let repoData: urlTitleImgSrcAndDescriptionArrayType = [];
   switch (category) {
     case "github": {
