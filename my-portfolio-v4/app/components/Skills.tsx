@@ -1,4 +1,3 @@
-import { getSlideUpAnimateClass } from "~/utils/helpers";
 import { type skillsArrayType } from "~/utils/schema";
 
 export default function Skills({ data }: { data: skillsArrayType }) {
@@ -11,7 +10,7 @@ export default function Skills({ data }: { data: skillsArrayType }) {
         <div className="mx-auto flex max-w-6xl flex-shrink-0 flex-wrap items-center justify-center gap-4 px-3 py-1">
           {data.map((el, ind) => (
             <div
-              className={`rounded-xl p-1 ${getSlideUpAnimateClass(ind)} 
+              className={`rounded-xl p-1 
                                                 ${
                                                   [
                                                     "NextJs",
@@ -33,9 +32,7 @@ export default function Skills({ data }: { data: skillsArrayType }) {
             </div>
           ))}
           <span
-            className={`rounded bg-sky-600 px-3 py-1 font-semibold text-white ${getSlideUpAnimateClass(
-              15,
-            )}`}
+            className={`rounded bg-sky-600 px-3 py-1 font-semibold text-white `}
             key="more"
           >
             AND MANY MORE...
