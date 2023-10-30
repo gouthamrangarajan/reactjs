@@ -1,3 +1,4 @@
+import { getSlideUpAnimateClass } from "~/utils/helpers";
 import HeaderText from "./HeaderText";
 import { type mediaArrayType } from "~/utils/schema";
 
@@ -20,16 +21,21 @@ export default function Header({ media }: { media: mediaArrayType }) {
           text="Goutham Rangarajan"
         ></HeaderText>
         <HeaderText
-          classes="italic font-semibold tracking-wider "
+          classes="italic font-semibold tracking-wider animate-[slide-down_0.6s_ease-in]"
           text="RG"
         ></HeaderText>
-        <HeaderText classes="text-lg" text="Front-end enthusiast"></HeaderText>
+        <HeaderText
+          classes="text-lg animate-[slide-down_0.9s_ease-in]"
+          text="Front-end enthusiast"
+        ></HeaderText>
       </div>
       <div className="flex items-center space-x-2">
         {media.map((med, ind) => (
           <a
             className={`h-14 w-14 appearance-none rounded-full p-1 outline-none hover:opacity-90
-                        focus-visible:ring-2 focus-visible:ring-white 
+                        focus-visible:ring-2 focus-visible:ring-white ${getSlideUpAnimateClass(
+                          ind,
+                        )} 
                         `}
             target="_blank"
             href={med.url}

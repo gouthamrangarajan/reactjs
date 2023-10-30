@@ -63,6 +63,11 @@
     ],
     "codePen": [
       {
+        "url": "https://codepen.io/GouthamRangarajan/full/bGzEoYa",
+        "imgSrc": "/imgs/codepen/CodePen23.png",
+        "title": "Vue, HTML Dialog & View Transition API"
+      },
+      {
         "url": "https://codepen.io/GouthamRangarajan/full/poQewOO",
         "imgSrc": "/imgs/codepen/CodePen22.png",
         "title": "Vue DatePicker"
@@ -327,7 +332,7 @@
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
         }
-      ],      
+      ],
       "vercel": [
         {
           "order": 1,
