@@ -14,7 +14,8 @@ export default function Loader({ loading = false }: { loading?: boolean }) {
   return (
     <motion.div
       animate={{
-        width: ["0%", "100%"],
+        scaleX: ["0", "100%"],
+        transformOrigin: "left",
         transition: {
           repeat: Infinity,
           repeatDelay: 0.3,
@@ -22,7 +23,7 @@ export default function Loader({ loading = false }: { loading?: boolean }) {
           ease: "easeIn",
         },
       }}
-      className="absolute left-0 top-0 z-20 h-1 bg-slate-100"
+      className="absolute left-0 top-0 z-20 h-1 w-full bg-slate-100"
     ></motion.div>
   );
 }
