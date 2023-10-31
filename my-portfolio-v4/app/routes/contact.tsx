@@ -66,7 +66,7 @@ export default function contact() {
   if (fetcher?.data)
     fetcherDataMessage = (fetcher.data as { message: string }).message;
   return (
-    <div className="flex h-screen  w-screen flex-col items-center justify-center">
+    <main className="animate-fade-in flex  h-screen w-screen flex-col items-center justify-center">
       <Nav
         menu={
           <div className="flex flex-1 items-center space-x-3 text-white ">
@@ -150,6 +150,6 @@ export default function contact() {
           Send message
         </motion.button>
       </fetcher.Form>
-    </div>
+    </main>
   );
 }

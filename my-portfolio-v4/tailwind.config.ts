@@ -5,11 +5,16 @@ export default {
   theme: {
     extend: {
       animation: {
+        "fade-in": "fade-in 0.6s ease-in",
         "slide-down": "slide-down 0.3s ease-in",
         "slide-up": "slide-up 0.3s ease-in",
         "contact-message": "contact-message 0.3s ease-in",
       },
       keyframes: {
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
         "slide-down": {
           from: { transform: "translateY(-2rem)", opacity: "0" },
           to: { transform: "translateY(0)", opacity: "1" },

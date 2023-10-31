@@ -43,7 +43,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 export default function cloud() {
   const displayData = useSearch("cloud");
   return (
-    <main className=" flex w-full  flex-col bg-slate-700">
+    <main className=" animate-fade-in flex  w-full flex-col bg-slate-700">
       <Nav
         menu={
           <>
@@ -65,7 +65,7 @@ export default function cloud() {
         {displayData.length > 0 ? (
           <ProjectCardList data={displayData}></ProjectCardList>
         ) : (
-          <p className="w-full animate-slide-up text-center text-gray-50">
+          <p className="animate-fade-in w-full text-center text-gray-50">
             No results found... Please verify the search text
           </p>
         )}

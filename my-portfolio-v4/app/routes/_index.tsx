@@ -43,7 +43,7 @@ export default function Index() {
   const loaderData = useLoaderData();
   const { media, skills } = mediaAndSkillsDataSchema.parse(loaderData);
   return (
-    <main>
+    <main className="animate-fade-in">
       <div className="flex min-h-screen flex-col">
         <Header media={media}></Header>
         <div className="mt-4 w-full pb-16 lg:pb-4">
