@@ -1,8 +1,9 @@
-import { useFetchers, useNavigation } from "@remix-run/react";
+import { useFetchers, useLocation, useNavigation } from "@remix-run/react";
 import { motion } from "framer-motion";
 
 export default function Loader({ loading = false }: { loading?: boolean }) {
   const navigation = useNavigation();
+  const location = useLocation();
   const fetchers = useFetchers();
   const show =
     navigation.state == "submitting" ||
@@ -23,7 +24,9 @@ export default function Loader({ loading = false }: { loading?: boolean }) {
           ease: "easeIn",
         },
       }}
-      className="absolute left-0 top-0 z-20 h-1 w-full bg-slate-100"
+      className={`absolute left-0 top-0 z-20 h-1 w-full ${
+        location.pathname == "/contact" ? "bg-slate-600" : "bg-slate-100"
+      }`}
     ></motion.div>
   );
 }
