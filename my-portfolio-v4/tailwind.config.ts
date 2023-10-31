@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        "fade-in": "fade-in 0.6s ease-in",
+        "fade-in": "fade-in 0.3s ease-in",
         "slide-down": "slide-down 0.3s ease-in",
         "slide-up": "slide-up 0.3s ease-in",
         "contact-message": "contact-message 0.3s ease-in",
