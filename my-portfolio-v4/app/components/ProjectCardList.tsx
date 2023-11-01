@@ -8,7 +8,7 @@ const ProjectCardList = ({
   data: urlTitleImgSrcAndDescriptionArrayType;
 }) => {
   return (
-    <div className="grid grid-cols-1 items-center justify-center gap-3 p-1 xl:grid-cols-2 xl:items-stretch">
+    <div className="grid grid-cols-1 items-center justify-center gap-3 p-1 xl:grid-cols-2">
       {data.map((el, ind) => (
         <ProjectCard
           data={el}

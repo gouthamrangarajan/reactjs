@@ -44,7 +44,11 @@ export default function ProjectCard({
         </motion.p>
       </motion.div>
       <motion.div className={`h-full w-full overflow-hidden`} layout="position">
-        <Img src={data.imgSrc} alt={`Image for ${data.description}`}></Img>
+        <Img
+          src={data.imgSrc}
+          alt={`Image for ${data.description}`}
+          index={index}
+        ></Img>
       </motion.div>
     </motion.div>
   );
