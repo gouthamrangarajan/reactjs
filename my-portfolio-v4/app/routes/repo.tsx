@@ -60,7 +60,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 export default function repo() {
   const displayData = useSearch("repo");
   return (
-    <main className="animate-fade-in flex w-full  flex-col bg-slate-700">
+    <main className="flex w-full animate-fade-in  flex-col bg-slate-700">
       <Nav
         menu={
           <>
@@ -93,11 +93,11 @@ export default function repo() {
           </>
         }
       ></Nav>
-      <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
+      <div className="mt-1 min-h-screen w-full p-1 pb-5 lg:px-4 lg:py-2 xl:pb-2">
         {displayData.length > 0 ? (
           <ProjectCardList data={displayData}></ProjectCardList>
         ) : (
-          <p className="animate-fade-in w-full text-center text-gray-50">
+          <p className="w-full animate-fade-in text-center text-gray-50">
             No results found... Please verify the search text
           </p>
         )}
