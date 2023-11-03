@@ -12,12 +12,15 @@ export default function ProjectCard({
 }) {
   return (
     <motion.div
-      className={`relative flex w-full flex-shrink-0 flex-col overflow-hidden 
+      className={`relative flex w-full flex-shrink-0 flex-col 
                   rounded-xl bg-slate-800 shadow-2xl `}
       key={data.url}
       layout="position"
     >
-      <motion.div className="flex w-full flex-col px-6 py-4" layout="position">
+      <motion.div
+        className="flex w-full flex-col overflow-hidden px-6 py-4"
+        layout="position"
+      >
         <motion.span
           className="text-xl font-bold text-pink-400"
           key={title}
@@ -43,7 +46,7 @@ export default function ProjectCard({
           {data?.description}
         </motion.p>
       </motion.div>
-      <motion.div className={`h-full w-full overflow-hidden`} layout="position">
+      <motion.div className={` h-full w-full`} layout="position">
         <Img
           src={data.imgSrc}
           alt={`Image for ${data.description}`}
