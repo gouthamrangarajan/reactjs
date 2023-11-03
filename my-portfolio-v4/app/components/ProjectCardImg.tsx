@@ -3,17 +3,19 @@ import { motion } from "framer-motion";
 export default function ProjectCardImg({
   src,
   alt,
-  index,
+  animate = false,
 }: {
   src: string;
   alt: string;
-  index: number;
+  animate?: boolean;
 }) {
   return (
     <motion.img
       key={src}
       src={src}
-      className="revealing-image h-full w-full rounded-b-xl object-fill xl:h-[23.5rem] xl:w-[50rem]"
+      className={` h-full w-full rounded-b-xl object-fill xl:h-[23.5rem] xl:w-[50rem] ${
+        animate ? "revealing-image" : ""
+      }`}
       alt={alt}
       layout="position"
     />

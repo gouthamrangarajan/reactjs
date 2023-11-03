@@ -4,11 +4,11 @@ import Img from "./ProjectCardImg";
 export default function ProjectCard({
   data,
   title,
-  index,
+  imgAnimate = false,
 }: {
   title: string;
   data: { url: string; description?: string; imgSrc: string };
-  index: number;
+  imgAnimate?: boolean;
 }) {
   return (
     <motion.div
@@ -50,7 +50,7 @@ export default function ProjectCard({
         <Img
           src={data.imgSrc}
           alt={`Image for ${data.description}`}
-          index={index}
+          animate={imgAnimate}
         ></Img>
       </motion.div>
     </motion.div>

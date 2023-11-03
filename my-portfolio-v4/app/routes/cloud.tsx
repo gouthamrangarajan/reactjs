@@ -61,7 +61,7 @@ export default function cloud() {
           </>
         }
       ></Nav>
-      <div className="mt-1 min-h-screen w-full p-1 pb-5 lg:px-4 lg:py-2 xl:pb-2">
+      <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2 xl:pb-2">
         {displayData.length > 0 ? (
           <ProjectCardList data={displayData}></ProjectCardList>
         ) : (
