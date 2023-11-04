@@ -14,7 +14,7 @@ const ProjectCardList = ({
           data={el}
           title={el.title}
           key={el.url}
-          imgAnimate={ind + 2 < data.length}
+          imgAnimate={true}
         ></ProjectCard>
       ))}
     </div>
