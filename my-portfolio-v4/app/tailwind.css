@@ -13,7 +13,7 @@
   animation-timeline: view();
 
   /* Tweak range when effect should run*/
-  animation-range: entry 10% cover 20%;
+  animation-range: entry 5% cover 15%;
 }
 
 @keyframes reveal {
