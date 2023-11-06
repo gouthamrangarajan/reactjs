@@ -1,4 +1,3 @@
-import React from "react";
 import ProjectCard from "./ProjectCard";
 import { type urlTitleImgSrcAndDescriptionArrayType } from "~/utils/schema";
 
@@ -21,4 +20,4 @@ const ProjectCardList = ({
   );
 };
 
-export default React.memo(ProjectCardList);
+export default ProjectCardList;
