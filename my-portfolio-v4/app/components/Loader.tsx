@@ -14,6 +14,9 @@ export default function Loader({ loading = false }: { loading?: boolean }) {
   if (!show && !loading) return <></>;
   return (
     <motion.div
+      initial={{
+        transformOrigin: "left",
+      }}
       animate={{
         scaleX: ["0", "100%"],
         transformOrigin: "left",
@@ -25,7 +28,7 @@ export default function Loader({ loading = false }: { loading?: boolean }) {
         },
       }}
       className={`absolute left-0 top-0 z-20 h-1 w-full ${
-        location.pathname == "/contact" ? "bg-slate-600" : "bg-slate-100"
+        location.pathname == "/contact" ? "bg-slate-700" : "bg-slate-100"
       }`}
     ></motion.div>
   );
