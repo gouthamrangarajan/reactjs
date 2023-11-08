@@ -1,19 +1,24 @@
 import { motion } from "framer-motion";
 import Img from "./ProjectCardImg";
+import { getSlideUpAnimateClass } from "~/utils/helpers";
 
 export default function ProjectCard({
   data,
   title,
+  index,
   imgAnimate = false,
 }: {
   title: string;
   data: { url: string; description?: string; imgSrc: string };
+  index: number;
   imgAnimate?: boolean;
 }) {
   return (
     <motion.div
       className={`relative flex w-full flex-shrink-0 flex-col 
-                  rounded-xl bg-slate-800 shadow-2xl `}
+                  rounded-xl bg-slate-800 shadow-2xl ${getSlideUpAnimateClass(
+                    index,
+                  )}`}
       key={data.url}
       layout="position"
     >
