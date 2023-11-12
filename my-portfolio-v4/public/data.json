@@ -43,22 +43,6 @@
       {
         "name": "TailwindCSS",
         "imgSrc": "imgs/skills/tailwind.png"
-      },
-      {
-        "name": "Firebase",
-        "imgSrc": "imgs/skills/firebase.png"
-      },
-      {
-        "name": "Netlify",
-        "imgSrc": "imgs/skills/netlify.png"
-      },
-      {
-        "name": "Cloudflare Workers",
-        "imgSrc": "imgs/skills/cloudflare_workers.png"
-      },
-      {
-        "name": "Cloudflare Pages",
-        "imgSrc": "imgs/skills/cloudflare_pages.png"
       }
     ],
     "codePen": [
