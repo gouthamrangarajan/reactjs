@@ -33,7 +33,9 @@ export default function Skills({ data }: { data: skillsArrayType }) {
             </div>
           ))}
           <span
-            className={`rounded bg-sky-600 px-3 py-1 font-semibold text-white `}
+            className={`rounded bg-sky-600 px-3 py-1 font-semibold text-white ${getSlideUpAnimateClass(
+              data.length,
+            )} `}
             key="more"
           >
             AND MANY MORE...
