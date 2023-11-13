@@ -1,9 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useRevalidator } from "react-router-dom";
 import ItemActions from "./components/ItemActions";
 import ItemCardsContainerGrid from "./components/ItemCardsContainerGrid";
 import ItemsOrderChange from "./components/ItemsOrderChange";
+import { receiveMessage, removeReceiveMessage } from "./hooks/usePartyKit";
+import localforage from "localforage";
+import { useEffect } from "react";
 
 function App() {
+  let revalidator = useRevalidator();
+  useEffect(() => {
+    let callback = async (message: MessageEvent<any>) => {
+      let data = message.data;
+      console.log("receive message in client", data);
+      try {
+        let parsedData = JSON.parse(data);
+        if (typeof parsedData.length != "undefined") {
+          await localforage.setItem("grocery", parsedData);
+          revalidator.revalidate();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    receiveMessage(callback);
+    return () => {
+      removeReceiveMessage(callback);
+    };
+  }, []);
+
   return (
     <main className="flex min-h-full w-screen flex-col items-center justify-center gap-3 overflow-x-hidden px-3 py-1 pb-12 lg:h-full lg:pb-0">
       <ItemCardsContainerGrid></ItemCardsContainerGrid>

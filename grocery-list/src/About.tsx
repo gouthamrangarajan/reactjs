@@ -42,8 +42,11 @@ export default function About() {
           <motion.li key={7} variants={slideUpChildrenVariants}>
             Ability to upload grocery data
           </motion.li>
+          <motion.li key={8} variants={slideUpChildrenVariants}>
+            Ability to maintain state real time using Partykit.io
+          </motion.li>
         </motion.ul>
-        <motion.div key={8} variants={slideUpChildrenVariants}>
+        <motion.div key={9} variants={slideUpChildrenVariants}>
           <Link
             to="/"
             className="mt-2 appearance-none border-b-2 border-transparent text-lg text-gray-700 outline-none transition-colors duration-300 hover:opacity-90 focus:border-green-700"

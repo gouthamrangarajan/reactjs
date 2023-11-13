@@ -7,6 +7,7 @@
 - Ability to clear all items
 - Ability to download grocery data so that it can shared across devices
 - Ability to upload grocery data
+- Ability to maintain state real time using [Partykit](https://www.partykit.io/)
 
 #### Frameworks & Libraries used
 

@@ -1,6 +1,7 @@
 import { ActionFunction, LoaderFunction } from "react-router-dom";
 import { Grocery_Item_Status, type Grocery_Item } from "./models/grocery";
 import localforage from "localforage";
+import { sendMessage } from "../hooks/usePartyKit";
 
 export const loader: LoaderFunction = async ({
   request,
@@ -132,5 +133,6 @@ export const action: ActionFunction = async ({ params, request }) => {
   }
 
   await localforage.setItem("grocery", items);
+  sendMessage(JSON.stringify(items));
   return null;
 };

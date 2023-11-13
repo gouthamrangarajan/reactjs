@@ -1,0 +1,5 @@
+{
+  "name": "grocery-list-party",
+  "main": "party/index.ts",
+  "compatibilityDate": "2023-11-12"
+}
