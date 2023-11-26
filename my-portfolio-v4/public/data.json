@@ -297,6 +297,12 @@
         },
         {
           "order": 5,
+          "imgSrc": "/imgs/cloud/Wordle.png",
+          "description": "Wordle clone implementation using React, Remix Cloudflare KV & Tailwind CSS",
+          "url": "https://rg-wordle-clone.pages.dev/"
+        },
+        {
+          "order": 6,
           "imgSrc": "/imgs/cloud/Notes.png",
           "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
           "url": "https://rg-notes.pages.dev/"
