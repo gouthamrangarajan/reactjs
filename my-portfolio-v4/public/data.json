@@ -317,12 +317,6 @@
         },
         {
           "order": 2,
-          "imgSrc": "/imgs/cloud/Wordle.png",
-          "description": "Wordle clone implementation using React, Netlify functions(serverless), Redis, Vite & Tailwind CSS",
-          "url": "https://rg-wordle-clone.netlify.app/"
-        },
-        {
-          "order": 3,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
