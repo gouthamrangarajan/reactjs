@@ -1,6 +1,7 @@
 import { type ActionFunctionArgs } from "@remix-run/cloudflare";
 import { Link, useFetcher } from "@remix-run/react";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Nav from "~/components/Nav";
 import { template } from "~/utils/email_template.server";
 import { contextSchema } from "~/utils/schema";
@@ -40,7 +41,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
       body: JSON.stringify({
         from: "RG <gouthamrangarajan@resend.dev>",
         to: ["rgouthamraja@yahoo.com"],
-        subject: "New Message",
+        subject: "New Message | Portfolio",
         html: emailTemplate,
       }),
     });
@@ -62,11 +63,20 @@ export async function action({ request, context }: ActionFunctionArgs) {
 
 export default function contact() {
   const fetcher = useFetcher();
+  const formEl = useRef<HTMLFormElement>(null);
   let fetcherDataMessage = "";
   if (fetcher?.data)
     fetcherDataMessage = (fetcher.data as { message: string }).message;
+  useEffect(() => {
+    if (
+      fetcherDataMessage != "" &&
+      !fetcherDataMessage.toLowerCase().includes("error") &&
+      formEl.current
+    )
+      formEl.current.reset();
+  }, [fetcherDataMessage]);
   return (
-    <main className="animate-fade-in flex  h-screen w-screen flex-col items-center justify-center">
+    <main className="flex h-screen  w-screen animate-fade-in flex-col items-center justify-center">
       <Nav
         menu={
           <div className="flex flex-1 items-center space-x-3 text-white ">
@@ -92,7 +102,7 @@ export default function contact() {
           </div>
         }
       ></Nav>
-      <fetcher.Form className="flex flex-col gap-3" method="POST">
+      <fetcher.Form className="flex flex-col gap-3" method="POST" ref={formEl}>
         <motion.h1
           className="w-96 text-center text-lg font-semibold text-slate-600"
           layout="position"
@@ -116,6 +126,7 @@ export default function contact() {
           </label>
           <input
             type="email"
+            required
             className="w-96 appearance-none rounded border-2 border-slate-700 px-3 py-1 outline-none transition
                      duration-300 placeholder:italic focus:ring-1 focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-50"
             placeholder="name@example.com"
@@ -128,6 +139,7 @@ export default function contact() {
             Your message
           </label>
           <textarea
+            required
             className="w-96 appearance-none rounded border-2 border-slate-700 px-3 py-1 outline-none transition
                      duration-300 scrollbar-thin scrollbar-track-gray-50  scrollbar-thumb-gray-500 placeholder:italic focus:ring-1
                      focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-50"
