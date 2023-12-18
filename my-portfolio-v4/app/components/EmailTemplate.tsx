@@ -5,7 +5,6 @@ import {
   Heading,
   Html,
   Link,
-  Preview,
 } from "@react-email/components";
 
 export default function EmailTemplate({
