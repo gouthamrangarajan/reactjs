@@ -1,9 +1,10 @@
+import { render } from "@react-email/components";
 import { type ActionFunctionArgs } from "@remix-run/cloudflare";
 import { Link, useFetcher } from "@remix-run/react";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import EmailTemplate from "~/components/EmailTemplate";
 import Nav from "~/components/Nav";
-import { template } from "~/utils/email_template.server";
 import { contextSchema } from "~/utils/schema";
 
 export async function action({ request, context }: ActionFunctionArgs) {
@@ -25,9 +26,9 @@ export async function action({ request, context }: ActionFunctionArgs) {
         "Error. Please provide valid message. Message should be at least 10 characteers",
     };
 
-  let emailTemplate = template
-    .replace(/{{email}}/g, email)
-    .replace(/{{message}}/g, message);
+  let emailTemplate = render(
+    <EmailTemplate email={email} message={message}></EmailTemplate>,
+  );
   try {
     const {
       env: { RESEND_API_KEY },
