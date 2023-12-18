@@ -18,7 +18,7 @@ export default function EmailTemplate({
   return (
     <Html>
       <Head />
-      <Preview>New Message</Preview>
+      {/* <Preview>New Message</Preview> */}
       <Body style={main}>
         <Container style={container}>
           <Heading style={h1}>New Message</Heading>
@@ -31,7 +31,7 @@ export default function EmailTemplate({
               marginBottom: "16px",
             }}
           >
-            {email}
+            &nbsp;{email}&nbsp;
           </Link>
           <code style={code}>{message}</code>
         </Container>
