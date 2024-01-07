@@ -304,8 +304,8 @@
         {
           "order": 6,
           "imgSrc": "/imgs/cloud/Notes.png",
-          "description": "A simple note tracking PWA using React, Vite, Tailwind CSS, Supabase Auth & Supabase Database with CI/CD in Cloudflare",
-          "url": "https://rg-notes.pages.dev/"
+          "description": "A simple note tracking app using React, Remix, Tailwind CSS, Supabase Auth & Database",
+          "url": "https://rg-notes-v2.pages.dev/"
         }
       ],
       "netlify": [
