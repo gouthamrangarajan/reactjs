@@ -47,6 +47,11 @@
     ],
     "codePen": [
       {
+        "url": "https://codepen.io/GouthamRangarajan/full/eYXBjbJ",
+        "imgSrc": "/imgs/codepen/CodePen25.png",
+        "title": "Vue, View Transition API Menu"
+      },
+      {
         "url": "https://codepen.io/GouthamRangarajan/full/NWoboOG",
         "imgSrc": "/imgs/codepen/CodePen24.png",
         "title": "Vue, HTML Popover API & View Transition API"
