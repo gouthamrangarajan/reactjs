@@ -2,7 +2,7 @@ import PlusIcon from "@heroicons/react/24/solid/PlusIcon";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import ItemAddForm from "../ItemAddForm";
-import { scaleVariants } from "~/utils/helpers";
+import { scaleVariants } from "~/utils/animationVariants";
 
 export default function AddBtn() {
   const [showAddForm, setShowAddForm] = useState(false);

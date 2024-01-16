@@ -1,7 +1,7 @@
 import TrashIcon from "@heroicons/react/24/solid/TrashIcon";
 import { useFetcher } from "@remix-run/react";
 import { motion } from "framer-motion";
-import { scaleVariants } from "~/utils/helpers";
+import { scaleVariants } from "~/utils/animationVariants";
 
 export default function ClearAllBtn() {
   const fetcher = useFetcher();

@@ -3,7 +3,7 @@ import { useFetcher } from "@remix-run/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
-import { addFormVariants } from "~/utils/helpers";
+import { addFormVariants } from "~/utils/animationVariants";
 
 export default function ItemAddForm({
   closeFormAction,

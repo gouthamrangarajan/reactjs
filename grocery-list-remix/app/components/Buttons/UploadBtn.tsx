@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import ArrowUpTrayIcon from "@heroicons/react/24/solid/ArrowUpTrayIcon";
 import { motion } from "framer-motion";
 import { useFetcher } from "@remix-run/react";
-import { scaleVariants } from "~/utils/helpers";
+import { scaleVariants } from "~/utils/animationVariants";
 
 export default function UploadBtn() {
   const [formAction, setFormAction] = useState("/");

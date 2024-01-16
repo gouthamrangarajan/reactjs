@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import ArrowDownTrayIcon from "@heroicons/react/24/solid/ArrowDownTrayIcon";
 import { motion } from "framer-motion";
-import { scaleVariants } from "~/utils/helpers";
+import { scaleVariants } from "~/utils/animationVariants";
 import { type Grocery_Item } from "~/utils/models/grocery";
 import { useLoaderData } from "@remix-run/react";
 

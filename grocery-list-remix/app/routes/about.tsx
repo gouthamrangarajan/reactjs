@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   slideUpChildrenVariants,
   slideUpParentVariants,
-} from "~/utils/helpers";
+} from "~/utils/animationVariants";
 
 export default function About() {
   return (
