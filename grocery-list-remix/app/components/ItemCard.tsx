@@ -40,7 +40,8 @@ export default function ItemCard({
       animate="animate"
     >
       <div
-        className="flex w-[19rem] cursor-grab items-stretch gap-3 rounded-lg bg-white px-4 py-2 shadow lg:w-96"
+        className="transiton flex w-[19rem] cursor-grab items-stretch gap-3 rounded-lg bg-white px-4 py-2 
+              shadow duration-300 focus:outline-blue-600 lg:w-96"
         {...dragProps}
         role="button"
         tabIndex={0}
