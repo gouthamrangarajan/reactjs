@@ -13,8 +13,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const loader = loaderFn;
-export const action = actionFn;
+export const clientLoader = loaderFn;
+export const clientAction = actionFn;
 
 export default function Index() {
   let groceryItems = useLoaderData() as Array<Grocery_Item>;
