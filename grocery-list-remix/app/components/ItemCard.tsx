@@ -42,6 +42,8 @@ export default function ItemCard({
       <div
         className="flex w-[19rem] cursor-grab items-stretch gap-3 rounded-lg bg-white px-4 py-2 shadow lg:w-96"
         {...dragProps}
+        role="button"
+        tabIndex={0}
       >
         <fetcher.Form
           action={`/?index&name=${item.name}&status=${item.status}`}
