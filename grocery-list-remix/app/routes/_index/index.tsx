@@ -37,6 +37,7 @@ export default function Index() {
       submit(null, {
         method: "POST",
         action: `/?name=${name}&status=${status}`,
+        navigate: false,
       });
     }
   };
