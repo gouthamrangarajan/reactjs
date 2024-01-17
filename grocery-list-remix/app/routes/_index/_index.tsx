@@ -1,6 +1,5 @@
-import type { MetaFunction } from "@remix-run/node";
 import { actionFn, loaderFn } from "./loaderAndAction";
-import { Link, useLoaderData, useSubmit } from "@remix-run/react";
+import { Link, MetaFunction, useLoaderData, useSubmit } from "@remix-run/react";
 import { Grocery_Item_Status, type Grocery_Item } from "~/utils/models/grocery";
 import ItemCardsContainer from "~/components/ItemCardsContainer";
 import ItemsOrderChange from "~/components/ItemsOrderChange";
