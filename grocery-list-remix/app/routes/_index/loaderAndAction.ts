@@ -57,7 +57,7 @@ export const actionFn: ActionFunction = async ({ params, request }) => {
     case "PUT": {
       items = JSON.parse(
         new URL(request.url).search
-          .replace("?data=", "")
+          .replace("?index&data=", "")
           .replaceAll("%22", '"')
           .replaceAll("%20", " "),
       ) as Array<Grocery_Item>;

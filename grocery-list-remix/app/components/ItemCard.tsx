@@ -44,7 +44,7 @@ export default function ItemCard({
         {...dragProps}
       >
         <fetcher.Form
-          action={`/?name=${item.name}&status=${item.status}`}
+          action={`/?index&name=${item.name}&status=${item.status}`}
           method="POST"
           className="flex flex-1 flex-col items-start gap-2"
         >

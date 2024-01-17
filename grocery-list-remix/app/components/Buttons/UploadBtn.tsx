@@ -14,7 +14,7 @@ export default function UploadBtn() {
     if (fl && fl.type == "text/plain") {
       var fr = new FileReader();
       fr.onload = () => {
-        setFormAction(`/?data=${fr.result as string}`);
+        setFormAction(`/?index&data=${fr.result as string}`);
         setTimeout(() => {
           fetcher.submit(formEl.current, {
             method: "PUT",

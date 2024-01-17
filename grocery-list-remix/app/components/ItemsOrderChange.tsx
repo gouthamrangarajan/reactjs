@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 export default function ItemsOrderChange() {
   const sortChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
-    let sortUrl = `/?sort=${ev.target.value}`;
+    let sortUrl = `/?index&sort=${ev.target.value}`;
     navigate(sortUrl);
   };
   const navigate = useNavigate();

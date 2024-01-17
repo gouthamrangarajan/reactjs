@@ -36,7 +36,7 @@ export default function Index() {
     if (status != newStatus) {
       submit(null, {
         method: "POST",
-        action: `/?name=${name}&status=${status}`,
+        action: `/?index&name=${name}&status=${status}`,
         navigate: false,
       });
     }
