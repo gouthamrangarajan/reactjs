@@ -253,8 +253,8 @@
         {
           "order": 2,
           "imgSrc": "/imgs/cloud/WL.png",
-          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Netlify functions.",
-          "url": "https://web-learnings.netlify.app/"
+          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Cloudflare Pages.",
+          "url": "https://web-learnings.pages.dev/"
         },
         {
           "order": 3,
@@ -296,21 +296,15 @@
         },
         {
           "order": 4,
-          "imgSrc": "/imgs/cloud/WL.png",
-          "description": "A React, Remix PWA using TailwindCSS and Firebase to display a collection of You tube videos about Javascript frameworks deployed as Cloudflare Pages.",
-          "url": "https://web-learnings.pages.dev/"
+          "imgSrc": "/imgs/cloud/Notes.png",
+          "description": "A simple note tracking app using React, Remix, Tailwind CSS, Supabase Auth & Database",
+          "url": "https://rg-notes-v2.pages.dev/"
         },
         {
           "order": 5,
           "imgSrc": "/imgs/cloud/Wordle.png",
           "description": "Wordle clone implementation using React, Remix Cloudflare KV & Tailwind CSS",
           "url": "https://rg-wordle-clone.pages.dev/"
-        },
-        {
-          "order": 6,
-          "imgSrc": "/imgs/cloud/Notes.png",
-          "description": "A simple note tracking app using React, Remix, Tailwind CSS, Supabase Auth & Database",
-          "url": "https://rg-notes-v2.pages.dev/"
         }
       ],
       "netlify": [
