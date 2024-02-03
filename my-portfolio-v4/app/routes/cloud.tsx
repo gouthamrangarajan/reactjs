@@ -43,7 +43,10 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 export default function cloud() {
   const displayData = useSearch("cloud");
   return (
-    <main className=" flex w-full  animate-fade-in flex-col bg-slate-700">
+    <main
+      className="relative flex h-screen  w-screen animate-fade-in flex-col overflow-y-auto
+      overflow-x-hidden  bg-slate-700 font-sans scrollbar-thin scrollbar-track-gray-300  scrollbar-thumb-gray-500 "
+    >
       <Nav
         menu={
           <>
@@ -75,7 +78,10 @@ export default function cloud() {
 }
 export function ErrorBoundary() {
   return (
-    <main className="flex w-full flex-col  bg-slate-700">
+    <main
+      className="relative flex h-screen w-screen  animate-fade-in flex-col overflow-y-auto
+    overflow-x-hidden  bg-slate-700 font-sans scrollbar-thin scrollbar-track-gray-300  scrollbar-thumb-gray-500"
+    >
       <Nav menu={<></>}></Nav>
       <div className="mt-1 min-h-screen w-full p-1 lg:px-4 lg:py-2">
         <p className="w-full text-center text-red-300">

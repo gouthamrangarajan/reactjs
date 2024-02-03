@@ -23,10 +23,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        className="relative flex min-h-screen  w-screen flex-col overflow-y-auto overflow-x-hidden
-        font-sans  scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-500"
-      >
+      <body>
         <Outlet />
         <Loader></Loader>
         <ScrollRestoration />

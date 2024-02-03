@@ -43,7 +43,10 @@ export default function Index() {
   const loaderData = useLoaderData();
   const { media, skills } = mediaAndSkillsDataSchema.parse(loaderData);
   return (
-    <main className="animate-fade-in">
+    <main
+      className="relative flex h-screen w-screen  animate-fade-in flex-col overflow-y-auto
+    overflow-x-hidden font-sans scrollbar-thin scrollbar-track-gray-300  scrollbar-thumb-gray-500 "
+    >
       <div className="flex min-h-screen flex-col">
         <Header media={media}></Header>
         <div className="mt-4 w-full pb-16 lg:pb-4">
@@ -80,7 +83,10 @@ export default function Index() {
 }
 export function ErrorBoundary() {
   return (
-    <main>
+    <main
+      className="relative flex h-screen w-screen  animate-fade-in flex-col overflow-y-auto
+    overflow-x-hidden  font-sans scrollbar-thin scrollbar-track-gray-300  scrollbar-thumb-gray-500 "
+    >
       <div className="flex min-h-screen flex-col">
         <p className="text-red-600">
           🥺 Error parsing data... Probably read limit exceeded. Please try

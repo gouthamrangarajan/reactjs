@@ -77,7 +77,10 @@ export default function contact() {
       formEl.current.reset();
   }, [fetcherDataMessage]);
   return (
-    <main className="flex h-screen  w-screen animate-fade-in flex-col items-center justify-center">
+    <main
+      className=" relative flex h-screen w-screen animate-fade-in flex-col  items-center justify-center overflow-y-auto
+    overflow-x-hidden  font-sans scrollbar-thin scrollbar-track-gray-300  scrollbar-thumb-gray-500"
+    >
       <Nav
         menu={
           <div className="flex flex-1 items-center space-x-3 text-white ">

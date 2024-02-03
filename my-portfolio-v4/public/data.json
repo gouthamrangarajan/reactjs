@@ -310,12 +310,18 @@
       "netlify": [
         {
           "order": 1,
+          "imgSrc": "/imgs/cloud/Calendar-2.png",
+          "description": "A calendar app using React, Remix, Tailwind CSS, Supabase Auth & Database",
+          "url": "https://rg-calendar.netlify.app/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Stock_Remix.png",
           "description": "A PWA using Remix, React, TailwindCSS, Echarts and Firebase to view personal tracked stocks with CI/CD in Netlify",
           "url": "https://rg-stock.netlify.app/"
         },
         {
-          "order": 2,
+          "order": 3,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
