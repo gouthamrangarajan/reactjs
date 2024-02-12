@@ -1,6 +1,6 @@
 ## Framer Motion Menu Layout
 
-![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/framer-motion-menu-layout.gif)
+![Screenshot](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/menu-transition-framer-motion.gif)
 
 #### files to look into
 
