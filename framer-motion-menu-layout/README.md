@@ -4,6 +4,11 @@
 
 #### files to look into
 
--[Root.tsx](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/src/Root.tsx)
+- [Root.tsx](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/src/Root.tsx)
+- [index.css](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/src/index.css)
 
--[index.css](https://github.com/gouthamrangarajan/reactjs/blob/main/framer-motion-menu-layout/src/index.css)
+#### Other version(s)
+
+##### Vue + View Transpition API
+
+- [Codepen](https://codepen.io/GouthamRangarajan/full/eYXBjbJ)
