@@ -13,7 +13,7 @@
 
 - [React](https://react.dev/)
 - [React Router](https://reactrouter.com/en/main)
-- [React Beautiful DND](https://github.com/atlassian/react-beautiful-dnd)
+- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
 - [Framer motion](https://www.framer.com/motion/introduction/)
 - [React Timeago](https://github.com/nmn/react-timeago)
 - [Tailwind CSS](https://tailwindcss.com/)
