@@ -152,12 +152,9 @@ const ItemCard = ({
           clientY = touchClientY;
         }
         setDraggedItemXY({ x: clientX, y: clientY });
-        // if (dragTimeout) clearTimeout(dragTimeout);
-        //  = setTimeout(() => {
         sendMessage(
           JSON.stringify({ type: "move", item, x: clientX, y: clientY })
         );
-        // }, 300);
       }}
     >
       <div className="flex w-[19rem] cursor-grab items-stretch gap-3 rounded-lg bg-white px-4 py-2 shadow lg:w-96">
