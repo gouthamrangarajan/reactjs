@@ -11,11 +11,10 @@ function App() {
   useEffect(() => {
     let callback = async (message: MessageEvent<any>) => {
       let data = message.data;
-      console.log("receive message in client", data);
       try {
         let parsedData = JSON.parse(data);
-        if (typeof parsedData.length != "undefined") {
-          await localforage.setItem("grocery", parsedData);
+        if (typeof parsedData.items.length != "undefined") {
+          await localforage.setItem("grocery", parsedData.items);
           revalidator.revalidate();
         }
       } catch (err) {

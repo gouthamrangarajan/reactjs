@@ -133,6 +133,6 @@ export const action: ActionFunction = async ({ params, request }) => {
   }
 
   await localforage.setItem("grocery", items);
-  sendMessage(JSON.stringify(items));
+  sendMessage(JSON.stringify({ type: "all", items }));
   return null;
 };
