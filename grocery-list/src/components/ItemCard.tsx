@@ -41,11 +41,13 @@ const ItemCard = ({
       let data = message.data;
       try {
         let parsedData = JSON.parse(data);
+        let mediaBreakpoint = window.innerWidth > 1023 ? "lg" : "sm";
         if (parsedData.type == "move") {
           if (
             parsedData.y > 0 &&
             parsedData.item.name == item.name &&
-            parsedData.item.status == item.status
+            parsedData.item.status == item.status &&
+            parsedData.mediaBreakpoint == mediaBreakpoint
           ) {
             setStyle({
               position: "fixed",
@@ -140,7 +142,15 @@ const ItemCard = ({
         }
         setDraggedItemXY({ x: 0, y: 0 });
         clearDraggedItem();
-        sendMessage(JSON.stringify({ type: "move", item, x: 0, y: 0 }));
+        sendMessage(
+          JSON.stringify({
+            type: "move",
+            item,
+            x: 0,
+            y: 0,
+            mediaBreakpoint: window.innerWidth > 1023 ? "lg" : "sm",
+          })
+        );
       }}
       onDrag={(ev) => {
         let { clientX, clientY } = ev as MouseEvent;
@@ -153,7 +163,13 @@ const ItemCard = ({
         }
         setDraggedItemXY({ x: clientX, y: clientY });
         sendMessage(
-          JSON.stringify({ type: "move", item, x: clientX, y: clientY })
+          JSON.stringify({
+            type: "move",
+            item,
+            x: clientX,
+            y: clientY,
+            mediaBreakpoint: window.innerWidth > 1023 ? "lg" : "sm",
+          })
         );
       }}
     >
