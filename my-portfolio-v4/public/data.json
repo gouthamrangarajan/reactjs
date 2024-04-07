@@ -322,6 +322,12 @@
         },
         {
           "order": 3,
+          "imgSrc": "/imgs/cloud/Grocery-2.png",
+          "description": "A simple grocery tracking app using Remix, TailwindCSS, Turso & OpenAI API",
+          "url": "http://rg-grocery-list-v2.netlify.app/"
+        },
+        {
+          "order": 4,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://vue-3-drive.netlify.app/"
