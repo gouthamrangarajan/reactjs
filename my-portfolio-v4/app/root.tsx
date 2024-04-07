@@ -9,9 +9,11 @@ import {
 import stylesheet from "~/tailwind.css";
 import Loader from "./components/Loader";
 import { LinksFunction } from "@remix-run/cloudflare";
+import openpropsStyles from "./openprops.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: openpropsStyles },
 ];
 
 export default function App() {

@@ -6,9 +6,9 @@ export default {
     extend: {
       animation: {
         "fade-in": "fade-in 0.3s ease-in",
-        "slide-down": "slide-down 0.3s ease-in",
-        "slide-up": "slide-up 0.3s ease-in",
-        "contact-message": "contact-message 0.3s ease-in",
+        "slide-down": "slide-down 0.3s var(--ease-spring-3)",
+        "slide-up": "slide-up 0.3s var(--ease-spring-3)",
+        "contact-message": "contact-message 0.3s var(--ease-spring-3)",
       },
       keyframes: {
         "fade-in": {
