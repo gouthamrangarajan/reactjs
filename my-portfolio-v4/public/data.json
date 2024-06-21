@@ -279,7 +279,7 @@
         {
           "order": 1,
           "imgSrc": "/imgs/cloud/Aastron_Lego.png",
-          "description": "A simple scheduler app for astrologer using Remix, Tailwind CSS deployed as Cloudflare Pages",
+          "description": "A simple scheduler app for booking appointment with astrologer using Remix, React & Tailwind CSS deployed as Cloudflare Pages",
           "url": "https://aastron-lego-scheduler.pages.dev/"
         },
         {
