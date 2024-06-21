@@ -278,24 +278,30 @@
       "cloudflare": [
         {
           "order": 1,
+          "imgSrc": "/imgs/cloud/Aastron_Lego.png",
+          "description": "A simple scheduler app for astrologer using Remix, Tailwind CSS deployed as Cloudflare Pages",
+          "url": "https://aastron-lego-scheduler.pages.dev/"
+        },
+        {
+          "order": 2,
           "imgSrc": "/imgs/cloud/Self.png",
           "description": "Portfolio site built with Remix, React & Tailwind CSS deployed as Cloudflare Pages",
           "url": "https://portfolio-gouthamrangarajan.pages.dev/"
         },
         {
-          "order": 2,
+          "order": 3,
           "imgSrc": "/imgs/cloud/OpenAI_Chat.png",
           "description": "A Simple OpenAI Chat using Remix, OpenAI API, Tailwind CSS deployed as Cloudflare pages",
           "url": "https://rg-openai-chat.pages.dev/"
         },
         {
-          "order": 3,
+          "order": 4,
           "imgSrc": "/imgs/cloud/PlacesToVisit.png",
           "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
           "url": "http://placestovisit.pages.dev/"
         },
         {
-          "order": 4,
+          "order": 5,
           "imgSrc": "/imgs/cloud/Notes.png",
           "description": "A simple note tracking app using React, Remix, Tailwind CSS, Supabase Auth & Database",
           "url": "https://rg-notes-v2.pages.dev/"
