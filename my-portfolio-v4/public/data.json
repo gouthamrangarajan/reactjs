@@ -47,6 +47,11 @@
     ],
     "codePen": [
       {
+        "url": "https://codepen.io/GouthamRangarajan/full/WNqXQwv",
+        "imgSrc": "/imgs/codepen/CodePen26.png",
+        "title": "Vue, VueUse UseDraggable"
+      },
+      {
         "url": "https://codepen.io/GouthamRangarajan/full/eYXBjbJ",
         "imgSrc": "/imgs/codepen/CodePen25.png",
         "title": "Vue, View Transition API Menu"
@@ -155,6 +160,13 @@
       },
       {
         "items": [
+          {
+            "url": "https://github.com/gouthamrangarajan/python/tree/main/fasthtml101",
+            "title": "Fast HTML 101",
+            "imgSrc": "/imgs/github/FastHTML.png",
+            "description": "A simple FastHTML python app for fetching, sorting & filtering JSONPlaceholder user data using htmx."
+
+          },
           {
             "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/grocery-list",
             "title": "React Grocery List",
