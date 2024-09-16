@@ -9,7 +9,7 @@ import HeaderText from "../HeaderText";
 export default function Header({ data }: { data: skillsV2Type }) {
   return (
     <Canvas style={{ width: "100vw" }}>
-      <ScrollControls pages={1} damping={0.1}>
+      <ScrollControls pages={1} damping={0.6}>
         <Scroll>
           <AvatarImg></AvatarImg>
           {data.imgsAndScale.map((el, idx) => (
