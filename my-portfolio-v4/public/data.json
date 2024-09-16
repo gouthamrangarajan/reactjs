@@ -1,6 +1,120 @@
 {
   "info": {
     "about": "14 years experience in Dot net web and windows application. Big fan of Vue.js, React.js javascript frameworks & Cloud applications",
+    "skillsV2": {
+      "positions": [
+        [
+          0,
+          1.6,
+          0
+        ],
+        [
+          0.8,
+          1.4,
+          0
+        ],
+        [
+          1.5,
+          0.8,
+          0
+        ],
+        [
+          1.7,
+          0,
+          0
+        ],
+        [
+          1.5,
+          -0.8,
+          0
+        ],
+        [
+          0.8,
+          -1.5,
+          0
+        ],
+        [
+          0,
+          -1.6,
+          0
+        ],
+        [
+          -0.8,
+          -1.5,
+          0
+        ],
+        [
+          -1.5,
+          -0.8,
+          0
+        ],
+        [
+          -1.7,
+          0,
+          0
+        ],
+        [
+          -1.5,
+          0.8,
+          0
+        ],
+        [
+          -0.8,
+          1.4,
+          0
+        ]
+      ],
+      "imgsAndScale": [
+        {
+          "url": "imgs/skills/react.svg",
+          "scale": 0.8
+        },
+        {
+          "url": "imgs/skills/remix-letter.svg",
+          "scale": 0.4
+        },
+        {
+          "url": "imgs/skills/vue.svg",
+          "scale": 0.6
+        },
+        {
+          "url": "imgs/skills/dotnet_core.png",
+          "scale": 0.5
+        },
+        {
+          "url": "imgs/skills/tailwind.svg",
+          "scale": 0.6
+        },
+        {
+          "url": "imgs/skills/netlify.svg",
+          "scale": 0.6
+        },
+        {
+          "url": "imgs/skills/worker.svg",
+          "scale": 0.6
+        },
+        {
+          "url": "imgs/media/twitter-logo.svg",
+          "scale": 0.5,
+          "href": "https://x.com/rgouthamraja"
+        },
+        {
+          "url": "imgs/media/linkedin-logo.png",
+          "scale": 0.5,
+          "href": "https://www.linkedin.com/in/gouthamrangarajan"
+        },
+        {
+          "url": "imgs/media/github-logo.svg",
+          "scale": 0.4,
+          "href": "https://github.com/gouthamrangarajan"
+        },
+        {
+          "url": "imgs/media/codepen-logo-black.png",
+          "scale": 0.5,
+          "href": "https://codepen.io/gouthamrangarajan"
+        }
+      ]
+    },
     "media": [
       {
         "name": "Twitter",
@@ -165,7 +279,6 @@
             "title": "Fast HTML 101",
             "imgSrc": "/imgs/github/FastHTML.png",
             "description": "A simple FastHTML python app for fetching, sorting & filtering JSONPlaceholder user data using htmx."
-
           },
           {
             "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/grocery-list",

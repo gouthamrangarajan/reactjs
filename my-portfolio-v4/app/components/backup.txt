@@ -1,0 +1,358 @@
+{/* <RotateImg url={'imgs/skills/react.svg'} position={[0, 1.7, 0]} direction="Z">
+</RotateImg>
+<RotateImg url={'imgs/skills/vue.svg'} position={[0.9, 1.5, 0]} direction="Y"
+  rotation={[0, 0, -0.5]} scale={0.7}>
+</RotateImg>
+<RotateImg url={'imgs/skills/dotnet_core.png'} position={[1.6, 0.9, 0]} scale={0.7} direction="Z">
+</RotateImg>
+<RotateImg url={'imgs/skills/remix-letter.svg'} position={[-0.9, 1.5, 0]}
+  scale={0.5} rotation={[0, 0, 0.5]} direction="Y">
+</RotateImg>
+<Img url={'imgs/skills/tailwind.svg'} position={[-1.6, 0.9, 0]} scale={0.7} rotation={[0, 0, 1.5]}>
+</Img>
+<RotateImg url={'imgs/skills/worker.svg'} position={[-1.8, 0, 0]} scale={0.7} direction="Y"></RotateImg>
+<RotateImg url={'imgs/skills/netlify.svg'} position={[1.8, 0, 0]} scale={0.7} direction="Z"></RotateImg>
+<RotateImg url={'imgs/media/twitter-logo.svg'} position={[1.6, -0.9, 0]}
+  direction="Y" scale={0.6} href="https://x.com/rgouthamraja">
+</RotateImg>
+<RotateImg url={'imgs/media/linkedin-logo.png'} scale={0.6}
+  href="https://www.linkedin.com/in/gouthamrangarajan"
+  position={[0.9, -1.6, 0]} direction="Z">
+</RotateImg>
+<RotateImg url={'imgs/media/github-logo.svg'} position={[-1.6, -0.9, 0]}
+  direction="Z" scale={0.5} href="https://github.com/gouthamrangarajan">
+</RotateImg>
+<RotateImg url={'imgs/media/codepen-logo-black.png'} scale={0.6}
+  href="https://codepen.io/GouthamRangarajan"
+  position={[-0.9, -1.6, 0]} direction="Y">
+</RotateImg> */}
+
+{/* <Img url={'imgs/skills/react.svg'} position={[0, 1.7, 0]} >
+</Img>
+<Img url={'imgs/skills/vue.svg'} position={[0.9, 1.5, 0]}
+  rotation={[0, 0, -0.5]} scale={0.7}>
+</Img>
+<Img url={'imgs/skills/dotnet_core.png'} position={[1.6, 0.9, 0]} scale={0.7} >
+</Img>
+<Img url={'imgs/skills/remix-letter.svg'} position={[-0.9, 1.5, 0]}
+  scale={0.5} rotation={[0, 0, 0.5]} >
+</Img>
+<Img url={'imgs/skills/tailwind.svg'} position={[-1.6, 0.9, 0]} scale={0.7} rotation={[0, 0, 1.5]}>
+</Img>
+<Img url={'imgs/skills/worker.svg'} position={[-1.8, 0, 0]} scale={0.7}></Img>
+<Img url={'imgs/skills/netlify.svg'} position={[1.8, 0, 0]} scale={0.7}></Img>
+<Img url={'imgs/media/twitter-logo.svg'} position={[1.6, -0.9, 0]}
+  scale={0.6} href="https://x.com/rgouthamraja">
+</Img>
+<Img url={'imgs/media/linkedin-logo.png'} scale={0.6}
+  href="https://www.linkedin.com/in/gouthamrangarajan"
+  position={[0.9, -1.6, 0]} >
+</Img>
+<Img url={'imgs/media/github-logo.svg'} position={[-1.6, -0.9, 0]}
+  scale={0.5} href="https://github.com/gouthamrangarajan">
+</Img>
+<Img url={'imgs/media/codepen-logo-black.png'} scale={0.6}
+  href="https://codepen.io/GouthamRangarajan"
+  position={[-0.9, -1.6, 0]} >
+</Img> */}
+
+// function RotateImg(props: ImageRotatebleProps) {
+//   const el = useRef<THREE.Mesh>(null!);
+//   const [hovered, setHover] = useState(false);
+//   const rotateXYSign = useRef("negative");
+
+//   useFrame((_, delta) => {
+
+//     if (hovered) {
+//       if (props.direction === "Z") {
+//         el.current.rotation.z -= delta;
+//       } else if (props.direction === "Y") {
+//         if (el.current.rotation.y <= -1) {
+//           rotateXYSign.current = "plus";
+//         } else if (el.current.rotation.y >= 0) {
+//           rotateXYSign.current = "negative";
+//         }
+//         el.current.rotation.y += rotateXYSign.current === "negative" ? -delta : delta;
+//       }
+//       else if (props.direction === "X") {
+//         if (el.current.rotation.x <= -1) {
+//           rotateXYSign.current = "plus";
+//         } else if (el.current.rotation.x >= 0) {
+//           rotateXYSign.current = "negative";
+//         }
+//         el.current.rotation.x += rotateXYSign.current === "negative" ? -delta : delta;
+//       }
+//     }
+//   });
+//   return (<Image
+//     {...props}
+//     ref={el}
+//     onPointerOver={() => setHover(true)}
+//     onPointerOut={() => setHover(false)}
+//     onClick={() => {
+//       if (props.href) {
+//         window.open(props.href, "_blank");
+//       }
+//     }}
+//   >
+//   </Image>);
+// }
+// type ImageRotatebleProps = ImageProps & {
+//   direction: "X" | "Y" | "Z",
+//   href?: string
+// }
+
+// useFrame((state, delta) => {
+//   easing.damp3(state.camera.position, [state.pointer.x, 1 + state.pointer.y / 2, 8 + Math.atan(state.pointer.x * 2)], 0.3, delta);
+//   state.camera.lookAt(state.camera.position.x * 0.9, 0, -4);
+// });
+
+Array<[x: number, y: number, z: number]> 
+const imgs = [
+  { url: 'imgs/skills/react.svg', scale: 0.9 },
+  { url: 'imgs/skills/remix-letter-glowing.svg', scale: 0.6 },
+  { url: 'imgs/skills/vue.svg', scale: 0.7 },
+  // { url: 'imgs/skills/dotnet_core.png', scale: 0.6 },
+  { url: 'imgs/skills/tailwind.svg', scale: 0.7 },
+  { url: 'imgs/skills/netlify.svg', scale: 0.7 },
+  { url: 'imgs/skills/worker.svg', scale: 0.7 },
+  // { url: 'imgs/media/twitter-logo.svg', scale: 0.6, href: "https://x.com/rgouthamraja" },
+  // { url: 'imgs/media/linkedin-logo.png', scale: 0.6, href: "https://www.linkedin.com/in/gouthamrangarajan" },
+  // { url: 'imgs/media/github-logo.svg', scale: 0.5, href: "https://github.com/gouthamrangarajan" },
+  // { url: 'imgs/media/codepen-logo-black.png', scale: 0.6, href: "https://codepen.io/gouthamrangarajan" }
+];
+
+useFrame((_, delta) => {
+    console.log(scroll.offset);
+    const deltaScrollOffset1 = scroll.offset - scrollOffset.current;
+    const deltaScrollOffset2 = scrollOffset.current - scroll.offset;
+    scrollOffset.current = scroll.offset;
+
+    if (deltaScrollOffset1 > 0.01 || deltaScrollOffset2 > 0.01) {
+      currIdx.current++;
+      if (currIdx.current >= props.positions.length) {
+        currIdx.current = 0;
+      }
+      const toPosition = getPosition({ currIdx: currIdx.current, imgIdx: props.idx, positions: props.positions });
+      easing.damp3(el.current.position, toPosition, 1, 1);
+    }
+  });
+
+   "allPositions": [
+        [
+          0,
+          1.7,
+          0
+        ],
+        [
+          0.9,
+          1.5,
+          0
+        ],
+        [
+          1.6,
+          0.9,
+          0
+        ],
+        [
+          1.8,
+          0,
+          0
+        ],
+        [
+          1.6,
+          -0.9,
+          0
+        ],
+        [
+          0.9,
+          -1.6,
+          0
+        ],
+        [
+          0,
+          -1.7,
+          0
+        ],
+        [
+          -0.9,
+          -1.6,
+          0
+        ],
+        [
+          -1.6,
+          -0.9,
+          0
+        ],
+        [
+          -1.8,
+          0,
+          0
+        ],
+        [
+          -1.6,
+          0.9,
+          0
+        ],
+        [
+          -0.9,
+          1.5,
+          0
+        ]
+      ],
+      "initialPositions": [
+        [
+          0,
+          1.7,
+          0
+        ],
+        [
+          1.6,
+          0.9,
+          0
+        ],
+        [
+          1.6,
+          -0.9,
+          0
+        ],
+        [
+          0,
+          -1.7,
+          0
+        ],
+        [
+          -1.6,
+          -0.9,
+          0
+        ],
+        [
+          -1.6,
+          0.9,
+          0
+        ]
+      ],
+      "imgsAndScale": [
+        {
+          "url": "imgs/skills/react.svg",
+          "scale": 0.9
+        },
+        {
+          "url": "imgs/skills/remix-letter-glowing.svg",
+          "scale": 0.6
+        },
+        {
+          "url": "imgs/skills/vue.svg",
+          "scale": 0.7
+        },
+        {
+          "url": "imgs/skills/tailwind.svg",
+          "scale": 0.7
+        },
+        {
+          "url": "imgs/skills/netlify.svg",
+          "scale": 0.7
+        },
+        {
+          "url": "imgs/skills/worker.svg",
+          "scale": 0.7
+        }
+      ]
+      const allPositions: Array<[x: number, y: number, z: number]> = [
+  [0, 1.7, 0],
+  [0.9, 1.5, 0],
+  [1.6, 0.9, 0],
+  [1.8, 0, 0],
+  [1.6, -0.9, 0],
+  [0.9, -1.6, 0],
+  [0, -1.7, 0],
+  [-0.9, -1.6, 0],
+  [-1.6, -0.9, 0],
+  [-1.8, 0, 0],
+  [-1.6, 0.9, 0],
+  [-0.9, 1.5, 0]
+]
+
+import { Image, ImageProps } from "@react-three/drei";
+import { Canvas, ThreeElements, useFrame } from "@react-three/fiber"
+import { useEffect, useRef, useState } from "react"
+import THREE from "three"
+import { easing } from 'maath'
+
+export default function SkillsV2() {
+    return (
+        <Canvas style={{ height: '20rem' }}>
+            {/* <ambientLight intensity={Math.PI / 2} />            
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+            <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} /> */}
+            {/* <perspectiveCamera fov={75} near={0.1} far={1000}
+                aspect={aspect}
+            ></perspectiveCamera> */}
+            {/* <Box position={[-1.2, 0, 0]} />
+            <Box position={[1.2, 0, 0]} /> */}
+            <AllImgs></AllImgs>
+        </Canvas>
+
+    )
+}
+function AllImgs() {
+    // useFrame((state, delta) => {
+    //     easing.damp3(state.camera.position, [state.pointer.x, 1 + state.pointer.y / 2, 8 + Math.atan(state.pointer.x * 2)], 0.3, delta);
+    //     state.camera.lookAt(state.camera.position.x * 0.9, 0, -4);
+    // });
+    return (<><RotateImg url={'imgs/skills/react.svg'} position={[0, 0, 3]}></RotateImg>
+        <SkillImg url={'imgs/skills/remix-letter-light.svg'} position={[-2, 0, 1]}></SkillImg>
+        <SkillImg url={'imgs/skills/vue.png'} position={[0, 1.5, 2]}></SkillImg>
+        <SkillImg url={'imgs/skills/tailwind.svg'} position={[1.5, 0, 2.2]}></SkillImg>
+        <SkillImg url={'imgs/skills/dotnet_core.png'} position={[0, -1.6, 2]}></SkillImg>
+        <SkillImg url={'imgs/skills/worker.svg'} position={[-1.2, 1.2, 2]}></SkillImg>
+        <SkillImg url={'imgs/skills/netlify.svg'} position={[1.2, 1.2, 2]}></SkillImg></>)
+}
+function RotateImg(props: ImageProps) {
+
+    const el = useRef<THREE.Mesh>(null!);
+    const [hovered, setHover] = useState(false);
+    useFrame((state, delta) => {
+        if (hovered) {
+            el.current.rotation.z -= delta
+        }
+    });
+    return (<Image
+        {...props}
+        ref={el}
+        onPointerOver={(event) => setHover(true)}
+        onPointerOut={(event) => setHover(false)}
+
+    >
+    </Image>);
+}
+function SkillImg(props: ImageProps) {
+    const el = useRef<THREE.Mesh>(null!);
+    const [hovered, setHover] = useState(false);
+    return (<Image
+        {...props}
+        ref={el}
+        onPointerOver={(event) => setHover(true)}
+        onPointerOut={(event) => setHover(false)}
+
+    >
+    </Image>);
+}
+function Box(props: ThreeElements['mesh']) {
+    const meshRef = useRef<THREE.Mesh>(null!)
+    const [hovered, setHover] = useState(false)
+    const [active, setActive] = useState(false)
+    useFrame((state, delta) => (meshRef.current.rotation.x += delta))
+    return (
+        <mesh
+            {...props}
+            ref={meshRef}
+            scale={active ? 1.5 : 1}
+            onClick={(event) => setActive(!active)}
+            onPointerOver={(event) => setHover(true)}
+            onPointerOut={(event) => setHover(false)}>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color={hovered ? 'hotpink' : '#2f74c0'} />
+        </mesh>
+    )
+}

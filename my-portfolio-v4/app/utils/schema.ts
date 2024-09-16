@@ -58,6 +58,11 @@ export type githubArrayType = z.infer<typeof githubArraySchema>;
 const cloudSchema = z.record(z.string(), z.array(urlImgSrcDescriptionAndOrder));
 export type cloudType = z.infer<typeof cloudSchema>;
 
+export const skillsV2Schema = z.object({
+  positions: z.array(z.array(z.number())),
+  imgsAndScale: z.array(z.object({ url: z.string(), scale: z.number(), href: z.string().optional() }))
+})
+export type skillsV2Type = z.infer<typeof skillsV2Schema>;
 export const dataSchema = z.object({
   info: z.object({
     about: z.string(),
@@ -66,6 +71,7 @@ export const dataSchema = z.object({
     codePen: urlTitleAndImgSrcArray,
     gitHub: githubArraySchema,
     cloud: cloudSchema,
+    skillsV2: skillsV2Schema
   }),
 });
 
