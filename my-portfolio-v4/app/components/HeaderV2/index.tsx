@@ -23,7 +23,7 @@ export default function Header({ data }: { data: skillsV2Type }) {
           ))}
         </Scroll>
         <Scroll html>
-          <div className="w-screen pt-20 flex justify-center items-center flex-col gap-1">
+          <div className="w-screen pt-10 flex justify-center items-center flex-col gap-1">
             <HeaderText
               classes="font-semibold text-3xl h-12"
               dark
