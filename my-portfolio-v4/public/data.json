@@ -144,11 +144,11 @@
       },
       {
         "name": "Remix",
-        "imgSrc": "imgs/skills/remix.svg"
+        "imgSrc": "imgs/skills/remix_old.svg"
       },
       {
         "name": "VueJs",
-        "imgSrc": "imgs/skills/vue.png"
+        "imgSrc": "imgs/skills/vue_old.png"
       },
       {
         "name": ".Net",

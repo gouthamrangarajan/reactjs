@@ -11,11 +11,10 @@ export default function Nav({
   return (
     <nav
       className={` flex w-full  items-center space-x-3 px-4 py-2 lg:justify-center lg:px-8                         
-                     ${
-                       pathname != "/" && pathname != "/contact"
-                         ? "sticky top-0 z-10 bg-slate-800 "
-                         : "fixed bottom-0 bg-slate-800"
-                     }`}
+                     ${pathname != "/" && pathname != "/contact"
+          ? "sticky top-0 z-10 bg-slate-800 "
+          : "fixed bottom-0 bg-slate-800"
+        }`}
     >
       {pathname != "/" && (
         <Link
@@ -29,7 +28,7 @@ export default function Nav({
         </Link>
       )}
       {menu && menu}
-      {pathname != "/" && pathname != "/contact" && <Search></Search>}
+      {pathname != "/" && pathname != "/test" && pathname != "/contact" && <Search></Search>}
       {pathname == "/" && (
         <Link
           to="/contact"
