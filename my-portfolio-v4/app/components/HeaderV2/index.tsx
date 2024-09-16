@@ -35,7 +35,7 @@ export default function Header({ data }: { data: skillsV2Type }) {
               dark
             ></HeaderText>
             <HeaderText
-              classes="text-lg animate-[slide-down_0.9s_ease-in]"
+              classes="font-semibold text-lg animate-[slide-down_0.9s_ease-in]"
               text="Front-end enthusiast"
               dark
             ></HeaderText>
