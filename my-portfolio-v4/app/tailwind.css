@@ -21,8 +21,14 @@
     opacity: 0;
     clip-path: inset(45% 20% 45% 20%);
   }
+
   to {
     opacity: 1;
     clip-path: inset(0% 0% 0% 0%);
   }
+}
+
+div {
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #d1d5db;
 }
