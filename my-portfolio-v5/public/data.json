@@ -1,0 +1,36 @@
+{
+  "info": {
+    "title": "Full Stack Developer & Front-End Enthusiast",
+    "subTitle": "Passionate About Building Engaging Web Applications with JavaScript Frameworks and Cloud Solutions",
+    "media": [
+      {
+        "name": "Github",
+        "url": "https://github.com/gouthamrangarajan",
+        "imgSrc": "/imgs/media/github-simple.svg",
+        "height": 32,
+        "width": 32
+      },
+      {
+        "name": "Codepen",
+        "url": "https://codepen.io/GouthamRangarajan",
+        "imgSrc": "/imgs/media/codepen-simple.svg",
+        "height": 32,
+        "width": 32
+      },
+      {
+        "name": "X",
+        "url": "https://x.com/rgouthamraja",
+        "imgSrc": "/imgs/media/x-simple.svg",
+        "height": 32,
+        "width": 32
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/gouthamrangarajan",
+        "imgSrc": "/imgs/media/linkedin-search.svg",
+        "height": 48,
+        "width": 48
+      }
+    ]
+  }
+}
