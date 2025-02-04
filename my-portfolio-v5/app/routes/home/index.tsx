@@ -1,4 +1,3 @@
-import type { Route } from "../+types/home";
 import { motion } from "motion/react";
 import ContactMe from "~/components/ContactMe";
 import Media from "~/components/Media";
@@ -7,6 +6,7 @@ import TitleAndSub from "~/components/TitleAndSub";
 import { Button } from "~/components/ui/button";
 import { fadeIn, stagger } from "~/lib/animation";
 import { actionFn, loaderFn } from "./loaderAndActions";
+import type { Route } from "./+types";
 
 export function meta({}: Route.MetaArgs) {
   return [

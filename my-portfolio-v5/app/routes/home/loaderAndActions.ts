@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { Route } from "../+types/home";
+import type { Route } from "./+types";
 
 export async function loaderFn({ context }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
