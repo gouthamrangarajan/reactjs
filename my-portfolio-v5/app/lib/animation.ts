@@ -14,3 +14,27 @@ export const stagger = {
     },
   },
 };
+
+export const fetcherResultMessage = {
+  initial: {
+    opacity: 0,
+    scaleY: 0,
+    transformOrigin: "top",
+  },
+  exit: {
+    opacity: 0,
+    scaleY: 0,
+    transformOrigin: "top",
+    transition: { duration: 0.2, ease: "easeInOut" },
+  },
+  animate: {
+    opacity: 1,
+    scaleY: 1,
+    transformOrigin: "top",
+    transition: {
+      type: "spring",
+      damping: 9,
+      stiffness: 50,
+    },
+  },
+};

@@ -39,7 +39,7 @@ export async function actionFn({ request, context }: Route.ActionArgs) {
   if (inValidMessage)
     return {
       message:
-        "Error. Please provide valid message. Message should be at least 10 characteers",
+        "Error. Please provide valid message. Message should be at least 10 characters",
     };
 
   //   let emailTemplate = render(

@@ -79,7 +79,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </div>
       </motion.section> */}
 
-      <ContactMe></ContactMe>
+      <ContactMe formActionUrl="/?index"></ContactMe>
     </div>
   );
 }
