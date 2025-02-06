@@ -3,13 +3,13 @@ import { motion } from "motion/react";
 export default function MyImg() {
   return (
     <motion.div
-      className="relative aspect-square max-w-md mx-auto"
+      className="relative mx-auto aspect-square max-w-md"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl opacity-20"
+        className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-3xl"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.2, 0.3, 0.2],

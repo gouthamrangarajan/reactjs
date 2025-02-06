@@ -5,11 +5,14 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { useFetcher } from "react-router";
+import type { Ref } from "react";
 
 export default function ContactMe({
   formActionUrl,
+  ref,
 }: {
   formActionUrl: string;
+  ref: Ref<HTMLDivElement>;
 }) {
   const fetcher = useFetcher();
   return (
@@ -21,15 +24,15 @@ export default function ContactMe({
       variants={stagger}
     >
       <div className="mx-auto max-w-xl">
-        <motion.div className="text-center mb-12" variants={fadeIn}>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Get in Touch</h2>
+        <motion.div className="mb-12 text-center" variants={fadeIn}>
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl">Get in Touch</h2>
           <p className="text-gray-400">
             Have a question in mind? I’d love to hear from you!
           </p>
         </motion.div>
         <motion.div variants={fadeIn}>
-          <Card className="bg-gray-800/50 border-gray-700">
-            <CardDescription className="py-2 px-4">
+          <Card className="border-gray-700 bg-gray-800/50">
+            <CardDescription className="px-4 py-2">
               <AnimatePresence>
                 {fetcher.data &&
                   fetcher.data.message &&
@@ -52,7 +55,7 @@ export default function ContactMe({
               </AnimatePresence>
             </CardDescription>
             <fetcher.Form
-              className="p-6 space-y-6"
+              className="space-y-6 p-6"
               method="POST"
               action={formActionUrl}
             >
@@ -68,7 +71,7 @@ export default function ContactMe({
                   name="email"
                   required
                   placeholder="your@email.com"
-                  className="bg-gray-900 border-gray-700"
+                  className="border-gray-700 bg-gray-900"
                 />
               </motion.div>
               <motion.div
@@ -76,18 +79,19 @@ export default function ContactMe({
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
                 layout="position"
+                ref={ref}
               >
                 <label className="text-sm text-gray-400">Message</label>
                 <Textarea
                   name="message"
                   required
                   placeholder="Your message..."
-                  className="bg-gray-900 border-gray-700 min-h-[150px]"
+                  className="min-h-[150px] border-gray-700 bg-gray-900"
                   minLength={10}
                 />
               </motion.div>
               <motion.div layout="position" className="w-full">
-                <Button className="w-full group">
+                <Button className="group w-full">
                   <motion.span
                     initial={{ x: 0 }}
                     whileHover={{ x: 3 }}

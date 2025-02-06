@@ -7,6 +7,7 @@ import { Button } from "~/components/ui/button";
 import { fadeIn, stagger } from "~/lib/animation";
 import { actionFn, loaderFn } from "./loaderAndActions";
 import type { Route } from "./+types";
+import { useRef } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -22,18 +23,19 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   const {
     info: { title, subTitle, media },
   } = loaderData;
+  const contactMeEl = useRef<HTMLDivElement>(null);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800">
+    <main className="scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-300 h-screen overflow-x-hidden overflow-y-scroll scroll-smooth bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800">
       {/* Hero Section */}
       <section className="relative px-4 py-20 md:py-32">
         <motion.div
-          className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"
+          className="bg-grid-white/[0.02] absolute inset-0 bg-[size:50px_50px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         />
         <div className="relative mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
+          <div className="grid items-center gap-8 md:grid-cols-2">
             <motion.div
               className="space-y-6"
               variants={stagger}
@@ -51,7 +53,18 @@ export default function Home({ loaderData }: Route.ComponentProps) {
                     View Projects
                   </motion.span>
                 </Button>
-                <Button variant="outline">Contact Me</Button>
+                <Button
+                  variant="outline"
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    contactMeEl.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                  }}
+                >
+                  Contact Me
+                </Button>
               </motion.div>
               <Media items={media}></Media>
             </motion.div>
@@ -79,7 +92,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         </div>
       </motion.section> */}
 
-      <ContactMe formActionUrl="/?index"></ContactMe>
-    </div>
+      <ContactMe formActionUrl="/?index" ref={contactMeEl}></ContactMe>
+    </main>
   );
 }

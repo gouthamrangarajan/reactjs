@@ -10,10 +10,10 @@ export default function TitleAndSub({
 }) {
   return (
     <motion.div className="space-y-2" variants={fadeIn}>
-      <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-gray-100 to-gray-100/70 text-transparent bg-clip-text">
+      <h1 className="bg-gradient-to-r from-gray-100 to-gray-100/70 bg-clip-text text-3xl font-bold text-transparent md:text-5xl">
         {title}
       </h1>
-      <p className="text-gray-400 text-lg md:text-xl">{subTitle}</p>
+      <p className="text-lg text-gray-400 md:text-xl">{subTitle}</p>
     </motion.div>
   );
 }

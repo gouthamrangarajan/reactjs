@@ -14,7 +14,7 @@ export default function Media({
 }) {
   return (
     <motion.div
-      className="flex gap-5 text-gray-400 items-center"
+      className="flex items-center gap-5 text-gray-400"
       variants={fadeIn}
     >
       {items.map((item, index) => (
@@ -22,7 +22,7 @@ export default function Media({
           key={index}
           href={item.url}
           target="_blank"
-          className="hover:text-white transition-colors"
+          className="transition-colors hover:text-white"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
