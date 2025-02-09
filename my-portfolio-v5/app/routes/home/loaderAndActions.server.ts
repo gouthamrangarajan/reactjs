@@ -15,11 +15,24 @@ export async function loaderFn({ context }: Route.LoaderArgs) {
           imgSrc: z.string(),
           height: z.number(),
           width: z.number(),
-        })
+        }),
       ),
+      demos: z.object({
+        featured: z.array(
+          z.object({
+            order: z.number(),
+            title: z.string(),
+            imgSrc: z.string(),
+            url: z.string(),
+            description: z.string(),
+            tags: z.array(z.string()),
+          }),
+        ),
+      }),
     }),
   });
   const parsedData = schema.parse(JSON.parse(data!));
+  parsedData.info.demos.featured.sort((a, b) => a.order - b.order);
   return { ...parsedData };
 }
 
