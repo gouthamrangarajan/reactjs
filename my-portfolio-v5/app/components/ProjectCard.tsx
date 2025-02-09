@@ -6,7 +6,7 @@ import { ExternalLink } from "lucide-react";
 export default function ProjectCard({
   imgSrc,
   title,
-  cloudService,
+  service,
   imgBadgeLightMode,
   description,
   tags,
@@ -14,7 +14,7 @@ export default function ProjectCard({
 }: {
   imgSrc: string;
   title: string;
-  cloudService: string;
+  service: string;
   imgBadgeLightMode?: boolean | undefined;
   description: string;
   tags: string[];
@@ -35,12 +35,12 @@ export default function ProjectCard({
             height={400}
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          {cloudService != "Github" && (
+          {service != "Github" && service != "Codepen" && (
             <Badge
               className="absolute right-4 top-4"
               variant={imgBadgeLightMode === true ? "default" : "secondary"}
             >
-              {cloudService}
+              {service}
             </Badge>
           )}
         </motion.div>
@@ -48,11 +48,18 @@ export default function ProjectCard({
           <div className="flex items-start justify-between gap-4">
             <h3 className="line-clamp-1 text-lg font-semibold">{title}</h3>
             <div className="flex shrink-0 gap-2">
-              {cloudService === "Github" && (
+              {service === "Github" && (
                 <img
                   height={20}
                   width={20}
                   src="/imgs/media/github-simple.svg"
+                />
+              )}
+              {service === "Codepen" && (
+                <img
+                  height={20}
+                  width={20}
+                  src="/imgs/media/codepen-simple.svg"
                 />
               )}
               <a

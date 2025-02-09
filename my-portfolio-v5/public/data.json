@@ -88,7 +88,7 @@
             "Tailwind CSS",
             "Turso db"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true
         },
         {
@@ -103,7 +103,7 @@
             "Tailwind CSS",
             "Cloudflare KV"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true,
           "imgBadgeLightMode": true
         },
@@ -120,7 +120,7 @@
             "Vector Search",
             "PWA"
           ],
-          "cloudService": "Firebase",
+          "service": "Firebase",
           "display": true
         },
         {
@@ -135,7 +135,7 @@
             "Tailwind CSS",
             "Server-Sent Events"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true,
           "imgBadgeLightMode": true
         },
@@ -151,7 +151,7 @@
             "Tailwind CSS",
             "Supabase"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true
         },
         {
@@ -166,7 +166,7 @@
             "OpenAI",
             "Tailwind CSS"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true
         },
         {
@@ -181,7 +181,7 @@
             "Tailwind CSS",
             "Firebase"
           ],
-          "cloudService": "Firebase",
+          "service": "Firebase",
           "display": true
         },
         {
@@ -198,7 +198,7 @@
             "PWA",
             "Alphavantage API"
           ],
-          "cloudService": "Netlify",
+          "service": "Netlify",
           "display": true
         },
         {
@@ -213,7 +213,7 @@
             "Tailwind CSS",
             "Supabase"
           ],
-          "cloudService": "Netlify",
+          "service": "Netlify",
           "display": true
         },
         {
@@ -228,7 +228,7 @@
             "Drag & Drop",
             "Framer Motion"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -243,7 +243,7 @@
             "Python",
             "Turso db"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -258,7 +258,7 @@
             "Tailwind CSS",
             "Cloudflare KV"
           ],
-          "cloudService": "Cloudflare",
+          "service": "Cloudflare",
           "display": true
         },
         {
@@ -275,7 +275,7 @@
             "Partykit",
             "PWA"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -289,7 +289,7 @@
             "SignalR",
             "BackgroundService"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -303,7 +303,7 @@
             "Azure AD",
             "Gmail Auth"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -318,7 +318,7 @@
             "Web App",
             "Web Api"
           ],
-          "cloudService": "Github",
+          "service": "Github",
           "display": true
         },
         {
@@ -334,7 +334,7 @@
             "Turso db",
             "OpenAI"
           ],
-          "cloudService": "Netlify",
+          "service": "Netlify",
           "display": false
         },
         {
@@ -349,7 +349,7 @@
             "OpenAI",
             "Tailwind CSS"
           ],
-          "cloudService": "Vercel",
+          "service": "Vercel",
           "display": false
         },
         {
@@ -365,7 +365,7 @@
             "PWA",
             "Chat"
           ],
-          "cloudService": "Firebase",
+          "service": "Firebase",
           "display": false
         },
         {
@@ -381,7 +381,7 @@
             "Firestore",
             "PWA"
           ],
-          "cloudService": "Firebase",
+          "service": "Firebase",
           "display": true
         },
         {
@@ -397,7 +397,7 @@
             "PWA",
             "Chat"
           ],
-          "cloudService": "Firebase",
+          "service": "Firebase",
           "display": true
         },
         {
@@ -411,8 +411,95 @@
             "Composition Api",
             "Tailwind CSS"
           ],
-          "cloudService": "Github",
-          "display": false
+          "service": "Github",
+          "display": true
+        },
+        {
+          "order": 23,
+          "url": "https://codepen.io/GouthamRangarajan/full/XWEGOJK",
+          "imgSrc": "/imgs/codepen/CodePen20.png",
+          "title": "Vue QRCode Generator",
+          "description": "",
+          "tags": [
+            "Vue",
+            "QRCode",
+            "Codepen"
+          ],
+          "service": "Codepen",
+          "display": true
+        },
+        {
+          "order": 24,
+          "url": "https://codepen.io/GouthamRangarajan/full/poQewOO",
+          "imgSrc": "/imgs/codepen/CodePen22.png",
+          "title": "Vue DatePicker",
+          "description": "",
+          "tags": [
+            "Vue",
+            "VueUse",
+            "DatePicker",
+            "Codepen"
+          ],
+          "service": "Codepen",
+          "display": true
+        },
+        {
+          "order": 25,
+          "url": "https://codepen.io/GouthamRangarajan/full/NWoboOG",
+          "imgSrc": "/imgs/codepen/CodePen24.png",
+          "title": "Vue, HTML Popover API & View Transition API",
+          "description": "",
+          "tags": [
+            "Vue",
+            "Popover API",
+            "Codepen",
+            "View Transition API"
+          ],
+          "service": "Codepen",
+          "display": true
+        },
+        {
+          "order": 26,
+          "url": "https://codepen.io/GouthamRangarajan/full/bGzEoYa",
+          "imgSrc": "/imgs/codepen/CodePen23.png",
+          "title": "Vue, HTML Dialog & View Transition API",
+          "description": "",
+          "tags": [
+            "Vue",
+            "HTML Dialog",
+            "Codepen",
+            "View Transition API"
+          ],
+          "service": "Codepen",
+          "display": true
+        },
+        {
+          "order": 27,
+          "url": "https://codepen.io/GouthamRangarajan/full/JjXdemz",
+          "imgSrc": "/imgs/codepen/CodePen2.png",
+          "title": "Vue Tailwind Toastr",
+          "description": "",
+          "tags": [
+            "Vue",
+            "Tailwind CSS",
+            "Codepen"
+          ],
+          "display": false,
+          "service": "Codepen"
+        },
+        {
+          "order": 28,
+          "url": "https://codepen.io/GouthamRangarajan/full/mdxPROp",
+          "imgSrc": "/imgs/codepen/CodePen19.png",
+          "title": "Vue Cart",
+          "description": "",
+          "tags": [
+            "Vue",
+            "Tailwind CSS",
+            "Codepen"
+          ],
+          "display": false,
+          "service": "Codepen"
         }
       ]
     }

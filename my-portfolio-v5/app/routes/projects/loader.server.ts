@@ -15,7 +15,7 @@ export async function loaderFn({ context }: Route.LoaderArgs) {
             url: z.string(),
             description: z.string(),
             tags: z.array(z.string()),
-            cloudService: z.string(),
+            service: z.string(),
             display: z.boolean(),
             imgBadgeLightMode: z.boolean().optional(),
           }),
