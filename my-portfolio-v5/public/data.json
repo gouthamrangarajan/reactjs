@@ -502,6 +502,14 @@
           "service": "Codepen"
         }
       ]
-    }
+    },
+    "filters": [
+      "All Projects",
+      "Cloudflare",
+      "Netlify",
+      "Firebase",
+      "Github",
+      "Codepen"
+    ]
   }
 }

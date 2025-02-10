@@ -7,6 +7,15 @@ export const fadeIn = {
   },
 };
 
+export const fadeIn2 = {
+  initial: { opacity: 0, y: 5 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", damping: 7, stiffness: 50 },
+  },
+};
+
 export const stagger = {
   animate: {
     transition: {

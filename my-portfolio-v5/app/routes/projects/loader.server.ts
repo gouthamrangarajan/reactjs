@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { Route } from "./+types";
 
-export async function loaderFn({ context }: Route.LoaderArgs) {
+export async function loaderFn({ context, request }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
   const data = await env.my_portfolio_v2.get("data");
   const schema = z.object({
@@ -21,11 +21,21 @@ export async function loaderFn({ context }: Route.LoaderArgs) {
           }),
         ),
       }),
+      filters: z.array(z.string()),
     }),
   });
   const parsedData = schema.parse(JSON.parse(data!));
-  const sortedData = parsedData.info.demos.all
+  let sortedData = parsedData.info.demos.all
     .sort((a, b) => a.order - b.order)
     .filter((demo) => demo.display);
-  return { demos: sortedData };
+  const url = new URL(request.url);
+  let category = url.searchParams.get("category")?.toString().trim();
+  if (category && category.toLowerCase() !== "all projects") {
+    category =
+      category.slice(0, 1).toUpperCase() + category.slice(1).toLowerCase();
+    sortedData = sortedData.filter(
+      (demo) => demo.tags.includes(category!) || demo.service === category,
+    );
+  }
+  return { demos: sortedData, filters: parsedData.info.filters };
 }

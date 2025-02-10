@@ -115,6 +115,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
           </div>
         </div>
       </motion.section>
+      {/* Contact Section */}
       <ContactMe formActionUrl="/?index" ref={contactMeEl}></ContactMe>
     </main>
   );
