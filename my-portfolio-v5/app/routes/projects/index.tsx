@@ -25,7 +25,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
             filters={loaderData.filters}
             category={categoryFilterValue}
             onCategoryChange={(value) => {
-              setSarchParams({ category: value });
+              setSarchParams({ category: value }, { replace: true });
             }}
           ></FilterProjects>
         </div>
