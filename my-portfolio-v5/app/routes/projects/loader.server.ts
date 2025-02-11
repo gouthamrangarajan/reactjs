@@ -30,12 +30,27 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
     .filter((demo) => demo.display);
   const url = new URL(request.url);
   let category = url.searchParams.get("category")?.toString().trim();
+  let searchTxt = url.searchParams
+    .get("srchTxt")
+    ?.toString()
+    .trim()
+    .toLowerCase();
   if (category && category.toLowerCase() !== "all projects") {
     category =
       category.slice(0, 1).toUpperCase() + category.slice(1).toLowerCase();
     sortedData = sortedData.filter(
       (demo) => demo.tags.includes(category!) || demo.service === category,
     );
+  }
+  if (searchTxt) {
+    sortedData = sortedData.filter((demo) => {
+      return (
+        demo.title.toLowerCase().includes(searchTxt) ||
+        demo.tags.join(" ").toLowerCase().includes(searchTxt) ||
+        demo.description.toLowerCase().includes(searchTxt) ||
+        demo.service.toLowerCase().includes(searchTxt)
+      );
+    });
   }
   return { demos: sortedData, filters: parsedData.info.filters };
 }
