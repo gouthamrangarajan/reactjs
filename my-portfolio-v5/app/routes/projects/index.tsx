@@ -2,7 +2,7 @@ import type { Route } from "./+types";
 import { motion } from "motion/react";
 import { loaderFn } from "./loader.server";
 import ProjectCard from "~/components/ProjectCard";
-import { useSearchParams } from "react-router";
+import { Form, useSearchParams } from "react-router";
 import FilterProjects from "~/components/FilterProjects";
 import { fadeIn2, stagger } from "~/lib/animation";
 
@@ -21,7 +21,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
           <p className="text-gray-400">Explore my latest projects</p>
         </div>
         {/* Filters */}
-        <div className="mb-8 grid gap-4 md:grid-cols-[1fr_200px]">
+        <Form className="mb-8 grid gap-4 md:grid-cols-[1fr_200px]" method="GET">
           <FilterProjects
             filters={loaderData.filters}
             category={categoryFilterValue}
@@ -47,7 +47,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
               }
             }}
           ></FilterProjects>
-        </div>
+        </Form>
         {/* Projects Grid */}
         <motion.div
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"

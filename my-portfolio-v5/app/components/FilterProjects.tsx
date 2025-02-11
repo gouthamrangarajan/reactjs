@@ -40,6 +40,12 @@ export default function FilterProjects({
         <Input
           placeholder="Search projects..."
           value={srchTxtState}
+          name="srchTxt"
+          onKeyDown={(ev) => {
+            if (ev.key === "Enter") {
+              ev.preventDefault();
+            }
+          }}
           onChange={(e) => {
             onSearchTxtChangeDebounced(e.currentTarget.value);
             setSrchTxtState(e.currentTarget.value);
@@ -54,7 +60,8 @@ export default function FilterProjects({
               exit={{ opacity: 0, scale: 0.8 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={() => {
+              onClick={(ev) => {
+                ev.preventDefault();
                 onSearchTxtChange("");
                 setSrchTxtState("");
               }}
@@ -70,6 +77,7 @@ export default function FilterProjects({
         onValueChange={(value) => {
           onCategoryChange(value);
         }}
+        name="category"
       >
         <SelectTrigger className="border-gray-700 bg-gray-800/50">
           <SelectValue placeholder="Select category" />
