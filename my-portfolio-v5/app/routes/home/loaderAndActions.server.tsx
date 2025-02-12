@@ -1,5 +1,7 @@
 import { z } from "zod";
 import type { Route } from "./+types";
+import { render } from "@react-email/components";
+import EmailTemplate from "~/components/EmailTemplate";
 
 export async function loaderFn({ context }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
@@ -55,36 +57,34 @@ export async function actionFn({ request, context }: Route.ActionArgs) {
         "Error. Please provide valid message. Message should be at least 10 characters",
     };
 
-  //   let emailTemplate = render(
-  //     <EmailTemplate email={email} message={message}></EmailTemplate>
-  //   );
-  //   try {
-  //     const {
-  //       env: { RESEND_API_KEY },
-  //     } = contextSchema.parse(context);
-  //     const emailResp = await fetch("https://api.resend.com/emails", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${RESEND_API_KEY}`,
-  //       },
-  //       body: JSON.stringify({
-  //         from: "RG <gouthamrangarajan@resend.dev>",
-  //         to: ["rgouthamraja@yahoo.com"],
-  //         subject: "New Message | Portfolio",
-  //         html: emailTemplate,
-  //       }),
-  //     });
+  let emailTemplate = await render(
+    <EmailTemplate email={email} message={message}></EmailTemplate>,
+  );
+  try {
+    const { RESEND_API_KEY } = context.cloudflare.env;
+    const emailResp = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "RG <gouthamrangarajan@resend.dev>",
+        to: ["rgouthamraja@yahoo.com"],
+        subject: "New Message | Portfolio",
+        html: emailTemplate,
+      }),
+    });
 
-  //     if (!emailResp.ok) {
-  //       let jsonResp = await emailResp.json();
-  //       console.log("error sending email", jsonResp);
-  //       return { message: "Error sending email." };
-  //     }
-  //   } catch (err) {
-  //     console.log("error sending email", err);
-  //     return { message: "Error sending email." };
-  //   }
+    if (!emailResp.ok) {
+      let jsonResp = await emailResp.json();
+      console.log("error sending email", jsonResp);
+      return { message: "Error sending email." };
+    }
+  } catch (err) {
+    console.log("error sending email", err);
+    return { message: "Error sending email." };
+  }
   return {
     message:
       "Thank you so much for reaching out. I'll get back to you as soon I can.",
