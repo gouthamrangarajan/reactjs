@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { useFetcher } from "react-router";
-import type { Ref } from "react";
+import { useEffect, useRef, type Ref } from "react";
 
 export default function ContactMe({
   formActionUrl,
@@ -15,6 +15,17 @@ export default function ContactMe({
   ref: Ref<HTMLDivElement>;
 }) {
   const fetcher = useFetcher();
+  const formEl = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    if (
+      fetcher.data &&
+      fetcher.data.message &&
+      fetcher.state == "idle" &&
+      !fetcher.data.message.toLowerCase().includes("error") &&
+      formEl.current
+    )
+      formEl.current.reset();
+  }, [fetcher.data?.message, fetcher.state]);
   return (
     <motion.section
       className="px-4 py-20"
@@ -58,6 +69,7 @@ export default function ContactMe({
               className="space-y-6 p-6"
               method="POST"
               action={formActionUrl}
+              ref={formEl}
             >
               <motion.div
                 className="space-y-2"
@@ -88,6 +100,7 @@ export default function ContactMe({
                   placeholder="Your message..."
                   className="min-h-[150px] border-gray-700 bg-gray-900"
                   minLength={10}
+                  // message="Please enter at least 10 characters."
                 />
               </motion.div>
               <motion.div layout="position" className="w-full">
