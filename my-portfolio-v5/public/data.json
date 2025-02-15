@@ -119,6 +119,7 @@
             "OpenAI Embeddings",
             "Tailwind CSS",
             "Vector Search",
+            "Pinecone",
             "PWA"
           ],
           "service": "Firebase",
