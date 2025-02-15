@@ -83,7 +83,8 @@ export default function ContactMe({
                   name="email"
                   required
                   placeholder="your@email.com"
-                  className="border-gray-700 bg-gray-900"
+                  className="border-gray-700 bg-gray-900 disabled:cursor-not-allowed disabled:opacity-80"
+                  disabled={fetcher.state == "submitting"}
                 />
               </motion.div>
               <motion.div
@@ -98,13 +99,17 @@ export default function ContactMe({
                   name="message"
                   required
                   placeholder="Your message..."
-                  className="min-h-[150px] border-gray-700 bg-gray-900"
+                  className="min-h-[150px] border-gray-700 bg-gray-900 disabled:cursor-not-allowed disabled:opacity-80"
                   minLength={10}
                   // message="Please enter at least 10 characters."
+                  disabled={fetcher.state == "submitting"}
                 />
               </motion.div>
               <motion.div layout="position" className="w-full">
-                <Button className="group w-full">
+                <Button
+                  className="group w-full disabled:animate-pulse disabled:cursor-not-allowed"
+                  disabled={fetcher.state == "submitting"}
+                >
                   <motion.span
                     initial={{ x: 0 }}
                     whileHover={{ x: 3 }}
