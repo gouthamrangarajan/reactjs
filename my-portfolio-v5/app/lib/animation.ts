@@ -24,6 +24,14 @@ export const stagger = {
   },
 };
 
+export const stagger2 = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 export const fetcherResultMessage = {
   initial: {
     opacity: 0,

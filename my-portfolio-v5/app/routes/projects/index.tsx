@@ -4,7 +4,7 @@ import { loaderFn } from "./loader.server";
 import ProjectCard from "~/components/ProjectCard";
 import { Form, useSearchParams } from "react-router";
 import FilterProjects from "~/components/FilterProjects";
-import { fadeIn2, stagger } from "~/lib/animation";
+import { fadeIn2, stagger2 } from "~/lib/animation";
 
 export const loader = loaderFn;
 
@@ -51,7 +51,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
         {/* Projects Grid */}
         <motion.div
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          variants={stagger}
+          variants={stagger2}
           initial="initial"
           animate="animate"
         >
