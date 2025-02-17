@@ -15,10 +15,9 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
   //   PINECONE_API_KEY: env.PINECONE_API_KEY,
   //   PINECONE_HOST_URL: env.PINECONE_HOST_URL,
   // });
-  const sortedData = parsedData.info.demos.all
+  let respData = parsedData.info.demos.all
     .sort((a, b) => a.order - b.order)
     .filter((demo) => demo.display);
-  let respData = [...sortedData];
   const url = new URL(request.url);
   let category = url.searchParams.get("category")?.toString().trim();
   const searchTxt = url.searchParams.get("srchTxt")?.toString().trim();
