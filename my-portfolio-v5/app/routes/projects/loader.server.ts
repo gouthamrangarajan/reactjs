@@ -54,7 +54,9 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
         vectorResp = vectorResp.filter(
           (item) => item.score > env.PINECONE_FILTER_SCORE,
         );
-        ftedTitles = vectorResp.map((item) => item.id);
+        ftedTitles = vectorResp
+          .sort((a, b) => b.score - a.score)
+          .map((item) => item.id);
         await env.my_portfolio_v2.put(
           `search_${searchTxt}`,
           JSON.stringify({ titles: ftedTitles }),
@@ -65,6 +67,26 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
       );
       if (vectorSearchData.length === 0) {
         ignoreVectorSearch = true;
+      } else {
+        const idOrUrlsToIdxMap = ftedTitles.reduce(
+          (acc, el, idx) => {
+            acc[el] = idx;
+            return acc;
+          },
+          {} as Record<string, number>,
+        );
+        vectorSearchData = vectorSearchData.sort((a, b) => {
+          let aIdx = idOrUrlsToIdxMap[a.title];
+          let bIdx = idOrUrlsToIdxMap[b.title];
+          if (aIdx == undefined && bIdx == undefined) {
+            return 0; // both undefined same position
+          } else if (aIdx == undefined) {
+            return 1; // a is undefined so b comes first
+          } else if (bIdx == undefined) {
+            return -1; // b is undefined so a comes first
+          }
+          return aIdx - bIdx;
+        });
       }
     } catch (err) {
       console.log("error in search using vector search", err);
@@ -72,8 +94,12 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
     }
   }
   if (ignoreVectorSearch) {
-    respData = respData.filter((demo) =>
-      demo.title.toLowerCase().includes(searchTxt!.toLowerCase()),
+    respData = respData.filter(
+      (demo) =>
+        demo.title.toLowerCase().includes(searchTxt!.toLowerCase()) ||
+        demo.description.toLowerCase().includes(searchTxt!.toLowerCase()) ||
+        demo.tags.join(" ").toLowerCase().includes(searchTxt!.toLowerCase()) ||
+        demo.service.toLowerCase().includes(searchTxt!.toLowerCase()),
     );
   } else {
     respData = vectorSearchData;
