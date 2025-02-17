@@ -13,7 +13,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
   const categoryFilterValue = searchParams.get("category");
   const srchTxtFilterValue = searchParams.get("srchTxt")?.toString() || "";
   return (
-    <main className="h-screen overflow-x-hidden overflow-y-scroll scroll-smooth bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-100">
+    <main className="h-screen overflow-x-hidden overflow-y-scroll scroll-smooth bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-600">
       <div className="mx-auto max-w-7xl px-4 py-12">
         {/* Header */}
         <div className="mb-12 space-y-2 text-center">

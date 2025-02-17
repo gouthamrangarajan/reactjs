@@ -3,6 +3,13 @@ import { createRequestHandler } from "react-router";
 declare global {
   interface CloudflareEnvironment extends Env {
     my_portfolio_v2: KVNamespace;
+    OPENAI_API_EMBEDDING_MODEL: string;
+    OPENAI_API_EMBEDDING_URL: string;
+    OPENAI_API_KEY: string;
+    PINECONE_API_KEY: string;
+    PINECONE_FILTER_SCORE: number;
+    PINECONE_HOST_URL: string;
+    PINECONE_TOPK: number;
     RESEND_API_KEY: string;
   }
 }

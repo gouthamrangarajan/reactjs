@@ -32,7 +32,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
   } = loaderData;
   const contactMeEl = useRef<HTMLDivElement>(null);
   return (
-    <main className="h-screen overflow-x-hidden overflow-y-scroll scroll-smooth bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-100">
+    <main className="h-screen overflow-x-hidden overflow-y-scroll scroll-smooth bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 scrollbar-thin scrollbar-track-gray-300 scrollbar-thumb-gray-600">
       {/* Hero Section */}
       <section className="relative px-4 py-20 md:py-32">
         <motion.div
