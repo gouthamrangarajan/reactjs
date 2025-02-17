@@ -1,33 +1,13 @@
-import { z } from "zod";
 import type { Route } from "./+types";
 import { getEmbedding } from "~/lib/openAIAPI.server";
-import { upsertData } from "~/lib/vectorDb/pinecone.server";
+import { queryData, upsertData } from "~/lib/vectorDb/pinecone.server";
+import { projectsSchema, srchCacheSchema } from "~/lib/schemas.server";
 
 export async function loaderFn({ context, request }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
   const data = await env.my_portfolio_v2.get("data");
-  const schema = z.object({
-    info: z.object({
-      demos: z.object({
-        all: z.array(
-          z.object({
-            order: z.number(),
-            title: z.string(),
-            imgSrc: z.string(),
-            url: z.string(),
-            description: z.string(),
-            tags: z.array(z.string()),
-            service: z.string(),
-            display: z.boolean(),
-            imgBadgeLightMode: z.boolean().optional(),
-          }),
-        ),
-      }),
-      filters: z.array(z.string()),
-    }),
-  });
-  const parsedData = schema.parse(JSON.parse(data!));
-  // await upsertToPinecone({
+  const parsedData = projectsSchema.parse(JSON.parse(data!));
+  // await getEmbeddingAndupsertToPinecone({
   //   demos: parsedData.info.demos.all,
   //   OPENAI_API_EMBEDDING_URL: env.OPENAI_API_EMBEDDING_URL,
   //   OPENAI_API_EMBEDDING_MODEL: env.OPENAI_API_EMBEDDING_MODEL,
@@ -35,37 +15,67 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
   //   PINECONE_API_KEY: env.PINECONE_API_KEY,
   //   PINECONE_HOST_URL: env.PINECONE_HOST_URL,
   // });
-  let sortedData = parsedData.info.demos.all
+  const sortedData = parsedData.info.demos.all
     .sort((a, b) => a.order - b.order)
     .filter((demo) => demo.display);
+  let respData = [...sortedData];
   const url = new URL(request.url);
   let category = url.searchParams.get("category")?.toString().trim();
-  let searchTxt = url.searchParams
-    .get("srchTxt")
-    ?.toString()
-    .trim()
-    .toLowerCase();
+  const searchTxt = url.searchParams.get("srchTxt")?.toString().trim();
   if (category && category.toLowerCase() !== "all projects") {
     category =
       category.slice(0, 1).toUpperCase() + category.slice(1).toLowerCase();
-    sortedData = sortedData.filter(
+    respData = respData.filter(
       (demo) => demo.tags.includes(category!) || demo.service === category,
     );
   }
   if (searchTxt) {
-    sortedData = sortedData.filter((demo) => {
-      return (
-        demo.title.toLowerCase().includes(searchTxt) ||
-        demo.tags.join(" ").toLowerCase().includes(searchTxt) ||
-        demo.description.toLowerCase().includes(searchTxt) ||
-        demo.service.toLowerCase().includes(searchTxt)
+    try {
+      let ftedTitles: Array<string> = [];
+      const cachedResults = await env.my_portfolio_v2.get(
+        `search_${searchTxt}`,
       );
-    });
+      if (cachedResults != null) {
+        ftedTitles = srchCacheSchema.parse(JSON.parse(cachedResults)).titles;
+      } else {
+        const embeddingForSrchTxt = await getEmbedding({
+          textToEmbed: searchTxt,
+          apiKey: env.OPENAI_API_KEY,
+          apiUrl: env.OPENAI_API_EMBEDDING_URL,
+          model: env.OPENAI_API_EMBEDDING_MODEL,
+        });
+        let vectorResp = await queryData({
+          vectors: embeddingForSrchTxt,
+          hostUrl: env.PINECONE_HOST_URL,
+          apiKey: env.PINECONE_API_KEY,
+          topK: env.PINECONE_TOPK,
+        });
+        vectorResp = vectorResp.filter(
+          (item) => item.score > env.PINECONE_FILTER_SCORE,
+        );
+        ftedTitles = vectorResp.map((item) => item.id);
+        await env.my_portfolio_v2.put(
+          `search_${searchTxt}`,
+          JSON.stringify({ titles: ftedTitles }),
+        );
+      }
+      respData = respData.filter((demo) => ftedTitles.includes(demo.title));
+    } catch (err) {
+      console.log("error in search using vector search", err);
+      respData = respData.filter((demo) => {
+        return (
+          demo.title.toLowerCase().includes(searchTxt.toLowerCase()) ||
+          demo.tags.join(" ").toLowerCase().includes(searchTxt.toLowerCase()) ||
+          demo.description.toLowerCase().includes(searchTxt.toLowerCase()) ||
+          demo.service.toLowerCase().includes(searchTxt.toLowerCase())
+        );
+      });
+    }
   }
-  return { demos: sortedData, filters: parsedData.info.filters };
+  return { demos: respData, filters: parsedData.info.filters };
 }
 
-async function upsertToPinecone({
+async function getEmbeddingAndupsertToPinecone({
   demos,
   OPENAI_API_EMBEDDING_MODEL,
   OPENAI_API_EMBEDDING_URL,
@@ -88,7 +98,7 @@ async function upsertToPinecone({
 }) {
   for (let idx = 0; idx < demos.length; idx++) {
     const demo = demos[idx];
-    const vectorTxt = `${demo.title} ${demo.description} ${demo.tags.join(" ")} ${demo.service}`;
+    const vectorTxt = `${demo.title} ${demo.description} ${demo.url} ${demo.tags.join(" ")} ${demo.service}`;
     const embeddingForDemo = await getEmbedding({
       textToEmbed: vectorTxt,
       apiKey: OPENAI_API_KEY,

@@ -1,39 +1,12 @@
-import { z } from "zod";
 import type { Route } from "./+types";
 import { render } from "@react-email/components";
 import EmailTemplate from "~/components/EmailTemplate";
+import { homePageSchema } from "~/lib/schemas.server";
 
 export async function loaderFn({ context }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
   const data = await env.my_portfolio_v2.get("data");
-  const schema = z.object({
-    info: z.object({
-      title: z.string(),
-      subTitle: z.string(),
-      media: z.array(
-        z.object({
-          name: z.string(),
-          url: z.string(),
-          imgSrc: z.string(),
-          height: z.number(),
-          width: z.number(),
-        }),
-      ),
-      demos: z.object({
-        featured: z.array(
-          z.object({
-            order: z.number(),
-            title: z.string(),
-            imgSrc: z.string(),
-            url: z.string(),
-            description: z.string(),
-            tags: z.array(z.string()),
-          }),
-        ),
-      }),
-    }),
-  });
-  const parsedData = schema.parse(JSON.parse(data!));
+  const parsedData = homePageSchema.parse(JSON.parse(data!));
   parsedData.info.demos.featured.sort((a, b) => a.order - b.order);
   return { ...parsedData };
 }
