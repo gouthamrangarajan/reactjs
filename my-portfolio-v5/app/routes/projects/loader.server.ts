@@ -28,6 +28,8 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
       (demo) => demo.tags.includes(category!) || demo.service === category,
     );
   }
+  let vectorSearchData = [...respData];
+  let ignoreVectorSearch = false;
   if (searchTxt) {
     try {
       let ftedTitles: Array<string> = [];
@@ -58,18 +60,23 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
           JSON.stringify({ titles: ftedTitles }),
         );
       }
-      respData = respData.filter((demo) => ftedTitles.includes(demo.title));
+      vectorSearchData = respData.filter((demo) =>
+        ftedTitles.includes(demo.title),
+      );
+      if (vectorSearchData.length === 0) {
+        ignoreVectorSearch = true;
+      }
     } catch (err) {
       console.log("error in search using vector search", err);
-      respData = respData.filter((demo) => {
-        return (
-          demo.title.toLowerCase().includes(searchTxt.toLowerCase()) ||
-          demo.tags.join(" ").toLowerCase().includes(searchTxt.toLowerCase()) ||
-          demo.description.toLowerCase().includes(searchTxt.toLowerCase()) ||
-          demo.service.toLowerCase().includes(searchTxt.toLowerCase())
-        );
-      });
+      ignoreVectorSearch = true;
     }
+  }
+  if (ignoreVectorSearch) {
+    respData = respData.filter((demo) =>
+      demo.title.toLowerCase().includes(searchTxt!.toLowerCase()),
+    );
+  } else {
+    respData = vectorSearchData;
   }
   return { demos: respData, filters: parsedData.info.filters };
 }
