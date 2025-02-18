@@ -7,14 +7,6 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
   const { env } = context.cloudflare;
   const data = await env.my_portfolio_v2.get("data");
   const parsedData = projectsSchema.parse(JSON.parse(data!));
-  // await getEmbeddingAndupsertToPinecone({
-  //   demos: parsedData.info.demos.all,
-  //   OPENAI_API_EMBEDDING_URL: env.OPENAI_API_EMBEDDING_URL,
-  //   OPENAI_API_EMBEDDING_MODEL: env.OPENAI_API_EMBEDDING_MODEL,
-  //   OPENAI_API_KEY: env.OPENAI_API_KEY,
-  //   PINECONE_API_KEY: env.PINECONE_API_KEY,
-  //   PINECONE_HOST_URL: env.PINECONE_HOST_URL,
-  // });
   let respData = parsedData.info.demos.all
     .sort((a, b) => a.order - b.order)
     .filter((demo) => demo.display);
@@ -106,7 +98,14 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
   }
   return { demos: respData, filters: parsedData.info.filters };
 }
-
+// await getEmbeddingAndupsertToPinecone({
+//   demos: parsedData.info.demos.all,
+//   OPENAI_API_EMBEDDING_URL: env.OPENAI_API_EMBEDDING_URL,
+//   OPENAI_API_EMBEDDING_MODEL: env.OPENAI_API_EMBEDDING_MODEL,
+//   OPENAI_API_KEY: env.OPENAI_API_KEY,
+//   PINECONE_API_KEY: env.PINECONE_API_KEY,
+//   PINECONE_HOST_URL: env.PINECONE_HOST_URL,
+// });
 async function getEmbeddingAndupsertToPinecone({
   demos,
   OPENAI_API_EMBEDDING_MODEL,
