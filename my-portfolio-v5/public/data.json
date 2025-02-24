@@ -97,7 +97,7 @@
           "imgSrc": "/imgs/cloud/Self.png",
           "title": "Portfolio",
           "description": "Portfolio site built with React, React Router & Tailwind CSS",
-          "url": "https://portfolio-gouthamrangarajan.pages.dev/",
+          "url": "https://portfolio.goutham.workers.dev/",
           "tags": [
             "React",
             "React Router",
