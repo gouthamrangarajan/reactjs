@@ -60,7 +60,6 @@ export default function index({ loaderData }: Route.ComponentProps) {
               variants={fadeIn2}
               key={`${project.title}`}
               layout="position"
-              viewport={{ once: true }}
             >
               <ProjectCard {...project}></ProjectCard>
             </motion.div>
