@@ -41,6 +41,7 @@
           "description": "A simple Gemini Chat using Golang, Htmx, Tailwind CSS & Turso",
           "url": "https://rg-gemini-chat.up.railway.app/",
           "tags": [
+            "Gemini AI",
             "Golang",
             "Templ",
             "Htmx",
@@ -57,8 +58,8 @@
           "description": "A simple OpenAI Chat using Remix, OpenAI API, Tailwind CSS & Cloudflare KV",
           "url": "https://rg-openai-chat.pages.dev/",
           "tags": [
-            "React",
             "OpenAI",
+            "React",
             "Tailwind CSS",
             "Server-Sent Events"
           ]
@@ -70,9 +71,9 @@
           "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
           "url": "http://placestovisit.pages.dev/",
           "tags": [
+            "OpenAI",
             "React",
             "Remix",
-            "OpenAI",
             "Tailwind CSS"
           ]
         }
@@ -85,6 +86,7 @@
           "description": "A simple Gemini Chat using Golang, Htmx, Tailwind CSS & Turso",
           "url": "https://rg-gemini-chat.up.railway.app/",
           "tags": [
+            "Gemini AI",
             "Golang",
             "Templ",
             "Htmx",
@@ -152,8 +154,8 @@
           "description": "A simple OpenAI Chat using Remix, OpenAI API, Tailwind CSS & Cloudflare KV",
           "url": "https://rg-openai-chat.pages.dev/",
           "tags": [
-            "React",
             "OpenAI",
+            "React",
             "Tailwind CSS",
             "Server-Sent Events",
             "Cloudflare KV"
@@ -184,9 +186,9 @@
           "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
           "url": "http://placestovisit.pages.dev/",
           "tags": [
+            "OpenAI",
             "React",
             "Remix",
-            "OpenAI",
             "Tailwind CSS"
           ],
           "service": "Cloudflare",
