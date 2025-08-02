@@ -82,7 +82,7 @@
         {
           "order": 1,
           "imgSrc": "/imgs/cloud/Stock_Golang.png",
-          "title": "Stock Tracker",
+          "title": "Golang Stock Tracker",
           "description": "A simple stock tracking tool using Golang, Datastar, TailwindCSS, Echarts and Firebase to view personal tracked stocks",
           "url": "https://rg-stock.up.railway.app/",
           "tags": [
