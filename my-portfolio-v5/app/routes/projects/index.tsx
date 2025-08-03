@@ -6,6 +6,13 @@ import { Form, useSearchParams } from "react-router";
 import FilterProjects from "~/components/FilterProjects";
 import { fadeIn2, stagger2 } from "~/lib/animation";
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Goutham Rangarajan - Demos" },
+    { name: "description", content: "Goutham Rangarajan's Demos" },
+  ];
+}
+
 export const loader = loaderFn;
 
 export default function index({ loaderData }: Route.ComponentProps) {

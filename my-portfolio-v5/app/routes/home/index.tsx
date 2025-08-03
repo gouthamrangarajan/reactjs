@@ -14,7 +14,7 @@ import { Link } from "react-router";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Goutham Rangarajan" },
-    { name: "description", content: "Goutham Rangarajan Portfolio" },
+    { name: "description", content: "Goutham Rangarajan's Portfolio" },
   ];
 }
 
