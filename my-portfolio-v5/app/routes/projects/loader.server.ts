@@ -13,12 +13,21 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   let category = url.searchParams.get("category")?.toString().trim();
   const searchTxt = url.searchParams.get("srchTxt")?.toString().trim();
-  if (category && category.toLowerCase() !== "all projects") {
-    category =
-      category.slice(0, 1).toUpperCase() + category.slice(1).toLowerCase();
-    respData = respData.filter(
-      (demo) => demo.tags.includes(category!) || demo.service === category,
-    );
+  if (category) {
+    if (category.toLowerCase() == "genai") {
+      respData = respData.filter(
+        (demo) =>
+          demo.tags.includes("OpenAI") ||
+          demo.tags.includes("Gemini AI") ||
+          demo.tags.includes("Claude AI"),
+      );
+    } else if (category.toLowerCase() !== "all projects") {
+      category =
+        category.slice(0, 1).toUpperCase() + category.slice(1).toLowerCase();
+      respData = respData.filter(
+        (demo) => demo.tags.includes(category!) || demo.service === category,
+      );
+    }
   }
   let vectorSearchData = [...respData];
   let ignoreVectorSearch = false;

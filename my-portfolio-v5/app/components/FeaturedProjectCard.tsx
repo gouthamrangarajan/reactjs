@@ -17,7 +17,7 @@ export default function FeaturedProjectCard({
   tags: string[];
 }) {
   return (
-    <Card className="group h-[28rem] overflow-hidden border-gray-700 bg-gray-800/50">
+    <Card className="group h-[29rem] overflow-hidden border-gray-700 bg-gray-800/50">
       <div className="relative aspect-video overflow-hidden">
         <img
           src={imgSrc}
