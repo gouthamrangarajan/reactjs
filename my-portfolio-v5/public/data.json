@@ -246,7 +246,24 @@
         },
         {
           "order": 9,
-          "title": "RG Notes",
+          "title": "Notes Golang",
+          "imgSrc": "/imgs/cloud/Notes_Golang.png",
+          "description": "A simple note tracking app using Golang, Datastar, Tailwind CSS, Supabase Auth & Database",
+          "url": "https://rg-notes.up.railway.app/",
+          "tags": [
+            "Golang",
+            "Datastar",
+            "Editorjs",
+            "Tailwind CSS",
+            "Supabase Auth",
+            "Supabase Database"
+          ],
+          "service": "Railway",
+          "display": true
+        },
+        {
+          "order": 10,
+          "title": "Notes Remix js",
           "imgSrc": "/imgs/cloud/Notes.png",
           "description": "A simple note tracking app using React, Remix, Tailwind CSS, Supabase Auth & Database",
           "url": "https://rg-notes-v2.pages.dev/",
@@ -254,13 +271,14 @@
             "React",
             "Remix",
             "Tailwind CSS",
-            "Supabase"
+            "Supabase Auth",
+            "Supabase Database"
           ],
           "service": "Cloudflare",
           "display": true
         },
         {
-          "order": 10,
+          "order": 11,
           "title": "Places to Visit OpenAI",
           "imgSrc": "/imgs/cloud/PlacesToVisit_2.png",
           "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
@@ -275,7 +293,7 @@
           "display": true
         },
         {
-          "order": 11,
+          "order": 12,
           "imgSrc": "/imgs/cloud/React_Drive.png",
           "title": "React Drive",
           "description": "A PWA drive using Vite, React, TailwindCSS and Firebase to store and access files and folders",
@@ -290,7 +308,7 @@
           "display": true
         },
         {
-          "order": 12,
+          "order": 13,
           "imgSrc": "/imgs/cloud/Stock_Remix.png",
           "title": "Stock Tracker",
           "description": "A PWA using Remix, React, TailwindCSS, Echarts and Firebase to view personal tracked stocks",
@@ -308,7 +326,7 @@
           "display": true
         },
         {
-          "order": 13,
+          "order": 14,
           "imgSrc": "/imgs/cloud/Calendar-3.png",
           "title": "Golang Calendar",
           "description": "A calendar app using Golang, Htmx, Tailwind CSS, Supabase Auth & Database",
@@ -325,7 +343,7 @@
           "display": true
         },
         {
-          "order": 14,
+          "order": 15,
           "imgSrc": "/imgs/cloud/Calendar-2.png",
           "title": "React Calendar",
           "description": "A calendar app using React, Remix, Tailwind CSS, Supabase Auth & Database",
@@ -340,7 +358,7 @@
           "display": true
         },
         {
-          "order": 15,
+          "order": 16,
           "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/full-calendar-events",
           "title": "React FullCalendar Events",
           "imgSrc": "/imgs/github/ReactFullCalendar.png",
@@ -355,7 +373,7 @@
           "display": true
         },
         {
-          "order": 16,
+          "order": 17,
           "url": "https://github.com/gouthamrangarajan/python/tree/main/fasthtml_openai",
           "title": "FastHTML OpenAI",
           "imgSrc": "/imgs/github/FastHTML_OpenAI.png",
@@ -370,7 +388,7 @@
           "display": true
         },
         {
-          "order": 17,
+          "order": 18,
           "imgSrc": "/imgs/cloud/Wordle.png",
           "title": "Wordle Clone",
           "description": "Wordle clone implementation using React, Remix Cloudflare KV & Tailwind CSS",
@@ -385,7 +403,7 @@
           "display": true
         },
         {
-          "order": 18,
+          "order": 19,
           "url": "https://github.com/gouthamrangarajan/reactjs/tree/main/grocery-list",
           "title": "React Grocery List",
           "imgSrc": "/imgs/github/react-grocery-list.png",
@@ -402,7 +420,7 @@
           "display": true
         },
         {
-          "order": 19,
+          "order": 20,
           "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/SignalR%2BBackgroundService",
           "title": "SignalR+BackgroundService",
           "imgSrc": "/imgs/github/SignalR+BackgroundService.png",
@@ -416,7 +434,7 @@
           "display": true
         },
         {
-          "order": 20,
+          "order": 21,
           "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureAD%2BGmailAuth",
           "title": "AzureAD & Gmail Auth",
           "imgSrc": "/imgs/github/AzureAD+GmailAuth.png",
@@ -430,7 +448,7 @@
           "display": true
         },
         {
-          "order": 21,
+          "order": 22,
           "url": "https://github.com/gouthamrangarajan/Asp.Net/tree/master/AzureADAuth",
           "title": "AzureADWebApp+WebApi",
           "imgSrc": "/imgs/github/AzureADWebApp+WebApi.png",
@@ -445,7 +463,7 @@
           "display": true
         },
         {
-          "order": 22,
+          "order": 23,
           "imgSrc": "/imgs/cloud/Grocery-2.png",
           "title": "Grocery List",
           "description": "A simple grocery tracking app using Remix, TailwindCSS, Turso & OpenAI API",
@@ -461,7 +479,7 @@
           "display": false
         },
         {
-          "order": 23,
+          "order": 24,
           "imgSrc": "/imgs/cloud/EmailSummarize.png",
           "title": "Email Summarizer",
           "description": "A simple tool to summarize email body using Next.js (v13), OpenAI & Tailwind CSS",
@@ -476,7 +494,7 @@
           "display": false
         },
         {
-          "order": 24,
+          "order": 25,
           "imgSrc": "/imgs/cloud/React_Chat.png",
           "title": "React Chat",
           "description": "A React PWA single room chat project with Firebase google authentication and Firestore data",
@@ -492,7 +510,7 @@
           "display": false
         },
         {
-          "order": 25,
+          "order": 26,
           "imgSrc": "/imgs/cloud/Calendar.png",
           "title": "Calendar Clone",
           "description": "Google calendar inspired PWA app along with firestore data storage and firebase authentication",
@@ -508,7 +526,7 @@
           "display": true
         },
         {
-          "order": 26,
+          "order": 27,
           "imgSrc": "/imgs/cloud/Chat.png",
           "title": "Vue Chat",
           "description": "A Vue 3 PWA single room chat project with Firebase google authentication and Firestore data",
@@ -524,7 +542,7 @@
           "display": true
         },
         {
-          "order": 27,
+          "order": 28,
           "imgSrc": "/imgs/github/Drive.png",
           "description": "A Simple Client Side Drive implementation using Vue 3, Composition Api & Tailwind CSS",
           "url": "https://github.com/gouthamrangarajan/Vuejs/tree/master/vue-3-drive",
@@ -538,7 +556,7 @@
           "display": true
         },
         {
-          "order": 28,
+          "order": 29,
           "url": "https://codepen.io/GouthamRangarajan/full/XWEGOJK",
           "imgSrc": "/imgs/codepen/CodePen20.png",
           "title": "Vue QRCode Generator",
@@ -552,7 +570,7 @@
           "display": true
         },
         {
-          "order": 29,
+          "order": 30,
           "url": "https://codepen.io/GouthamRangarajan/full/poQewOO",
           "imgSrc": "/imgs/codepen/CodePen22.png",
           "title": "Vue DatePicker",
@@ -567,7 +585,7 @@
           "display": true
         },
         {
-          "order": 30,
+          "order": 31,
           "url": "https://codepen.io/GouthamRangarajan/full/NWoboOG",
           "imgSrc": "/imgs/codepen/CodePen24.png",
           "title": "Vue, HTML Popover API & View Transition API",
@@ -582,7 +600,7 @@
           "display": true
         },
         {
-          "order": 31,
+          "order": 32,
           "url": "https://codepen.io/GouthamRangarajan/full/bGzEoYa",
           "imgSrc": "/imgs/codepen/CodePen23.png",
           "title": "Vue, HTML Dialog & View Transition API",
@@ -597,7 +615,7 @@
           "display": true
         },
         {
-          "order": 32,
+          "order": 33,
           "url": "https://codepen.io/GouthamRangarajan/full/JjXdemz",
           "imgSrc": "/imgs/codepen/CodePen2.png",
           "title": "Vue Tailwind Toastr",
@@ -611,7 +629,7 @@
           "service": "Codepen"
         },
         {
-          "order": 33,
+          "order": 34,
           "url": "https://codepen.io/GouthamRangarajan/full/mdxPROp",
           "imgSrc": "/imgs/codepen/CodePen19.png",
           "title": "Vue Cart",
