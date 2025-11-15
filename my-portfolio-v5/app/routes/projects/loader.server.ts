@@ -17,7 +17,7 @@ export async function loaderFn({ context, request }: Route.LoaderArgs) {
     if (category.toLowerCase() == "genai") {
       respData = respData.filter(
         (demo) =>
-          demo.tags.includes("OpenAI") ||
+          demo.tags.includes("Open AI") ||
           demo.tags.includes("Gemini AI") ||
           demo.tags.includes("Claude AI"),
       );

@@ -60,10 +60,10 @@
           "order": 2,
           "title": "Tech Tube",
           "imgSrc": "/imgs/cloud/Tech_Tube.png",
-          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (OpenAI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
+          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
           "url": "https://rg-tech-tube.up.railway.app/",
           "tags": [
-            "Open AI API",
+            "Open AI",
             "Golang",
             "Templ",
             "Datastar",
@@ -143,12 +143,12 @@
         },
         {
           "order": 3,
-          "title": "OpenAI Chat",
+          "title": "Open AI Chat",
           "imgSrc": "/imgs/cloud/OpenAI_Chat_2.png",
-          "description": "A simple OpenAI Chat using Remix, OpenAI API, Tailwind CSS & Cloudflare KV",
+          "description": "A simple Open AI Chat using Remix, Open AI API, Tailwind CSS & Cloudflare KV",
           "url": "https://rg-openai-chat.pages.dev/",
           "tags": [
-            "OpenAI",
+            "Open AI",
             "React",
             "Tailwind CSS",
             "SSE",
@@ -163,10 +163,10 @@
           "order": 4,
           "title": "Tech Tube",
           "imgSrc": "/imgs/cloud/Tech_Tube.png",
-          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (OpenAI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
+          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
           "url": "https://rg-tech-tube.up.railway.app/",
           "tags": [
-            "Open AI API",
+            "Open AI",
             "Golang",
             "Templ",
             "Datastar",
@@ -262,7 +262,7 @@
           "url": "https://web-learnings.pages.dev/",
           "tags": [
             "React",
-            "OpenAI Embeddings",
+            "Open AI Embeddings",
             "Tailwind CSS",
             "Vector Search",
             "Pinecone",
@@ -306,12 +306,12 @@
         },
         {
           "order": 12,
-          "title": "Places to Visit OpenAI",
+          "title": "Places to Visit Open AI",
           "imgSrc": "/imgs/cloud/PlacesToVisit_2.png",
-          "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, OpenAI & Tailwind CSS",
+          "description": "A simple tool to suggest places to visit for 40,000+ cities in the world using React, Remix, Open AI & Tailwind CSS",
           "url": "http://placestovisit.pages.dev/",
           "tags": [
-            "OpenAI",
+            "Open AI",
             "React",
             "Remix",
             "Tailwind CSS"
@@ -402,12 +402,12 @@
         {
           "order": 18,
           "url": "https://github.com/gouthamrangarajan/python/tree/main/fasthtml_openai",
-          "title": "FastHTML OpenAI",
+          "title": "FastHTML Open AI",
           "imgSrc": "/imgs/github/FastHTML_OpenAI.png",
-          "description": "A simple FastHTML project to chat with OpenAI",
+          "description": "A simple FastHTML project to chat with Open AI",
           "tags": [
             "FastHTML",
-            "OpenAI",
+            "Open AI",
             "Python",
             "Turso db"
           ],
@@ -493,14 +493,14 @@
           "order": 24,
           "imgSrc": "/imgs/cloud/Grocery-2.png",
           "title": "Grocery List",
-          "description": "A simple grocery tracking app using Remix, TailwindCSS, Turso & OpenAI API",
+          "description": "A simple grocery tracking app using Remix, TailwindCSS, Turso & Open AI API",
           "url": "http://rg-grocery-list-v2.netlify.app/",
           "tags": [
             "React",
             "Remix",
             "Tailwind CSS",
             "Turso db",
-            "OpenAI"
+            "Open AI"
           ],
           "service": "Netlify",
           "display": false
@@ -509,12 +509,12 @@
           "order": 25,
           "imgSrc": "/imgs/cloud/EmailSummarize.png",
           "title": "Email Summarizer",
-          "description": "A simple tool to summarize email body using Next.js (v13), OpenAI & Tailwind CSS",
+          "description": "A simple tool to summarize email body using Next.js (v13), Open AI & Tailwind CSS",
           "url": "https://rg-email-summarizer.vercel.app/",
           "tags": [
             "React",
             "Next.js",
-            "OpenAI",
+            "Open AI",
             "Tailwind CSS"
           ],
           "service": "Vercel",
