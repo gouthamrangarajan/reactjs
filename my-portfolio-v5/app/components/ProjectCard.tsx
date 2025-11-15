@@ -71,7 +71,12 @@ export default function ProjectCard({
               </a>
             </div>
           </div>
-          <p className="line-clamp-2 text-sm text-gray-400">{description}</p>
+          <p
+            className="line-clamp-2 truncate text-sm text-gray-400"
+            title={description}
+          >
+            {description}
+          </p>
           <div className="flex flex-wrap gap-2">
             {tags.map((tech) => (
               <motion.div

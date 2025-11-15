@@ -17,7 +17,7 @@ export default function FeaturedProjectCard({
   tags: string[];
 }) {
   return (
-    <Card className="group h-[29rem] overflow-hidden border-gray-700 bg-gray-800/50">
+    <Card className="group h-[30rem] overflow-hidden border-gray-700 bg-gray-800/50">
       <div className="relative aspect-video overflow-hidden">
         <img
           src={imgSrc}
@@ -40,7 +40,9 @@ export default function FeaturedProjectCard({
             <ExternalLink className="h-5 w-5" />
           </motion.a>
         </div>
-        <p className="text-sm text-gray-400">{description}</p>
+        <p className="truncate text-sm text-gray-400" title={description}>
+          {description}
+        </p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tech) => (
             <motion.div
