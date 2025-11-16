@@ -60,7 +60,7 @@
           "order": 2,
           "title": "Tech Tube",
           "imgSrc": "/imgs/cloud/Tech_Tube.png",
-          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
+          "description": "Technology video collection with advanced search. Features: Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
           "url": "https://rg-tech-tube.up.railway.app/",
           "tags": [
             "Open AI",
@@ -163,7 +163,7 @@
           "order": 4,
           "title": "Tech Tube",
           "imgSrc": "/imgs/cloud/Tech_Tube.png",
-          "description": "Technology video collection with advanced search. Features Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
+          "description": "Technology video collection with advanced search. Features: Go-powered backend, YouTube API integration for video metadata, dynamic tagging, and vectorization to Pinecone. Implements Gen AI (Open AI) for intelligent query rephrasing and semantic search, all delivered via a Hypermedia-driven UI (Datastar, Tailwind CSS) with YouTube iframe API integration.",
           "url": "https://rg-tech-tube.up.railway.app/",
           "tags": [
             "Open AI",

@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Card } from "./ui/card";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Info } from "lucide-react";
 import { Badge } from "./ui/badge";
 
 export default function FeaturedProjectCard({
@@ -40,9 +40,16 @@ export default function FeaturedProjectCard({
             <ExternalLink className="h-5 w-5" />
           </motion.a>
         </div>
-        <p className="truncate text-sm text-gray-400" title={description}>
-          {description}
-        </p>
+        <div className="flex justify-between gap-2">
+          <p className="truncate text-sm text-gray-400">{description}</p>
+          <span
+            className="cursor-pointer appearance-none text-gray-400 outline-none"
+            aria-label={description}
+            title={description}
+          >
+            <Info className="h-4 w-4"></Info>
+          </span>
+        </div>
         <div className="flex flex-wrap gap-2">
           {tags.map((tech) => (
             <motion.div

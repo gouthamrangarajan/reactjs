@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Info } from "lucide-react";
 
 export default function ProjectCard({
   imgSrc,
@@ -71,12 +71,16 @@ export default function ProjectCard({
               </a>
             </div>
           </div>
-          <p
-            className="line-clamp-2 truncate text-sm text-gray-400"
-            title={description}
-          >
-            {description}
-          </p>
+          <div className="flex justify-between gap-2">
+            <p className="truncate text-sm text-gray-400">{description}</p>
+            <span
+              className="cursor-pointer appearance-none text-gray-400 outline-none"
+              aria-label={description}
+              title={description}
+            >
+              <Info className="h-4 w-4"></Info>
+            </span>
+          </div>
           <div className="flex flex-wrap gap-2">
             {tags.map((tech) => (
               <motion.div
