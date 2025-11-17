@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { ExternalLink, Info } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 export default function ProjectCard({
   imgSrc,
@@ -74,13 +75,14 @@ export default function ProjectCard({
           <div className="flex justify-between gap-2">
             <p className="truncate text-sm text-gray-400">{description}</p>
             {description.trim().length > 0 && (
-              <span
-                className="cursor-pointer appearance-none text-gray-400 outline-none"
-                aria-label={description}
-                title={description}
-              >
-                <Info className="h-4 w-4"></Info>
-              </span>
+              <Popover>
+                <PopoverTrigger>
+                  <Info className="h-4 w-4 text-gray-400"></Info>
+                </PopoverTrigger>
+                <PopoverContent className="text-xs">
+                  {description}
+                </PopoverContent>
+              </Popover>
             )}
           </div>
           <div className="flex flex-wrap gap-2">
