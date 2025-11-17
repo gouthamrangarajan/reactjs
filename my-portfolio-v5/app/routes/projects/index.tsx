@@ -67,6 +67,7 @@ export default function index({ loaderData }: Route.ComponentProps) {
               variants={fadeIn2}
               key={`${project.title}`}
               layout="position"
+              className="overflow-hidden"
             >
               <ProjectCard {...project}></ProjectCard>
             </motion.div>

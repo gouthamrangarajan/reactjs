@@ -108,6 +108,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
+                className="overflow-hidden"
               >
                 <ProjectCard {...el}></ProjectCard>
               </motion.div>
